@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { ExitIcon, ChevronRightIcon, ChevronDownIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import { FaRegUserCircle, FaRegUser, FaDollarSign, FaRegHeart, FaRegBell } from "react-icons/fa";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 

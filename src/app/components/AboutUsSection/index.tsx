@@ -1,9 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { RiInstagramFill, RiFacebookBoxFill } from "react-icons/ri";
-import { FaLine } from "react-icons/fa6";
+
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 
