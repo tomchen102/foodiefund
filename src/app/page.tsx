@@ -1,4 +1,5 @@
 import ExperienceTalk from "./components/ExperienceTalk";
+import Banner from "./components/Banner";
 import HeaderMenu from "./components/Header";
 import AboutUs from "./components/AboutUsSection";
 import FooterMenu from "./components/Footer";
@@ -48,10 +49,10 @@ export default function Home() {
   return (
     <main>
       <HeaderMenu />
+      <Banner />
       <ExperienceTalk data={data} />
       <AboutUs />
       <FooterMenu />
     </main>
-
   );
 }

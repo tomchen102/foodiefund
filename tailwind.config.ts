@@ -62,6 +62,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontSize: {
+        "48p": "48px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
