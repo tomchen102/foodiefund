@@ -3,4 +3,28 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  // 使用 Prettier 作為所有語言的預設格式化工具
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 在保存時，自動應用 ESLint 來修正所有問題
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // 對 JavaScript 文件，使用 Prettier 進行格式化，覆蓋 VSCode 的預設設置
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // 使用 ESLint 來進行代碼檢查
+  "eslint.validate": [
+    "javascript", // 驗證 JavaScript 文件
+    "javascriptreact", // 驗證 React 中的 JavaScript 文件 (.jsx)
+    "typescript", // 驗證 TypeScript 文件 (.ts)
+    "typescriptreact" // 驗證 React 中的 TypeScript 文件 (.tsx)
+  ],
+  // 啟用文件巢狀顯示 (文件折疊)
+  "explorer.fileNesting.enabled": true,
+  // 文件巢狀模式，例如 *.ts 文件的對應測試文件會自動嵌套顯示
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).test.ts, $(capture).test.tsx", // 顯示對應的 .test.ts 或 .test.tsx 測試文件
+    "*.tsx": "$(capture).test.ts, $(capture).test.tsx" // 對於 .tsx 文件，顯示對應的 .test.ts 或 .test.tsx 測試文件
+  }
 }
