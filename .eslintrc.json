@@ -1,6 +1,11 @@
 {
-  "extends": ["next/core-web-vitals", "next", "prettier"],
-  "plugins": ["prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error"
   }

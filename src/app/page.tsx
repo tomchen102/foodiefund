@@ -1,7 +1,7 @@
-import ExperienceTalk from "./components/ExperienceTalk";
-import HeaderMenu from "./components/Header";
 import AboutUs from "./components/AboutUsSection";
+import ExperienceTalk from "./components/ExperienceTalk";
 import FooterMenu from "./components/Footer";
+import HeaderMenu from "./components/Header";
 
 const data = [
   {
@@ -52,6 +52,5 @@ export default function Home() {
       <AboutUs />
       <FooterMenu />
     </main>
-
   );
 }
