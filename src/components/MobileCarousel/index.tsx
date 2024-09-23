@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import React from "react";
 import { MobileCarouselProps } from "./types";
 
 const MobileCarousel = ({ data }: MobileCarouselProps) => {

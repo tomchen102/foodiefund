@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { ExperienceTalkProps } from "./types";
 
 const ExperienceTalk = ({ data }: ExperienceTalkProps) => {
