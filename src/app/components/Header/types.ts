@@ -1,15 +1,16 @@
-import { IconType } from 'react-icons';
+import { IconType } from "react-icons/lib";
+
 export interface HeaderProps {
-    data: {
-      mainNav:{
-        title: string;
-        hrefUrl: string;
-      },
-      userNav:{
-        title:string;
-        icon:any;
-        userTitle:string;
-        hrefUrl:string;
-      }
-    }[];
-  }
+  data: {
+    mainNav: {
+      title: string;
+      hrefUrl: string;
+    };
+    userNav: {
+      title: string;
+      icon: IconType;
+      userTitle: string;
+      hrefUrl: string;
+    };
+  }[];
+}

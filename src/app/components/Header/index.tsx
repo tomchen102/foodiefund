@@ -1,31 +1,40 @@
 "use client";
-import { HamburgerMenuIcon,Cross1Icon } from "@radix-ui/react-icons";
-import Logo from "./logo";
-import React, { useEffect, useState } from "react";
-import { HeaderProps } from "./types";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ExitIcon, Pencil1Icon } from "@radix-ui/react-icons";
-import { FaRegUserCircle, FaRegUser, FaDollarSign, FaRegHeart, FaRegBell } from "react-icons/fa";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 import LocalStorageService from "@/utils"; // Assuming you have LocalStorageService
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+  Cross1Icon,
+  ExitIcon,
+  HamburgerMenuIcon,
+  Pencil1Icon,
+} from "@radix-ui/react-icons";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import {
+  FaDollarSign,
+  FaRegBell,
+  FaRegHeart,
+  FaRegUser,
+  FaRegUserCircle,
+} from "react-icons/fa";
+import Logo from "./logo";
 
 const HeaderMenu = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,26 +69,24 @@ const HeaderMenu = () => {
   };
 
   const navMenu = {
-    mainNav:[
-      { title: '首页', hrefUrl:'#' },
-      { title: '我要提案' ,hrefUrl:'#'},
-      { title: '探索專案' ,hrefUrl:'#'},
-      { title: '問與答' ,hrefUrl:'#'},
+    mainNav: [
+      { title: "首页", hrefUrl: "#" },
+      { title: "我要提案", hrefUrl: "#" },
+      { title: "探索專案", hrefUrl: "#" },
+      { title: "問與答", hrefUrl: "#" },
     ],
-    userNav:[
-      { title: '帳號設定', hrefUrl:'#', icon:'FaRegUser' },
-      { title: '贊助紀錄', hrefUrl:'#', icon:'FaDollarSign' },
-      { title: '收藏紀錄', hrefUrl:'#', icon:'FaRegHeart' },
-      { title: '提案紀錄', hrefUrl:'#', icon:'Pencil1Icon' },
-    ]
+    userNav: [
+      { title: "帳號設定", hrefUrl: "#", icon: "FaRegUser" },
+      { title: "贊助紀錄", hrefUrl: "#", icon: "FaDollarSign" },
+      { title: "收藏紀錄", hrefUrl: "#", icon: "FaRegHeart" },
+      { title: "提案紀錄", hrefUrl: "#", icon: "Pencil1Icon" },
+    ],
   };
 
-  
-  
   return (
     <header className="container flex justify-end">
       <Logo />
-      
+
       {/* Navigation Menu */}
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList>
@@ -108,35 +115,40 @@ const HeaderMenu = () => {
       <DropdownMenu>
         <DropdownMenuTrigger className="md:hidden bg-primary py-2 px-10 flex items-center focus-visible:outline-none">
           <HamburgerMenuIcon />
-          <Cross1Icon className="hidden"/>
+          <Cross1Icon className="hidden" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-screen h-screen p-0 md:hidden">
-            {isLoggedIn && (
-              <Accordion type="single" collapsible>
+          {isLoggedIn && (
+            <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="justify-start px-5 py-3 bg-primary font-bold text-primary-dark hover:no-underline"><span><FaRegUserCircle className="w-5 h-5 mr-2" /></span>
-                User001</AccordionTrigger>
+                <AccordionTrigger className="justify-start px-5 py-3 bg-primary font-bold text-primary-dark hover:no-underline">
+                  <span>
+                    <FaRegUserCircle className="w-5 h-5 mr-2" />
+                  </span>
+                  Lobinda
+                </AccordionTrigger>
                 <AccordionContent className="pb-0">
+                  {navMenu.userNav.map((item, index) => {
+                    // 动态选择图标组件
+                    const IconComponent =
+                      iconsMap[item.icon as keyof typeof iconsMap];
 
-                {navMenu.userNav.map((item, index) => {
-                   // 动态选择图标组件
-                   const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
-
-                  return (
-                    <Link href={item.hrefUrl} key={index}>
-                      <DropdownMenuItem>
-                        {/* 渲染图标 */}
-                        {IconComponent && <IconComponent className="w-5 h-5 mr-2" />} {item.title}
-                      </DropdownMenuItem>
-                    </Link>
-                  );
-                })}
-
+                    return (
+                      <Link href={item.hrefUrl} key={index}>
+                        <DropdownMenuItem>
+                          {/* 渲染图标 */}
+                          {IconComponent && (
+                            <IconComponent className="w-5 h-5 mr-2" />
+                          )}{" "}
+                          {item.title}
+                        </DropdownMenuItem>
+                      </Link>
+                    );
+                  })}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-            
-            )}
+          )}
           {navMenu.mainNav.map((item, index) => (
             <Link href="#" key={index}>
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
@@ -146,9 +158,12 @@ const HeaderMenu = () => {
             <DropdownMenuItem onClick={handleLogin}>
               登錄 / 註冊
             </DropdownMenuItem>
-          ) : <DropdownMenuItem onClick={handleLogout}>
-          <ExitIcon className="w-5 h-5 mr-2"/>登出
-        </DropdownMenuItem>}
+          ) : (
+            <DropdownMenuItem onClick={handleLogout}>
+              <ExitIcon className="w-5 h-5 mr-2" />
+              登出
+            </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
 
@@ -171,21 +186,27 @@ const HeaderMenu = () => {
               User001
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-            
-            {navMenu.userNav.map((item, index) => {
+              {navMenu.userNav.map((item, index) => {
                 // 动态选择图标组件
-                const IconComponent = iconsMap[item.icon];
+                const IconComponent =
+                  iconsMap[item.icon as keyof typeof iconsMap];
 
                 return (
                   <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem>
                       {/* 渲染图标 */}
-                      {IconComponent && <IconComponent className="w-5 h-5 mr-2" />} {item.title}
+                      {IconComponent && (
+                        <IconComponent className="w-5 h-5 mr-2" />
+                      )}{" "}
+                      {item.title}
                     </DropdownMenuItem>
                   </Link>
                 );
               })}
-              <DropdownMenuItem onClick={handleLogout}  className="border-t border-gray-200">
+              <DropdownMenuItem
+                onClick={handleLogout}
+                className="border-t border-gray-200"
+              >
                 <ExitIcon className="w-5 h-5 mr-2" /> 登出
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -197,5 +218,3 @@ const HeaderMenu = () => {
 };
 
 export default HeaderMenu;
-
-

@@ -45,9 +45,6 @@ const data = [
   },
 ];
 
-
-
-
 export default function Home() {
   return (
     <main>
