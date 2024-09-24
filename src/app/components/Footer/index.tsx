@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaLine } from "react-icons/fa6";
+import { RiFacebookBoxFill, RiInstagramFill } from "react-icons/ri";
 import React from "react";
 import Logo from "../Header/logo";
 import { FooterProps } from "./types";
