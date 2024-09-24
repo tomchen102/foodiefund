@@ -1,4 +1,4 @@
-import MobileCarousel from "@/components/MobileCarousel";
+import MobileCarousel from "@/app/_components/MobileCarousel";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
