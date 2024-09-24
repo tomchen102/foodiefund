@@ -1,5 +1,5 @@
-import AboutUs from "./components/AboutUsSection";
-import ExperienceTalk from "./components/ExperienceTalk";
+import AboutUs from "./_components/AboutUsSection";
+import ExperienceTalk from "./_components/ExperienceTalk";
 
 const data = [
   {
