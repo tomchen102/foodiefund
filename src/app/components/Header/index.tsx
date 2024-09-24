@@ -120,7 +120,7 @@ const HeaderMenu = () => {
 
                 {navMenu.userNav.map((item, index) => {
                    // 动态选择图标组件
-                  const IconComponent = iconsMap[item.icon];
+                   const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                   return (
                     <Link href={item.hrefUrl} key={index}>
