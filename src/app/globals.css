@@ -92,72 +92,27 @@ body {
 }
 
 @layer components{
-  body:has(#mobileMenu:checked){
-    @apply overflow-hidden md:overflow-auto
-  }
-  
-  .navbar-list{
-    @apply h-[calc(100vh-48px)]  overflow-scroll absolute top-12 left-0 md:static md:w-fit md:h-fit w-screen z-10;
-  }
-  .navbar-list li{
-    @apply  border-b text-[#0F514E] hover:bg-[#98E4DA] font-semibold md:border-0 md:hover:bg-transparent hover:cursor-pointer;
-  }
-  .resgitration.resgitration{
-    @apply bg-[#40E0D0] hover:bg-[#40E0D0] md:px-10 ;
-  }
-  .resgitration.resgitration a{
-    @apply hover:border-0
-  }
-  .navbar-list a{
-    @apply block px-3 py-[14px] md:px-1 md:py-4 md:hover:pb-[14px] md:hover:border-b-2  md:hover:border-[#FE4710];
-  }
 
-  .navbar:has(#mobileMenu:checked) .navbar-list{
-    @apply block md:flex
-  }
-  .navbar:has(#mobileMenu:checked) .menuClose, .navbar-login:has(#userMenu:checked) .submenuClose{
-    @apply block md:hidden
-  }
-  .navbar:has(#mobileMenu:checked) .menuOpen, .navbar-login:has(#userMenu:checked) .submenuOpen{
-    @apply hidden
-  }
-  .navbar:has(#mobileMenu:checked) .hamburger label{
-    @apply bg-[#D6F4F0]
-  }
-  .navbar-login:has(#userMenu:checked) .usermenu{
-    @apply block
-  }
-  .navbar-login ul li a{
-    @apply flex items-center md:justify-start px-5 md:hover:border-0 md:hover:pb-4 md:hover:bg-[#98E4DA];
-  }
-  .navbar-login ul li svg{
-    @apply w-5 h-5 mr-2;
-  }
-  .navbar-login ul li:first-child{
-    @apply md:border-b md:border-[#E4E4E7]
-  }
-  .navbar-login ul li:last-child{
-    @apply md:border-t md:border-[#E4E4E7]
-  }
-  .navbar-login .usermenu{
-    @apply md:absolute md:top-[72px] md:right-0 md:border md:border-[#E4E4E7] md:w-[145px] md:rounded-lg md:text-center md:overflow-hidden
-  }
-  .icon-notification.icon-notification{
-    @apply hidden md:block md:mr-10
-  }
-  .icon-notification svg{
-    @apply w-6 h-6 
-  }
   .social-media svg{
     @apply w-6 h-6
   }
-  .sitemap{
-    @apply text-white w-full flex justify-between text-sm
+
+  .logo-link:hover .logo{
+    @apply animate-spin
   }
-  .sitemap ul>li:first-child{
-    @apply font-bold
+
+  div[data-orientation="vertical"]:has(.flex-1){
+    @apply rounded-none;
   }
-  .sitemap ul li{
-    @apply mb-4
+  header>button[data-state="open"] svg:nth-child(2){
+    @apply block;
   }
+  header>button[data-state="open"] svg:first-child{
+    @apply hidden;
+  }
+  [id="radix-:r1:"] a:has([role="menuitem"]):first-child [role="menuitem"]{
+    @apply border-b border-gray-200;
+  }
+
+
 }
