@@ -7,7 +7,7 @@ export interface HeaderProps {
       },
       userNav:{
         title:string;
-        icon:IconType;
+        icon:string;
         userTitle:string;
         hrefUrl:string;
       }
