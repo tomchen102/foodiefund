@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -46,11 +46,11 @@ const HeaderMenu = () => {
   }, []);
 
   // Handle login
-  const handleLogin = () => {
-    const localStorageService = LocalStorageService.getInstance();
-    localStorageService.login("dummyAuthToken"); // Replace with actual login logic
-    setIsLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   const localStorageService = LocalStorageService.getInstance();
+  //   localStorageService.login("dummyAuthToken"); // Replace with actual login logic
+  //   setIsLoggedIn(true);
+  // };
 
   // Handle logout
   const handleLogout = () => {
@@ -70,7 +70,7 @@ const HeaderMenu = () => {
 
   const navMenu = {
     mainNav: [
-      { title: "首页", hrefUrl: "#" },
+      { title: "首頁", hrefUrl: "index" },
       { title: "我要提案", hrefUrl: "#" },
       { title: "探索專案", hrefUrl: "#" },
       { title: "問與答", hrefUrl: "#" },
@@ -92,9 +92,11 @@ const HeaderMenu = () => {
         <NavigationMenuList>
           {navMenu.mainNav.map((item, index) => (
             <NavigationMenuItem key={index}>
-              <NavigationMenuLink className="hover:cursor-pointer hover:border-b-2 hover:border-secondary px-1 py-4 md:mr-10">
-                {item.title}
-              </NavigationMenuLink>
+              <Link href={item.hrefUrl}>
+                <NavigationMenuLink className="hover:cursor-pointer hover:border-b-2 hover:border-secondary px-1 py-4 md:mr-10">
+                  {item.title}
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
@@ -102,13 +104,15 @@ const HeaderMenu = () => {
 
       {!isLoggedIn ? (
         // Render Login/Register button when not logged in
-        <Button
-          className="hidden md:flex items-center text-primary-dark rounded-none leading-6 text-base py-4 px-10 shadow-none h-auto"
-          variant="default"
-          onClick={handleLogin}
+        <Link
+          href="/login"
+          className={
+            buttonVariants({ variant: "default" }) +
+            "bg-primary hidden md:flex text-tertiary-foreground rounded-none leading-6 text-base py-4 px-10 shadow-none h-auto"
+          }
         >
           登錄 / 註冊
-        </Button>
+        </Link>
       ) : null}
 
       {/* mobile menu */}
@@ -155,9 +159,10 @@ const HeaderMenu = () => {
             </Link>
           ))}
           {!isLoggedIn ? (
-            <DropdownMenuItem onClick={handleLogin}>
-              登錄 / 註冊
-            </DropdownMenuItem>
+            // onClick={handleLogin}
+            <Link href="/login">
+              <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
+            </Link>
           ) : (
             <DropdownMenuItem onClick={handleLogout}>
               <ExitIcon className="w-5 h-5 mr-2" />
