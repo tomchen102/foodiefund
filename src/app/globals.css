@@ -91,73 +91,75 @@ body {
   }
 }
 
-@layer components{
-  body:has(#mobileMenu:checked){
-    @apply overflow-hidden md:overflow-auto
-  }
-  
-  .navbar-list{
-    @apply h-[calc(100vh-48px)]  overflow-scroll absolute top-12 left-0 md:static md:w-fit md:h-fit w-screen z-10;
-  }
-  .navbar-list li{
-    @apply  border-b text-[#0F514E] hover:bg-[#98E4DA] font-semibold md:border-0 md:hover:bg-transparent hover:cursor-pointer;
-  }
-  .resgitration.resgitration{
-    @apply bg-[#40E0D0] hover:bg-[#40E0D0] md:px-10 ;
-  }
-  .resgitration.resgitration a{
-    @apply hover:border-0
-  }
-  .navbar-list a{
-    @apply block px-3 py-[14px] md:px-1 md:py-4 md:hover:pb-[14px] md:hover:border-b-2  md:hover:border-[#FE4710];
+@layer components {
+  body:has(#mobileMenu:checked) {
+    @apply overflow-hidden md:overflow-auto;
   }
 
-  .navbar:has(#mobileMenu:checked) .navbar-list{
-    @apply block md:flex
+  .navbar-list {
+    @apply absolute left-0 top-12 z-10 h-[calc(100vh-48px)] w-screen overflow-scroll md:static md:h-fit md:w-fit;
   }
-  .navbar:has(#mobileMenu:checked) .menuClose, .navbar-login:has(#userMenu:checked) .submenuClose{
-    @apply block md:hidden
+  .navbar-list li {
+    @apply border-b font-semibold text-[#0F514E] hover:cursor-pointer hover:bg-[#98E4DA] md:border-0 md:hover:bg-transparent;
   }
-  .navbar:has(#mobileMenu:checked) .menuOpen, .navbar-login:has(#userMenu:checked) .submenuOpen{
-    @apply hidden
+  .resgitration.resgitration {
+    @apply bg-[#40E0D0] hover:bg-[#40E0D0] md:px-10;
   }
-  .navbar:has(#mobileMenu:checked) .hamburger label{
-    @apply bg-[#D6F4F0]
+  .resgitration.resgitration a {
+    @apply hover:border-0;
   }
-  .navbar-login:has(#userMenu:checked) .usermenu{
-    @apply block
+  .navbar-list a {
+    @apply block px-3 py-[14px] md:px-1 md:py-4 md:hover:border-b-2 md:hover:border-[#FE4710] md:hover:pb-[14px];
   }
-  .navbar-login ul li a{
-    @apply flex items-center md:justify-start px-5 md:hover:border-0 md:hover:pb-4 md:hover:bg-[#98E4DA];
+
+  .navbar:has(#mobileMenu:checked) .navbar-list {
+    @apply block md:flex;
   }
-  .navbar-login ul li svg{
-    @apply w-5 h-5 mr-2;
+  .navbar:has(#mobileMenu:checked) .menuClose,
+  .navbar-login:has(#userMenu:checked) .submenuClose {
+    @apply block md:hidden;
   }
-  .navbar-login ul li:first-child{
-    @apply md:border-b md:border-[#E4E4E7]
+  .navbar:has(#mobileMenu:checked) .menuOpen,
+  .navbar-login:has(#userMenu:checked) .submenuOpen {
+    @apply hidden;
   }
-  .navbar-login ul li:last-child{
-    @apply md:border-t md:border-[#E4E4E7]
+  .navbar:has(#mobileMenu:checked) .hamburger label {
+    @apply bg-[#D6F4F0];
   }
-  .navbar-login .usermenu{
-    @apply md:absolute md:top-[72px] md:right-0 md:border md:border-[#E4E4E7] md:w-[145px] md:rounded-lg md:text-center md:overflow-hidden
+  .navbar-login:has(#userMenu:checked) .usermenu {
+    @apply block;
   }
-  .icon-notification.icon-notification{
-    @apply hidden md:block md:mr-10
+  .navbar-login ul li a {
+    @apply flex items-center px-5 md:justify-start md:hover:border-0 md:hover:bg-[#98E4DA] md:hover:pb-4;
   }
-  .icon-notification svg{
-    @apply w-6 h-6 
+  .navbar-login ul li svg {
+    @apply mr-2 h-5 w-5;
   }
-  .social-media svg{
-    @apply w-6 h-6
+  .navbar-login ul li:first-child {
+    @apply md:border-b md:border-[#E4E4E7];
   }
-  .sitemap{
-    @apply text-white w-full flex justify-between text-sm
+  .navbar-login ul li:last-child {
+    @apply md:border-t md:border-[#E4E4E7];
   }
-  .sitemap ul>li:first-child{
-    @apply font-bold
+  .navbar-login .usermenu {
+    @apply md:absolute md:right-0 md:top-[72px] md:w-[145px] md:overflow-hidden md:rounded-lg md:border md:border-[#E4E4E7] md:text-center;
   }
-  .sitemap ul li{
-    @apply mb-4
+  .icon-notification.icon-notification {
+    @apply hidden md:mr-10 md:block;
+  }
+  .icon-notification svg {
+    @apply h-6 w-6;
+  }
+  .social-media svg {
+    @apply h-6 w-6;
+  }
+  .sitemap {
+    @apply flex w-full justify-between text-sm text-white;
+  }
+  .sitemap ul > li:first-child {
+    @apply font-bold;
+  }
+  .sitemap ul li {
+    @apply mb-4;
   }
 }

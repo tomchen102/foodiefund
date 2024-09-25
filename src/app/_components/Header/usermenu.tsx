@@ -18,19 +18,19 @@ const UserMenu = () => {
       <a href="" className="icon-notification">
         <FaRegBell />
       </a>
-      <div className="md:flex w-full bg-[#40E0D0]  navbar-login  md:px-6">
+      <div className="navbar-login w-full bg-[#40E0D0] md:flex md:px-6">
         <input className="hidden" type="checkbox" id="userMenu"></input>
         <label
           htmlFor="userMenu"
-          className="px-3 bg-[#40E0D0] flex justify-start items-center py-3 hover:cursor-pointer"
+          className="flex items-center justify-start bg-[#40E0D0] px-3 py-3 hover:cursor-pointer"
         >
-          <FaRegUserCircle className="w-5 h-5 mr-2" />
+          <FaRegUserCircle className="mr-2 h-5 w-5" />
           User001
-          <ChevronRightIcon className="submenuOpen w-4 h-4 md:hidden ml-auto" />
-          <ChevronDownIcon className="hidden submenuClose w-4 h-4  ml-auto" />
+          <ChevronRightIcon className="submenuOpen ml-auto h-4 w-4 md:hidden" />
+          <ChevronDownIcon className="submenuClose ml-auto hidden h-4 w-4" />
         </label>
 
-        <ul className="bg-white hidden usermenu ">
+        <ul className="usermenu hidden bg-white">
           <li>
             <a href="#">
               <FaRegUser /> <span>帳號設定</span>

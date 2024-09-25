@@ -4,21 +4,21 @@ import { RiFacebookBoxFill, RiInstagramFill } from "react-icons/ri";
 
 const FooterMenu = () => {
   return (
-    <footer className="bg-[#27272A] ">
-      <div className="container py-8 px-3 md:flex ">
-        <div className="flex items-center md:items-start md:flex-col md:w-1/2">
+    <footer className="bg-[#27272A]">
+      <div className="container px-3 py-8 md:flex">
+        <div className="flex items-center md:w-1/2 md:flex-col md:items-start">
           <div className="flex font-bold text-white">
             {/* Add Hero Images Here */}
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/logo.png?alt=media&token=ee137cf0-70c5-40a2-b6cc-ec4cfb03c614"
               width={24}
               height={24}
-              className="inline-block mr-2"
+              className="mr-2 inline-block"
               alt="Screenshots of the dashboard project showing desktop version"
             />{" "}
             眾資成城
           </div>
-          <ul className="flex social-media gap-x-[13px] md:mt-auto ml-auto md:ml-0">
+          <ul className="social-media ml-auto flex gap-x-[13px] md:ml-0 md:mt-auto">
             <li>
               <a href="#">
                 <RiFacebookBoxFill className="text-white" />
@@ -31,7 +31,7 @@ const FooterMenu = () => {
             </li>
             <li>
               <a href="#" className="">
-                <FaLine className="bg-white rounded-lg ring-2 ring-inset ring-[#27272A] overflow-hidden text-[#27272A]" />
+                <FaLine className="overflow-hidden rounded-lg bg-white text-[#27272A] ring-2 ring-inset ring-[#27272A]" />
               </a>
             </li>
           </ul>
