@@ -6,9 +6,6 @@ export interface FormFieldConfig<T> {
   type: string;
 }
 
-export type FormFieldItemProps<T> = Pick<
-  FormFieldConfig<T>,
-  "label" | "name" | "type"
-> & {
+export type FormFieldItemProps<T> = Pick<FormFieldConfig<T>, "label" | "name" | "type"> & {
   control: Control;
 };

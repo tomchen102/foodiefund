@@ -1,9 +1,5 @@
 "use client";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { MobileCarouselProps } from "./types";
@@ -34,26 +30,13 @@ const MobileCarousel = ({ data }: MobileCarouselProps) => {
                       priority
                     />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold leading-6 text-[#09090B]">
-                    {item.title}
-                  </h3>
-                  <p className="pb-3 text-sm font-medium text-[#09090B]">
-                    {item.description}
-                  </p>
+                  <h3 className="mb-2 text-lg font-bold leading-6 text-[#09090B]">{item.title}</h3>
+                  <p className="pb-3 text-sm font-medium text-[#09090B]">{item.description}</p>
                 </div>
                 <div className="absolute bottom-[-16px] left-6 flex items-center">
-                  <Image
-                    src={item.avatarUrl}
-                    alt={item.avatarAlt}
-                    className="mr-3"
-                    width={44}
-                    height={44}
-                    priority
-                  />
+                  <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
                   <div>
-                    <h4 className="text-sm font-bold text-[#09090B]">
-                      {item.avatarName}
-                    </h4>
+                    <h4 className="text-sm font-bold text-[#09090B]">{item.avatarName}</h4>
                     <p className="text-sm text-[#71717A]">{item.avatarRole}</p>
                   </div>
                 </div>

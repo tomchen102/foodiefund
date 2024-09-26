@@ -18,10 +18,7 @@ const HeaderMenu = () => {
         </div>
         <div className="hamburger md:hidden">
           <input className="hidden" type="checkbox" id="mobileMenu"></input>
-          <label
-            htmlFor="mobileMenu"
-            className="block bg-[#40E0D0] p-4 text-[#0F514E] hover:cursor-pointer"
-          >
+          <label htmlFor="mobileMenu" className="block bg-[#40E0D0] p-4 text-[#0F514E] hover:cursor-pointer">
             <HamburgerMenuIcon className="menuOpen h-[16px] w-[16px]" />
             <Cross1Icon className="menuClose hidden h-[16px] w-[16px]" />
           </label>

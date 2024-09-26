@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
   "plugins": ["@typescript-eslint", "prettier", "import"],
   "rules": {
     "prettier/prettier": [
@@ -12,10 +7,29 @@
       {
         "semi": true,
         "singleQuote": false,
-        "printWidth": 80,
+        "printWidth": 120,
         "tabWidth": 2,
         "trailingComma": "es5",
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "max-len": [
+          "error",
+          {
+            "code": 120
+          }
+        ],
+        "object-curly-newline": [
+          "error",
+          {
+            "multiline": true,
+            "consistent": true
+          }
+        ],
+        "object-property-newline": [
+          "error",
+          {
+            "allowAllPropertiesOnSameLine": true
+          }
+        ]
       }
     ]
   }

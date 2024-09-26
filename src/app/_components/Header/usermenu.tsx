@@ -1,16 +1,5 @@
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-  ExitIcon,
-  Pencil1Icon,
-} from "@radix-ui/react-icons";
-import {
-  FaDollarSign,
-  FaRegBell,
-  FaRegHeart,
-  FaRegUser,
-  FaRegUserCircle,
-} from "react-icons/fa";
+import { ChevronDownIcon, ChevronRightIcon, ExitIcon, Pencil1Icon } from "@radix-ui/react-icons";
+import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 
 const UserMenu = () => {
   return (
