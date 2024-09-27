@@ -42,6 +42,7 @@ const data = [
     avatarRole: "提案者代表",
   },
 ];
+
 export default function Home() {
   return (
     <main>

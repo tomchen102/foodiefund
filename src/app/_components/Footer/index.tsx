@@ -1,23 +1,32 @@
-import Image from "next/image";
+import Link from "next/link";
 import { FaLine } from "react-icons/fa6";
 import { RiFacebookBoxFill, RiInstagramFill } from "react-icons/ri";
+import Logo from "../Header/logo";
+
+const fooMenu = {
+  aboutNav: [
+    { title: "首页", hrefUrl: "#" },
+    { title: "關於我們", hrefUrl: "#" },
+    { title: "最新消息", hrefUrl: "#" },
+  ],
+  helpNav: [
+    { title: "常見問題", hrefUrl: "#" },
+    { title: "使用條款", hrefUrl: "#" },
+    { title: "隱私權政策", hrefUrl: "#" },
+  ],
+  moreNav: [
+    { title: "探索專案", hrefUrl: "#" },
+    { title: "我要提案", hrefUrl: "#" },
+    { title: "募資提案經驗談", hrefUrl: "#" },
+  ],
+};
 
 const FooterMenu = () => {
   return (
     <footer className="bg-[#27272A]">
       <div className="container px-3 py-8 md:flex">
-        <div className="flex items-center md:w-1/2 md:flex-col md:items-start">
-          <div className="flex font-bold text-white">
-            {/* Add Hero Images Here */}
-            <Image
-              src="https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/logo.png?alt=media&token=ee137cf0-70c5-40a2-b6cc-ec4cfb03c614"
-              width={24}
-              height={24}
-              className="mr-2 inline-block"
-              alt="Screenshots of the dashboard project showing desktop version"
-            />{" "}
-            眾資成城
-          </div>
+        <div className="flex items-center text-white md:w-1/2 md:flex-col md:items-start">
+          <Logo />
           <ul className="social-media ml-auto flex gap-x-[13px] md:ml-0 md:mt-auto">
             <li>
               <a href="#">
@@ -37,42 +46,36 @@ const FooterMenu = () => {
           </ul>
         </div>
 
-        <div className="sitemap mt-10 md:mt-0 md:w-1/2">
+        <div className="sitemap mt-10 flex w-full justify-between text-sm text-white md:mt-0 md:w-1/2">
           <ul>
-            <li>關於</li>
-            <li>
-              <a href="#">首頁</a>
-            </li>
-            <li>
-              <a href="#">關於我們</a>
-            </li>
-            <li>
-              <a href="#">最新消息</a>
-            </li>
+            <li className="mb-4 font-bold">關於</li>
+            {fooMenu.aboutNav.map((item, index) => (
+              <li className="mb-4" key={item.title}>
+                <Link href={item.hrefUrl} key={index}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
           <ul>
-            <li>幫助</li>
-            <li>
-              <a href="#">常見問題</a>
-            </li>
-            <li>
-              <a href="#">使用條款</a>
-            </li>
-            <li>
-              <a href="#">隱私權政策</a>
-            </li>
+            <li className="mb-4 font-bold">幫助</li>
+            {fooMenu.helpNav.map((item, index) => (
+              <li className="mb-4" key={item.title}>
+                <Link href={item.hrefUrl} key={index}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
           <ul>
-            <li>更多內容</li>
-            <li>
-              <a href="#">探索專案</a>
-            </li>
-            <li>
-              <a href="#">我要提案</a>
-            </li>
-            <li>
-              <a href="#">募資提案經驗談</a>
-            </li>
+            <li className="mb-4 font-bold">更多內容</li>
+            {fooMenu.moreNav.map((item, index) => (
+              <li className="mb-4" key={item.title}>
+                <Link href={item.hrefUrl} key={index}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

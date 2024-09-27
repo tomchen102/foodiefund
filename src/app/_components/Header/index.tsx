@@ -1,48 +1,197 @@
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
+"use client";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import LocalStorageService from "@/utils"; // Assuming you have LocalStorageService
+import { Cross1Icon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
+import Logo from "./logo";
 
 const HeaderMenu = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check login status on component mount
+  useEffect(() => {
+    const localStorageService = LocalStorageService.getInstance();
+    setIsLoggedIn(localStorageService.isAuthenticated());
+  }, []);
+
+  // Handle login
+  // const handleLogin = () => {
+  //   const localStorageService = LocalStorageService.getInstance();
+  //   localStorageService.login("dummyAuthToken"); // Replace with actual login logic
+  //   setIsLoggedIn(true);
+  // };
+
+  // Handle logout
+  const handleLogout = () => {
+    const localStorageService = LocalStorageService.getInstance();
+    localStorageService.logout();
+    setIsLoggedIn(false);
+  };
+
+  const iconsMap = {
+    FaRegUserCircle: FaRegUserCircle,
+    FaRegUser: FaRegUser,
+    FaDollarSign: FaDollarSign,
+    FaRegHeart: FaRegHeart,
+    FaRegBell: FaRegBell,
+    Pencil1Icon: Pencil1Icon,
+  };
+
+  const navMenu = {
+    mainNav: [
+      { title: "首頁", hrefUrl: "index" },
+      { title: "我要提案", hrefUrl: "#" },
+      { title: "探索專案", hrefUrl: "#" },
+      { title: "問與答", hrefUrl: "#" },
+    ],
+    userNav: [
+      { title: "帳號設定", hrefUrl: "#", icon: "FaRegUser" },
+      { title: "贊助紀錄", hrefUrl: "#", icon: "FaDollarSign" },
+      { title: "收藏紀錄", hrefUrl: "#", icon: "FaRegHeart" },
+      { title: "提案紀錄", hrefUrl: "#", icon: "Pencil1Icon" },
+    ],
+  };
+
   return (
-    <nav className="md:container">
-      <div className="navbar flex flex-wrap items-center justify-between md:flex-nowrap">
-        <div className="flex p-3 font-bold">
-          {/* Add Hero Images Here */}
-          <Image
-            src="https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/logo.png?alt=media&token=ee137cf0-70c5-40a2-b6cc-ec4cfb03c614"
-            width={24}
-            height={24}
-            className="mr-2 inline-block"
-            alt="Screenshots of the dashboard project showing desktop version"
-          />{" "}
-          眾資成城
+    <header className="container flex justify-end">
+      <Logo />
+
+      {/* Navigation Menu */}
+      <NavigationMenu className="hidden md:flex">
+        <NavigationMenuList>
+          {navMenu.mainNav.map((item, index) => (
+            <NavigationMenuItem key={index}>
+              <Link href={item.hrefUrl}>
+                <NavigationMenuLink className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10">
+                  {item.title}
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      {!isLoggedIn ? (
+        // Render Login/Register button when not logged in
+        <Link
+          href="/login"
+          className={
+            buttonVariants({ variant: "default" }) +
+            "hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground"
+          }
+        >
+          登錄 / 註冊
+        </Link>
+      ) : null}
+
+      {/* mobile menu */}
+      <DropdownMenu>
+        <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none md:hidden">
+          <HamburgerMenuIcon />
+          <Cross1Icon className="hidden" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="h-screen w-screen p-0 md:hidden">
+          {isLoggedIn && (
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-primary-dark justify-start bg-primary px-5 py-3 font-bold hover:no-underline">
+                  <span>
+                    <FaRegUserCircle className="mr-2 h-5 w-5" />
+                  </span>
+                  Lobinda
+                </AccordionTrigger>
+                <AccordionContent className="pb-0">
+                  {navMenu.userNav.map((item, index) => {
+                    // 动态选择图标组件
+                    const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
+
+                    return (
+                      <Link href={item.hrefUrl} key={index}>
+                        <DropdownMenuItem>
+                          {/* 渲染图标 */}
+                          {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
+                        </DropdownMenuItem>
+                      </Link>
+                    );
+                  })}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          )}
+          {navMenu.mainNav.map((item, index) => (
+            <Link href="#" key={index}>
+              <DropdownMenuItem>{item.title}</DropdownMenuItem>
+            </Link>
+          ))}
+          {!isLoggedIn ? (
+            // onClick={handleLogin}
+            <Link href="/login">
+              <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
+            </Link>
+          ) : (
+            <DropdownMenuItem onClick={handleLogout}>
+              <ExitIcon className="mr-2 h-5 w-5" />
+              登出
+            </DropdownMenuItem>
+          )}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      {/* Render .user_menu only when logged in */}
+      {isLoggedIn && (
+        <div className="user_menu hidden md:flex">
+          <Button
+            className="text-primary-dark flex h-auto items-center rounded-none px-4 py-4 text-base leading-6 shadow-none lg:px-10"
+            variant="ghost"
+            asChild
+          >
+            <Link href="#">
+              <FaRegBell />
+            </Link>
+          </Button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
+              <FaRegUserCircle className="mr-2 h-5 w-5" />
+              User001
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {navMenu.userNav.map((item, index) => {
+                // 动态选择图标组件
+                const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
+
+                return (
+                  <Link href={item.hrefUrl} key={index}>
+                    <DropdownMenuItem>
+                      {/* 渲染图标 */}
+                      {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
+                    </DropdownMenuItem>
+                  </Link>
+                );
+              })}
+              <DropdownMenuItem onClick={handleLogout} className="border-t border-gray-200">
+                <ExitIcon className="mr-2 h-5 w-5" /> 登出
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
-        <div className="hamburger md:hidden">
-          <input className="hidden" type="checkbox" id="mobileMenu"></input>
-          <label htmlFor="mobileMenu" className="block bg-[#40E0D0] p-4 text-[#0F514E] hover:cursor-pointer">
-            <HamburgerMenuIcon className="menuOpen h-[16px] w-[16px]" />
-            <Cross1Icon className="menuClose hidden h-[16px] w-[16px]" />
-          </label>
-        </div>
-        <ul className="navbar-list hidden w-screen bg-white md:flex md:h-fit md:w-fit md:gap-x-10">
-          {/* <UserMenu />  */}
-          <li>
-            <a href="#">首页</a>
-          </li>
-          <li>
-            <a href="#">我要提案</a>
-          </li>
-          <li>
-            <a href="#">探索專案</a>
-          </li>
-          <li>
-            <a href="#">問與答</a>
-          </li>
-          <li className="resgitration">
-            <a href="#">登入 / 註冊</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 
