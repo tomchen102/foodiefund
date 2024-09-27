@@ -1,4 +1,5 @@
 "use client";
+import { ProviderProps } from "@/types/ProviderType";
 import React, { createContext, useContext, useState } from "react";
 
 interface LoadingContextType {
@@ -16,7 +17,7 @@ export const useLoading = () => {
   return context;
 };
 
-export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LoadingProvider = ({ children }: ProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return <LoadingContext.Provider value={{ isLoading, setLoading: setIsLoading }}>{children}</LoadingContext.Provider>;
