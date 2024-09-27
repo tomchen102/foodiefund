@@ -15,6 +15,15 @@ const config: Config = {
       },
     },
     extend: {
+      keyframes: {
+        fadeIn: {
+          "0%, 100%": { opacity: "0" },
+          "50%": { opacity: "1" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 3s infinite",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
