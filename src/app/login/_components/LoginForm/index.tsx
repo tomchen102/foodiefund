@@ -1,29 +1,32 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { FormLoginSchema, FormLoginSchemaType } from "../../../../schema/UserAuth";
+import { useLogInMutation } from "@/hooks/useUserAuth";
+import LocalStorageService from "@/utils/LocalStorageService";
 import { FormFieldConfig } from "@/components/FormFieldItem/types";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import LocalStorageService from "@/utils/LocalStorageService";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { FormLoginSchema, FormLoginSchemaType } from "../../../../Schema/UserAuth";
 import Oauth from "../Oauth";
 import RememberUser from "../RememberUser";
-import { useLogInMutation } from "@/hooks/useUserAuth";
-import { useRouter } from "next/navigation";
+import { useSetLoading } from "@/hooks/useSetLoading";
+import { useAuth } from "@/utils/providers/AuthProvider";
 
 const localStorageService = LocalStorageService.getInstance();
 
 const loginFormFields: FormFieldConfig<keyof FormLoginSchemaType>[] = [
-  { label: "會員帳號", name: "email", type: "text" },
+  { label: "會員帳號", name: "email", type: "email" },
   { label: "密碼", name: "password", type: "password" },
 ];
 
 const LoginForm = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const { setToken } = useAuth();
 
   const form = useForm<FormLoginSchemaType>({
     resolver: zodResolver(FormLoginSchema),
@@ -33,7 +36,9 @@ const LoginForm = () => {
     },
   });
 
-  const { mutate: logIn, result } = useLogInMutation();
+  const { mutate: logInMutation, data, isPending, error } = useLogInMutation();
+
+  useSetLoading(isPending);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -46,18 +51,18 @@ const LoginForm = () => {
   }, [form, email]);
 
   useEffect(() => {
-    if (result) {
-      console.log("User logged in successfully", result.data);
+    if (data) {
+      console.log("User logged in successfully", data.data.data.user.token);
+      const token = data.data.data.user.token;
+      setToken(token);
       router.push("/");
     }
-  }, [result, router]);
+  }, [data, router, setToken]);
 
-  function onSubmit(data: FormLoginSchemaType) {
-    console.log(data);
-    logIn(data);
-
+  const onSubmit = async (data: FormLoginSchemaType) => {
+    logInMutation(data);
     localStorageService.setItem("rememberUser", data.email);
-  }
+  };
 
   return (
     <Form {...form}>
@@ -80,6 +85,7 @@ const LoginForm = () => {
             )}
           />
         ))}
+        {error && <FormMessage>{error.response?.data.message}</FormMessage>}
         <RememberUser username={form.watch("email")} localStorageService={localStorageService} />
         <Button type="submit" className="w-full">
           登入
