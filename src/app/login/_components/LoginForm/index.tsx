@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { FormLoginSchema, FormLoginSchemaType } from "../../../../schema/UserAuth";
+import { FormLoginSchema, FormLoginSchemaType } from "@/schema/UserAuth";
 import { useLogInMutation } from "@/hooks/useUserAuth";
 import LocalStorageService from "@/utils/LocalStorageService";
 import { FormFieldConfig } from "@/components/FormFieldItem/types";
