@@ -1,6 +1,6 @@
 "use client";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -66,28 +66,16 @@ const HeaderMenu = () => {
         <NavigationMenuList>
           {navMenu.mainNav.map((item, index) => (
             <NavigationMenuItem key={index}>
-              <Link href={item.hrefUrl}>
-                <NavigationMenuLink className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10">
-                  {item.title}
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href={item.hrefUrl}
+                className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
+              >
+                {item.title}
+              </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
       </NavigationMenu>
-
-      {!user ? (
-        // Render Login/Register button when not logged in
-        <Link
-          href="/login"
-          className={
-            buttonVariants({ variant: "default" }) +
-            "hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground"
-          }
-        >
-          登錄 / 註冊
-        </Link>
-      ) : null}
 
       {/* mobile menu */}
       <DropdownMenu>
