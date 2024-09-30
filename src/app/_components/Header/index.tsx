@@ -1,6 +1,6 @@
 "use client";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Cross1Icon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import Logo from "./logo";
+import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
 
 const HeaderMenu = () => {
@@ -76,6 +76,19 @@ const HeaderMenu = () => {
           ))}
         </NavigationMenuList>
       </NavigationMenu>
+
+      {!user ? (
+        // Render Login/Register button when not logged in
+        <Link
+          href="/login"
+          className={
+            buttonVariants({ variant: "default" }) +
+            "hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground"
+          }
+        >
+          登錄 / 註冊
+        </Link>
+      ) : null}
 
       {/* mobile menu */}
       <DropdownMenu>
