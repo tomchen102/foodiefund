@@ -45,7 +45,7 @@ const HeaderMenu = () => {
 
   const navMenu = {
     mainNav: [
-      { title: "首頁", hrefUrl: "index" },
+      { title: "首頁", hrefUrl: "/" },
       { title: "我要提案", hrefUrl: "#" },
       { title: "探索專案", hrefUrl: "#" },
       { title: "問與答", hrefUrl: "#" },
