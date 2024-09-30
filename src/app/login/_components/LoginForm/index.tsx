@@ -6,19 +6,19 @@ import { useRouter } from "next/navigation";
 import { FormLoginSchema, FormLoginSchemaType } from "@/schema/UserAuth";
 import { useLogInMutation } from "@/hooks/useUserAuth";
 import LocalStorageService from "@/utils/LocalStorageService";
-import { FormFieldConfig } from "@/components/FormFieldItem/types";
+import { FormFieldConfig } from "@/components/FormRenderer/types";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form, FormMessage } from "@/components/ui/form";
 import Oauth from "../Oauth";
 import RememberUser from "../RememberUser";
 import { useSetLoading } from "@/hooks/useSetLoading";
 import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
+import FormRenderer from "@/components/FormRenderer";
 
 const localStorageService = LocalStorageService.getInstance();
 
-const loginFormFields: FormFieldConfig<keyof FormLoginSchemaType>[] = [
+const loginFormFields: FormFieldConfig<FormLoginSchemaType>[] = [
   { label: "會員帳號", name: "email", type: "email" },
   { label: "密碼", name: "password", type: "password" },
 ];
@@ -70,21 +70,8 @@ const LoginForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <h2 className="text-3xl font-bold">登入</h2>
         <Oauth />
-        {loginFormFields.map(({ label, name, type }) => (
-          <FormField
-            key={name}
-            control={form.control}
-            name={name}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{label}</FormLabel>
-                <FormControl>
-                  <Input type={type} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {loginFormFields.map((field) => (
+          <FormRenderer<FormLoginSchemaType> control={form.control} key={field.name} {...field} id={field.name} />
         ))}
         {error && <FormMessage>{error.response?.data.message}</FormMessage>}
         <RememberUser username={form.watch("email")} localStorageService={localStorageService} />
