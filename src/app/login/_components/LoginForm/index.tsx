@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import Oauth from "../Oauth";
 import RememberUser from "../RememberUser";
 import { useSetLoading } from "@/hooks/useSetLoading";
+import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
 
 const localStorageService = LocalStorageService.getInstance();
@@ -24,9 +24,9 @@ const loginFormFields: FormFieldConfig<keyof FormLoginSchemaType>[] = [
 ];
 
 const LoginForm = () => {
+  const { setUser } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const { setToken } = useAuth();
 
   const form = useForm<FormLoginSchemaType>({
     resolver: zodResolver(FormLoginSchema),
@@ -52,12 +52,13 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (data) {
-      console.log("User logged in successfully", data.data.data.user.token);
-      const token = data.data.data.user.token;
-      setToken(token);
+      console.log("User logged in successfully", data.data.data.user);
+      const { token, name, photo } = data.data.data.user;
+      Cookies.set("token", JSON.stringify({ name, photo, token }));
+      setUser({ name, photo, token });
       router.push("/");
     }
-  }, [data, router, setToken]);
+  }, [data, router, setUser]);
 
   const onSubmit = async (data: FormLoginSchemaType) => {
     logInMutation(data);

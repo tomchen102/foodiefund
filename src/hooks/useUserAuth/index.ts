@@ -8,6 +8,8 @@ export interface DataResponse {
   data: {
     name: string;
     user: {
+      name: string;
+      photo: string;
       token: string;
     };
   };

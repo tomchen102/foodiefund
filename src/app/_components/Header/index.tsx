@@ -1,6 +1,6 @@
 "use client";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,21 +13,14 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import LocalStorageService from "@/utils"; // Assuming you have LocalStorageService
 import { Cross1Icon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import Logo from "./logo";
+import { useAuth } from "@/utils/providers/AuthProvider";
 
 const HeaderMenu = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // Check login status on component mount
-  useEffect(() => {
-    const localStorageService = LocalStorageService.getInstance();
-    setIsLoggedIn(localStorageService.isAuthenticated());
-  }, []);
+  const { user, clearUser } = useAuth();
 
   // Handle login
   // const handleLogin = () => {
@@ -38,9 +31,7 @@ const HeaderMenu = () => {
 
   // Handle logout
   const handleLogout = () => {
-    const localStorageService = LocalStorageService.getInstance();
-    localStorageService.logout();
-    setIsLoggedIn(false);
+    clearUser();
   };
 
   const iconsMap = {
@@ -70,7 +61,6 @@ const HeaderMenu = () => {
   return (
     <header className="container flex justify-end">
       <Logo />
-
       {/* Navigation Menu */}
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList>
@@ -86,19 +76,6 @@ const HeaderMenu = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      {!isLoggedIn ? (
-        // Render Login/Register button when not logged in
-        <Link
-          href="/login"
-          className={
-            buttonVariants({ variant: "default" }) +
-            "hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground"
-          }
-        >
-          登錄 / 註冊
-        </Link>
-      ) : null}
-
       {/* mobile menu */}
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none md:hidden">
@@ -106,7 +83,7 @@ const HeaderMenu = () => {
           <Cross1Icon className="hidden" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="h-screen w-screen p-0 md:hidden">
-          {isLoggedIn && (
+          {user && (
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-primary-dark justify-start bg-primary px-5 py-3 font-bold hover:no-underline">
@@ -138,7 +115,7 @@ const HeaderMenu = () => {
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
             </Link>
           ))}
-          {!isLoggedIn ? (
+          {!user ? (
             // onClick={handleLogin}
             <Link href="/login">
               <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
@@ -153,7 +130,7 @@ const HeaderMenu = () => {
       </DropdownMenu>
 
       {/* Render .user_menu only when logged in */}
-      {isLoggedIn && (
+      {user && (
         <div className="user_menu hidden md:flex">
           <Button
             className="text-primary-dark flex h-auto items-center rounded-none px-4 py-4 text-base leading-6 shadow-none lg:px-10"
@@ -168,7 +145,7 @@ const HeaderMenu = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
               <FaRegUserCircle className="mr-2 h-5 w-5" />
-              User001
+              {user.name}
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navMenu.userNav.map((item, index) => {
