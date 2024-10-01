@@ -5,8 +5,8 @@ export async function middleware(req: NextRequest) {
   const tokenCookie = req.cookies.get("token");
   const token = tokenCookie ? tokenCookie.value : null;
 
-  // 如果用戶已經登錄，並且嘗試訪問登錄頁面，則重定向到主頁
-  if (token && req.nextUrl.pathname === "/login") {
+  // 如果用戶已經登錄，並且嘗試訪問登錄或註冊頁面，則重定向到主頁
+  if (token && (req.nextUrl.pathname === "/login" || req.nextUrl.pathname === "/register")) {
     console.log("User already logged in, redirecting to home page");
     return NextResponse.redirect(new URL("/", req.url));
   }
@@ -26,5 +26,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/test/:path*", "/login"], // 保護的路由和登錄頁面
+  matcher: ["/test/:path*", "/login", "/register"], // 保護的路由和登錄頁面
 };

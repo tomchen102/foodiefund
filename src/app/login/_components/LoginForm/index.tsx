@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { FormLoginSchema, FormLoginSchemaType } from "@/schema/UserAuth";
 import { useLogInMutation } from "@/hooks/useUserAuth";
 import LocalStorageService from "@/utils/LocalStorageService";
@@ -12,9 +11,8 @@ import { Form, FormMessage } from "@/components/ui/form";
 import Oauth from "../Oauth";
 import RememberUser from "../RememberUser";
 import { useSetLoading } from "@/hooks/useSetLoading";
-import Cookies from "js-cookie";
-import { useAuth } from "@/utils/providers/AuthProvider";
 import FormRenderer from "@/components/FormRenderer";
+import useHandleUserLogin from "@/hooks/useHandleUserLogin";
 
 const localStorageService = LocalStorageService.getInstance();
 
@@ -24,22 +22,20 @@ const loginFormFields: FormFieldConfig<FormLoginSchemaType>[] = [
 ];
 
 const LoginForm = () => {
-  const { setUser } = useAuth();
-  const router = useRouter();
   const [email, setEmail] = useState("");
 
   const form = useForm<FormLoginSchemaType>({
     resolver: zodResolver(FormLoginSchema),
     defaultValues: {
       email: email,
-      password: "1q2w3e4r",
+      password: "11111111",
     },
   });
 
   const { mutate: logInMutation, data, isPending, error } = useLogInMutation();
 
   useSetLoading(isPending);
-
+  useHandleUserLogin(data);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const rememberUser = localStorageService.getItem("rememberUser");
@@ -49,16 +45,6 @@ const LoginForm = () => {
       }
     }
   }, [form, email]);
-
-  useEffect(() => {
-    if (data) {
-      console.log("User logged in successfully", data.data.data.user);
-      const { token, name, photo } = data.data.data.user;
-      Cookies.set("token", JSON.stringify({ name, photo, token }));
-      setUser({ name, photo, token });
-      router.push("/");
-    }
-  }, [data, router, setUser]);
 
   const onSubmit = async (data: FormLoginSchemaType) => {
     logInMutation(data);
