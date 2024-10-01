@@ -2,11 +2,13 @@
 import FormRenderer from "@/components/FormRenderer";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Form, FormMessage } from "@/components/ui/form";
+import useHandleUserLogin from "@/hooks/useHandleUserLogin";
+import { useSetLoading } from "@/hooks/useSetLoading";
+import { useRegisterMutation } from "@/hooks/useUserAuth";
 import { FormRegisterSchemaType, FormRegisterSchema } from "@/schema/UserAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import React from "react";
 import { useForm } from "react-hook-form";
 
 const registerFormFields: FormFieldConfig<FormRegisterSchemaType>[] = [
@@ -34,8 +36,13 @@ const RegisterForm = () => {
     },
   });
 
+  const { mutate: registerMutation, data, isPending, error } = useRegisterMutation();
+
+  useSetLoading(isPending);
+  useHandleUserLogin(data);
+
   const onSubmit = async (data: FormRegisterSchemaType) => {
-    console.log(data);
+    registerMutation(data);
   };
   return (
     <Form {...form}>
@@ -52,7 +59,7 @@ const RegisterForm = () => {
         {registerFormFields.map((field) => (
           <FormRenderer<FormRegisterSchemaType> control={form.control} key={field.name} {...field} id={field.name} />
         ))}
-        {/* {error && <FormMessage>{error.response?.data.message}</FormMessage>} */}
+        {error && <FormMessage>{error.response?.data.message}</FormMessage>}
         <Button type="submit" className="w-full">
           立即註冊
         </Button>
