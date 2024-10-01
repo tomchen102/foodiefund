@@ -7,12 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { Cross1Icon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Logo from "./logo";
@@ -66,12 +61,12 @@ const HeaderMenu = () => {
         <NavigationMenuList>
           {navMenu.mainNav.map((item, index) => (
             <NavigationMenuItem key={index}>
-              <NavigationMenuLink
+              <Link
                 href={item.hrefUrl}
                 className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
               >
                 {item.title}
-              </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
