@@ -22,12 +22,12 @@ const AboutUsSection = () => {
         </div>
         <article className="mb-6 flex-grow text-center font-bold text-[#0F514E] md:mb-0 md:max-w-[400px] md:p-[36px] md:text-left lg:max-w-[550px] lg:p-[72px]">
           <h2 className="mb-8 text-4xl">關於我們</h2>
-          <p className="mb-8 text-sm font-medium text-[#09090B] md:text-base">
+          <p className="mb-8 text-sm font-medium md:text-base">
             歡迎來到我們的餐廳合夥人募資平台,一個致力於將美食愛好者與創新餐飲項目聯繫在一起的社區。
             在這裡,我們相信每一個出色的餐廳背後都有一個動人的故事和無限的潛力,
             而這些故事正是由像您這樣有熱情和眼光的投資者支持而成就的。
           </p>
-          <p className="text-sm font-medium text-[#09090B] md:text-base">
+          <p className="text-sm font-medium md:text-base">
             我們的平台提供多樣化的餐飲項目,從傳統美食到創意料理,從精品咖啡店到異國風情餐廳,滿足不同投資者的興趣和需求。
             我們的目標是創造一個互惠互利的生態系統,
             讓餐飲創業者獲得所需的資金和支持,讓投資者享受到成功的回報和獨特的餐飲體驗。
