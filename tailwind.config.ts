@@ -15,6 +15,9 @@ const config: Config = {
       },
     },
     extend: {
+      textColor: {
+        DEFAULT: "#09090B",
+      },
       keyframes: {
         fadeIn: {
           "0%, 100%": { opacity: "0" },
