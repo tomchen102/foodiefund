@@ -6,10 +6,12 @@ import { MdOutlineCalendarMonth, MdPersonOutline } from "react-icons/md";
 
 const projects = () => {
   return (
-    <div className="container xl:px-0 xl:pb-[120px] xl:pt-20">
-      <div className="lg:flex">
-        <div className="h-60 bg-[url('https://storage.googleapis.com/fir-express-80358.appspot.com/images/1ec19f5f-6e26-45dd-b1d1-2277de8248f2.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=Q16xulxexuuA4xIPC%2FE%2BRdZID4swLMTFbqeB38az%2F0Sq8sW4pri7uZK88R1UGBkdHbmuJgYIQbcej%2FHPcjl8P9UcMAefwfsahG41aEyCg3YM%2BYrEvINK9JeXMCN2JRcmMr%2BRkiQrqWVkI78OnvA187B87u4GiBGnqxbhezXDXdjuPJEUAWMClrlsodA1hRqlWFLYtEIYSb9rm9OPRd5EiLV1mb7XlAEHHUvB7JxpTYCiYPdJtgRmxetoG74Uf%2BVz65ysNg6iHEba%2FTmNSG6h0hCax4M21GL%2FZfNY6E7aoY7ojGGreeH4JoV%2Fot%2BBah4%2BjrYV1xJCQ3tALNVsOPIcaw%3D%3D')] bg-cover bg-center lg:mr-10 lg:h-[550px] lg:w-[550px] lg:bg-[url('https://storage.googleapis.com/fir-express-80358.appspot.com/images/74960e77-27bb-4145-9c74-70c5c5b3c207.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PXtAq0TxkxLZMbGU1xWId8nHIEr9XEVfESbkhydEs0zzFn5x1rMLcDzUMRk%2BMyUkVSCtCow%2F8he37%2F8gbfU9NFGH7gUaoBQatqFQZwGwm4HuNXjPK5oVoxRA5IJRoV4k%2FvDyq3g51wmsC55mIqDxV5cWWPfaJMIKi3LFgKlKwXeNoN%2FqVeTE3OqbjvcGkRBV%2FylbgEqTgnG4keVpwzS2%2BhFIezUxUOWDyY23b%2FbMNLV9a9vXDvDWFsvcdeB0GkAW842rz5%2F9crT%2BJTKTnp6A2ViONMLMR743oUNA1597Cu9ZaIProsdR8nQfb7m97kNvyg81lfvh9oBBaL4c8ql7%2Fw%3D%3D')]"></div>
-        <section className="container m-0 px-3 pt-4 lg:w-[706px] lg:p-0">
+    <div className="container lg:pb-[120px] lg:pt-20 xl:px-0">
+      <div className="lg:grid lg:grid-cols-12 lg:gap-10">
+        {/* lg:w-[550px] */}
+        <div className="h-60 bg-[url('https://storage.googleapis.com/fir-express-80358.appspot.com/images/1ec19f5f-6e26-45dd-b1d1-2277de8248f2.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=Q16xulxexuuA4xIPC%2FE%2BRdZID4swLMTFbqeB38az%2F0Sq8sW4pri7uZK88R1UGBkdHbmuJgYIQbcej%2FHPcjl8P9UcMAefwfsahG41aEyCg3YM%2BYrEvINK9JeXMCN2JRcmMr%2BRkiQrqWVkI78OnvA187B87u4GiBGnqxbhezXDXdjuPJEUAWMClrlsodA1hRqlWFLYtEIYSb9rm9OPRd5EiLV1mb7XlAEHHUvB7JxpTYCiYPdJtgRmxetoG74Uf%2BVz65ysNg6iHEba%2FTmNSG6h0hCax4M21GL%2FZfNY6E7aoY7ojGGreeH4JoV%2Fot%2BBah4%2BjrYV1xJCQ3tALNVsOPIcaw%3D%3D')] bg-cover bg-center lg:col-span-5 lg:h-[550px] lg:bg-[url('https://storage.googleapis.com/fir-express-80358.appspot.com/images/74960e77-27bb-4145-9c74-70c5c5b3c207.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PXtAq0TxkxLZMbGU1xWId8nHIEr9XEVfESbkhydEs0zzFn5x1rMLcDzUMRk%2BMyUkVSCtCow%2F8he37%2F8gbfU9NFGH7gUaoBQatqFQZwGwm4HuNXjPK5oVoxRA5IJRoV4k%2FvDyq3g51wmsC55mIqDxV5cWWPfaJMIKi3LFgKlKwXeNoN%2FqVeTE3OqbjvcGkRBV%2FylbgEqTgnG4keVpwzS2%2BhFIezUxUOWDyY23b%2FbMNLV9a9vXDvDWFsvcdeB0GkAW842rz5%2F9crT%2BJTKTnp6A2ViONMLMR743oUNA1597Cu9ZaIProsdR8nQfb7m97kNvyg81lfvh9oBBaL4c8ql7%2Fw%3D%3D')]"></div>
+        <section className="container m-0 px-3 pt-4 lg:col-span-7 lg:p-0">
+          {/* lg:w-[706px] */}
           <div className="flex h-full flex-col">
             <div>
               <Badges text="台北" />
