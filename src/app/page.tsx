@@ -1,5 +1,6 @@
+import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import AboutUs from "./_components/AboutUsSection";
-import ExperienceTalk from "./_components/ExperienceTalk";
+import ExperienceTalkBlock from "../components/ExperienceTalkBlock";
 
 const data = [
   {
@@ -43,10 +44,64 @@ const data = [
   },
 ];
 
-export default function Home() {
+export const getData = () => {
+  return [
+    {
+      id: 1,
+      title: "咖啡與時光",
+      description: "義式咖啡與甜點完美結合,是愛好者的溫馨聚會空間。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/74959d50-8101-4457-acfb-95ba81a0830b.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=HXFkUjTSFlvNcbPm3WlzMgzJCAkeZwKv5eGgoDX0CyTlpemku3TypoirUsdX3BXI2RSTzWJysA8vNXe6gV3CDsP%2Be8R%2B%2BQFetGyoXZm7NuOUq8P2RG4mToCzjMe4G%2BtHp4pmLKIWzSPVmULX8p0Yg%2F6GkifttKxmJh1S0JQJ3QgB9%2BbBIJ2Le73Hm7p%2BcftKUpdWy%2BxVVVM1dKfjK2b4eAfRbEhXwjqCdqrJfR4elZZtND8n%2F9nl%2BhlnDRAMlfqM9GAMuO7fWrpzOFvjZCdj28xd7bt0spMOGoOZCnfJOi%2BI5VZKU7xx8f6u%2FbbvLtJSGNILfVRBhtBpvi%2Fjr9ev7Q%3D%3D",
+      place: "台中",
+      percentage: 80,
+      targetAmount: "1,000,000",
+      reciprocal: 30,
+    },
+    {
+      id: 2,
+      title: "甜點夢工廠",
+      description: "法國甜點大師操刀,創造出經典與創意融合的法式糕點。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/473fad14-a22c-4a19-a9d7-47ec4dba1327.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=N%2FZXFgCu2oH3%2BcvVSp5wFJh7899RH395n1B5XG05NLtu6DuE8MHViAkUTNcnsAFTmmwmzC72NC65EDV1WUbIlZEpxvA41Gjeu7r0lJ0tT7b4tArP%2BPObjA1waRPAzSxZR%2FPPt9dfPefnbFPQk8eq1zJFhtKM5PxX0skMm7yVeTDObjrsxcxNK3rMrAKMXiAJH5tpsCt4eXZBcX5pi1ceKRR3qsgI4YL3RynOg3ghhtFgHiLV86pJU9VeSXWZEQ%2FNP5JTka5WrIwRsMyrkxG78IfgyflasitfPEu0JatpOfUs7zRyvT%2BXF0uA0193EaTMW3wgGZWiu7Cr76EUDkB%2B1A%3D%3D",
+      place: "台南",
+      percentage: 60,
+      targetAmount: "500,000",
+      reciprocal: 20,
+    },
+    {
+      id: 3,
+      title: "海岸燒烤樂園",
+      description: "在美麗海岸享受豐富的海鮮和肉類燒烤,體驗戶外用餐的樂趣。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
+      place: "台中",
+      percentage: 90,
+      targetAmount: "2,000,000",
+      reciprocal: 15,
+    },
+    {
+      id: 4,
+      title: "綠意盎然",
+      description: "綠意盎然的環境,提供健康的蔬食和飲品,是健康生活的首選。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
+      place: "台北",
+      percentage: 60,
+      targetAmount: "500,000",
+      reciprocal: 20,
+    },
+  ];
+};
+
+export default async function Home() {
+  const RecentProjectsBlockData = await getData();
   return (
     <main>
-      <ExperienceTalk data={data} />
+      <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
+        <RecentProjectsBlock className="md:pb-0" data={RecentProjectsBlockData} title="熱門專案" />
+      </div>
+      <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
+      <ExperienceTalkBlock data={data} />
       <AboutUs />
     </main>
   );
