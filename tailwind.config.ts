@@ -72,11 +72,18 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        gray: {
+          DEFAULT: "#71717A",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        "gradient-to-top-desktop": "linear-gradient(to top, #d6f4f0 267px, transparent 0%)",
+        "gradient-to-top-mobile": "linear-gradient(to top, #d6f4f0 363px, transparent 0%)",
       },
     },
   },
