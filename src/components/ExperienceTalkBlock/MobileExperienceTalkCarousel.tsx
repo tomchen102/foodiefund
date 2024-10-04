@@ -1,10 +1,10 @@
 "use client";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { MobileCarouselProps } from "./types";
 
-const MobileCarousel = ({ data }: MobileCarouselProps) => {
+const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
   return (
     <ul className="block md:hidden">
       <Carousel
@@ -37,7 +37,7 @@ const MobileCarousel = ({ data }: MobileCarouselProps) => {
                   <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
                   <div>
                     <h4 className="text-sm font-bold">{item.avatarName}</h4>
-                    <p className="text-sm text-[#71717A]">{item.avatarRole}</p>
+                    <p className="text-sm text-gray">{item.avatarRole}</p>
                   </div>
                 </div>
               </li>
@@ -49,4 +49,4 @@ const MobileCarousel = ({ data }: MobileCarouselProps) => {
   );
 };
 
-export default MobileCarousel;
+export default MobileExperienceTalkCarousel;
