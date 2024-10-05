@@ -1,7 +1,7 @@
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ProjectSummary from "./_components/ProjectSummary";
 
-export const getData = () => {
+const getData = () => {
   return [
     {
       id: 1,
@@ -50,7 +50,7 @@ export const getData = () => {
   ];
 };
 
-export const getProjectSummaryData = () => {
+const getProjectSummaryData = () => {
   return {
     id: "1",
     title: "喵喵咖啡廳",
