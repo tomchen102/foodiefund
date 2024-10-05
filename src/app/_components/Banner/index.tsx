@@ -41,7 +41,10 @@ const Banner = ({ data }: ExperienceTalkProps) => {
           </div>
           <div className="absolute bottom-11 flex items-center justify-center md:right-4">
             {data.map((item, index) => (
-              <Button key={item.id} className={"embla__dot".concat(index === 0 ? "embla__dot--selected" : "")}></Button>
+              <Button
+                key={item.id}
+                className={"embla__dot".concat(index === 0 ? "--selected embla__dot" : "")}
+              ></Button>
             ))}
           </div>
         </div>

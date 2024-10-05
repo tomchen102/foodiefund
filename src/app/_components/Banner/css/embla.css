@@ -127,7 +127,7 @@
   content: "";
 }
 .embla__dot--selected:after {
-  background-color: #666666 !important;
+  background-color: #ffffff !important;
   height: 0.3rem;
   content: "";
   opacity: 0.8;
