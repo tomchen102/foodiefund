@@ -44,7 +44,7 @@ const data = [
   },
 ];
 
-export const getData = () => {
+const getData = () => {
   return [
     {
       id: 1,
