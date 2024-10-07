@@ -13,7 +13,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
-
+import "./index.css";
 const HeaderMenu = () => {
   const { user, clearUser } = useAuth();
 
@@ -76,10 +76,7 @@ const HeaderMenu = () => {
         // Render Login/Register button when not logged in
         <Link
           href="/login"
-          className={
-            buttonVariants({ variant: "default" }) +
-            "hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground"
-          }
+          className={`${buttonVariants({ variant: "default" })} hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground md:flex`} // 修改這裡
         >
           登錄 / 註冊
         </Link>
@@ -91,7 +88,7 @@ const HeaderMenu = () => {
           <HamburgerMenuIcon />
           <Cross1Icon className="hidden" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="h-screen w-screen p-0 md:hidden">
+        <DropdownMenuContent className="-mt-[5px] h-screen w-screen rounded-none p-0 md:hidden">
           {user && (
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .social-media svg {
+    @apply h-6 w-6;
+  }
+
+  .logo-link:hover .logo {
+    @apply animate-spin;
+  }
+
+  div[data-orientation="vertical"]:has(.flex-1) {
+    @apply rounded-none;
+  }
+  header > button[data-state="open"] svg:nth-child(2) {
+    @apply block;
+  }
+  header > button[data-state="open"] svg:first-child {
+    @apply hidden;
+  }
+  [id="radix-:r1:"] a:has([role="menuitem"]):first-child [role="menuitem"] {
+    @apply border-b border-gray-200;
+  }
+}
