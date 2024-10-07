@@ -23,6 +23,7 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
           height={550}
           alt="喵喵咖啡廳"
           className="hidden w-full bg-cover bg-center md:block lg:h-full"
+          loading="lazy"
         />
         <Image
           src={ProjectSummaryData.imageUrlSm}
@@ -30,6 +31,7 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
           height={240}
           alt="喵喵咖啡廳"
           className="w-full bg-cover bg-center md:hidden"
+          loading="lazy"
         />
       </div>
       <div className="w-10"></div>
