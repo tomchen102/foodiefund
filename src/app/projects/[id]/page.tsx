@@ -1,89 +1,168 @@
-import RecentProjectsBlock from "@/components/RecentProjectsBlock";
-import ProjectSummary from "./_components/ProjectSummary";
-
-const getData = () => {
-  return [
-    {
-      id: 1,
-      title: "咖啡與時光",
-      description: "義式咖啡與甜點完美結合,是愛好者的溫馨聚會空間。",
-      imageUrl:
-        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/74959d50-8101-4457-acfb-95ba81a0830b.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=HXFkUjTSFlvNcbPm3WlzMgzJCAkeZwKv5eGgoDX0CyTlpemku3TypoirUsdX3BXI2RSTzWJysA8vNXe6gV3CDsP%2Be8R%2B%2BQFetGyoXZm7NuOUq8P2RG4mToCzjMe4G%2BtHp4pmLKIWzSPVmULX8p0Yg%2F6GkifttKxmJh1S0JQJ3QgB9%2BbBIJ2Le73Hm7p%2BcftKUpdWy%2BxVVVM1dKfjK2b4eAfRbEhXwjqCdqrJfR4elZZtND8n%2F9nl%2BhlnDRAMlfqM9GAMuO7fWrpzOFvjZCdj28xd7bt0spMOGoOZCnfJOi%2BI5VZKU7xx8f6u%2FbbvLtJSGNILfVRBhtBpvi%2Fjr9ev7Q%3D%3D",
-      place: "台中",
-      percentage: 80,
-      targetAmount: "1,000,000",
-      reciprocal: 30,
-    },
-    {
-      id: 2,
-      title: "甜點夢工廠",
-      description: "法國甜點大師操刀,創造出經典與創意融合的法式糕點。",
-      imageUrl:
-        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/473fad14-a22c-4a19-a9d7-47ec4dba1327.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=N%2FZXFgCu2oH3%2BcvVSp5wFJh7899RH395n1B5XG05NLtu6DuE8MHViAkUTNcnsAFTmmwmzC72NC65EDV1WUbIlZEpxvA41Gjeu7r0lJ0tT7b4tArP%2BPObjA1waRPAzSxZR%2FPPt9dfPefnbFPQk8eq1zJFhtKM5PxX0skMm7yVeTDObjrsxcxNK3rMrAKMXiAJH5tpsCt4eXZBcX5pi1ceKRR3qsgI4YL3RynOg3ghhtFgHiLV86pJU9VeSXWZEQ%2FNP5JTka5WrIwRsMyrkxG78IfgyflasitfPEu0JatpOfUs7zRyvT%2BXF0uA0193EaTMW3wgGZWiu7Cr76EUDkB%2B1A%3D%3D",
-      place: "台南",
-      percentage: 60,
-      targetAmount: "500,000",
-      reciprocal: 20,
-    },
-    {
-      id: 3,
-      title: "海岸燒烤樂園",
-      description: "在美麗海岸享受豐富的海鮮和肉類燒烤,體驗戶外用餐的樂趣。",
-      imageUrl:
-        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
-      place: "台中",
-      percentage: 90,
-      targetAmount: "2,000,000",
-      reciprocal: 15,
-    },
-    {
-      id: 4,
-      title: "綠意盎然",
-      description: "綠意盎然的環境,提供健康的蔬食和飲品,是健康生活的首選。",
-      imageUrl:
-        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
-      place: "台北",
-      percentage: 60,
-      targetAmount: "500,000",
-      reciprocal: 20,
-    },
-  ];
-};
-
-const getProjectSummaryData = () => {
-  return {
-    id: "1",
-    title: "喵喵咖啡廳",
-    description:
-      "喵喵咖啡館在於創辦人在台北時創立,我們的理念很簡單-提供優質的食物和咖啡,咖啡具有使人們停下來和彼此互動的能力。人與人之間的聯繫就是我們在這裡的原因,有時我們意識到這就像兩個拿鐵一樣簡單。享用咖啡,早餐或午餐,我們隨時為您服務!",
-    imageUrlLg:
-      "https://storage.googleapis.com/fir-express-80358.appspot.com/images/4205b53b-bb9b-4d16-83d8-863b2f0f6fb8.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=E8hfbipNltmZrQfCOGYMclvdz9hQHrXyfofrvYpepc9d3kQgT%2FjFPXN8GIluV7oO6T0m9jEQ3lGyFLC3M%2FNlEs10zB4SXWj5WeviojCP846SRxXIzXAjnJwkFuhZGBqjuyrX0E9L5DoFBhHWYQqnxFblCjqo96dR6FhKJSg2luTqHyFSRtWe8kBFIlFR2Ycu09TSsgOVSG%2BMnCjl734mjkAmjOR36S9rfTG5RBbTSvYvHvRKuLwl437oxglHTEtydzhJKAW9HfIDdvp1MNuYkJ8f5X6%2Fs1cCfWGUYHiJaOqDncGUYObSEyHLAyj1xUSwu0l2WFR%2BwRcFjOM9f%2FXeGg%3D%3D",
-    imageUrlSm:
-      "https://storage.googleapis.com/fir-express-80358.appspot.com/images/74960e77-27bb-4145-9c74-70c5c5b3c207.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PXtAq0TxkxLZMbGU1xWId8nHIEr9XEVfESbkhydEs0zzFn5x1rMLcDzUMRk%2BMyUkVSCtCow%2F8he37%2F8gbfU9NFGH7gUaoBQatqFQZwGwm4HuNXjPK5oVoxRA5IJRoV4k%2FvDyq3g51wmsC55mIqDxV5cWWPfaJMIKi3LFgKlKwXeNoN%2FqVeTE3OqbjvcGkRBV%2FylbgEqTgnG4keVpwzS2%2BhFIezUxUOWDyY23b%2FbMNLV9a9vXDvDWFsvcdeB0GkAW842rz5%2F9crT%2BJTKTnp6A2ViONMLMR743oUNA1597Cu9ZaIProsdR8nQfb7m97kNvyg81lfvh9oBBaL4c8ql7%2Fw%3D%3D",
-    proposer: "兔寶寶溜滑梯",
-    progress: 37,
-    targetAmount: "1,000,000",
-    currentAmount: "800,000",
-    startDate: "2022-08-01",
-    endDate: "13",
-    numberOfBackers: 115,
-    location: "台北",
-    restaurantType: "咖啡廳",
-    socialLinks: {
-      facebook: "https://www.facebook.com/",
-      twitter: "https://twitter.com/",
-      instagram: "https://www.instagram.com/",
-    },
-  };
-};
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import ExpandableContent from "./_components/ExpandableContent";
 
 const projects = async () => {
-  const data = await getData();
-  const ProjectSummaryData = await getProjectSummaryData();
   return (
-    <div>
-      <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
-      <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
+    <div className="container px-3 pb-8 pt-6 xl:px-0 xl:pt-0">
+      <div className="lg:grid lg:grid-cols-12 lg:gap-6 lg:pb-[120px] xl:mt-[100px]">
+        <div className="mb-8 lg:col-span-9">
+          <ExpandableContent previewLength={200}>
+            <div className="mb-6 md:mb-[60px]">
+              <p className="mb-6 font-medium md:mb-[60px]">
+                紀錄作為外送員,辛酸的部分常常來自於工作環境的不確定性。面對繁忙的交通、惡劣的天氣,以及突如其來的訂單取消,這些挑戰讓工作變得更加艱難。長時間的奔波和高壓的時間限制,常常讓人感到疲憊。但每當看到客戶滿意的微笑,這些辛苦的付出便化為了值得的回報。這份工作不僅考驗耐心和毅力，外送員該如何如何在困難中尋找成就感。
+              </p>
+              <Image
+                src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/e5275b0d-edfc-40c3-a26a-d104d01d452e.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=koD1rWCn3LG61t2nVKY0a%2FjKtYNgwff5vWXAdGP6PFyaH8g2TfO%2FQ7sCh5g28d9Ox5AtBTXt2SmOaOxYS1BC%2BUyodELSgLPCy5fQtllILG0tn3iTwiNArFa91RFDBkSGZWKqwtGOsy9hogYVrmZxYd3%2F3MRi1memkGh%2B5VQQz0eK4DoLtctE3%2FOvVpc3JHjRnsis7fNyNZth5mIw3jbUlQ0buz2sFllLn9vlBSqIUHu8xLQfDv8oAd1XRtYcRc6v7Nbff%2Fu7TExT2GrvgXUJABzzG7pvytCJgRFfZfZ3WlPQlAor6nc0CbPTQ%2FaWdG44Q%2BMECwvzplMluCnw6gjGYg%3D%3D"
+                width={996}
+                height={605}
+                className="w-full"
+                loading="lazy"
+                alt="Screenshots of the dashboard project showing desktop version"
+              />
+            </div>
+            <div className="mb-6 md:mb-[60px]">
+              <h4
+                className="mx-auto mb-4 w-[97px] text-center text-2xl font-bold md:mb-10"
+                style={{ backgroundImage: "linear-gradient(to top, #FFE5D4 20px, transparent 0%)" }}
+              >
+                1999
+              </h4>
+              <p>
+                這一天創辦人在家寫Code,拿起一旁的咖啡喝了一口,越喝越有靈感,
+                越寫越起勁,才發現原來咖啡這麼棒,最後放棄寫Code跑去開咖啡館了!
+              </p>
+            </div>
+            <div className="mb-6 md:mb-[60px]">
+              <h4
+                className="mx-auto mb-4 w-[160px] text-center text-2xl font-bold md:mb-10"
+                style={{ backgroundImage: "linear-gradient(to top, #FFE5D4 20px, transparent 0%)" }}
+              >
+                我們的理念
+              </h4>
+              <p>
+                喵喵咖啡館相信咖啡具有無與倫比的力量,不僅能激發創意,還能拉近彼此的距離。在這裡,每一杯咖啡都是我們對於生活的熱愛與人際連結的體現。無論是與朋友共享一份早餐、在午餐時刻偷閒,還是僅僅來享受一杯熱騰騰的拿鐵,我們都希望每位顧客在這裡找到歸屬感。
+              </p>
+            </div>
+            <div className="mb-6 md:mb-[60px]">
+              <h4
+                className="mx-auto mb-4 w-[328px] text-center text-2xl font-bold md:mb-10"
+                style={{ backgroundImage: "linear-gradient(to top, #FFE5D4 20px, transparent 0%)" }}
+              >
+                為什麼我們需要您的支持？
+              </h4>
+              <p>
+                我們正在計畫擴大喵喵咖啡館，將這份獨特的咖啡文化帶到更多的地方。我們希望通過這次群眾募資，籌集資金來打造一個溫馨且充滿活力的用餐空間，讓更多人能夠在忙碌的日常中找到一個放鬆與聯繫的地方。您的支持將幫助我們實現這個願景，並且讓喵喵咖啡館成為社區的心靈綠洲。
+              </p>
+            </div>
+            <div>
+              <h4
+                className="mx-auto mb-4 w-[256px] text-center text-2xl font-bold md:mb-10"
+                style={{ backgroundImage: "linear-gradient(to top, #FFE5D4 20px, transparent 0%)" }}
+              >
+                加入我們，共創美好
+              </h4>
+              <p>
+                現在，我們邀請您成為喵喵咖啡館故事的一部分。每一份支持都將使我們更接近目標，為更多人帶來這份獨特的咖啡體驗。無論您是喜愛咖啡的愛好者，還是尋找一個溫馨社交空間的顧客，我們都歡迎您加入這個創新且充滿人情味的旅程。
+              </p>
+            </div>
+          </ExpandableContent>
+        </div>
+        <div className="lg:col-span-3">
+          <ul>
+            <li className="mb-5 md:mb-8">
+              <Image
+                src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/e84a603e-94ce-4955-aec1-57030925caf0.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PYRZrOEf2DhIKnxV4IpWXrlIG1ms%2FfsYo%2FDFc5KJWDkTRadTSwDZHz7WKNuGQqzCF5Swgd8jl4M9uOmR62IoLtn5I50sq5Z8wZrP5YkHTnizbjS1%2Bte5S1egt2%2B5eNYFXTQ3861NLSScD%2F%2BoyNgYOkRU%2BpPs9JkmsEz0B9zhH5u%2BUCGoM8hZbOk%2FbQFjj%2FrigbY4ub9lwbWlJ8%2BNC8uQCc5Kdpniibh%2B8Sbb5MEc0ujkTVc0f1aWxfCZzl9eo%2BaXOVOKtS4ojjVVcL0MFdla5wFwS6YXOYVgLueuJ61gze%2F0D%2FSftMLSlei6Ij70xSp9j8s4%2F6LAJfFCABOKjo8MYA%3D%3D"
+                width={306}
+                height={200}
+                className="h-auto w-full xl:h-[200px]"
+                alt="Screenshots of the dashboard project showing desktop version"
+                loading="lazy"
+              />
+              <div className="border p-5">
+                <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+                <div className="mb-2 flex">
+                  <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
+                  <span className="text-sm font-medium text-gray">已被贊助</span>
+                  <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+                  <span className="text-sm font-medium text-gray">次</span>
+                </div>
+                <div className="mb-2">
+                  <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                </div>
+                <div className="mb-5">
+                  <p className="text-sm font-medium">【限量單品】</p>
+                  <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                  <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                </div>
+                <Button variant="donateNow" size="lg">
+                  立即贊助
+                </Button>
+              </div>
+            </li>
+            <li className="mb-5 md:mb-8">
+              <Image
+                src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/d85d3add-863c-414b-a68c-2e2867035fc7.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=WLGOtvhCALB16Cvbt%2FJ7Qjs3r9DjlbdM1xpvMKPNskP38pCkr3LsNANPTLGXDLdfv3RVAQiZo6VRLE%2B3V3kZB0kKWSzKFo%2BxgTbvKg5PYf7F3PBxzoqxxmkQ3Mn7hyvxL9SPtDpJne9aW%2FsycIs7fyy85XZzOxMKpTzOw4o3%2B54pmYSqpCzJQJu2FYqe10kYzZDjf1X3Je5IoUzCzSEDPaU56VEAb7YrNShzB0skkRdk443oRzKryCSXd%2BixJPvO%2FxvxYm7LOvB77lTq1fXiTT56hvN6N90DdCKZACBBMoJHyKBk%2FMZkC5rGy20IR9RVVl5ftuctp03wInFm9nF2zA%3D%3D"
+                width={306}
+                height={200}
+                className="h-auto w-full xl:h-[200px]"
+                alt="Screenshots of the dashboard project showing desktop version"
+                loading="lazy"
+              />
+              <div className="border p-5">
+                <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+                <div className="mb-2 flex">
+                  <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
+                  <span className="text-sm font-medium text-gray">已被贊助</span>
+                  <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+                  <span className="text-sm font-medium text-gray">次</span>
+                </div>
+                <div className="mb-2">
+                  <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                </div>
+                <div className="mb-5">
+                  <p className="text-sm font-medium">【限量單品】</p>
+                  <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                  <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                </div>
+                <Button variant="donateNow" size="lg">
+                  立即贊助
+                </Button>
+              </div>
+            </li>
+            <li>
+              <Image
+                src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/df262d64-4ecb-4f6c-9c8f-2f0cb79e09b0.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=GlgbjbN7zWBpvmw%2BK7xp6qLOaTWKSdQtKdGTS0Zm5EF1TaqXl2lWO6A9EML2aOp0Ye6uN5FSr0HKYuVrdv5wmYEDivjdAwUeaRSyF0RD2nGS67TlqVP%2FSKVpjs7QMO1PDd2elyIOgSKtg8GpJRQCGRYZA4oNmAVE%2FOhLgAL8%2B1v1fYpAf0HiDaYZSiY21FSZB%2BwQUxy3hnNtY3VCEqal%2BEt940jsAeBYIQ9%2Bb4kmb%2B26SfKh%2FNw3D8VetnyiT6WBfMt5vTnAZCI%2Bb%2FVa0f9JkBg6qLAgFynWP2hUIQCVR3hJSvjgnBnEtDNZmrQnwmSpk%2BsObS8oeusgIZFiqd77Wg%3D%3D"
+                width={306}
+                height={200}
+                className="h-auto w-full xl:h-[200px]"
+                alt="Screenshots of the dashboard project showing desktop version"
+                loading="lazy"
+              />
+              <div className="border p-5">
+                <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+                <div className="mb-2 flex">
+                  <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
+                  <span className="text-sm font-medium text-gray">已被贊助</span>
+                  <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+                  <span className="text-sm font-medium text-gray">次</span>
+                </div>
+                <div className="mb-2">
+                  <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                </div>
+                <div className="mb-5">
+                  <p className="text-sm font-medium">【限量單品】</p>
+                  <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                  <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                </div>
+                <Button variant="donateNow" size="lg">
+                  立即贊助
+                </Button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
