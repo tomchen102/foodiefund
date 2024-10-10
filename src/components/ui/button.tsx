@@ -17,6 +17,8 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         donateNow: "bg-secondary text-base font-bold text-white hover:bg-secondary/90",
+        transparent:
+          "border border-white bg-transparent shadow-sm hover:bg-transparent/40 text-white text-sm font-bold leading-[20px]",
       },
       size: {
         default: "h-9 px-4 py-2",

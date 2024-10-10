@@ -25,11 +25,7 @@ const Banner = ({ data }: ExperienceTalkProps) => {
                 <h1 className="text-center text-3xl leading-none md:text-start md:text-5xl">眾資成城</h1>
                 <p className="mt-1 text-2xl leading-snug md:mt-4">在你心愛的餐廳成為合夥人</p>
                 <div className="mt-7 flex gap-2 text-2xl md:mt-10">
-                  <Button
-                    className="w-1/2 border border-white bg-clip-content px-5 py-4 text-lg md:w-auto"
-                    variant="secondary"
-                    asChild
-                  >
+                  <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="transparent" asChild>
                     <Link href="/404">我要提案</Link>
                   </Button>
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="secondary" asChild>
