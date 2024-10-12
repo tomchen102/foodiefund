@@ -119,6 +119,7 @@ export default async function Home() {
       </div>
       <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
       <ExperienceTalkBlock data={data} />
+      <div className="pt-15 bg-[#F5E5CE] pb-20"></div>
       <AboutUs />
     </main>
   );

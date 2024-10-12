@@ -25,11 +25,7 @@ const Banner = ({ data }: ExperienceTalkProps) => {
                 <h1 className="text-center text-3xl leading-none md:text-start md:text-5xl">眾資成城</h1>
                 <p className="mt-1 text-2xl leading-snug md:mt-4">在你心愛的餐廳成為合夥人</p>
                 <div className="mt-7 flex gap-2 text-2xl md:mt-10">
-                  <Button
-                    className="w-1/2 border border-white bg-clip-content px-5 py-4 text-lg md:w-auto"
-                    variant="secondary"
-                    asChild
-                  >
+                  <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="transparent" asChild>
                     <Link href="/404">我要提案</Link>
                   </Button>
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="secondary" asChild>
@@ -50,12 +46,23 @@ const Banner = ({ data }: ExperienceTalkProps) => {
         </div>
       </div>
       <div className="container flex items-start justify-start font-bold">
-        <div className="z-10 -mt-8 flex w-full flex-col items-start rounded-tl-3xl border bg-white px-5 py-4 hover:cursor-pointer md:w-1/2 md:border-none">
+        <div className="z-10 -mt-8 flex w-full flex-col items-start rounded-tl-3xl border-0 bg-white px-5 py-4 hover:cursor-pointer md:w-1/2">
           <h2 className="text-2xl font-bold text-secondary">最新消息</h2>
           <div className="flex w-full items-center md:justify-between">
             <p className="mt-2 text-xl hover:underline">過年 本站要休息 2/7~2/16 | 加入會員 打九折 只到今天起 </p>
             <ArrowRightIcon className="ml-1 h-4 w-4 text-gray-400" />
           </div>
+        </div>
+      </div>
+      <div className="container mt-6">
+        <div className="mx-3 border-b border-b-gray-200 text-center leading-[0rem]">
+          <span className="bg-white px-6 leading-[0rem] text-gray-400">探索類別</span>
+        </div>
+        <div className="border-b pt-3 text-center text-lg font-bold md:text-xl">
+          <button className="px-4 pb-6 pt-2 hover:bg-gray-200">台北</button>
+          <button className="px-4 pb-6 pt-2 hover:bg-gray-200">台中</button>
+          <button className="px-4 pb-6 pt-2 hover:bg-gray-200">台南</button>
+          <button className="px-4 pb-6 pt-2 hover:bg-gray-200">高雄</button>
         </div>
       </div>
     </section>
