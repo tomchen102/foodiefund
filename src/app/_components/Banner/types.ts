@@ -1,4 +1,4 @@
-export interface ExperienceTalkProps {
+export interface BannerProps {
   data: {
     id: number;
     imageUrl: string;

@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import Link from "next/link";
-import { ExperienceTalkProps } from "./types";
+import { BannerProps } from "./types";
 import "./css/embla.css";
 
-const Banner = ({ data }: ExperienceTalkProps) => {
+const Banner = ({ data }: BannerProps) => {
   return (
     <section className="">
       <div className="relative h-[624px] w-full overflow-hidden">
