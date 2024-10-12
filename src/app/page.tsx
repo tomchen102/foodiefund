@@ -114,24 +114,11 @@ export default async function Home() {
   return (
     <main>
       <Banner data={banners} />
-      <div className="container">
-        <div className="w-full border-b border-b-gray-200 px-3 text-center leading-none">
-          <span className="bg-white py-6 text-sm text-gray-400"> 你的文字</span>
-        </div>
-
-        <div className="border-b border-b-gray-200 text-center">
-          <button className="bg-white px-6 pb-4 pt-2 hover:bg-gray-200">台北</button>
-          <button className="bg-white px-6 pb-4 pt-2 hover:bg-gray-200">台中</button>
-          <button className="bg-white px-6 pb-4 pt-2 hover:bg-gray-200"> 台南</button>
-          <button className="bg-white px-6 pb-4 pt-2 hover:bg-gray-200">高雄</button>
-        </div>
-      </div>
       <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
         <RecentProjectsBlock className="md:pb-0" data={RecentProjectsBlockData} title="熱門專案" />
       </div>
       <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
       <ExperienceTalkBlock data={data} />
-
       <div className="pt-15 bg-[#F5E5CE] pb-20"></div>
       <AboutUs />
     </main>
