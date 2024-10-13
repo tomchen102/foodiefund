@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
@@ -41,6 +42,7 @@ const config: Config = {
         primary: {
           DEFAULT: "#40E0D0",
           foreground: "hsl(var(--primary-foreground))",
+          "primary-hover": "#0F514E",
         },
         secondary: {
           DEFAULT: "#FE4710",
@@ -87,6 +89,24 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-primary": {
+          color: "#40E0D0",
+          "&:hover": {
+            color: "#0F514E",
+          },
+        },
+        ".bg-primary": {
+          backgroundColor: "#40E0D0",
+          "&:hover": {
+            backgroundColor: "#0F514E",
+          },
+        },
+      });
+    }),
+  ],
 };
 export default config;
