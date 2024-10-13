@@ -2,6 +2,8 @@ import { ProviderProps } from "@/types/ProviderType";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ProjectSummary from "./_components/ProjectSummary";
 import Navbar from "./@Navbar/page";
+import Rewards from "./@Rewards/page";
+import SectionPadding from "@/components/SectionPadding";
 
 const getData = () => {
   return [
@@ -85,7 +87,12 @@ export default async function ProjectsLayout({ children }: ProviderProps) {
     <div>
       <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
       <Navbar />
-      {children}
+      <div className="container px-3 pb-8 pt-6 xl:px-0 xl:pt-0">
+        <SectionPadding className="lg:grid lg:grid-cols-12 lg:gap-6">
+          <div className="mb-8 lg:col-span-9">{children}</div>
+          <Rewards />
+        </SectionPadding>
+      </div>
       <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
     </div>
   );
