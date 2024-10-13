@@ -1,6 +1,6 @@
 import MobileRecentProjectsCarousel from "@/components/ExperienceSuccess/MobileCarousel";
 /* import PcRecentProjectsList from "@/components/ExperienceSuccess/PcRecentProjectsList"; */
-import { ExpierieceSuccessListType } from "@/types/expierieceSuccessListProps";
+import { ExpierieceSuccessListType } from "@/types/ExpierieceSuccessListProps";
 import { cn } from "@/lib/utils";
 
 const ExperienceSuccess = ({ data, title, className }: ExpierieceSuccessListType) => {
