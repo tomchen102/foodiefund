@@ -6,6 +6,7 @@ import Badges from "@/components/Badges";
 import { TfiLocationPin } from "react-icons/tfi";
 import { Progress } from "@/components/ui/progress";
 import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
+import Link from "next/link";
 
 const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
   return (
@@ -35,7 +36,11 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                     <Badges text="募資中" className="absolute left-3 top-3" />
                   </div>
                   <div className="p-5">
-                    <h3 className="mb-2 font-bold">{item.title}</h3>
+                    <h3 className="mb-2 font-bold">
+                      <Link href="projects/123" className="hover:text-tertiary hover:underline">
+                        {item.title}
+                      </Link>
+                    </h3>
                     <p className="mb-5 text-sm font-medium">{item.description}</p>
                     <div className="flex">
                       <TfiLocationPin size={20} className="mr-1" />

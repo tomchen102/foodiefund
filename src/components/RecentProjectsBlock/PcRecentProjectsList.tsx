@@ -24,7 +24,9 @@ const PcRecentProjectsList = ({ data }: RecentProjectsListProps) => {
             </div>
             <div className="flex h-full flex-col p-5">
               <h3 className="mb-2 font-bold">
-                <Link href="#">{item.title}</Link>
+                <Link href="projects/123" className="hover:text-tertiary hover:underline">
+                  {item.title}
+                </Link>
               </h3>
               <p className="mb-5 text-sm font-medium">{item.description}</p>
               <div className="mt-auto flex">
