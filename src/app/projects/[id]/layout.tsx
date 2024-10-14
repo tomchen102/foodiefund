@@ -2,6 +2,8 @@ import { ProviderProps } from "@/types/ProviderType";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ProjectSummary from "./_components/ProjectSummary";
 import Navbar from "./@Navbar/page";
+import Rewards from "./@Rewards/page";
+import SectionPadding from "@/components/SectionPadding";
 
 const getData = () => {
   return [
@@ -63,7 +65,7 @@ const getProjectSummaryData = () => {
     imageUrlSm:
       "https://storage.googleapis.com/fir-express-80358.appspot.com/images/74960e77-27bb-4145-9c74-70c5c5b3c207.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PXtAq0TxkxLZMbGU1xWId8nHIEr9XEVfESbkhydEs0zzFn5x1rMLcDzUMRk%2BMyUkVSCtCow%2F8he37%2F8gbfU9NFGH7gUaoBQatqFQZwGwm4HuNXjPK5oVoxRA5IJRoV4k%2FvDyq3g51wmsC55mIqDxV5cWWPfaJMIKi3LFgKlKwXeNoN%2FqVeTE3OqbjvcGkRBV%2FylbgEqTgnG4keVpwzS2%2BhFIezUxUOWDyY23b%2FbMNLV9a9vXDvDWFsvcdeB0GkAW842rz5%2F9crT%2BJTKTnp6A2ViONMLMR743oUNA1597Cu9ZaIProsdR8nQfb7m97kNvyg81lfvh9oBBaL4c8ql7%2Fw%3D%3D",
     proposer: "兔寶寶溜滑梯",
-    progress: 37,
+    progress: 80,
     targetAmount: "1,000,000",
     currentAmount: "800,000",
     startDate: "2022-08-01",
@@ -82,11 +84,16 @@ export default async function ProjectsLayout({ children }: ProviderProps) {
   const data = await getData();
   const ProjectSummaryData = await getProjectSummaryData();
   return (
-    <div>
+    <>
       <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
       <Navbar />
-      {children}
+      <SectionPadding className="container px-3">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-6">
+          <div className="mb-8 pr-10 lg:col-span-9">{children}</div>
+          <Rewards />
+        </div>
+      </SectionPadding>
       <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
-    </div>
+    </>
   );
 }
