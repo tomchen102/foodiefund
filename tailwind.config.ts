@@ -99,7 +99,7 @@ const config: Config = {
             color: "#0F514E",
           },
           "&:active": {
-            color: "#80e6db",
+            color: "#07302f",
           },
         },
         ".bg-primary": {
@@ -108,7 +108,7 @@ const config: Config = {
             backgroundColor: "#0F514E",
           },
           "&:active": {
-            backgroundColor: "#80e6db",
+            backgroundColor: "#07302f",
           },
         },
         ".text-secondary": {
