@@ -12,11 +12,10 @@ const buttonVariants = cva(
         default: "bg-primary text-block shadow hover:text-white",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline: "border border-gray bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 text-white text-sm font-bold leading-[20px]",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm text-white text-sm font-bold leading-[20px]",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        donateNow: "bg-secondary text-base font-bold text-white hover:bg-secondary/90",
+        donateNow: "bg-secondary text-base font-bold text-white",
         transparent:
           "border border-white bg-transparent shadow-sm hover:bg-transparent/40 text-white text-sm font-bold leading-[20px]",
       },
