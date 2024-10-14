@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import CommentForm from "./_components/CommentForm";
 import Badges from "@/components/Badges";
 import ReplyForm from "./_components/Reply";
 
@@ -77,7 +76,7 @@ const Comments = () => {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-lg font-bold lg:text-2xl">留言 (8)</h2>
       </div>
-      <CommentForm />
+      <ReplyForm />
       <ul>
         {commentsData.map((comment) => (
           <li key={comment.id} className="mb-5 bg-gray-100">
