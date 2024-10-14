@@ -20,7 +20,7 @@ const AboutUsSection = () => {
             alt="Screenshots of the dashboard project showing desktop version"
           />
         </div>
-        <article className="mb-6 flex-grow text-center font-bold text-[#0F514E] md:mb-0 md:max-w-[400px] md:p-[36px] md:text-left lg:max-w-[550px] lg:p-[72px]">
+        <article className="mb-6 flex-grow text-center font-bold text-tertiary md:mb-0 md:max-w-[400px] md:p-[36px] md:text-left lg:max-w-[550px] lg:p-[72px]">
           <h2 className="mb-8 text-4xl">關於我們</h2>
           <p className="mb-8 text-sm font-medium md:text-base">
             歡迎來到我們的餐廳合夥人募資平台,一個致力於將美食愛好者與創新餐飲項目聯繫在一起的社區。

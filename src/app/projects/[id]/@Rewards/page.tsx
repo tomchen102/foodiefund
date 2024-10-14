@@ -19,7 +19,7 @@ const Rewards = () => {
             <div className="mb-2 flex">
               <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
               <span className="text-sm font-medium text-gray">已被贊助</span>
-              <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+              <span className="text-sm font-medium text-tertiary">24/25</span>
               <span className="text-sm font-medium text-gray">次</span>
             </div>
             <div className="mb-2">
@@ -49,7 +49,7 @@ const Rewards = () => {
             <div className="mb-2 flex">
               <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
               <span className="text-sm font-medium text-gray">已被贊助</span>
-              <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+              <span className="text-sm font-medium text-tertiary">24/25</span>
               <span className="text-sm font-medium text-gray">次</span>
             </div>
             <div className="mb-2">
@@ -79,7 +79,7 @@ const Rewards = () => {
             <div className="mb-2 flex">
               <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
               <span className="text-sm font-medium text-gray">已被贊助</span>
-              <span className="text-sm font-medium text-[#0F514E]">24/25</span>
+              <span className="text-sm font-medium text-tertiary">24/25</span>
               <span className="text-sm font-medium text-gray">次</span>
             </div>
             <div className="mb-2">

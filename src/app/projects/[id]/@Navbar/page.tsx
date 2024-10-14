@@ -43,7 +43,7 @@ const Navbar = () => {
               href={link.href}
               className={cn("block h-12 border-b-2 py-3 font-bold leading-6", {
                 "border-secondary text-secondary": isActive(link.href),
-                "border-transparent text-[#0F514E] hover:border-secondary": !isActive(link.href),
+                "border-transparent text-tertiary hover:border-secondary": !isActive(link.href),
               })}
             >
               {link.label}

@@ -40,7 +40,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                     <div className="flex">
                       <TfiLocationPin size={20} className="mr-1" />
                       <span className="mr-auto text-sm font-bold text-gray">{item.place}</span>
-                      <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
+                      <span className="text-sm font-bold text-tertiary">{item.percentage} %</span>
                     </div>
                     <Progress value={item.percentage} className="my-5" />
                     <div className="flex">
