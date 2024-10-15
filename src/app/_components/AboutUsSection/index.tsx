@@ -3,7 +3,7 @@ import Image from "next/image";
 const AboutUsSection = () => {
   return (
     <div className="container">
-      <div className="mx-3 mb-[82px] flex flex-col-reverse items-center bg-[#D6F4F0] px-3 pt-8 md:mb-[160px] md:ml-auto md:w-[calc(100%-86px)] md:flex-row md:p-0 md:pl-8">
+      <div className="mx-3 mb-[82px] flex flex-col-reverse items-center bg-[#D6F4F0] px-3 pt-8 md:mb-[160px] md:ml-auto md:w-[calc(100%-86px)] md:flex-row md:p-0 md:pl-8 xl:w-full">
         <div className="-mb-[42px] w-full md:-mb-[60px] md:w-auto md:pt-20">
           <Image
             src="https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/about-us-2.jpg?alt=media&token=7b7091ca-d04b-40fb-99fd-3faba209ffb8"
