@@ -29,7 +29,10 @@ export const metadata = {
 export default function RootLayout({ children }: ProviderProps) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col antialiased`}>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col antialiased`}
+        suppressHydrationWarning={true}
+      >
         <AuthProvider>
           <ReactQueryProvider>
             <LoadingProvider>
