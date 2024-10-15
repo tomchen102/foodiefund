@@ -2,8 +2,9 @@
 import React from "react";
 import { useLoading } from "@/utils/providers/LoadingContext";
 import Loading from "@/components/Loading";
+import { ProviderProps } from "@/types/ProviderType";
 
-const ClientLoadingWrapper = ({ children }: { children: React.ReactNode }) => {
+const ClientLoadingWrapper = ({ children }: ProviderProps) => {
   const { isLoading } = useLoading();
   return (
     <>
