@@ -3,6 +3,8 @@ import AboutUs from "./_components/AboutUsSection";
 import ExperienceTalkBlock from "../components/ExperienceTalkBlock";
 import ExperienceSuccess from "../components/ExperienceSuccess";
 import Banner from "./_components/Banner";
+import { HydrationBoundary } from "@tanstack/react-query";
+import { initializeQueryNewsClient } from "@/hooks/useNews";
 const data = [
   {
     id: 1,
@@ -227,19 +229,25 @@ const getSuccess = () => {
 };
 
 export default async function Home() {
+  const queryParams = { page: 1, limit: 1 };
+  const { dehydratedState } = await initializeQueryNewsClient(queryParams);
+
   const RecentProjectsBlockHotData = await recentProjectsBlockHotData();
   const RecentProjectsBlockData = await recentProjectsBlockData();
   const ExperienceData = await getSuccess();
+
   return (
-    <main>
-      <Banner data={banners} />
-      <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
-        <RecentProjectsBlock className="md:pb-0" data={RecentProjectsBlockHotData} title="熱門專案" />
-      </div>
-      <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
-      <ExperienceSuccess className="bg-[#F5E5CE] md:pt-20" data={ExperienceData} title="成功案例" />
-      <ExperienceTalkBlock data={data} />
-      <AboutUs />
-    </main>
+    <HydrationBoundary state={dehydratedState}>
+      <main>
+        <Banner data={banners} queryParams={queryParams} />
+        <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
+          <RecentProjectsBlock className="md:pb-0" data={RecentProjectsBlockHotData} title="熱門專案" />
+        </div>
+        <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
+        <ExperienceSuccess className="bg-[#F5E5CE] md:pt-20" data={ExperienceData} title="成功案例" />
+        <ExperienceTalkBlock data={data} />
+        <AboutUs />
+      </main>
+    </HydrationBoundary>
   );
 }
