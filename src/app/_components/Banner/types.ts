@@ -5,4 +5,5 @@ export interface BannerProps {
     description: string;
     title: string;
   }[];
+  queryParams: { page: number; limit: number };
 }
