@@ -63,7 +63,7 @@ const HeaderMenu = () => {
             <NavigationMenuItem key={index}>
               <Link
                 href={item.hrefUrl}
-                className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
+                className="px-1 py-2 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
               >
                 {item.title}
               </Link>
