@@ -1,14 +1,21 @@
+"use client";
 import Badges from "@/components/Badges";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { BiLogoInstagramAlt } from "react-icons/bi";
 import { MdOutlineCalendarMonth, MdPersonOutline } from "react-icons/md";
-import { RiFacebookBoxFill, RiMessage2Fill, RiTwitterXFill } from "react-icons/ri";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { ProjectSummaryDataProps } from "./types";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LineShareButton,
+  LineIcon,
+} from "next-share";
 
 const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
   return (
@@ -93,27 +100,26 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
             <div className="flex flex-col">
               <ul className="mb-5 flex gap-3">
                 <li>
-                  <a href={ProjectSummaryData.socialLinks.facebook}>
-                    <RiFacebookBoxFill size={24} className="text-gray" />
-                  </a>
+                  <FacebookShareButton
+                    url={"https://foodiefund.vercel.app/"}
+                    title={ProjectSummaryData.title}
+                    quote={ProjectSummaryData.description}
+                    hashtag={"#群眾募資"}
+                  >
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
                 </li>
                 <li>
-                  <a href={ProjectSummaryData.socialLinks.instagram}>
-                    <BiLogoInstagramAlt size={24} className="text-gray" />
-                  </a>
+                  <LineShareButton url={"https://foodiefund.vercel.app/"} title={ProjectSummaryData.title}>
+                    <LineIcon size={32} round />
+                  </LineShareButton>
                 </li>
                 <li>
-                  <a href={ProjectSummaryData.socialLinks.twitter}>
-                    <RiTwitterXFill size={24} className="text-gray" />
-                  </a>
-                </li>
-                <li>
-                  <a href={ProjectSummaryData.socialLinks.twitter}>
-                    <RiMessage2Fill size={24} className="text-gray" />
-                  </a>
+                  <TwitterShareButton url={"https://foodiefund.vercel.app/"} title={ProjectSummaryData.title}>
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
                 </li>
               </ul>
-
               <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
                 <Button className="mr-5" variant="donateNow" size="lg" asChild>
                   <Link href="#">立即贊助</Link>
