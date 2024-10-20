@@ -1,30 +1,13 @@
-"use client";
+import React from "react";
 
-import { useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { useAuth } from "@/utils/providers/AuthProvider";
+import SectionPadding from "@/components/SectionPadding";
 
-const RedirectPage = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const { setUser } = useAuth();
-
-  useEffect(() => {
-    const token = searchParams.get("token");
-    const name = searchParams.get("name");
-    const email = searchParams.get("email");
-    const photo = searchParams.get("photo");
-
-    if (token && name && email && photo) {
-      Cookies.set("token", JSON.stringify({ name, photo, token }));
-      setUser({ name, photo, token });
-      setTimeout(() => {
-        //router.push("/");
-      }, 2000);
-    }
-  }, [searchParams, router, setUser]);
-  return <div>{searchParams}</div>;
+const Register = () => {
+  return (
+    <SectionPadding className="container px-3 xl:px-0">
+      <div className="rounded-xl border border-black bg-white p-6 md:mx-auto md:w-[636px] md:p-10">123</div>
+    </SectionPadding>
+  );
 };
 
-export default RedirectPage;
+export default Register;
