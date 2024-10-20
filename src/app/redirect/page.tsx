@@ -20,11 +20,11 @@ const RedirectPage = () => {
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
       setTimeout(() => {
-        router.push("/");
+        //router.push("/");
       }, 2000);
     }
   }, [searchParams, router, setUser]);
-  return null;
+  return <div>{searchParams}</div>;
 };
 
 export default RedirectPage;
