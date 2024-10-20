@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
@@ -20,17 +20,17 @@ const RedirectPage = () => {
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
       setTimeout(() => {
-        router.push("/");
+        // router.push("/");
       }, 2000);
     }
   }, [searchParams, router, setUser]);
 
   return (
-    <div>
+    <Suspense>
       {/* Display the extracted search parameters */}
       <p>Token: {searchParams.get("token")}</p>
       <p>Name: {searchParams.get("name")}</p>
-    </div>
+    </Suspense>
   );
 };
 
