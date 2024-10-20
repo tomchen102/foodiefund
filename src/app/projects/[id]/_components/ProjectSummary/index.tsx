@@ -101,7 +101,7 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
               <ul className="mb-5 flex gap-3">
                 <li>
                   <FacebookShareButton
-                    url={"https://foodiefund.vercel.app/"}
+                    url={"https://foodiefund.vercel.app/projects/123"}
                     title={ProjectSummaryData.title}
                     quote={ProjectSummaryData.description}
                     hashtag={"#群眾募資"}
@@ -110,12 +110,15 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
                   </FacebookShareButton>
                 </li>
                 <li>
-                  <LineShareButton url={"https://foodiefund.vercel.app/"} title={ProjectSummaryData.title}>
+                  <LineShareButton url={"https://foodiefund.vercel.app/projects/123"} title={ProjectSummaryData.title}>
                     <LineIcon size={32} round />
                   </LineShareButton>
                 </li>
                 <li>
-                  <TwitterShareButton url={"https://foodiefund.vercel.app/"} title={ProjectSummaryData.title}>
+                  <TwitterShareButton
+                    url={"https://foodiefund.vercel.app/projects/123"}
+                    title={ProjectSummaryData.title}
+                  >
                     <TwitterIcon size={32} round />
                   </TwitterShareButton>
                 </li>
