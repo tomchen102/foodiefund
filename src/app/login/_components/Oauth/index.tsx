@@ -16,7 +16,10 @@ const Oauth = () => {
         </a>
       </div>
       <div className="flex justify-center pb-6">
-        <a href="#" className="flex w-full justify-center rounded-full bg-[#F8F9FA] py-3 leading-[19.2px]">
+        <a
+          href="https://foodiefund.onrender.com/v1/api/auth/Line/callback"
+          className="flex w-full justify-center rounded-full bg-[#F8F9FA] py-3 leading-[19.2px]"
+        >
           <FaLine className="mr-3" color="#06C755" />
           使用 Line 登入
         </a>
