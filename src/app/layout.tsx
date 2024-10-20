@@ -5,7 +5,6 @@ import "./globals.css";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
 import HeaderMenu from "./_components/Header";
 import FooterMenu from "./_components/Footer";
-import ClientLoadingWrapper from "@/components/Loading/ClientLoadingWrapper";
 import { AuthProvider } from "@/utils/providers/AuthProvider";
 import { ProviderProps } from "@/types/ProviderType";
 
@@ -36,11 +35,9 @@ export default function RootLayout({ children }: ProviderProps) {
         <AuthProvider>
           <ReactQueryProvider>
             <LoadingProvider>
-              <ClientLoadingWrapper>
-                <HeaderMenu />
-                <main className="flex-1">{children}</main>
-                <FooterMenu />
-              </ClientLoadingWrapper>
+              <HeaderMenu />
+              <main className="flex-1">{children}</main>
+              <FooterMenu />
             </LoadingProvider>
           </ReactQueryProvider>
         </AuthProvider>

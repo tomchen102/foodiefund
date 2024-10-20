@@ -1,4 +1,5 @@
 "use client";
+import ClientLoadingWrapper from "@/components/Loading/ClientLoadingWrapper";
 import { ProviderProps } from "@/types/ProviderType";
 import React, { createContext, useContext, useState } from "react";
 
@@ -20,5 +21,9 @@ export const useLoading = () => {
 export const LoadingProvider = ({ children }: ProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  return <LoadingContext.Provider value={{ isLoading, setLoading: setIsLoading }}>{children}</LoadingContext.Provider>;
+  return (
+    <LoadingContext.Provider value={{ isLoading, setLoading: setIsLoading }}>
+      <ClientLoadingWrapper>{children}</ClientLoadingWrapper>
+    </LoadingContext.Provider>
+  );
 };
