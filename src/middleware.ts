@@ -10,6 +10,7 @@ export async function middleware(req: NextRequest) {
     token &&
     (req.nextUrl.pathname === "/login" ||
       req.nextUrl.pathname === "/register" ||
+      req.nextUrl.pathname === "/redirect" ||
       req.nextUrl.pathname === "/payment-successful")
   ) {
     console.log("User already logged in, redirecting to home page");
@@ -31,5 +32,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/test/:path*", "/login", "/register", "/payment-successful"], // 保護的路由和登錄頁面
+  matcher: ["/test/:path*", "/login", "/redirect", "/register", "/payment-successful"], // 保護的路由和登錄頁面
 };
