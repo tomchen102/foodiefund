@@ -29,7 +29,7 @@ const PcRecentProjectsList = ({ data }: RecentProjectsListProps) => {
               </div>
               <div className="flex h-full flex-col p-5">
                 <h3 className="mb-2 font-bold">
-                  <Link href={href} className="hover:text-tertiary hover:underline">
+                  <Link scroll={true} href={href} className="hover:text-tertiary hover:underline">
                     {item.title}
                   </Link>
                 </h3>
