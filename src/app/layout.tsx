@@ -71,6 +71,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: ProviderProps) {
   return (
     <html lang="zh">
+      <head>
+        <meta name="mobile-web-app-capable" content="yes" />
+      </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col antialiased`}
         suppressHydrationWarning={true}
