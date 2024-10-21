@@ -1,4 +1,4 @@
-interface RecentProjectsProps {
+export interface RecentProjectsProps {
   id: number;
   title: string;
   description: string;
@@ -7,6 +7,7 @@ interface RecentProjectsProps {
   percentage: number;
   targetAmount: string;
   reciprocal: number;
+  href: string;
 }
 
 export interface RecentProjectsListProps {
