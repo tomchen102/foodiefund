@@ -17,7 +17,7 @@ import {
   LineIcon,
 } from "next-share";
 
-const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
+const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
   return (
     <section
       className="container lg:grid lg:gap-0 lg:px-3 lg:pb-[100px] lg:pt-[100px] xl:px-0"
@@ -29,7 +29,7 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
           width={550}
           height={550}
           alt="喵喵咖啡廳"
-          className="hidden w-full bg-cover bg-center md:block lg:h-full"
+          className="hidden w-full bg-cover bg-center object-cover md:block lg:h-[550px]"
           loading="lazy"
         />
         <Image
@@ -53,7 +53,9 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
               <MdPersonOutline size={20} className="mr-1 inline-block" />
               <span className="mr-1 text-sm font-medium text-gray">提案人</span>
               <span className="text-sm font-medium text-tertiary hover:underline">
-                <Link href="#">{ProjectSummaryData.proposer}</Link>
+                <Link scroll={true} href="#">
+                  {ProjectSummaryData.proposer}
+                </Link>
               </span>
             </div>
             <div className="flex h-[30px] items-center">
@@ -101,22 +103,25 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
               <ul className="mb-5 flex gap-3">
                 <li>
                   <FacebookShareButton
-                    url={"https://foodiefund.vercel.app/projects/123"}
+                    url={`https://foodiefund.vercel.app/projects/${ProjectSummaryData.id}`}
                     title={ProjectSummaryData.title}
                     quote={ProjectSummaryData.description}
-                    hashtag={"#群眾募資"}
+                    hashtag={`#群眾募資 ${ProjectSummaryData.title} #${ProjectSummaryData.proposer} #${ProjectSummaryData.restaurantType} #${ProjectSummaryData.location}`}
                   >
                     <FacebookIcon size={32} round />
                   </FacebookShareButton>
                 </li>
                 <li>
-                  <LineShareButton url={"https://foodiefund.vercel.app/projects/123"} title={ProjectSummaryData.title}>
+                  <LineShareButton
+                    url={`https://foodiefund.vercel.app/projects/${ProjectSummaryData.id}`}
+                    title={ProjectSummaryData.title}
+                  >
                     <LineIcon size={32} round />
                   </LineShareButton>
                 </li>
                 <li>
                   <TwitterShareButton
-                    url={"https://foodiefund.vercel.app/projects/123"}
+                    url={`https://foodiefund.vercel.app/projects/${ProjectSummaryData.id}`}
                     title={ProjectSummaryData.title}
                   >
                     <TwitterIcon size={32} round />
@@ -125,7 +130,9 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
               </ul>
               <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
                 <Button className="mr-5" variant="donateNow" size="lg" asChild>
-                  <Link href="#">立即贊助</Link>
+                  <Link scroll={true} href="#">
+                    立即贊助
+                  </Link>
                 </Button>
                 <Button className="flex-shrink-0" variant="secondary" size="icon">
                   <TiHeartFullOutline size={24} />

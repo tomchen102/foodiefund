@@ -1,4 +1,4 @@
-interface ExpierieceSuccessProps {
+export interface ExpierieceSuccessProps {
   id: number;
   title: string;
   description: string;

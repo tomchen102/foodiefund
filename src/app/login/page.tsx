@@ -1,3 +1,4 @@
+"use client";
 import SectionPadding from "@/components/SectionPadding";
 import LoginForm from "./_components/LoginForm";
 

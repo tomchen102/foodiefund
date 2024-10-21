@@ -33,7 +33,7 @@ const Oauth = () => {
 
       <div className="text-center leading-6 tracking-wider">
         還未成為會員？
-        <Link href="/register" className={buttonVariants({ variant: "link" })}>
+        <Link scroll={true} href="/register" className={buttonVariants({ variant: "link" })}>
           立即註冊
         </Link>
       </div>

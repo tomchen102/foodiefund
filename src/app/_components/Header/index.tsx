@@ -104,7 +104,7 @@ const HeaderMenu = () => {
                     const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                     return (
-                      <Link href={item.hrefUrl} key={index}>
+                      <Link scroll={true} href={item.hrefUrl} key={index}>
                         <DropdownMenuItem>
                           {/* 渲染图标 */}
                           {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
@@ -117,13 +117,13 @@ const HeaderMenu = () => {
             </Accordion>
           )}
           {navMenu.mainNav.map((item, index) => (
-            <Link href="#" key={index}>
+            <Link scroll={true} href="#" key={index}>
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
             </Link>
           ))}
           {!user ? (
             // onClick={handleLogin}
-            <Link href="/login">
+            <Link scroll={true} href="/login">
               <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
             </Link>
           ) : (
@@ -143,7 +143,7 @@ const HeaderMenu = () => {
             variant="ghost"
             asChild
           >
-            <Link href="#">
+            <Link scroll={true} href="#">
               <FaRegBell />
             </Link>
           </Button>
@@ -159,7 +159,7 @@ const HeaderMenu = () => {
                 const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                 return (
-                  <Link href={item.hrefUrl} key={index}>
+                  <Link scroll={true} href={item.hrefUrl} key={index}>
                     <DropdownMenuItem>
                       {/* 渲染图标 */}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}

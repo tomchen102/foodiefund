@@ -30,7 +30,9 @@ const detail = () => {
             <br />
             📅 時間不等人,快來支持我們吧!
             我們熱切期待與您一同實現這個夢想,讓【喵喵咖啡館】成為每一位咖啡愛好者的溫暖角落。
-            <Link href="https://yourcrowdfundinglink.com">加入官方帳號</Link>
+            <Link scroll={true} href="https://yourcrowdfundinglink.com">
+              加入官方帳號
+            </Link>
           </p>
         </div>
       </div>

@@ -1,6 +1,10 @@
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Badges from "@/components/Badges";
 import ReplyForm from "./_components/Reply";
+import { useAuth } from "@/utils/providers/AuthProvider";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 const commentsData = [
   {
@@ -71,12 +75,27 @@ const commentsData = [
   },
 ];
 const Comments = () => {
+  const { user } = useAuth();
   return (
     <>
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-lg font-bold lg:text-2xl">留言 (8)</h2>
       </div>
-      <ReplyForm />
+      {user ? (
+        <ReplyForm />
+      ) : (
+        <div className="mb-5 bg-gray-100 p-5">
+          成為 眾資成城 會員才能留言。請先進行
+          <Link scroll={true} href="/login" className={buttonVariants({ variant: "link" })}>
+            登入
+          </Link>
+          或者
+          <Link scroll={true} href="/register" className={buttonVariants({ variant: "link" })}>
+            註冊
+          </Link>
+          再進行留言。
+        </div>
+      )}
       <ul>
         {commentsData.map((comment) => (
           <li key={comment.id} className="mb-5 bg-gray-100">
@@ -98,7 +117,7 @@ const Comments = () => {
                 </div>
               </footer>
               <p className="text-gray-500">{comment.content}</p>
-              {comment.replies.length ? null : <ReplyForm />}
+              {comment.replies.length ? null : user && <ReplyForm />}
             </article>
             {comment.replies.map((reply, index) => (
               <article key={reply.id} className="mx-6 ml-6 rounded-lg bg-gray-100 pb-6 lg:ml-12">
@@ -121,7 +140,7 @@ const Comments = () => {
                   </div>
                 </footer>
                 <p className="text-gray-500">{reply.content}</p>
-                {index === comment.replies.length - 1 && <ReplyForm />}
+                {index === comment.replies.length - 1 && user && <ReplyForm />}
               </article>
             ))}
           </li>

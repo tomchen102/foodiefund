@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import RegisterForm from "./_components/RegisterForm";
 import SectionPadding from "@/components/SectionPadding";

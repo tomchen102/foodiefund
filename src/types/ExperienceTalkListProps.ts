@@ -1,4 +1,4 @@
-interface ExperienceTalkProps {
+export interface ExperienceTalkProps {
   id: number;
   title: string;
   description: string;

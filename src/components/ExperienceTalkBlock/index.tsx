@@ -12,7 +12,7 @@ const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
       <div className="mb-3 flex md:mb-6">
         <h2 className="text-lg font-bold md:text-2xl">募資提案經驗談</h2>
         <Button className="ml-auto hidden items-center md:flex" variant="secondary" asChild>
-          <Link href="/404">
+          <Link scroll={true} href="/404">
             查看更多 <GoArrowRight size={16} className="ml-1" />
           </Link>
         </Button>
@@ -21,7 +21,7 @@ const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
       <MobileExperienceTalkCarousel data={data} />
       <ExperienceTalkList data={data} />
       <Button className="ml-auto mt-3 flex items-center md:hidden" variant="secondary" asChild>
-        <Link href="/404">
+        <Link scroll={true} href="/404">
           查看更多 <GoArrowRight size={16} className="ml-1" />
         </Link>
       </Button>
