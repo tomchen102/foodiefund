@@ -1,13 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-
 import Link from "next/link";
-import { BannerProps } from "./types";
+import { BannerPropsType } from "./types";
 import "./css/embla.css";
 import { useGetNews } from "@/hooks/useNews";
 
-const Banner = ({ data, queryParams }: BannerProps) => {
+const Banner = ({ queryParams, data }: BannerPropsType) => {
   const { data: newsData } = useGetNews(queryParams);
   return (
     <section>
