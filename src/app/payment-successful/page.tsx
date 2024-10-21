@@ -17,7 +17,7 @@ const PaymentSuccessful = () => {
           <p className="my-2 mb-5 text-3xl text-gray-600">感謝您完成安全的線上付款。</p>
           <p className="text-2xl"> 祝你有美好的一天！</p>
           <div className="py-10 text-center">
-            <Link href="/" className={buttonVariants()}>
+            <Link scroll={true} href="/" className={buttonVariants()}>
               返回首頁
             </Link>
           </div>

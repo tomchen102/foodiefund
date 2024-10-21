@@ -53,7 +53,9 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               <MdPersonOutline size={20} className="mr-1 inline-block" />
               <span className="mr-1 text-sm font-medium text-gray">提案人</span>
               <span className="text-sm font-medium text-tertiary hover:underline">
-                <Link href="#">{ProjectSummaryData.proposer}</Link>
+                <Link scroll={true} href="#">
+                  {ProjectSummaryData.proposer}
+                </Link>
               </span>
             </div>
             <div className="flex h-[30px] items-center">
@@ -128,7 +130,9 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               </ul>
               <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
                 <Button className="mr-5" variant="donateNow" size="lg" asChild>
-                  <Link href="#">立即贊助</Link>
+                  <Link scroll={true} href="#">
+                    立即贊助
+                  </Link>
                 </Button>
                 <Button className="flex-shrink-0" variant="secondary" size="icon">
                   <TiHeartFullOutline size={24} />

@@ -7,7 +7,7 @@ const News = () => {
       <li className="pb-5">
         <div className="border p-6">
           <h2 className="mb-2 text-lg font-bold md:text-2xl">
-            <Link href="news/detail" className="hover:text-tertiary">
+            <Link scroll={true} href="news/detail" className="hover:text-tertiary">
               計畫更新:追加福利!【喵喵咖啡館】群眾募資活動將延長至9月1日!
             </Link>
           </h2>
@@ -22,7 +22,7 @@ const News = () => {
             </p>
           </div>
           <div className="ml-[-12px]">
-            <Link href="news/detail" className={buttonVariants({ variant: "link" })}>
+            <Link scroll={true} href="news/detail" className={buttonVariants({ variant: "link" })}>
               閱讀更多
             </Link>
           </div>
@@ -31,7 +31,7 @@ const News = () => {
       <li className="pb-5">
         <div className="border p-6">
           <h2 className="mb-2 text-lg font-bold md:text-2xl">
-            <Link href="news/detail" className="hover:text-tertiary">
+            <Link scroll={true} href="news/detail" className="hover:text-tertiary">
               追加福利！【喵喵咖啡館】群眾募資活動將延長至9月1日！
             </Link>
           </h2>
@@ -45,7 +45,7 @@ const News = () => {
             </p>
           </div>
           <div className="ml-[-12px]">
-            <Link href="news/detail" className={buttonVariants({ variant: "link" })}>
+            <Link scroll={true} href="news/detail" className={buttonVariants({ variant: "link" })}>
               閱讀更多
             </Link>
           </div>

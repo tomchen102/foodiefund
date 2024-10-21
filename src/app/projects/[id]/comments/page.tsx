@@ -86,11 +86,11 @@ const Comments = () => {
       ) : (
         <div className="mb-5 bg-gray-100 p-5">
           成為 眾資成城 會員才能留言。請先進行
-          <Link href="/login" className={buttonVariants({ variant: "link" })}>
+          <Link scroll={true} href="/login" className={buttonVariants({ variant: "link" })}>
             登入
           </Link>
           或者
-          <Link href="/register" className={buttonVariants({ variant: "link" })}>
+          <Link scroll={true} href="/register" className={buttonVariants({ variant: "link" })}>
             註冊
           </Link>
           再進行留言。

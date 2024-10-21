@@ -51,7 +51,7 @@ const FooterMenu = () => {
             <li className="mb-4 font-bold">關於</li>
             {fooMenu.aboutNav.map((item, index) => (
               <li className="mb-4" key={item.title}>
-                <Link href={item.hrefUrl} key={index}>
+                <Link scroll={true} href={item.hrefUrl} key={index}>
                   {item.title}
                 </Link>
               </li>
@@ -61,7 +61,7 @@ const FooterMenu = () => {
             <li className="mb-4 font-bold">幫助</li>
             {fooMenu.helpNav.map((item, index) => (
               <li className="mb-4" key={item.title}>
-                <Link href={item.hrefUrl} key={index}>
+                <Link scroll={true} href={item.hrefUrl} key={index}>
                   {item.title}
                 </Link>
               </li>
@@ -71,7 +71,7 @@ const FooterMenu = () => {
             <li className="mb-4 font-bold">更多內容</li>
             {fooMenu.moreNav.map((item, index) => (
               <li className="mb-4" key={item.title}>
-                <Link href={item.hrefUrl} key={index}>
+                <Link scroll={true} href={item.hrefUrl} key={index}>
                   {item.title}
                 </Link>
               </li>
