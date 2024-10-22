@@ -10,17 +10,23 @@ const RedirectPageContent = () => {
   const router = useRouter();
   const { setUser } = useAuth();
 
+  console.log(searchParams);
+
   useEffect(() => {
     const token = searchParams.get("token");
     const name = searchParams.get("name");
-    const email = searchParams.get("email");
-    const photo = searchParams.get("photo");
+    let photo = searchParams.get("photo");
 
-    if (token && name && email && photo) {
+    if (token && name) {
+      photo = photo ? photo : "";
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
       setTimeout(() => {
         router.push("/");
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        router.push("/Login");
       }, 2000);
     }
   }, [searchParams, router, setUser]);
@@ -28,8 +34,10 @@ const RedirectPageContent = () => {
   return (
     <div>
       {/* Display the extracted search parameters */}
-      <p>Token: {searchParams.get("token")}</p>
+      {/*  <p>Token: {searchParams.get("token")}</p>
       <p>Name: {searchParams.get("name")}</p>
+      <p>email: {searchParams.get("email")}</p>
+      <p>photo: {searchParams.get("photo")}</p> */}
     </div>
   );
 };

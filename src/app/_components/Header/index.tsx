@@ -156,13 +156,16 @@ const HeaderMenu = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
-              <Avatar className="mr-2">
-                <AvatarImage src={user.photo} />
-                <AvatarFallback>
-                  <FaRegUserCircle className="mr-2 h-5 w-5" />
-                </AvatarFallback>
-              </Avatar>
-
+              {user.photo ? (
+                <Avatar className="mr-2">
+                  <AvatarImage src={user.photo} />
+                  <AvatarFallback>
+                    <FaRegUserCircle className="mr-2 h-5 w-5" />
+                  </AvatarFallback>
+                </Avatar>
+              ) : (
+                <FaRegUserCircle className="mr-2 h-5 w-5" />
+              )}
               {user.name}
             </DropdownMenuTrigger>
             <DropdownMenuContent>

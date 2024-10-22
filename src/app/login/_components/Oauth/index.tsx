@@ -1,6 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { FaFacebook, FaLine, FaGithub } from "react-icons/fa6";
+import { FaLine, FaGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 
 const Oauth = () => {
@@ -9,7 +9,7 @@ const Oauth = () => {
       <div className="flex justify-center pb-6">
         <a
           href="https://accounts.google.com/o/oauth2/v2/auth?client_id=732186448181-fej9b1v1gf3biumcbab30ibq5n9r712u.apps.googleusercontent.com&redirect_uri=https://foodiefund.onrender.com/v1/api/auth/google/callback&response_type=code&scope=email%20profile&access_type=offline"
-          className="flex w-full justify-center rounded-full bg-[#F8F9FA] py-3 leading-[19.2px]"
+          className="group flex w-full justify-center rounded-full border bg-[#F8F9FA] py-3 leading-[19.2px] hover:bg-slate-200"
         >
           <FcGoogle className="mr-3" />
           使用 Google 登入
@@ -18,39 +18,15 @@ const Oauth = () => {
       <div className="flex justify-center pb-6">
         <a
           href="https://foodiefund.onrender.com/v1/api/auth/Line/callback"
-          className="flex w-full justify-center rounded-full bg-[#F8F9FA] py-3 leading-[19.2px]"
+          className="group flex w-full justify-center rounded-full border bg-[#F8F9FA] py-3 leading-[19.2px] hover:bg-slate-200"
         >
-          <FaLine className="mr-3" color="#06C755" />
+          <FaLine className="mr-4" color="#06C755" />
           使用 Line 登入
         </a>
       </div>
       <div className="flex justify-center pb-6 md:pb-10">
-        <a href="#" className="flex w-full justify-center rounded-full bg-[#F8F9FA] py-3 leading-[19.2px]">
-          <FaFacebook className="mr-3" color="#1877F2" />
-          使用 Facebook 登入
-        </a>
-      </div>
-      <div className="group flex justify-center py-2 md:pb-10">
         <a
-          href="https://accounts.google.com/o/oauth2/v2/auth?client_id=732186448181-fej9b1v1gf3biumcbab30ibq5n9r712u.apps.googleusercontent.com&redirect_uri=https://foodiefund.onrender.com/v1/api/auth/google/callback&response_type=code&scope=email%20profile&access_type=offline"
-          className="group flex w-full justify-center rounded-full border bg-[#F8F9FA] py-3 leading-[19.2px] hover:bg-slate-200"
-        >
-          <FcGoogle className="mr-3" />
-          使用 Google 登入
-        </a>
-      </div>
-      <div className="flex justify-center py-2 md:pb-10">
-        <a
-          href="https://foodiefund.onrender.com/v1/api/auth/Line/callback"
-          className="group flex w-full justify-center rounded-full border bg-[#F8F9FA] py-3 leading-[19.2px] hover:bg-slate-200"
-        >
-          <FaLine className="mr-3" color="#06C755" />
-          使用 Line 登入
-        </a>
-      </div>
-      <div className="flex justify-center py-2 md:pb-10">
-        <a
-          href="#"
+          href="https://foodiefund.onrender.com/v1/api/auth/github/callback"
           className="group flex w-full justify-center rounded-full border bg-[#F8F9FA] py-3 leading-[19.2px] hover:bg-slate-200"
         >
           <FaGithub className="mr-3" color="#232a33" />
