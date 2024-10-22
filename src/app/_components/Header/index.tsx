@@ -14,6 +14,8 @@ import Logo from "./logo";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
 import "./index.css";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 const HeaderMenu = () => {
   const { user, clearUser } = useAuth();
 
@@ -93,10 +95,14 @@ const HeaderMenu = () => {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-primary-dark justify-start bg-primary px-5 py-3 font-bold hover:no-underline">
-                  <span>
-                    <FaRegUserCircle className="mr-2 h-5 w-5" />
-                  </span>
-                  Lobinda
+                  <Avatar className="mr-2">
+                    <AvatarImage src={user.photo} />
+                    <AvatarFallback>
+                      <FaRegUserCircle className="mr-2 h-5 w-5" />
+                    </AvatarFallback>
+                  </Avatar>
+
+                  {user.name}
                 </AccordionTrigger>
                 <AccordionContent className="pb-0">
                   {navMenu.userNav.map((item, index) => {
@@ -150,7 +156,16 @@ const HeaderMenu = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
-              <FaRegUserCircle className="mr-2 h-5 w-5" />
+              {user.photo ? (
+                <Avatar className="mr-2">
+                  <AvatarImage src={user.photo} />
+                  <AvatarFallback>
+                    <FaRegUserCircle className="mr-2 h-5 w-5" />
+                  </AvatarFallback>
+                </Avatar>
+              ) : (
+                <FaRegUserCircle className="mr-2 h-5 w-5" />
+              )}
               {user.name}
             </DropdownMenuTrigger>
             <DropdownMenuContent>
