@@ -96,7 +96,7 @@ const HeaderMenu = () => {
                   <span>
                     <FaRegUserCircle className="mr-2 h-5 w-5" />
                   </span>
-                  Lobinda
+                  Lulume
                 </AccordionTrigger>
                 <AccordionContent className="pb-0">
                   {navMenu.userNav.map((item, index) => {

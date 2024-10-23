@@ -1,12 +1,16 @@
+"use client";
 import { ProviderProps } from "@/types/ProviderType";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ProjectSummary from "./_components/ProjectSummary";
 import Navbar from "./@Navbar/page";
 import Rewards from "./@Rewards/page";
 import SectionPadding from "@/components/SectionPadding";
+import { usePathname, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import RewardsBar from "./projectlist/page";
 
 const recentProjectsBlockData = () => {
-  return [
+  return Promise.resolve([
     {
       id: 1,
       title: "咖啡與時光",
@@ -51,11 +55,11 @@ const recentProjectsBlockData = () => {
       targetAmount: "500,000",
       reciprocal: 20,
     },
-  ];
+  ]);
 };
 
 const getProjectSummaryData = () => {
-  return {
+  return Promise.resolve({
     id: "1",
     title: "喵喵咖啡廳",
     description:
@@ -78,22 +82,60 @@ const getProjectSummaryData = () => {
       twitter: "https://twitter.com/",
       instagram: "https://www.instagram.com/",
     },
-  };
+  });
 };
-export default async function ProjectsLayout({ children }: ProviderProps) {
-  const data = await recentProjectsBlockData();
-  const ProjectSummaryData = await getProjectSummaryData();
+export default function ProjectsLayout({ children }: ProviderProps) {
+  const [data, setData] = useState<
+    {
+      id: number;
+      title: string;
+      description: string;
+      imageUrl: string;
+      place: string;
+      percentage: number;
+      targetAmount: string;
+      reciprocal: number;
+    }[]
+  >([]);
+  const [ProjectSummaryData, setProjectSummaryData] = useState({});
+  const pathname = usePathname();
+  const params = useParams();
+  const { id } = params;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const recentProjects = await recentProjectsBlockData();
+      const projectSummary = await getProjectSummaryData();
+      setData(recentProjects);
+      setProjectSummaryData(projectSummary);
+    };
+    fetchData();
+  }, []);
+
+  const isProjectList = pathname.includes("/projects/") && pathname.includes("/projectlist"); // Check the current path
+
   return (
     <>
-      <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
-      <Navbar />
-      <SectionPadding className="container px-3">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-6">
-          <div className="mb-8 pr-10 lg:col-span-9">{children}</div>
-          <Rewards />
-        </div>
-      </SectionPadding>
-      <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
+      {isProjectList ? (
+        <>
+          <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
+          <SectionPadding className="container px-3 lg:pt-0">
+            <RewardsBar />
+          </SectionPadding>
+        </>
+      ) : (
+        <>
+          <ProjectSummary ProjectSummaryData={ProjectSummaryData} />
+          <Navbar />
+          <SectionPadding className="container px-3">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-6">
+              <div className="mb-8 pr-10 lg:col-span-9">{children}</div>
+              <Rewards />
+            </div>
+          </SectionPadding>
+          <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
+        </>
+      )}
     </>
   );
 }

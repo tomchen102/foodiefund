@@ -1,0 +1,40 @@
+.scroll-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 假滾動條樣式 */
+.scrollbar {
+  height: 16px;
+  background-color: #f1f1f1;
+  overflow-x: scroll;
+}
+
+/* 用來模擬滾動的寬度 */
+.scrollbar-thumb {
+  height: 100%;
+  background-color: #fe4710;
+  border-radius: 20px;
+}
+
+.scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
+/* 滾動內容區域樣式 */
+.scroll-content {
+  display: flex;
+  overflow-x: scroll;
+  height: calc(100% - 16px);
+}
+
+/* 隱藏 WebKit 瀏覽器（Chrome、Safari 等）的水平滾動條 */
+.scroll-content::-webkit-scrollbar {
+  height: 0;
+}
+
+/* 為其他瀏覽器（如 Firefox）隱藏水平滾動條 */
+.scroll-content {
+  scrollbar-width: none;
+}

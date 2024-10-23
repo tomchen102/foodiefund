@@ -9,8 +9,11 @@ import { MdOutlineCalendarMonth, MdPersonOutline } from "react-icons/md";
 import { RiFacebookBoxFill, RiMessage2Fill, RiTwitterXFill } from "react-icons/ri";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { ProjectSummaryDataProps } from "./types";
+import { usePathname } from "next/navigation";
 
 const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
+  const pathname = usePathname();
+  const isProjectList = pathname.includes("/projects/") && pathname.includes("/projectlist");
   return (
     <section
       className="container lg:grid lg:gap-0 lg:px-3 lg:pb-[100px] lg:pt-[100px] xl:px-0"
@@ -91,37 +94,43 @@ const ProjectSummary = ({ ProjectSummaryData }: ProjectSummaryDataProps) => {
           </div>
           <div className="mb-8 lg:mb-0">
             <div className="flex flex-col">
-              <ul className="mb-5 flex gap-3">
-                <li>
-                  <a href={ProjectSummaryData.socialLinks.facebook}>
-                    <RiFacebookBoxFill size={24} className="text-gray" />
-                  </a>
-                </li>
-                <li>
-                  <a href={ProjectSummaryData.socialLinks.instagram}>
-                    <BiLogoInstagramAlt size={24} className="text-gray" />
-                  </a>
-                </li>
-                <li>
-                  <a href={ProjectSummaryData.socialLinks.twitter}>
-                    <RiTwitterXFill size={24} className="text-gray" />
-                  </a>
-                </li>
-                <li>
-                  <a href={ProjectSummaryData.socialLinks.twitter}>
-                    <RiMessage2Fill size={24} className="text-gray" />
-                  </a>
-                </li>
-              </ul>
+              {ProjectSummaryData.socialLinks ? (
+                <ul className="mb-5 flex gap-3">
+                  <li>
+                    <a href={ProjectSummaryData.socialLinks.facebook}>
+                      <RiFacebookBoxFill size={24} className="text-gray" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={ProjectSummaryData.socialLinks.instagram}>
+                      <BiLogoInstagramAlt size={24} className="text-gray" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={ProjectSummaryData.socialLinks.twitter}>
+                      <RiTwitterXFill size={24} className="text-gray" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={ProjectSummaryData.socialLinks.twitter}>
+                      <RiMessage2Fill size={24} className="text-gray" />
+                    </a>
+                  </li>
+                </ul>
+              ) : null}
 
-              <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
-                <Button className="mr-5" variant="donateNow" size="lg" asChild>
-                  <Link href="#">立即贊助</Link>
-                </Button>
-                <Button className="flex-shrink-0" variant="secondary" size="icon">
-                  <TiHeartFullOutline size={24} />
-                </Button>
-              </div>
+              {isProjectList ? null : (
+                <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
+                  <Button className="mr-5" variant="donateNow" size="lg" asChild>
+                    <Link href={`/projects/${ProjectSummaryData.id}/projectlist`} target="_blank">
+                      立即贊助
+                    </Link>
+                  </Button>
+                  <Button className="flex-shrink-0" variant="secondary" size="icon">
+                    <TiHeartFullOutline size={24} />
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
