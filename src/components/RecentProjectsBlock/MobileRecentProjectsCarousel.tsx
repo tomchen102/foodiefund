@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Badges from "@/components/Badges";
 import { TfiLocationPin } from "react-icons/tfi";
+import { TfiUser } from "react-icons/tfi";
 import { Progress } from "@/components/ui/progress";
 import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 import Link from "next/link";
@@ -37,7 +38,10 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                         height={200}
                         priority
                       />
-                      <Badges text="募資中" className="absolute left-3 top-3" />
+                      <Badges
+                        text={item.projectType === "fundraising" ? "募資中" : "訂閱式"}
+                        className="absolute left-3 top-3"
+                      />
                     </div>
                     <div className="p-5">
                       <h3 className="mb-2 font-bold">
@@ -46,15 +50,43 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                         </Link>
                       </h3>
                       <p className="mb-5 text-sm font-medium">{item.description}</p>
-                      <div className="flex">
-                        <TfiLocationPin size={20} className="mr-1" />
-                        <span className="mr-auto text-sm font-bold text-gray">{item.place}</span>
-                        <span className="text-sm font-bold text-tertiary">{item.percentage} %</span>
+                      <div className="flex items-center">
+                        {item.projectType === "fundraising" && <TfiLocationPin size={20} className="mr-1" />}
+                        {item.projectType === "fundraising" && (
+                          <span className="mr-auto text-sm font-bold text-gray-500">{item.place}</span>
+                        )}
+                        {item.projectType === "fundraising" && (
+                          <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
+                        )}
+                        {item.projectType === "subscription" && (
+                          <div className="mr-auto flex items-center gap-3">
+                            <div className="flex items-center">
+                              <TfiLocationPin size={20} className="mr-1" />
+                              <span className="text-sm font-bold text-gray-500">{item.place}</span>
+                            </div>
+                            <div className="flex items-center">
+                              <TfiUser size={20} className="mr-1" />
+                              <span className="text-sm">{item.subscriberCount} 人訂閱</span>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <Progress value={item.percentage} className="my-5" />
+                      {item.projectType === "fundraising" && <Progress value={item.percentage} className="my-5" />}
                       <div className="flex">
-                        <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.targetAmount}</span>
-                        <span className="text-sm font-medium">倒數 {item.reciprocal} 天</span>
+                        {item.projectType === "fundraising" && (
+                          <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
+                        )}
+                        {item.projectType === "fundraising" && (
+                          <span className="text-sm font-medium">
+                            倒數 <span className="text-[#0F514E]">{item.reciprocal}</span> 天
+                          </span>
+                        )}
+                        {item.projectType === "subscription" && (
+                          <div className="mr-auto mt-3 flex items-center gap-3">
+                            <span className="text-xl font-bold text-[#0F514E]">NT$ {item.currentAmount}</span>
+                            <span className="text-sm font-medium">/ 每月</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
