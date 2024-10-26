@@ -55,8 +55,9 @@ const getData = () => {
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/74959d50-8101-4457-acfb-95ba81a0830b.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=HXFkUjTSFlvNcbPm3WlzMgzJCAkeZwKv5eGgoDX0CyTlpemku3TypoirUsdX3BXI2RSTzWJysA8vNXe6gV3CDsP%2Be8R%2B%2BQFetGyoXZm7NuOUq8P2RG4mToCzjMe4G%2BtHp4pmLKIWzSPVmULX8p0Yg%2F6GkifttKxmJh1S0JQJ3QgB9%2BbBIJ2Le73Hm7p%2BcftKUpdWy%2BxVVVM1dKfjK2b4eAfRbEhXwjqCdqrJfR4elZZtND8n%2F9nl%2BhlnDRAMlfqM9GAMuO7fWrpzOFvjZCdj28xd7bt0spMOGoOZCnfJOi%2BI5VZKU7xx8f6u%2FbbvLtJSGNILfVRBhtBpvi%2Fjr9ev7Q%3D%3D",
       place: "台中",
       percentage: 80,
-      targetAmount: "1,000,000",
+      currentAmount: "1,000,000",
       reciprocal: 30,
+      projectType: "fundraising",
     },
     {
       id: 2,
@@ -66,8 +67,9 @@ const getData = () => {
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/473fad14-a22c-4a19-a9d7-47ec4dba1327.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=N%2FZXFgCu2oH3%2BcvVSp5wFJh7899RH395n1B5XG05NLtu6DuE8MHViAkUTNcnsAFTmmwmzC72NC65EDV1WUbIlZEpxvA41Gjeu7r0lJ0tT7b4tArP%2BPObjA1waRPAzSxZR%2FPPt9dfPefnbFPQk8eq1zJFhtKM5PxX0skMm7yVeTDObjrsxcxNK3rMrAKMXiAJH5tpsCt4eXZBcX5pi1ceKRR3qsgI4YL3RynOg3ghhtFgHiLV86pJU9VeSXWZEQ%2FNP5JTka5WrIwRsMyrkxG78IfgyflasitfPEu0JatpOfUs7zRyvT%2BXF0uA0193EaTMW3wgGZWiu7Cr76EUDkB%2B1A%3D%3D",
       place: "台南",
       percentage: 60,
-      targetAmount: "500,000",
+      currentAmount: "500,000",
       reciprocal: 20,
+      projectType: "fundraising",
     },
     {
       id: 3,
@@ -77,8 +79,9 @@ const getData = () => {
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
       place: "台中",
       percentage: 90,
-      targetAmount: "2,000,000",
+      currentAmount: "2,000,000",
       reciprocal: 15,
+      projectType: "fundraising",
     },
     {
       id: 4,
@@ -88,8 +91,53 @@ const getData = () => {
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/35cbb20a-335a-4a27-96be-f75b399f6d8d.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=v%2BT%2FBpxiJ1%2FUJ%2BrcaLBUZBTW1arqriZqvw5AoA0ZsA4izX0mu1cVEaZUV1Ga7x4x%2F8QdRY%2BjvcZV0fki4PQRiiNyhOuZ8hUd50YVYr9litu8fi8MB0aAKH8HxjMwRvtvDYnNMZM%2B4YHROhb4kT%2BSojWCCy%2FftU7g%2FLzvYcRGQZ5%2F6mEoo9U7jcBsYfv%2FjFx2RRLvuoi4F07NolYeLwFwA9VsW6l2pW0Su%2F6OYwcrvQge3yE4ct%2FMamUU9UhWsq8oNvA2t6urPwMd59J5ZAXZyeO4WvE0DSbTSn%2FUJXU9gRFYIpTw0ilNxAwj9C4jTYqefMSWhb9uD0wdepTas87jTw%3D%3D",
       place: "台北",
       percentage: 60,
-      targetAmount: "500,000",
+      currentAmount: "500,000",
       reciprocal: 20,
+      projectType: "fundraising",
+    },
+    {
+      id: 5,
+      title: "泰享鮮味",
+      description: "結合傳統與現代泰式料理,帶來令人驚豔的風味佳肴。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/ac87bb50-cd9b-49f4-99c5-3bd14593ad60.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=to%2FacX0doseGSu5b%2BEc3s3cpXtXCuPUx0u7VrCysYbcnh9zKW5uzkwXBFdXFCgHG8OWWQT9LGOGx83WTp9X8IU4CM6Wtdd4a4r7SDZeiSJI7Xry%2BavDseB6xLI12yghHbt4S1qRXpLP4LPClybKOl8o58wJvaRpXz5mrpkURhLUEOt8eX3rU7HMflfSamp1nzUznwpjaiiHRMCgw%2F4YclisFR06Blteyk8zmze9IYzuTM%2BM65jtsdZ2%2FmcO1S4MGqlwyyzdr4dy1k7K6EAdnTxWzoMVbVLOe6LNbL4rCjdmtskXqSmam85VovThRpmEesxL0y%2BeEkzW0rxNJfvlkmg%3D%3D",
+      place: "台北",
+      currentAmount: "500",
+      projectType: "subscription",
+      subscriberCount: 6,
+    },
+    {
+      id: 6,
+      title: "異國美食薈萃",
+      description: "聚集世界各地的特色美食,打造多元化的餐飲選擇。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/09e9ae12-15aa-4b9e-be2f-0fb66825ce4b.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=vOM%2B%2BxH9H2a7bz1uWY2y5AdNK%2FZlWqJNtr1S%2BucVXzzkIWBdWp%2FQ1b54mb%2BDrGwI2FRNHHCLWG6vdXtnyfFbggKmAjkRcMyv3eZe9OYtVXPginMuulEOmVGrNCYSMA7x0%2F%2Bcv0RJxNdfGLtGYYKdHvzIlY0ERrxWY0uLD6E2NBKRKeSt4UQcCEV82m5E2e1qlkcS9tkGTsfVL9k3lIvkuUsqpgNNJeR2mqqm1eGEV5JYJ908cwT2ch4aOLUI1xUtOM%2FbhAliKLJnolUEExAj67e%2FOYIMJUL6SRD19aRejPNUTfbs9BGaRaFXojD4rnugyijWeXtq2i6DgJOT7Suk%2BQ%3D%3D",
+      place: "台北",
+      currentAmount: "500",
+      projectType: "subscription",
+      subscriberCount: 6,
+    },
+    {
+      id: 7,
+      title: "海岸燒烤樂園",
+      description: "在美麗海岸享受豐富的海鮮和肉類燒烤,體驗戶外用餐的樂趣。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/db050add-e297-434a-ab18-322fa54b82be.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=M6O87l1C00mvIY9t1rTTBwWSgBebkh1WTqTDzN0osSz6GU3Zu%2FMCMG3dRK8dODURXQb4MOA%2BEBoy9IRP6lNUARq57H0EPCd5KgkVhOrO7jJ%2BS16ayMCt%2BxYEUsRp7xbNotOKcp23ET7GCxF6R8oGV2SUteLRX%2BPxaGekHTFZj1qthR1LPU92kSNf1TSqkiirIg9OwM86fITifNdr%2BcFPg4xadHcNFF4gjQTFBukTEk%2F8lHVT59G5Pdy0Ib55PV%2BB%2Ff2Q6Qaa%2FXOFGz6tVraJRKYk%2BG5auQMUEd77%2B4Ih1sedrSso9Egd195j5vGm4P7NzDayXOdmPmWUA0xUogoUVw%3D%3D",
+      place: "台北",
+      currentAmount: "500",
+      projectType: "subscription",
+      subscriberCount: 6,
+    },
+    {
+      id: 8,
+      title: "農場饗宴",
+      description: "以農場直送食材創造健康美食,推廣自然生活方式。",
+      imageUrl:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/3cc32ca8-98fc-4cb9-baf7-b39e8471a30b.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=ol%2Fi77bK1lyBhhTHSIrwfTQg8yR%2Fu2yaKbJPV1FS9ZcEXmfefWRg%2FPtcE7yRmnjmR4C2dYHagT%2FGurxbMIvxoID7FGh1ZxkN59AiNVqRCozZF6tFGr%2FLUHPxiocArBArrr6Gwgc81hzTTErmOkiEkQifGDXW2zfwaIFeLpESn0E5FQlZuzW3i3GpuNoIN1bHDhGC9Qv%2Bjbb5I8quOvyHwzXXcvZDcAm3kckDN%2Fijc0X%2BoDFgonzUOcvcuu7283jYX2CaYBQQ2D056YkD%2B7RE%2FGa210R6T%2FiuBYQlK%2B94ljQpsvSge%2BBic%2B8RjrZuKeT3Bxw0KzipeOLY0yCp%2FnhSgQ%3D%3D",
+      place: "台北",
+      currentAmount: "1,500",
+      projectType: "subscription",
+      subscriberCount: 6,
     },
   ];
 };
