@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
 import { ProviderProps } from "@/types/ProviderType";
 
-interface User {
+export interface User {
   name: string;
   photo: string;
   token: string;

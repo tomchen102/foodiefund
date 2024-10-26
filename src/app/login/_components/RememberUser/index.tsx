@@ -37,7 +37,7 @@ const RememberUser = ({ username, localStorageService }: RememberUserProps) => {
         記住帳號
       </label>
       <div className="ml-auto">
-        <Link href="" className={buttonVariants({ variant: "link" })}>
+        <Link scroll={true} href="" className={buttonVariants({ variant: "link" })}>
           忘記密碼？
         </Link>
       </div>

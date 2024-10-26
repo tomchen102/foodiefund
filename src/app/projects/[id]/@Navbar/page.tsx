@@ -27,6 +27,13 @@ const Navbar = () => {
     { href: `/projects/${id}/comments`, label: "留言" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === `/projects/${id}`) {
+      return currentPath === href;
+    }
+    return currentPath.startsWith(href);
+  };
+
   return (
     <nav className="bg-[#d6f4f0] py-3">
       <ul className="container flex gap-8 px-3 xl:px-0">
@@ -35,8 +42,8 @@ const Navbar = () => {
             <Link
               href={link.href}
               className={cn("block h-12 border-b-2 py-3 font-bold leading-6", {
-                "border-secondary text-secondary": currentPath === link.href,
-                "border-transparent text-[#0F514E] hover:border-secondary": currentPath !== link.href,
+                "border-secondary text-secondary": isActive(link.href),
+                "border-transparent text-tertiary hover:border-secondary": !isActive(link.href),
               })}
             >
               {link.label}

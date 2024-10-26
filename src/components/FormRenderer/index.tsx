@@ -5,8 +5,18 @@ import { Checkbox } from "../ui/checkbox";
 import { FormRendererProps } from "./types";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
+import { Textarea } from "../ui/textarea";
 
-const FormRenderer = <T extends FieldValues>({ label, name, control, text, id, type }: FormRendererProps<T>) => {
+const FormRenderer = <T extends FieldValues>({
+  label,
+  name,
+  control,
+  text,
+  id,
+  type,
+  placeholder,
+  className,
+}: FormRendererProps<T>) => {
   return (
     <FormField
       control={control}
@@ -22,13 +32,15 @@ const FormRenderer = <T extends FieldValues>({ label, name, control, text, id, t
           )}
           <FormControl>
             {type === "checkbox" ? (
-              <Checkbox id={id} checked={field.value} onCheckedChange={field.onChange} />
+              <Checkbox id={id} checked={field.value} onCheckedChange={field.onChange} className={className} />
+            ) : type === "textarea" ? (
+              <Textarea placeholder={placeholder} rows={1} className={cn("resize-none", className)} {...field} />
             ) : (
-              <Input {...field} id={id} type={type} />
+              <Input {...field} id={id} type={type} placeholder={placeholder} className={className} />
             )}
           </FormControl>
           {type === "checkbox" && (
-            <div className="space-y-1 leading-none">
+            <div className="!space-y-1 leading-none">
               <FormLabel className="cursor-pointer" htmlFor={id}>
                 {label}
               </FormLabel>

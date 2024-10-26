@@ -1,13 +1,15 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-
 import Link from "next/link";
-import { BannerProps } from "./types";
+import { BannerPropsType } from "./types";
 import "./css/embla.css";
+import { useGetNews } from "@/hooks/useNews";
 
-const Banner = ({ data }: BannerProps) => {
+const Banner = ({ queryParams, data }: BannerPropsType) => {
+  const { data: newsData } = useGetNews(queryParams);
   return (
-    <section className="">
+    <section>
       <div className="relative h-[624px] w-full overflow-hidden">
         <div
           className="absolute inset-0 h-full w-full bg-cover bg-center"
@@ -17,7 +19,6 @@ const Banner = ({ data }: BannerProps) => {
           }}
         />
         <div className="absolute inset-0 h-full w-full bg-black opacity-40"></div>
-
         <div className="relative flex h-full flex-col items-center justify-center">
           <div className="container mx-auto">
             <div className="mb-[80px] mt-[360px] flex justify-center md:justify-start">
@@ -26,10 +27,14 @@ const Banner = ({ data }: BannerProps) => {
                 <p className="mt-1 text-2xl leading-snug md:mt-4">在你心愛的餐廳成為合夥人</p>
                 <div className="mt-7 flex gap-2 text-2xl md:mt-10">
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="transparent" asChild>
-                    <Link href="/404">我要提案</Link>
+                    <Link scroll={true} href="/404">
+                      我要提案
+                    </Link>
                   </Button>
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="secondary" asChild>
-                    <Link href="/404">我要贊助</Link>
+                    <Link scroll={true} href="/404">
+                      我要贊助
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -49,7 +54,11 @@ const Banner = ({ data }: BannerProps) => {
         <div className="z-10 -mt-8 flex w-full flex-col items-start rounded-tl-3xl border-0 bg-white px-5 py-4 hover:cursor-pointer md:w-1/2">
           <h2 className="text-2xl font-bold text-secondary">最新消息</h2>
           <div className="flex w-full items-center md:justify-between">
-            <p className="mt-2 text-xl hover:underline">過年 本站要休息 2/7~2/16 | 加入會員 打九折 只到今天起 </p>
+            {newsData?.map((item) => (
+              <p key={item._id} className="mt-2 text-xl hover:text-tertiary hover:underline">
+                {item.title}
+              </p>
+            ))}
             <ArrowRightIcon className="ml-1 h-4 w-4 text-gray-400" />
           </div>
         </div>

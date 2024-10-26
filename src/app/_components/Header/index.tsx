@@ -14,6 +14,8 @@ import Logo from "./logo";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
 import "./index.css";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 const HeaderMenu = () => {
   const { user, clearUser } = useAuth();
 
@@ -63,7 +65,7 @@ const HeaderMenu = () => {
             <NavigationMenuItem key={index}>
               <Link
                 href={item.hrefUrl}
-                className="px-1 py-4 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
+                className="px-1 py-2 hover:cursor-pointer hover:border-b-2 hover:border-secondary md:mr-10"
               >
                 {item.title}
               </Link>
@@ -93,10 +95,14 @@ const HeaderMenu = () => {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-primary-dark justify-start bg-primary px-5 py-3 font-bold hover:no-underline">
-                  <span>
-                    <FaRegUserCircle className="mr-2 h-5 w-5" />
-                  </span>
-                  Lobinda
+                  <Avatar className="mr-2">
+                    <AvatarImage src={user.photo} />
+                    <AvatarFallback>
+                      <FaRegUserCircle className="mr-2 h-5 w-5" />
+                    </AvatarFallback>
+                  </Avatar>
+
+                  {user.name}
                 </AccordionTrigger>
                 <AccordionContent className="pb-0">
                   {navMenu.userNav.map((item, index) => {
@@ -104,7 +110,7 @@ const HeaderMenu = () => {
                     const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                     return (
-                      <Link href={item.hrefUrl} key={index}>
+                      <Link scroll={true} href={item.hrefUrl} key={index}>
                         <DropdownMenuItem>
                           {/* 渲染图标 */}
                           {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
@@ -117,13 +123,13 @@ const HeaderMenu = () => {
             </Accordion>
           )}
           {navMenu.mainNav.map((item, index) => (
-            <Link href="#" key={index}>
+            <Link scroll={true} href="#" key={index}>
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
             </Link>
           ))}
           {!user ? (
             // onClick={handleLogin}
-            <Link href="/login">
+            <Link scroll={true} href="/login">
               <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
             </Link>
           ) : (
@@ -143,14 +149,23 @@ const HeaderMenu = () => {
             variant="ghost"
             asChild
           >
-            <Link href="#">
+            <Link scroll={true} href="#">
               <FaRegBell />
             </Link>
           </Button>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
-              <FaRegUserCircle className="mr-2 h-5 w-5" />
+              {user.photo ? (
+                <Avatar className="mr-2">
+                  <AvatarImage src={user.photo} />
+                  <AvatarFallback>
+                    <FaRegUserCircle className="mr-2 h-5 w-5" />
+                  </AvatarFallback>
+                </Avatar>
+              ) : (
+                <FaRegUserCircle className="mr-2 h-5 w-5" />
+              )}
               {user.name}
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -159,7 +174,7 @@ const HeaderMenu = () => {
                 const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                 return (
-                  <Link href={item.hrefUrl} key={index}>
+                  <Link scroll={true} href={item.hrefUrl} key={index}>
                     <DropdownMenuItem>
                       {/* 渲染图标 */}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}

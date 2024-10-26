@@ -3,7 +3,7 @@ import Image from "next/image";
 const AboutUsSection = () => {
   return (
     <div className="container">
-      <div className="mx-3 mb-[82px] flex flex-col-reverse items-center bg-[#D6F4F0] px-3 pt-8 md:mb-[160px] md:ml-auto md:w-[calc(100%-86px)] md:flex-row md:p-0 md:pl-8">
+      <div className="mx-3 mb-[82px] flex flex-col-reverse items-center bg-[#D6F4F0] px-3 pt-8 md:mb-[160px] md:ml-auto md:w-[calc(100%-86px)] md:flex-row md:p-0 md:pl-8 xl:w-full">
         <div className="-mb-[42px] w-full md:-mb-[60px] md:w-auto md:pt-20">
           <Image
             src="https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/about-us-2.jpg?alt=media&token=7b7091ca-d04b-40fb-99fd-3faba209ffb8"
@@ -20,7 +20,7 @@ const AboutUsSection = () => {
             alt="Screenshots of the dashboard project showing desktop version"
           />
         </div>
-        <article className="mb-6 flex-grow text-center font-bold text-[#0F514E] md:mb-0 md:max-w-[400px] md:p-[36px] md:text-left lg:max-w-[550px] lg:p-[72px]">
+        <article className="mb-6 flex-grow text-center font-bold text-tertiary md:mb-0 md:max-w-[400px] md:p-[36px] md:text-left lg:max-w-[550px] lg:p-[72px]">
           <h2 className="mb-8 text-4xl">關於我們</h2>
           <p className="mb-8 text-sm font-medium md:text-base">
             歡迎來到我們的餐廳合夥人募資平台,一個致力於將美食愛好者與創新餐飲項目聯繫在一起的社區。
