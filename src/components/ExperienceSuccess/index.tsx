@@ -1,5 +1,5 @@
 import MobileRecentProjectsCarousel from "@/components/ExperienceSuccess/MobileCarousel";
-/* import PcRecentProjectsList from "@/components/ExperienceSuccess/PcRecentProjectsList"; */
+import PcRecentProjectsList from "@/components/ExperienceSuccess/PcRecentProjectsList";
 import { ExpierieceSuccessListType } from "@/types/ExpierieceSuccessListProps";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ const ExperienceSuccess = ({ data, title, className }: ExpierieceSuccessListType
           <h2 className="text-xl font-bold md:text-2xl">{title}</h2>
         </div>
         <MobileRecentProjectsCarousel data={data} />
-        {/* <PcRecentProjectsList data={data} /> */}
+        <PcRecentProjectsList data={data} />
       </div>
     </section>
   );
