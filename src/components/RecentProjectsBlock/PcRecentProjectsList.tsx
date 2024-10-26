@@ -16,7 +16,7 @@ const PcRecentProjectsList = ({ data }: RecentProjectsListProps) => {
         const href = currentPath.includes("projects") ? `/projects/${item.id}` : `/projects/${item.id}`;
         return (
           <li className="relative flex flex-col" key={item.id}>
-            <div className="flex h-full flex-col rounded-lg bg-white">
+            <div className="flex h-full flex-col rounded-lg border border-solid border-gray-200 bg-white">
               <div className="relative">
                 <Image
                   src={item.imageUrl}
@@ -37,14 +37,13 @@ const PcRecentProjectsList = ({ data }: RecentProjectsListProps) => {
                 </h3>
                 <p className="mb-5 text-sm font-medium">{item.description}</p>
                 <div className="mt-auto flex">
-                  {item.projectType === "fundraising" && <TfiLocationPin size={20} className="mr-1" />}
                   {item.projectType === "fundraising" && (
-                    <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
+                    <>
+                      <TfiLocationPin size={20} className="mr-1" />
+                      <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
+                      <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
+                    </>
                   )}
-                  {item.projectType === "fundraising" && (
-                    <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
-                  )}
-
                   {item.projectType === "subscription" && (
                     <div className="mr-auto flex items-center gap-3">
                       <div className="flex items-center">
