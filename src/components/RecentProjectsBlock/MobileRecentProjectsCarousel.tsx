@@ -28,7 +28,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
             return (
               <CarouselItem key={item.id} className="relative">
                 <li className="relative">
-                  <div className="rounded-lg bg-white">
+                  <div className="rounded-lg border border-solid border-gray-200 bg-white">
                     <div className="relative">
                       <Image
                         src={item.imageUrl}

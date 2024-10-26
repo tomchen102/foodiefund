@@ -82,7 +82,7 @@ export default function RootLayout({ children }: ProviderProps) {
           <ReactQueryProvider>
             <LoadingProvider>
               <HeaderMenu />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 bg-[#FDFBF8]">{children}</main>
               <FooterMenu />
             </LoadingProvider>
           </ReactQueryProvider>
