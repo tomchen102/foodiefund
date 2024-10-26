@@ -5,7 +5,7 @@ import Link from "next/link";
 const NotFound = () => {
   return (
     <SectionPadding className="container px-3 xl:px-0">
-      <div className="flex items-center justify-center md:px-[110px]">
+      <div className="flex h-[60vh] items-center justify-center md:px-[110px]">
         <div className="flex h-[478px] w-[1076px] flex-col items-center justify-center rounded-[24px] border bg-[#EEEFEF] text-center">
           <h1 className="mb-6 text-5xl font-extrabold tracking-[0.15em] text-primary md:text-[160px]">404</h1>
           <h2 className="mb-6 text-2xl font-bold tracking-[0.2em] text-tertiary">找不到頁面</h2>
