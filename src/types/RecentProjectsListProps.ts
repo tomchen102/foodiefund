@@ -4,9 +4,11 @@ interface RecentProjectsProps {
   description: string;
   imageUrl: string;
   place: string;
-  percentage: number;
-  targetAmount: string;
-  reciprocal: number;
+  percentage?: number;
+  currentAmount: string;
+  reciprocal?: number;
+  projectType: string;
+  subscriberCount?: number;
 }
 
 export interface RecentProjectsListProps {
@@ -14,6 +16,6 @@ export interface RecentProjectsListProps {
 }
 
 export type RecentProjectsBlockType = RecentProjectsListProps & {
-  title: "近期專案" | "熱門專案";
+  title: "近期專案" | "熱門專案" | "訂閱式專案";
   className?: string;
 };
