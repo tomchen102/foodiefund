@@ -232,9 +232,22 @@ export default async function Home() {
     <main>
       <Banner data={banners} />
       <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
-        <RecentProjectsBlock className="md:pb-0" data={RecentProjectsBlockData} title="熱門專案" />
+        <RecentProjectsBlock
+          className="md:pb-0"
+          data={RecentProjectsBlockData.filter((project) => project.projectType === "fundraising")}
+          title="熱門專案"
+        />
       </div>
-      <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={RecentProjectsBlockData} title="近期專案" />
+      <RecentProjectsBlock
+        className="bg-[#d6f4f0] md:pt-20"
+        data={RecentProjectsBlockData.filter((project) => project.projectType === "fundraising")}
+        title="近期專案"
+      />
+      <RecentProjectsBlock
+        className="md:pt-20"
+        data={RecentProjectsBlockData.filter((project) => project.projectType === "subscription")}
+        title="訂閱式專案"
+      />
       <ExperienceSuccess className="bg-[#F5E5CE] md:pt-20" data={ExperienceData} title="成功案例" />
       <ExperienceTalkBlock data={data} />
       <AboutUs />
