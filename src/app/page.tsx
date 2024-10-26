@@ -5,8 +5,9 @@ import ExperienceSuccess from "../components/ExperienceSuccess";
 import Banner from "./_components/Banner";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { initializeQueryNewsClient } from "@/hooks/useNews";
-import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
 import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
+import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
+import { getRecentProjectsBlockSubscriptionData } from "@/mock/getRecentProjectsBlockSubscriptionData";
 import { getExperienceTalkData } from "@/mock/getExperienceTalk";
 import { getBanners } from "@/mock/getBanners";
 import { getSuccess } from "@/mock/getSuccess";
@@ -14,9 +15,9 @@ import { getSuccess } from "@/mock/getSuccess";
 async function getData() {
   const queryParams = { page: 1, limit: 1 };
   const { dehydratedState } = await initializeQueryNewsClient(queryParams);
-
   const recentProjectsBlockHotData = await getRecentProjectsBlockHotData();
   const recentProjectsBlockData = await getRecentProjectsBlockData();
+  const recentProjectsBlockSubscriptionData = await getRecentProjectsBlockSubscriptionData();
   const ExperienceData = await getSuccess();
   const getExperienceTalk = await getExperienceTalkData();
   const banners = await getBanners();
@@ -24,6 +25,7 @@ async function getData() {
     dehydratedState,
     recentProjectsBlockHotData,
     recentProjectsBlockData,
+    recentProjectsBlockSubscriptionData,
     ExperienceData,
     getExperienceTalk,
     queryParams,
@@ -38,6 +40,7 @@ export default async function Home() {
     dehydratedState,
     recentProjectsBlockHotData,
     recentProjectsBlockData,
+    recentProjectsBlockSubscriptionData,
     ExperienceData,
     getExperienceTalk,
     queryParams,
@@ -51,6 +54,7 @@ export default async function Home() {
           <RecentProjectsBlock className="md:pb-0" data={recentProjectsBlockHotData} title="熱門專案" />
         </div>
         <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={recentProjectsBlockData} title="近期專案" />
+        <RecentProjectsBlock className="md:pt-20" data={recentProjectsBlockSubscriptionData} title="訂閱式專案" />
         <ExperienceSuccess className="bg-[#F5E5CE] md:pt-20" data={ExperienceData} title="成功案例" />
         <ExperienceTalkBlock data={getExperienceTalk} />
         <AboutUs />
