@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormLoginSchema, FormLoginSchemaType } from "@/schema/UserAuth";
 import { useLogInMutation } from "@/hooks/useUserAuth";
 import LocalStorageService from "@/utils/LocalStorageService";
-import { FormFieldConfig } from "@/components/FormRenderer/types";
 import { Button } from "@/components/ui/button";
 import { Form, FormMessage } from "@/components/ui/form";
 import Oauth from "../Oauth";
@@ -13,13 +12,9 @@ import RememberUser from "../RememberUser";
 import { useSetLoading } from "@/hooks/useSetLoading";
 import FormRenderer from "@/components/FormRenderer";
 import useHandleUserLogin from "@/hooks/useHandleUserLogin";
+import { loginFormFields } from "../loginFormFields";
 
 const localStorageService = LocalStorageService.getInstance();
-
-const loginFormFields: FormFieldConfig<FormLoginSchemaType>[] = [
-  { label: "會員帳號", name: "email", type: "email", required: true, placeholder: "請輸入您的電子郵件", key: "email" },
-  { label: "密碼", name: "password", type: "password", required: true, placeholder: "請輸入您的密碼", key: "password" },
-];
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
