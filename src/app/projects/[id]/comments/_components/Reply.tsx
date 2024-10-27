@@ -8,7 +8,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 const replyFormFields: FormFieldConfig<replyFormSchemaType>[] = [
-  { label: "", name: "comments", type: "textarea", placeholder: "留言...", id: "comments", className: "bg-white" },
+  {
+    label: "",
+    name: "comments",
+    type: "textarea",
+    placeholder: "留言...",
+    id: "comments",
+    className: "bg-white",
+    key: "comments",
+  },
 ];
 
 const ReplyForm = () => {
@@ -28,9 +36,7 @@ const ReplyForm = () => {
       <div className="flex w-full items-center space-x-2">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="mb-5 w-full space-y-6">
-            {replyFormFields.map((field) => (
-              <FormRenderer<replyFormSchemaType> control={form.control} key={field.name} {...field} id={field.name} />
-            ))}
+            <FormRenderer<replyFormSchemaType> methods={form} FormFields={replyFormFields} />
             <Button type="submit">送出</Button>
           </form>
         </Form>

@@ -17,8 +17,8 @@ import useHandleUserLogin from "@/hooks/useHandleUserLogin";
 const localStorageService = LocalStorageService.getInstance();
 
 const loginFormFields: FormFieldConfig<FormLoginSchemaType>[] = [
-  { label: "會員帳號", name: "email", type: "email" },
-  { label: "密碼", name: "password", type: "password" },
+  { label: "會員帳號", name: "email", type: "email", required: true, placeholder: "請輸入您的電子郵件", key: "email" },
+  { label: "密碼", name: "password", type: "password", required: true, placeholder: "請輸入您的密碼", key: "password" },
 ];
 
 const LoginForm = () => {
@@ -56,9 +56,7 @@ const LoginForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <h2 className="text-3xl font-bold">登入</h2>
         <Oauth />
-        {loginFormFields.map((field) => (
-          <FormRenderer<FormLoginSchemaType> control={form.control} key={field.name} {...field} id={field.name} />
-        ))}
+        <FormRenderer<FormLoginSchemaType> methods={form} FormFields={loginFormFields} />
         {error && <FormMessage>{error.response?.data.message}</FormMessage>}
         <RememberUser username={form.watch("email")} localStorageService={localStorageService} />
         <Button type="submit" className="w-full">
