@@ -14,6 +14,7 @@ const aboutUs = () => {
               className="h-[250px] w-full opacity-0 lg:ml-auto lg:h-auto lg:w-3/4 lg:opacity-100"
               loading="lazy"
               alt="Screenshots of the dashboard project showing desktop version"
+              style={{ width: "auto" }}
             />
             <div className="lg:pt-32"></div>
           </div>
@@ -45,7 +46,8 @@ const aboutUs = () => {
                 height={160}
                 className="mx-auto mb-4 h-auto w-40 md:mb-8"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Mission-1"
               />
               <h3 className="mb-2 text-xl font-bold">連接平台</h3>
               <p className="text-sm md:text-base">為您創造連接，展示我們的項目的平台。</p>
@@ -57,7 +59,8 @@ const aboutUs = () => {
                 height={160}
                 className="mx-auto mb-4 h-auto w-40 md:mb-8"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Mission-2"
               />
               <h3 className="mb-2 text-xl font-bold">多元化的項目選擇</h3>
               <p className="text-sm md:text-base">我們的平臺會為您提供不同類型的優質項目。</p>
@@ -69,7 +72,8 @@ const aboutUs = () => {
                 height={160}
                 className="mx-auto mb-4 h-auto w-40 md:mb-8"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Mission-3"
               />
               <h3 className="mb-2 text-xl font-bold">專業的開發支持</h3>
               <p className="text-sm md:text-base">我們的專業團隊將為您提供全方位的支持。</p>
@@ -88,7 +92,8 @@ const aboutUs = () => {
                 height={320}
                 className="mx-auto mb-4 h-auto w-80"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Why-1"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">多元化的項目選擇</h3>
               <p className="text-sm md:text-base">
@@ -102,7 +107,8 @@ const aboutUs = () => {
                 height={320}
                 className="mx-auto mb-4 h-auto w-80"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Why-2"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">專業的團隊支持</h3>
               <p className="text-sm md:text-base">
@@ -116,7 +122,8 @@ const aboutUs = () => {
                 height={320}
                 className="mx-auto mb-4 h-auto w-80"
                 loading="lazy"
-                alt="Screenshots of the dashboard project showing desktop version"
+                style={{ width: "auto" }}
+                alt="Why-3"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">透明和安全</h3>
               <p className="text-sm md:text-base">我們提供透明的訊息和安全的交易環境,讓投資者安心地參與募資過程。</p>
@@ -151,7 +158,8 @@ const aboutUs = () => {
             height={32}
             className="mr-auto h-auto w-8 md:-mb-2 md:w-[60px]"
             loading="lazy"
-            alt="Screenshots of the dashboard project showing desktop version"
+            style={{ width: "auto" }}
+            alt="Quote 2"
           />
           <span className="px-8 text-xl font-bold md:px-[50px] md:text-4xl md:leading-[52px]">
             加入我們，成為改變的推動者，<br></br>與我們一起探索無限的可能性!
@@ -162,7 +170,8 @@ const aboutUs = () => {
             height={32}
             className="ml-auto h-auto w-8 md:-mt-2 md:w-[60px]"
             loading="lazy"
-            alt="Screenshots of the dashboard project showing desktop version"
+            style={{ width: "auto" }}
+            alt="Quote 1"
           />
         </div>
       </section>

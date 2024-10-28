@@ -1,12 +1,10 @@
 import { ProviderProps } from "@/types/ProviderType";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ProjectSummary from "./_components/ProjectSummary";
-import Navbar from "./@Navbar/page";
-import Rewards from "./@Rewards/page";
-import SectionPadding from "@/components/SectionPadding";
 import { Metadata } from "next";
 import { getProjectSummaryData } from "@/mock/getProjectSummaryData";
 import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
+import LayoutContent from "./content";
 
 export const metadata: Metadata = {
   title: "眾資成城-在你心愛的餐廳成為合夥人",
@@ -92,13 +90,9 @@ export default async function ProjectsLayout({ children, params }: ProviderProps
   return (
     <>
       <ProjectSummary {...ProjectSummaryData.find((project) => project.id === id.toString())!} />
-      <Navbar />
-      <SectionPadding className="container px-3">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-6">
-          <div className="mb-8 pr-10 lg:col-span-9">{children}</div>
-          <Rewards />
-        </div>
-      </SectionPadding>
+
+      <LayoutContent>{children}</LayoutContent>
+
       <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
     </>
   );
@@ -113,4 +107,11 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
+}
+
+export async function generateStaticParams() {
+  const ProjectSummaryData = await getProjectSummaryData();
+  return ProjectSummaryData.map((project) => ({
+    id: project.id.toString(),
+  }));
 }
