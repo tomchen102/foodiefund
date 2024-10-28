@@ -1,7 +1,6 @@
 "use client";
 import Navbar from "./@Navbar/page";
 import Rewards from "./@Rewards/page";
-import RewardsBar from "./projectlist/page";
 import SectionPadding from "@/components/SectionPadding";
 import { usePathname } from "next/navigation";
 
@@ -13,9 +12,7 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
     <>
       {isProjectList ? (
         <>
-          <SectionPadding className="container px-3 lg:pt-0">
-            <RewardsBar />
-          </SectionPadding>
+          <SectionPadding className="container px-3 lg:pt-0 xl:px-0">{children}</SectionPadding>
         </>
       ) : (
         <>
