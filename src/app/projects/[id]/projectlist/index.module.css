@@ -14,7 +14,7 @@
 /* 用來模擬滾動的寬度 */
 .scrollbar-thumb {
   height: 100%;
-  background-color: #fe4710;
+  background: #fe4710;
   border-radius: 20px;
 }
 
