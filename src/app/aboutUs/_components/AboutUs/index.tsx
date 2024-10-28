@@ -125,7 +125,7 @@ const aboutUs = () => {
                 style={{ width: "auto" }}
                 alt="Why-3"
               />
-              <h3 className="mb-1 text-xl font-bold md:mb-2">透明和安全</h3>
+              <h3 className="mb-1 text-xl font-bold md:mb-2">透明與安全</h3>
               <p className="text-sm md:text-base">我們提供透明的訊息和安全的交易環境,讓投資者安心地參與募資過程。</p>
             </div>
           </div>

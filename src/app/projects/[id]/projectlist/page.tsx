@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Rewards from "../@Rewards/page";
+import "./index.module.css";
 
 const RewardsBar = () => {
   const [isDragging, setIsDragging] = useState(false); // 拖動狀態
@@ -8,8 +9,6 @@ const RewardsBar = () => {
   const [scrollLeft, setScrollLeft] = useState(0); // 初始滾動位置
   const [prevX, setPrevX] = useState(0);
   useEffect(() => {
-    import("./index.css").then().catch((error) => console.error("Failed to load CSS:", error));
-
     const scrollbar = document.querySelector(".scrollbar") as HTMLElement;
     const scrollbarThumb = document.querySelector(".scrollbar-thumb") as HTMLElement;
     const scrollContent = document.querySelector(".scroll-content") as HTMLElement;
@@ -96,7 +95,7 @@ const RewardsBar = () => {
         <div className="mb-8 bg-gray-100">
           <p className="py-2 text-center">左右捲動看看更多選項</p>
           <div className="scrollbar">
-            <div className="scrollbar-thumb"></div>
+            <div className="scrollbar-thumb h-3 bg-secondary hover:cursor-pointer lg:h-4"></div>
           </div>
         </div>
         <Rewards />
