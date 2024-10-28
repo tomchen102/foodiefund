@@ -1,11 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useParams } from "next/navigation";
 
 const Rewards = () => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/projectlist");
+  const { id } = useParams();
   const ImageStyle = {
     width: "100%",
     height: "auto",
@@ -22,7 +24,7 @@ const Rewards = () => {
               className="h-auto w-full xl:h-[200px]"
               alt="Screenshots of the dashboard project showing desktop version"
               loading="lazy"
-              style={{ ImageStyle }}
+              style={ImageStyle}
             />
             <div className="border p-5">
               <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
@@ -40,8 +42,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -53,7 +55,7 @@ const Rewards = () => {
               className="h-auto w-full xl:h-[200px]"
               alt="Screenshots of the dashboard project showing desktop version"
               loading="lazy"
-              style={{ ImageStyle }}
+              style={ImageStyle}
             />
             <div className="border p-5">
               <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
@@ -71,8 +73,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -84,7 +86,7 @@ const Rewards = () => {
               className="h-auto w-full xl:h-[200px]"
               alt="Screenshots of the dashboard project showing desktop version"
               loading="lazy"
-              style={{ ImageStyle }}
+              style={ImageStyle}
             />
             <div className="border p-5">
               <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
@@ -102,8 +104,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -115,7 +117,7 @@ const Rewards = () => {
               className="h-auto w-full xl:h-[200px]"
               alt="Screenshots of the dashboard project showing desktop version"
               loading="lazy"
-              style={{ ImageStyle }}
+              style={ImageStyle}
             />
             <div className="border p-5">
               <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
@@ -133,8 +135,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -167,8 +169,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -198,8 +200,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
@@ -229,8 +231,8 @@ const Rewards = () => {
                 <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
-              <Button variant="donateNow" size="lg">
-                立即贊助
+              <Button variant="donateNow" size="lg" asChild>
+                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
               </Button>
             </div>
           </li>
