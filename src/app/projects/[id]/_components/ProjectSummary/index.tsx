@@ -134,9 +134,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               {isProjectList ? null : (
                 <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
                   <Button className="mr-5" variant="donateNow" size="lg" asChild>
-                    <Link href={`/projects/${ProjectSummaryData.id}/projectlist`} target="_blank">
-                      立即贊助
-                    </Link>
+                    <Link href={`/projects/${ProjectSummaryData.id}/projectlist`}>立即贊助</Link>
                   </Button>
                   <Button className="flex-shrink-0" variant="secondary" size="icon">
                     <TiHeartFullOutline size={24} />
