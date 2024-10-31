@@ -24,7 +24,7 @@ const Rewards = () => {
   return (
     <div className="lg:col-span-3">
       {isProjectList ? (
-        <ul className="scroll-content relative flex w-full gap-6 overflow-x-scroll">
+        <ul className="relative flex w-full gap-6">
           <li className="mb-5 flex-shrink-0 md:mb-8 md:min-w-[200px]">
             <Image
               src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/e84a603e-94ce-4955-aec1-57030925caf0.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PYRZrOEf2DhIKnxV4IpWXrlIG1ms%2FfsYo%2FDFc5KJWDkTRadTSwDZHz7WKNuGQqzCF5Swgd8jl4M9uOmR62IoLtn5I50sq5Z8wZrP5YkHTnizbjS1%2Bte5S1egt2%2B5eNYFXTQ3861NLSScD%2F%2BoyNgYOkRU%2BpPs9JkmsEz0B9zhH5u%2BUCGoM8hZbOk%2FbQFjj%2FrigbY4ub9lwbWlJ8%2BNC8uQCc5Kdpniibh%2B8Sbb5MEc0ujkTVc0f1aWxfCZzl9eo%2BaXOVOKtS4ojjVVcL0MFdla5wFwS6YXOYVgLueuJ61gze%2F0D%2FSftMLSlei6Ij70xSp9j8s4%2F6LAJfFCABOKjo8MYA%3D%3D"
