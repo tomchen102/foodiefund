@@ -4,11 +4,11 @@ import PaymentForm from "./_components/PaymentForm";
 const Payment = async () => {
   return (
     <div className="lg:grid lg:grid-cols-12 lg:gap-6">
-      <div className="mb-8 pr-10 lg:col-span-9">
-        <PaymentForm />
-      </div>
-      <div className="lg:col-span-3">
+      <div className="order-1 md:order-2 lg:col-span-3">
         <CheckoutList />
+      </div>
+      <div className="order-2 mb-8 md:order-1 md:pr-0 lg:col-span-9 lg:pr-10">
+        <PaymentForm />
       </div>
     </div>
   );
