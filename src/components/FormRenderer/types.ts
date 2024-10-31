@@ -27,6 +27,9 @@ export interface FormFieldConfig<T extends FieldValues> {
   placeholder?: string;
   options?: Option[];
   required?: boolean;
+  value?: string;
+  halfWidth?: boolean;
+  processed?: boolean;
 }
 
 export interface FormRendererProps<T extends FieldValues> {
