@@ -10,10 +10,11 @@ const FormInput = <T extends FieldValues>({
   type,
   className,
   required,
+  halfWidth,
 }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
-    <div className="my-5">
+    <div className={`my-5 ${halfWidth ? "!ml-0 w-full md:mr-4 md:w-1/2" : "w-full"}`}>
       <FormField
         control={control}
         name={name as Path<T>}
