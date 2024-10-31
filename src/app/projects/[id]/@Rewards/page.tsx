@@ -1,8 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/utils/providers/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname, useParams, useRouter } from "next/navigation";
 
 const Rewards = () => {
   const pathname = usePathname();
@@ -11,6 +12,14 @@ const Rewards = () => {
   const ImageStyle = {
     width: "100%",
     height: "auto",
+  };
+  const router = useRouter();
+  const { user } = useAuth();
+
+  const handleDonateClick = () => {
+    if (user) {
+      router.push(`/projects/${id}/projectlist/payment`);
+    }
   };
   return (
     <div className="lg:col-span-3">
@@ -43,7 +52,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -74,7 +85,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -105,7 +118,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -136,7 +151,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -170,7 +187,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -201,7 +220,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -232,7 +253,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
