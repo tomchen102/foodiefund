@@ -36,8 +36,8 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
     key: "city",
     halfWidth: true,
     options: [
-      { label: "台北市", value: "taipei" },
-      { label: "新北市", value: "newTaipei" },
+      { label: "台北市", value: "台北市" },
+      { label: "新北市", value: "新北市" },
     ],
   },
   {
@@ -47,8 +47,8 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
     key: "area",
     halfWidth: true,
     options: [
-      { label: "中正區", value: "zhongzheng" },
-      { label: "大同區", value: "datong" },
+      { label: "中正區", value: "中正區" },
+      { label: "大同區", value: "大同區" },
     ],
   },
   {
