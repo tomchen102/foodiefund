@@ -66,7 +66,7 @@ const PaymentForm = () => {
   }, []);
 
   useEffect(() => {
-    if (form.formState.isDirty && cities.length > 0) {
+    if (cities.length > 0) {
       const selectedCity = cities.find((city) => city.value === cityValue);
       if (selectedCity) {
         const areaOptions = selectedCity.AreaList.map((area) => ({
@@ -75,21 +75,18 @@ const PaymentForm = () => {
           ZipCode: area.ZipCode,
         }));
         setAreas(areaOptions);
-        if (areaOptions.length > 0) {
+        if (!areaValue) {
           form.setValue("area", areaOptions[0].value);
           form.setValue("zipCode", areaOptions[0].ZipCode);
         }
       }
     }
-  }, [cityValue, cities, form]);
+  }, [cityValue, cities, areaValue, form]);
 
   useEffect(() => {
-    if (areas.length > 0) {
-      const selectedArea = areas.find((area) => area.value === areaValue);
-      if (!selectedArea) {
-        form.setValue("area", areas[0].value);
-        form.setValue("zipCode", areas[0].ZipCode);
-      }
+    if (areas.length > 0 && !areaValue) {
+      form.setValue("area", areas[0].value);
+      form.setValue("zipCode", areas[0].ZipCode);
     }
   }, [areas, areaValue, form]);
 
