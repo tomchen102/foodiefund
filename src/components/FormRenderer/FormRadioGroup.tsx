@@ -4,7 +4,13 @@ import { FormFieldConfig } from "./types";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { cn } from "@/lib/utils";
 
-const FormRadioGroup = <T extends FieldValues>({ label, name, options = [], className }: FormFieldConfig<T>) => {
+const FormRadioGroup = <T extends FieldValues>({
+  label,
+  name,
+  options = [],
+  className,
+  disabled,
+}: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
     <div className="my-5">
@@ -20,6 +26,7 @@ const FormRadioGroup = <T extends FieldValues>({ label, name, options = [], clas
                 defaultValue={field.value}
                 value={field.value}
                 className="flex flex-col space-y-1"
+                disabled={disabled}
               >
                 {options.map((option) => {
                   const isSelected = field.value === option.value;

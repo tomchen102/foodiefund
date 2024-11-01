@@ -30,6 +30,8 @@ export interface FormFieldConfig<T extends FieldValues> {
   value?: string;
   halfWidth?: boolean;
   processed?: boolean;
+  disabled?: boolean;
+  onChange?: (value: string) => void;
 }
 
 export interface FormRendererProps<T extends FieldValues> {

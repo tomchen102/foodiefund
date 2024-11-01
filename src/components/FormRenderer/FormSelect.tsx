@@ -1,27 +1,26 @@
-import { FieldValues, Path, PathValue, useFormContext } from "react-hook-form";
+import { ControllerRenderProps, FieldValues, Path, useFormContext } from "react-hook-form";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { FormFieldConfig } from "./types";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
 
-const FormSelect = <T extends FieldValues>({ label, name, options, placeholder, halfWidth }: FormFieldConfig<T>) => {
-  const { control, setValue, watch } = useFormContext<T>();
-  const currentValue = watch(name as Path<T>);
+const FormSelect = <T extends FieldValues>({
+  label,
+  name,
+  options,
+  placeholder,
+  halfWidth,
+  disabled,
+  onChange,
+}: FormFieldConfig<T>) => {
+  const { control } = useFormContext<T>();
 
-  useEffect(() => {
-    if (options && options.length > 0) {
-      const valueExists = options.some((option) => option.value === currentValue);
-
-      if (!valueExists) {
-        setValue(name as Path<T>, options[0].value as PathValue<T, Path<T>>, {
-          shouldValidate: true,
-          shouldDirty: true,
-          shouldTouch: true,
-        });
-      }
+  const handleChange = (value: string, field: ControllerRenderProps<T, Path<T>>) => {
+    field.onChange(value);
+    if (onChange) {
+      onChange(value);
     }
-  }, [options, setValue, name, currentValue]);
+  };
 
   return (
     <div className={cn("my-5", halfWidth ? "w-1/2" : "w-full")}>
@@ -31,7 +30,12 @@ const FormSelect = <T extends FieldValues>({ label, name, options, placeholder, 
         render={({ field }) => (
           <FormItem>
             <FormLabel>{label}</FormLabel>
-            <Select onValueChange={field.onChange} value={field.value} defaultValue={options?.[0]?.value}>
+            <Select
+              onValueChange={(value: string) => handleChange(value, field)}
+              value={field.value}
+              defaultValue={field.value}
+              disabled={disabled}
+            >
               <FormControl>
                 <SelectTrigger>
                   <SelectValue placeholder={placeholder} />

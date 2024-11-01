@@ -31,6 +31,8 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   options={field.options}
                   placeholder={field.placeholder}
                   halfWidth={field.halfWidth}
+                  disabled={field.disabled}
+                  onChange={field.onChange}
                 />
                 <FormSelect
                   key={nextField.key}
@@ -40,6 +42,8 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   options={nextField.options}
                   placeholder={nextField.placeholder}
                   halfWidth={nextField.halfWidth}
+                  disabled={nextField.disabled}
+                  onChange={nextField.onChange}
                 />
               </div>
             );
@@ -59,6 +63,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   placeholder={field.placeholder}
                   required={field.required}
                   halfWidth={field.halfWidth}
+                  disabled={field.disabled}
                 />
                 <FormInput
                   key={nextField.key}
@@ -68,6 +73,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   placeholder={nextField.placeholder}
                   required={nextField.required}
                   halfWidth={nextField.halfWidth}
+                  disabled={nextField.disabled}
                 />
               </div>
             );
@@ -80,6 +86,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 type="textarea"
                 placeholder={field.placeholder}
                 required={field.required}
+                disabled={field.disabled}
               />
             );
           } else if (field.type === "radio") {
@@ -90,6 +97,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 name={field.name}
                 options={field.options}
                 type="radio"
+                disabled={field.disabled}
               />
             );
           } else if (field.type === "select") {
@@ -102,10 +110,20 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 options={field.options}
                 placeholder={field.placeholder}
                 halfWidth={field.halfWidth}
+                disabled={field.disabled}
+                onChange={field.onChange}
               />
             );
           } else if (field.type === "checkbox") {
-            acc.push(<FormCheckbox key={field.key} label={field.label} name={field.name} type="checkbox" />);
+            acc.push(
+              <FormCheckbox
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type="checkbox"
+                disabled={field.disabled}
+              />
+            );
           } else {
             acc.push(
               <FormInput
@@ -116,10 +134,10 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 placeholder={field.placeholder}
                 required={field.required}
                 halfWidth={field.halfWidth}
+                disabled={field.disabled}
               />
             );
           }
-
           return acc;
         }, [])}
       </div>
