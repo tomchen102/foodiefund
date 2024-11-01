@@ -60,10 +60,11 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
   },
   {
     label: "郵遞區號",
-    name: "areaCode",
-    type: "number",
-    key: "areaCode",
+    name: "zipCode",
+    type: "text",
+    key: "zipCode",
     halfWidth: true,
+    disabled: true,
   },
   {
     label: "收件人",

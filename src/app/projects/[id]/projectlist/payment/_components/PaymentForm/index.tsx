@@ -4,7 +4,6 @@ import FormRenderer from "@/components/FormRenderer";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { FormPaymentSchema } from "@/schema/Payment";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { PaymentFormFields } from "./PaymentFormFields";
 import { useRouter } from "next/navigation";
@@ -12,12 +11,14 @@ import { useAuth } from "@/utils/providers/AuthProvider";
 import { useEffect, useState } from "react";
 import { getLocation } from "@/api/services/location";
 import { AreaState, City, CityState } from "@/api/services/location/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const PaymentForm = () => {
   const router = useRouter();
   const { user } = useAuth();
   const [cities, setCities] = useState<CityState[]>([]);
   const [areas, setAreas] = useState<AreaState[]>([]);
+
   const form = useForm<PaymentFormType>({
     resolver: zodResolver(FormPaymentSchema),
     defaultValues: {
@@ -27,7 +28,7 @@ const PaymentForm = () => {
       city: "臺北市",
       area: "",
       address: "",
-      areaCode: 0,
+      zipCode: "",
       recipient: "",
       phone: "",
       billType: "personal",
@@ -38,6 +39,7 @@ const PaymentForm = () => {
   });
 
   const cityValue = form.watch("city");
+  const areaValue = form.watch("area");
 
   const onSubmit = async (data: PaymentFormType) => {
     console.log(data);
@@ -60,34 +62,40 @@ const PaymentForm = () => {
       }));
       setCities(cityOptions);
     };
-
     fetchCities();
   }, []);
 
   useEffect(() => {
-    const selectedCity = cities.find((city) => city.value === cityValue);
-    if (selectedCity) {
-      const areaOptions = selectedCity.AreaList.map((area) => ({
-        ...area,
-        label: area.AreaName,
-        value: area.AreaName,
-      }));
-      setAreas(areaOptions);
-
-      if (areaOptions.length > 0) {
-        form.setValue("area", areaOptions[0].value, {
-          shouldValidate: true,
-          shouldDirty: true,
-        });
+    if (form.formState.isDirty && cities.length > 0) {
+      const selectedCity = cities.find((city) => city.value === cityValue);
+      if (selectedCity) {
+        const areaOptions = selectedCity.AreaList.map((area) => ({
+          label: area.AreaName,
+          value: area.AreaName,
+          ZipCode: area.ZipCode,
+        }));
+        setAreas(areaOptions);
+        if (areaOptions.length > 0) {
+          form.setValue("area", areaOptions[0].value);
+          form.setValue("zipCode", areaOptions[0].ZipCode);
+        }
       }
-    } else {
-      setAreas([]);
-      form.setValue("area", "", {
-        shouldValidate: true,
-        shouldDirty: true,
-      });
     }
   }, [cityValue, cities, form]);
+
+  useEffect(() => {
+    if (areas.length > 0) {
+      form.setValue("area", areas[0].value);
+      form.setValue("zipCode", areas[0].ZipCode);
+    }
+  }, [areas, form]);
+
+  useEffect(() => {
+    const selectedArea = areas.find((area) => area.value === areaValue);
+    if (selectedArea) {
+      form.setValue("zipCode", selectedArea.ZipCode);
+    }
+  }, [areaValue, areas, form]);
 
   const updatedPaymentFormFields = PaymentFormFields.map((field) => {
     if (field.name === "city") {
