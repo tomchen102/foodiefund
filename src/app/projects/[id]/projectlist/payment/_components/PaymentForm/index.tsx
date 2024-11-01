@@ -85,10 +85,13 @@ const PaymentForm = () => {
 
   useEffect(() => {
     if (areas.length > 0) {
-      form.setValue("area", areas[0].value);
-      form.setValue("zipCode", areas[0].ZipCode);
+      const selectedArea = areas.find((area) => area.value === areaValue);
+      if (!selectedArea) {
+        form.setValue("area", areas[0].value);
+        form.setValue("zipCode", areas[0].ZipCode);
+      }
     }
-  }, [areas, form]);
+  }, [areas, areaValue, form]);
 
   useEffect(() => {
     const selectedArea = areas.find((area) => area.value === areaValue);
