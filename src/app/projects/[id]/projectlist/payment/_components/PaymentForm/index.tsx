@@ -107,15 +107,6 @@ const PaymentForm = () => {
 
   return (
     <Form {...form}>
-      {areas.length > 0 && cities.length > 0 && (
-        <div className="flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0">
-          <div className="w-full">
-            {areas.map((item) => {
-              return <div key={item.value}>{item.label}</div>;
-            })}
-          </div>
-        </div>
-      )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <FormRenderer<PaymentFormType> methods={form} FormFields={updatedPaymentFormFields} />
         <Button type="submit">立即付款</Button>
