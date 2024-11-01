@@ -1,6 +1,8 @@
-import axios from "axios";
+import axiosClient from "@/api/axiosClient";
 
 export const getLocation = async () => {
-  const response = await axios.get("http://localhost:3000/CityCountyData.json");
+  const response = await axiosClient(
+    `${process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.NEXT_PUBLIC_BASE_URL}/CityCountyData.json`
+  );
   return response.data;
 };
