@@ -106,6 +106,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               <ul className="mb-5 flex gap-3">
                 <li>
                   <FacebookShareButton
+                    className="hover:bg-gray-500"
                     url={`https://foodiefund.vercel.app/projects/${ProjectSummaryData.id}`}
                     title={ProjectSummaryData.title}
                     quote={ProjectSummaryData.description}
