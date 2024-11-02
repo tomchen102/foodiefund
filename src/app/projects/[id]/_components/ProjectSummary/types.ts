@@ -1,5 +1,6 @@
 export interface ProjectSummaryDataProps {
   id: string;
+  activeType: string;
   title: string;
   description: string;
   imageUrlLg: string;

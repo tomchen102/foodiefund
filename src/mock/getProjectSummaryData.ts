@@ -4,6 +4,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
   return [
     {
       id: "1",
+      activeType: "A",
       title: "龍蝦盛宴",
       description:
         "龍蝦盛宴是一家以新鮮龍蝦料理為主的高級餐廳，提供多樣化的龍蝦美食，從經典的龍蝦湯到創意龍蝦料理，滿足所有愛好海鮮的饕客。餐廳以精緻的烹飪技巧結合當季食材，讓每一口都充滿海洋的鮮味。無論是約會晚餐還是家人聚餐，龍蝦盛宴都是您享受奢華美味的不二選擇。",
@@ -28,6 +29,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     },
     {
       id: "2",
+      activeType: "A",
       title: "綠色味覺",
       description:
         "綠色味覺是一家充滿創意與活力的素食餐廳，專注於將植物性食材變成令人驚豔的美味體驗。我們的料理以季節性蔬果和當地有機食材為主，精心設計每一道菜，讓您感受到健康與美味之間的完美平衡。",
@@ -52,6 +54,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     },
     {
       id: "3",
+      activeType: "A",
       title: "族味傳奇",
       description:
         "族味傳奇帶您走進多元文化的美食世界，品味來自各民族的經典風味。這裡的料理匯聚了傳統的手工技藝和地道食材，讓每一道菜肴都充滿歷史故事與家鄉情懷。不論是濃郁的炖湯還是香嫩的烤肉，每一口都在講述不同族群的美食傳奇。來這裡，探索和體驗各地美食的深厚魅力，感受文化交織下的美味饗宴。",
@@ -77,6 +80,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "4",
       title: "鮨匠手作",
+      activeType: "A",
       description:
         "鮨匠手作是一家以手作壽司為核心的日式料理店，將精湛的刀工與對食材的極致講究融入每一口壽司中。我們嚴選最新鮮的魚貨，搭配匠心獨具的醋飯，呈現出原汁原味的日式風味。無論是經典的握壽司還是充滿創意的卷物，鮨匠手作以細膩的手法與精湛的技藝，帶您領略純粹而豐富的壽司美學，讓每一口都成為味蕾的愉悅體驗。",
       imageUrlLg:
@@ -101,6 +105,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "5",
       title: "咖啡與時光",
+      activeType: "A",
       description:
         "咖啡與時光是一家充滿溫暖氛圍的咖啡館，融合了意大利經典美食與令人意想不到的趣味元素。我們的菜單靈感來自浪漫的故事與歡樂的想像力，將手工披薩、義大利麵等美味料理與幽默風格結合，帶給顧客獨一無二的用餐體驗。在這裡，不僅能享受到正宗的義式美味，更能感受到童話般的用餐氛圍，是約會、聚會和家庭共度美好時光的理想場所。",
       imageUrlLg:
@@ -125,6 +130,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "6",
       title: "甜點夢工廠",
+      activeType: "A",
       description:
         "甜點夢工廠是一家專注於提供精緻美味甜點的品牌，致力於讓每一位顧客在品嚐甜點時都能感受到幸福與甜蜜。無論是細膩的手工蛋糕、多層次的馬卡龍，還是口感柔軟的奶酪，每一款產品都由經驗豐富的甜點師傅用心製作，選用高品質的原材料，確保每一口都充滿香氣與滿足感。甜點夢工廠還提供個性化訂製服務，無論是生日、婚禮或其他特殊場合，都能為您創造獨一無二的甜點體驗。從產品的設計到口味的搭配，甜點夢工廠始終追求完美，致力於將甜點的美味與藝術性結合，讓每一份甜點都成為值得回味的作品。",
       imageUrlLg:
@@ -149,6 +155,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "7",
       title: "海岸燒烤樂園",
+      activeType: "A",
       description:
         "澎湖海岸燒烤樂園是一處充滿歡樂與美食的戶外燒烤勝地，位於澎湖迷人的海岸線旁，讓您一邊享受美味燒烤，一邊欣賞美麗的海景。這裡提供新鮮的海鮮、肉類以及豐富的蔬菜供您自由搭配，無論是與朋友相聚還是家庭聚會，都能在戶外的自然氛圍中度過一個難忘的燒烤時光。伴隨著徐徐海風和落日餘暉，澎湖海岸燒烤樂園為您打造一場美食與自然交織的難忘體驗。",
       imageUrlLg:
@@ -173,6 +180,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "8",
       title: "綠意盎然",
+      activeType: "A",
       description:
         "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
       imageUrlLg:
@@ -197,6 +205,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "9",
       title: "綠意盎然",
+      activeType: "A",
       description:
         "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
       imageUrlLg:
@@ -221,6 +230,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "10",
       title: "綠意盎然",
+      activeType: "A",
       description:
         "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
       imageUrlLg:
@@ -245,6 +255,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "11",
       title: "綠意盎然",
+      activeType: "A",
       description:
         "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
       imageUrlLg:
@@ -269,6 +280,7 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
     {
       id: "12",
       title: "綠意盎然",
+      activeType: "A",
       description:
         "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
       imageUrlLg:
