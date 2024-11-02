@@ -15,7 +15,7 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
   {
     label: "加碼贊助(選擇性填寫)",
     name: "overweight",
-    type: "number",
+    type: "tel",
     key: "overweight",
     placeholder: "請輸入金額",
   },
@@ -72,13 +72,15 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
     type: "text",
     key: "recipient",
     placeholder: "請輸入真實姓名，以利出貨作業進行",
+    required: true,
   },
   {
     label: "連絡電話",
     name: "phone",
-    type: "number",
+    type: "tel",
     key: "phone",
     placeholder: "請輸入真實手機號碼，以利取貨或連繫收貨",
+    required: true,
   },
   {
     label: "請選擇購買顏色",

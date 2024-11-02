@@ -59,7 +59,7 @@ const SelectProjects = () => {
               {navMenu.projectNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
+                    <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -76,7 +76,7 @@ const SelectProjects = () => {
               {navMenu.areaNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
+                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -93,7 +93,7 @@ const SelectProjects = () => {
               {navMenu.cuisineNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
+                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -121,7 +121,7 @@ const SelectProjects = () => {
               {navMenu.filterNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:!bg-tiffayGreen">
+                    <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:!bg-primary-light">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>

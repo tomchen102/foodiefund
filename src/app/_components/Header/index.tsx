@@ -78,7 +78,7 @@ const HeaderMenu = () => {
         // Render Login/Register button when not logged in
         <Link
           href="/login"
-          className={`${buttonVariants({ variant: "default" })} hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-primary-dark-foreground md:flex`} // 修改這裡
+          className={`${buttonVariants({ variant: "default" })} hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 hover:!bg-primary-light hover:text-black md:flex`} // 修改這裡
         >
           登錄 / 註冊
         </Link>
@@ -131,7 +131,7 @@ const HeaderMenu = () => {
           ))}
           {!user ? (
             // onClick={handleLogin}
-            <Link scroll={true} href="/login">
+            <Link scroll={true} href="/login" className="hover:!primary-light">
               <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
             </Link>
           ) : (
@@ -157,7 +157,7 @@ const HeaderMenu = () => {
           </Button>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 hover:!bg-tiffayGreen focus-visible:outline-none">
+            <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 hover:!bg-primary-light focus-visible:outline-none">
               {user.photo ? (
                 <Avatar className="mr-2">
                   <AvatarImage src={user.photo} />
@@ -177,14 +177,14 @@ const HeaderMenu = () => {
 
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="hover:!bg-tiffayGreen">
+                    <DropdownMenuItem className="hover:!bg-primary-light">
                       {/* 渲染图标 */}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
                     </DropdownMenuItem>
                   </Link>
                 );
               })}
-              <DropdownMenuItem onClick={handleLogout} className="border-t border-gray-200 hover:!bg-tiffayGreen">
+              <DropdownMenuItem onClick={handleLogout} className="border-t border-gray-200 hover:!bg-primary-light">
                 <ExitIcon className="mr-2 h-5 w-5" /> 登出
               </DropdownMenuItem>
             </DropdownMenuContent>

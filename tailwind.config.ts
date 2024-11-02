@@ -52,9 +52,9 @@ const config: Config = {
           DEFAULT: "#0F514E",
           foreground: "hsl(var(--primary-dark-foreground))",
         },
-        tiffayGreen: {
+        "primary-light": {
           DEFAULT: "#98E4DA",
-          foreground: "hsl(var(--tiffayGreen-foreground))",
+          foreground: "hsl(var(--primary-light-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
