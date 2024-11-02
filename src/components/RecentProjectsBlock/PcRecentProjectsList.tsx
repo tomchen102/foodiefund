@@ -34,7 +34,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                     {item.projectType === "subscription" && <Badges text="訂閱式" className="absolute left-3 top-3" />}
                   </div>
                   <div className="flex h-full flex-col p-5">
-                    <h3 className="mb-2 font-bold group-hover:text-tertiary group-hover:underline">{item.title}</h3>
+                    <h3 className="group-hover:text-tertiary mb-2 font-bold group-hover:underline">{item.title}</h3>
                     <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
                     <div className="mt-auto flex">
                       {item.projectType === "fundraising" && (
