@@ -31,7 +31,9 @@ const PcRecentProjectsList = ({ data }: ExpierieceSuccessListProp) => {
                       />
                     </div>
                     <div className="px-5 py-5">
-                      <h3 className="mb-2 font-bold group-hover:underline">{item.title}</h3>
+                      <h3 className="mb-2 font-bold group-hover:text-primary-primary-hover group-hover:underline">
+                        {item.title}
+                      </h3>
                       <p className="mb-5 text-sm font-medium">{item.description}</p>
                       <div className="flex text-gray">
                         <TfiLocationPin size={20} className="mr-1" />
