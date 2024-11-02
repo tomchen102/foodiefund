@@ -4,6 +4,10 @@ import React from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
 const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
+  const ImageStyle = {
+    width: "44px",
+    height: "44px",
+  };
   return (
     <ul className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
       {data.map((item) => (
@@ -17,7 +21,15 @@ const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
           </div>
 
           <div className="absolute bottom-0 flex w-full">
-            <Image src={item.avatarUrl} alt={item.avatarAlt} className="ml-6 mr-3" width={44} height={44} priority />
+            <Image
+              src={item.avatarUrl}
+              alt={item.avatarAlt}
+              className="ml-6 mr-3"
+              width={44}
+              height={44}
+              style={ImageStyle}
+              priority
+            />
             <div className="flex w-full items-center">
               <div className="mr-auto">
                 <h4 className="mb-1 text-sm font-bold">{item.avatarName}</h4>

@@ -48,9 +48,13 @@ const config: Config = {
           DEFAULT: "#FE4710",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        tertiary: {
+        "primary-dark": {
           DEFAULT: "#0F514E",
-          foreground: "hsl(var(--tertiary-foreground))",
+          foreground: "hsl(var(--primary-dark-foreground))",
+        },
+        tiffayGreen: {
+          DEFAULT: "#98E4DA",
+          foreground: "hsl(var(--tiffayGreen-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

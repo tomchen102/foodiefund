@@ -35,6 +35,7 @@ const PaymentForm = () => {
       vehicle: 0,
       remark: "",
       agree: false,
+      color: "花色",
     },
   });
 

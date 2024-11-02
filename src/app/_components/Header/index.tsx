@@ -44,7 +44,7 @@ const HeaderMenu = () => {
     mainNav: [
       { title: "首頁", hrefUrl: "/" },
       { title: "我要提案", hrefUrl: "#" },
-      { title: "探索專案", hrefUrl: "#" },
+      { title: "探索專案", hrefUrl: "/projects" },
       { title: "問與答", hrefUrl: "#" },
     ],
     userNav: [
@@ -78,7 +78,7 @@ const HeaderMenu = () => {
         // Render Login/Register button when not logged in
         <Link
           href="/login"
-          className={`${buttonVariants({ variant: "default" })} hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-tertiary-foreground md:flex`} // 修改這裡
+          className={`${buttonVariants({ variant: "default" })} hidden h-auto rounded-none bg-primary px-10 py-4 text-base leading-6 text-primary-dark-foreground md:flex`} // 修改這裡
         >
           登錄 / 註冊
         </Link>
@@ -94,12 +94,14 @@ const HeaderMenu = () => {
           {user && (
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-primary-dark justify-start bg-primary px-5 py-3 font-bold hover:no-underline">
+                <AccordionTrigger className="justify-start bg-primary px-5 py-3 font-bold text-primary-dark hover:no-underline">
                   <Avatar className="mr-2">
-                    <AvatarImage src={user.photo} />
-                    <AvatarFallback>
-                      <FaRegUserCircle className="mr-2 h-5 w-5" />
-                    </AvatarFallback>
+                    {user.photo && <AvatarImage src={user.photo} />}
+                    {!user.photo && (
+                      <AvatarFallback>
+                        <FaRegUserCircle className="h-5 w-5" />
+                      </AvatarFallback>
+                    )}
                   </Avatar>
 
                   {user.name}
@@ -145,7 +147,7 @@ const HeaderMenu = () => {
       {user && (
         <div className="user_menu hidden md:flex">
           <Button
-            className="text-primary-dark flex h-auto items-center rounded-none px-4 py-4 text-base leading-6 shadow-none lg:px-10"
+            className="flex h-auto items-center rounded-none px-4 py-4 text-base leading-6 text-primary-dark shadow-none lg:px-10"
             variant="ghost"
             asChild
           >

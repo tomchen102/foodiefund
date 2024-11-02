@@ -55,7 +55,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
             <div className="mb-1 flex h-[30px] items-center lg:mb-0 lg:mr-5">
               <MdPersonOutline size={20} className="mr-1 inline-block" />
               <span className="mr-1 text-sm font-medium text-gray">提案人</span>
-              <span className="text-sm font-medium text-tertiary hover:underline">
+              <span className="text-sm font-medium text-primary-dark hover:underline">
                 <Link scroll={true} href="#">
                   {ProjectSummaryData.proposer}
                 </Link>
@@ -64,7 +64,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
             <div className="flex h-[30px] items-center">
               <MdOutlineCalendarMonth size={20} className="mr-1 inline-block" />
               <span className="mr-1 text-sm font-medium text-gray">開始於</span>
-              <span className="text-sm font-medium text-tertiary">
+              <span className="text-sm font-medium text-primary-dark">
                 <time dateTime="2024/08/08 22:06">{ProjectSummaryData.startDate}</time>
               </span>
             </div>
@@ -77,7 +77,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
                 <span className="mr-auto font-medium leading-6 text-gray">
                   目標 NT$ {ProjectSummaryData.targetAmount}
                 </span>
-                <span className="text-sm font-bold text-tertiary">{ProjectSummaryData.progress} %</span>
+                <span className="text-sm font-bold text-primary-dark">{ProjectSummaryData.progress} %</span>
               </div>
               <Progress value={ProjectSummaryData.progress} className="my-5" />
               <div className="mb-6 lg:mb-0">
@@ -89,13 +89,13 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
             <div className="flex flex-shrink-0 gap-4 lg:w-[256px]">
               <div className="w-1/2 rounded-lg border p-2 text-center lg:py-[14px]">
                 <span className="mb-3 block text-sm font-medium text-[#27272A] lg:mb-5 lg:text-base">募資倒數</span>
-                <span className="block text-2xl font-bold text-tertiary lg:text-[30px] lg:leading-9">
+                <span className="block text-2xl font-bold text-primary-dark lg:text-[30px] lg:leading-9">
                   {ProjectSummaryData.endDate} 天
                 </span>
               </div>
               <div className="w-1/2 rounded-lg border p-2 text-center lg:py-[14px]">
                 <span className="mb-3 block text-sm font-medium text-[#27272A] lg:mb-5 lg:text-base">贊助人數</span>
-                <span className="block text-2xl font-bold text-tertiary lg:text-[30px] lg:leading-9">
+                <span className="block text-2xl font-bold text-primary-dark lg:text-[30px] lg:leading-9">
                   {ProjectSummaryData.numberOfBackers}人
                 </span>
               </div>

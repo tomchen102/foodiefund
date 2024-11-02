@@ -7,7 +7,7 @@ const News = () => {
       <li className="pb-5">
         <div className="border p-6">
           <h2 className="mb-2 text-lg font-bold md:text-2xl">
-            <Link scroll={true} href="news/detail" className="hover:text-tertiary">
+            <Link scroll={true} href="news/detail" className="hover:text-primary-dark">
               計畫更新:追加福利!【喵喵咖啡館】群眾募資活動將延長至9月1日!
             </Link>
           </h2>
@@ -31,7 +31,7 @@ const News = () => {
       <li className="pb-5">
         <div className="border p-6">
           <h2 className="mb-2 text-lg font-bold md:text-2xl">
-            <Link scroll={true} href="news/detail" className="hover:text-tertiary">
+            <Link scroll={true} href="news/detail" className="hover:text-primary-dark">
               追加福利！【喵喵咖啡館】群眾募資活動將延長至9月1日！
             </Link>
           </h2>

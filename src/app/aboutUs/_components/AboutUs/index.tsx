@@ -19,7 +19,7 @@ const aboutUs = () => {
             <div className="lg:pt-32"></div>
           </div>
           <div className="mx-3 -mt-24 rounded-lg border bg-white/90 p-5 shadow-md lg:absolute lg:bottom-0 lg:-mb-12 lg:mt-0 lg:w-1/2 lg:p-10">
-            <h1 className="mb-4 text-2xl font-bold text-tertiary md:text-3xl lg:mb-8">關於我們</h1>
+            <h1 className="mb-4 text-2xl font-bold text-primary-dark md:text-3xl lg:mb-8">關於我們</h1>
             <p className="mb-4 lg:mb-8">
               歡迎來到我們的餐廳合夥人募資平台,一個致力於將美食愛好者與創新餐飲項目聯繫在一起的社區。
               在這裡,我們相信每一個出色的餐廳背後都有一個動人的故事和無限的潛力,
@@ -131,19 +131,19 @@ const aboutUs = () => {
           </div>
         </section>
       </div>
-      <section className="mb-8 bg-[#98E4DA]">
+      <section className="mb-8 bg-tiffayGreen">
         <div className="mx-auto max-w-4xl p-3">
           <div className="grid grid-cols-2 gap-4">
-            <div className="flex h-[148px] bg-[#98E4DA] bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-1.png?alt=media&token=89f0ca70-552b-4e7d-b7fa-ac3c7f5adef0')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
+            <div className="flex h-[148px] bg-tiffayGreen bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-1.png?alt=media&token=89f0ca70-552b-4e7d-b7fa-ac3c7f5adef0')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
               <h3 className="m-auto text-center text-[18px] font-bold text-white md:text-2xl">社區與合作</h3>
             </div>
-            <div className="flex h-[148px] bg-[#98E4DA] bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-2.png?alt=media&token=84e0f8e4-1183-4e56-b87e-edbaa8f13430')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
+            <div className="flex h-[148px] bg-tiffayGreen bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-2.png?alt=media&token=84e0f8e4-1183-4e56-b87e-edbaa8f13430')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
               <h3 className="m-auto text-center text-[18px] font-bold text-white md:text-2xl">透明與信任</h3>
             </div>
-            <div className="flex h-[148px] bg-[#98E4DA] bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-3.png?alt=media&token=51f8fa21-2a34-4c94-97af-d2ddcedf99f2')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
+            <div className="flex h-[148px] bg-tiffayGreen bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-3.png?alt=media&token=51f8fa21-2a34-4c94-97af-d2ddcedf99f2')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
               <h3 className="m-auto text-center text-[18px] font-bold text-white md:text-2xl">創新與成長</h3>
             </div>
-            <div className="flex h-[148px] bg-[#98E4DA] bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-4.png?alt=media&token=d33138a5-bf95-4fa6-b18e-0640e78cc5fd')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
+            <div className="flex h-[148px] bg-tiffayGreen bg-[url('https://firebasestorage.googleapis.com/v0/b/foodiefund-7b103.appspot.com/o/feature-4.png?alt=media&token=d33138a5-bf95-4fa6-b18e-0640e78cc5fd')] bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply">
               <h3 className="m-auto text-center text-[18px] font-bold text-white md:text-2xl">美食與熱情</h3>
             </div>
           </div>

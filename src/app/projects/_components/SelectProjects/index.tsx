@@ -46,20 +46,20 @@ const navMenu = {
 
 const SelectProjects = () => {
   return (
-    <div className="container bg-[#FDFBF8] px-3 md:px-0">
+    <div className="container bg-[#FDFBF8] px-3 lg:px-0">
       <h1 className="mt-[28px] text-2xl font-bold lg:mt-[34px]">探索專案</h1>
       <div className="mt-6 flex flex-wrap">
-        <div className="mr-auto flex">
+        <div className="flex w-full md:mr-auto md:w-auto">
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-4 flex w-full items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-60">
-              <span className="ml-1 mr-auto text-sm">專案性質</span>
+              <span className="mr-auto text-sm md:ml-1">專案性質</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navMenu.projectNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-[#98E4DA] md:min-w-60">
+                    <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -69,14 +69,14 @@ const SelectProjects = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-4 flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="ml-1 mr-auto text-sm">區域</span>
+              <span className="mr-auto text-sm md:ml-1">區域</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navMenu.areaNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:bg-[#98E4DA] md:min-w-60">
+                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -86,14 +86,14 @@ const SelectProjects = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-auto flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="ml-1 mr-auto text-sm">類別</span>
+              <span className="mr-auto text-sm md:ml-1">類別</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navMenu.cuisineNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:bg-[#98E4DA] md:min-w-60">
+                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-tiffayGreen md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -102,11 +102,11 @@ const SelectProjects = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="flex">
-          <div className="mr-3 flex items-center justify-start md:mr-4">
-            <IoIosSearch className="relative left-8 text-base" />
+        <div className="mt-3 flex w-full md:mt-0 md:w-auto">
+          <div className="relative mr-3 flex flex-grow items-center justify-start md:mr-4">
+            <IoIosSearch className="absolute left-[18px] text-base" />
             <Input
-              className="h-[46px] min-w-[260px] rounded-none bg-[#fff] pl-10 text-sm md:min-w-60"
+              className="h-[46px] rounded-none bg-[#fff] pl-10 text-sm md:min-w-60"
               type="text"
               placeholder="搜尋專案"
             />
@@ -114,14 +114,14 @@ const SelectProjects = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex min-w-20 items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none">
-              <span className="ml-2 text-sm md:ml-1">排序</span>
+              <span className="text-sm md:ml-1">排序</span>
               <BsFilterLeft />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navMenu.filterNav.map((item, index) => {
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:bg-[#98E4DA]">
+                    <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:!bg-tiffayGreen">
                       {item.title}
                     </DropdownMenuItem>
                   </Link>

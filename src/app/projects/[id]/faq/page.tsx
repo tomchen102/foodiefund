@@ -5,7 +5,7 @@ const Faq = () => {
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-1">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="pt-0 hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="pt-0 hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 什麼是群眾募資餐廳?
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -15,7 +15,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-2">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 我需要投資多少？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -25,7 +25,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-3">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 我的投資將如何使用？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -35,7 +35,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-4">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 投資回報是什麼？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -45,7 +45,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-5">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 如果募資未達標怎麼辦？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -55,7 +55,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-6">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 餐廳何時開業？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -65,7 +65,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-7">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 我如何參與餐廳的決策？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -75,7 +75,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-8">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 我如何了解最新進展？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">
@@ -85,7 +85,7 @@ const Faq = () => {
       </AccordionItem>
       <AccordionItem className="border-l border-r border-t p-6 md:mb-5" value="item-9">
         <span className="mb-1 block text-gray">更新於 2024/08/10 13:53</span>
-        <AccordionTrigger className="hover:text-tertiary hover:no-underline md:text-2xl">
+        <AccordionTrigger className="hover:text-primary-dark hover:no-underline md:text-2xl">
           Q: 群眾募資餐廳的風險是什麼？
         </AccordionTrigger>
         <AccordionContent className="md:text-xl">

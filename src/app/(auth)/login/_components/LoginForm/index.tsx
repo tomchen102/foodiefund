@@ -57,7 +57,6 @@ const LoginForm = () => {
         <Button type="submit" className="w-full">
           登入
         </Button>
-        <a href="">[忘記密碼]</a>
         <p className="text-center">登入即表示同意[服務條款]和[隱私政策]。</p>
       </form>
     </Form>
