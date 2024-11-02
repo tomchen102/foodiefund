@@ -7,6 +7,8 @@ export interface ExperienceTalkProps {
   avatarAlt: string;
   avatarName: string;
   avatarRole: string;
+  views: number;
+  favorites: number;
 }
 
 export interface ExperienceTalkListProps {

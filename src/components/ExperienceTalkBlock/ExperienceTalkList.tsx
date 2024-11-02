@@ -1,7 +1,8 @@
 import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
 import Image from "next/image";
 import React from "react";
-
+import { IoEyeSharp } from "react-icons/io5";
+import { FaHeart } from "react-icons/fa";
 const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
   return (
     <ul className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
@@ -15,11 +16,19 @@ const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
             </div>
           </div>
 
-          <div className="absolute bottom-0 flex">
+          <div className="absolute bottom-0 flex w-full">
             <Image src={item.avatarUrl} alt={item.avatarAlt} className="ml-6 mr-3" width={44} height={44} priority />
-            <div>
-              <h4 className="mb-1 text-sm font-bold">{item.avatarName}</h4>
-              <p className="text-sm text-gray">{item.avatarRole}</p>
+            <div className="flex w-full items-center">
+              <div className="mr-auto">
+                <h4 className="mb-1 text-sm font-bold">{item.avatarName}</h4>
+                <p className="text-sm text-gray">{item.avatarRole}</p>
+              </div>
+              <div className="flex">
+                <IoEyeSharp size={20} className="mr-1" />
+                <p className="mr-3 text-sm text-gray">{item.views}人</p>
+                <FaHeart size={20} className="mr-1" />
+                <p className="text-sm text-gray">{item.favorites}人</p>
+              </div>
             </div>
           </div>
         </li>
