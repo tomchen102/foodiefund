@@ -55,7 +55,7 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
           <h2 className="text-2xl font-bold text-secondary">最新消息</h2>
           <div className="flex w-full items-center md:justify-between">
             {newsData?.map((item) => (
-              <p key={item._id} className="mt-2 text-xl hover:text-tertiary hover:underline">
+              <p key={item._id} className="mt-2 text-xl hover:text-primary-dark hover:underline">
                 {item.title}
               </p>
             ))}

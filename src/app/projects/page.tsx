@@ -1,9 +1,7 @@
-import SelectProjects from "./_components/SelectProjects";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ExperienceTalkBlock from "@/components/ExperienceTalkBlock";
 import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
 import { getExperienceTalkData } from "@/mock/getExperienceTalk";
-import ProjectsBlock from "./_components/ProjectsBlock";
 import { getProjectsData } from "@/mock/getProjects";
 import {
   Pagination,
@@ -14,6 +12,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import ProjectsBlock from "./_components/ProjectsBlock";
+import SelectProjects from "./_components/SelectProjects";
 
 async function getData() {
   const recentProjectsBlockHotData = await getRecentProjectsBlockHotData();
@@ -44,22 +44,35 @@ export default async function ProjectsList() {
               <PaginationPrevious href="#" />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
+              <PaginationLink
+                className="rounded-lg bg-primary-dark text-white hover:bg-primary-dark hover:text-white"
+                href="#"
+              >
+                1
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
+              <PaginationLink className="rounded-lg hover:bg-primary-dark hover:text-white" href="#">
+                2
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem className="hidden md:block">
-              <PaginationLink href="#">3</PaginationLink>
+              <PaginationLink className="rounded-lg hover:bg-primary-dark hover:text-white" href="#">
+                3
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem className="hidden md:block">
-              <PaginationLink href="#">10</PaginationLink>
+              <PaginationLink className="rounded-lg hover:bg-primary-dark hover:text-white" href="#">
+                10
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">11</PaginationLink>
+              <PaginationLink className="rounded-lg hover:bg-primary-dark hover:text-white" href="#">
+                11
+              </PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationNext href="#" />

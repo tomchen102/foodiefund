@@ -21,7 +21,7 @@ const CheckoutList = () => {
         <div className="mb-2 flex items-center">
           <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
           <span className="text-sm font-medium text-gray">已被贊助</span>
-          <span className="text-sm font-medium text-tertiary">24/25</span>
+          <span className="text-sm font-medium text-primary-dark">24/25</span>
           <span className="text-sm font-medium text-gray">次</span>
         </div>
         <div className="mb-2">
