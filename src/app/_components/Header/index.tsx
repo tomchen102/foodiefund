@@ -157,7 +157,7 @@ const HeaderMenu = () => {
           </Button>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 focus-visible:outline-none">
+            <DropdownMenuTrigger className="flex items-center bg-primary px-10 py-2 hover:!bg-tiffayGreen focus-visible:outline-none">
               {user.photo ? (
                 <Avatar className="mr-2">
                   <AvatarImage src={user.photo} />
@@ -177,14 +177,14 @@ const HeaderMenu = () => {
 
                 return (
                   <Link scroll={true} href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="hover:!bg-tiffayGreen">
                       {/* 渲染图标 */}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
                     </DropdownMenuItem>
                   </Link>
                 );
               })}
-              <DropdownMenuItem onClick={handleLogout} className="border-t border-gray-200">
+              <DropdownMenuItem onClick={handleLogout} className="border-t border-gray-200 hover:!bg-tiffayGreen">
                 <ExitIcon className="mr-2 h-5 w-5" /> 登出
               </DropdownMenuItem>
             </DropdownMenuContent>
