@@ -1,8 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/utils/providers/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname, useParams, useRouter } from "next/navigation";
 
 const Rewards = () => {
   const pathname = usePathname();
@@ -12,10 +13,18 @@ const Rewards = () => {
     width: "100%",
     height: "auto",
   };
+  const router = useRouter();
+  const { user } = useAuth();
+
+  const handleDonateClick = () => {
+    if (user) {
+      router.push(`/projects/${id}/projectlist/payment`);
+    }
+  };
   return (
     <div className="lg:col-span-3">
       {isProjectList ? (
-        <ul className="scroll-content relative flex w-full gap-6 overflow-x-scroll">
+        <ul className="relative flex w-full gap-6">
           <li className="mb-5 flex-shrink-0 md:mb-8 md:min-w-[200px]">
             <Image
               src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/e84a603e-94ce-4955-aec1-57030925caf0.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PYRZrOEf2DhIKnxV4IpWXrlIG1ms%2FfsYo%2FDFc5KJWDkTRadTSwDZHz7WKNuGQqzCF5Swgd8jl4M9uOmR62IoLtn5I50sq5Z8wZrP5YkHTnizbjS1%2Bte5S1egt2%2B5eNYFXTQ3861NLSScD%2F%2BoyNgYOkRU%2BpPs9JkmsEz0B9zhH5u%2BUCGoM8hZbOk%2FbQFjj%2FrigbY4ub9lwbWlJ8%2BNC8uQCc5Kdpniibh%2B8Sbb5MEc0ujkTVc0f1aWxfCZzl9eo%2BaXOVOKtS4ojjVVcL0MFdla5wFwS6YXOYVgLueuJ61gze%2F0D%2FSftMLSlei6Ij70xSp9j8s4%2F6LAJfFCABOKjo8MYA%3D%3D"
@@ -43,7 +52,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -74,7 +85,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -105,7 +118,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -136,7 +151,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -170,7 +187,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -201,7 +220,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>
@@ -232,7 +253,9 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`}>立即贊助</Link>
+                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                  立即贊助
+                </Link>
               </Button>
             </div>
           </li>

@@ -10,10 +10,14 @@ export interface RecentProjectsProps {
   projectType: string;
   subscriberCount?: number;
   href: string;
+  address?: string;
+  cuisine?: string;
+  dishes?: string;
+  supporters?: number;
 }
-
 export interface RecentProjectsListProps {
   data: RecentProjectsProps[];
+  gridType?: "three" | "four";
 }
 
 export type RecentProjectsBlockType = RecentProjectsListProps & {

@@ -3,7 +3,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/
 import { FormFieldConfig } from "./types";
 import { Checkbox } from "../ui/checkbox";
 
-const FormCheckbox = <T extends FieldValues>({ label, name, className }: FormFieldConfig<T>) => {
+const FormCheckbox = <T extends FieldValues>({ label, name, className, disabled }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
     <div className="my-5">
@@ -18,6 +18,7 @@ const FormCheckbox = <T extends FieldValues>({ label, name, className }: FormFie
                 onCheckedChange={field.onChange}
                 className={className}
                 value={field.value}
+                disabled={disabled}
               />
             </FormControl>
             <FormLabel>{label}</FormLabel>

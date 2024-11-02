@@ -14,6 +14,8 @@ export const getExperienceTalkData = async (): Promise<ExperienceTalkProps[]> =>
       avatarAlt: "地中海風味館",
       avatarName: "地中海風味館",
       avatarRole: "提案者代表",
+      views: 112,
+      favorites: 86,
     },
     {
       id: 2,
@@ -27,6 +29,8 @@ export const getExperienceTalkData = async (): Promise<ExperienceTalkProps[]> =>
       avatarAlt: "韓風炙熱",
       avatarName: "韓風炙熱",
       avatarRole: "提案者代表",
+      views: 112,
+      favorites: 86,
     },
     {
       id: 3,
@@ -40,6 +44,8 @@ export const getExperienceTalkData = async (): Promise<ExperienceTalkProps[]> =>
       avatarAlt: "甜點夢工廠",
       avatarName: "甜點夢工廠",
       avatarRole: "提案者代表",
+      views: 112,
+      favorites: 86,
     },
   ];
 };

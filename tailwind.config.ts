@@ -92,44 +92,55 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate"),
     plugin(function ({ addUtilities }) {
-      addUtilities({
-        ".text-primary": {
-          color: "#40E0D0",
-          "&:hover": {
-            color: "#0F514E",
+      addUtilities([
+        {
+          ".text-primary": {
+            color: "#40E0D0",
+            "&:hover": {
+              color: "#0F514E",
+            },
+            "&:active": {
+              color: "#07302f",
+            },
           },
-          "&:active": {
-            color: "#07302f",
+          ".bg-primary": {
+            backgroundColor: "#40E0D0",
+            "&:hover": {
+              backgroundColor: "#0F514E",
+            },
+            "&:active": {
+              backgroundColor: "#07302f",
+            },
+          },
+          ".text-secondary": {
+            color: "#FE4710",
+            "&:hover": {
+              color: "#EF2D07",
+            },
+            "&:active": {
+              color: "#C61B09",
+            },
+          },
+          ".bg-secondary": {
+            backgroundColor: "#FE4710",
+            "&:hover": {
+              backgroundColor: "#EF2D07",
+            },
+            "&:active": {
+              backgroundColor: "#C41F05",
+            },
           },
         },
-        ".bg-primary": {
-          backgroundColor: "#40E0D0",
-          "&:hover": {
-            backgroundColor: "#0F514E",
-          },
-          "&:active": {
-            backgroundColor: "#07302f",
-          },
-        },
-        ".text-secondary": {
-          color: "#FE4710",
-          "&:hover": {
-            color: "#EF2D07",
-          },
-          "&:active": {
-            color: "#C61B09",
+        {
+          ".line-clamp-3": {
+            display: "-webkit-box",
+            "-webkit-line-clamp": "3",
+            "-webkit-box-orient": "vertical",
+            overflow: "hidden",
+            "text-overflow": "ellipsis",
           },
         },
-        ".bg-secondary": {
-          backgroundColor: "#FE4710",
-          "&:hover": {
-            backgroundColor: "#EF2D07",
-          },
-          "&:active": {
-            backgroundColor: "#C41F05",
-          },
-        },
-      });
+      ]);
     }),
   ],
 };

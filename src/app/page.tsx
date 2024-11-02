@@ -51,10 +51,20 @@ export default async function Home() {
       <main>
         <Banner data={banners} queryParams={queryParams} />
         <div className="bg-gradient-to-top-mobile md:bg-gradient-to-top-desktop">
-          <RecentProjectsBlock className="md:pb-0" data={recentProjectsBlockHotData} title="熱門專案" />
+          <RecentProjectsBlock className="md:pb-0" data={recentProjectsBlockHotData} title="熱門專案" gridType="four" />
         </div>
-        <RecentProjectsBlock className="bg-[#d6f4f0] md:pt-20" data={recentProjectsBlockData} title="近期專案" />
-        <RecentProjectsBlock className="md:pt-20" data={recentProjectsBlockSubscriptionData} title="訂閱式專案" />
+        <RecentProjectsBlock
+          className="bg-[#d6f4f0] md:pt-20"
+          data={recentProjectsBlockData}
+          title="近期專案"
+          gridType="four"
+        />
+        <RecentProjectsBlock
+          className="md:pt-20"
+          data={recentProjectsBlockSubscriptionData}
+          title="訂閱式專案"
+          gridType="four"
+        />
         <ExperienceSuccess className="bg-[#F5E5CE] md:pt-20" data={ExperienceData} title="成功案例" />
         <ExperienceTalkBlock data={getExperienceTalk} />
         <AboutUs />
