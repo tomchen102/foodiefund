@@ -15,7 +15,7 @@ const fooMenu = {
     { title: "隱私權政策", hrefUrl: "#" },
   ],
   moreNav: [
-    { title: "探索專案", hrefUrl: "#" },
+    { title: "探索專案", hrefUrl: "/projects" },
     { title: "我要提案", hrefUrl: "#" },
     { title: "募資提案經驗談", hrefUrl: "#" },
   ],
