@@ -109,7 +109,6 @@ const SelectProjects = () => {
               className="h-[46px] min-w-[260px] rounded-none bg-[#fff] pl-10 text-sm md:min-w-60"
               type="text"
               placeholder="搜尋專案"
-              value=""
             />
           </div>
 
