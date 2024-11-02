@@ -27,6 +27,11 @@ export interface FormFieldConfig<T extends FieldValues> {
   placeholder?: string;
   options?: Option[];
   required?: boolean;
+  value?: string;
+  halfWidth?: boolean;
+  processed?: boolean;
+  disabled?: boolean;
+  onChange?: (value: string) => void;
 }
 
 export interface FormRendererProps<T extends FieldValues> {

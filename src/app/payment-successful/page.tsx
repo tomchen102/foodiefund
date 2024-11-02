@@ -5,7 +5,7 @@ import React from "react";
 const PaymentSuccessful = () => {
   return (
     <div className="flex h-[79vh] items-center justify-center">
-      <div className="bg-white p-6 md:mx-auto">
+      <div className="bg-[#fdfbf8] p-6 md:mx-auto">
         <svg viewBox="0 0 24 24" className="mx-auto my-6 h-16 w-16 text-green-600">
           <path
             fill="currentColor"

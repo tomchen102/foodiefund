@@ -10,10 +10,12 @@ const FormInput = <T extends FieldValues>({
   type,
   className,
   required,
+  halfWidth,
+  disabled,
 }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
-    <div className="my-5">
+    <div className={`my-5 ${halfWidth ? "!ml-0 w-full md:mr-4 md:w-1/2" : "w-full"}`}>
       <FormField
         control={control}
         name={name as Path<T>}
@@ -22,7 +24,14 @@ const FormInput = <T extends FieldValues>({
             {required && <span className="text-red-500">*</span>}
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <Input className={className} placeholder={placeholder} {...field} type={type} value={field.value || ""} />
+              <Input
+                className={className}
+                placeholder={placeholder}
+                {...field}
+                type={type}
+                value={field.value || ""}
+                disabled={disabled}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>

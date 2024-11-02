@@ -1,3 +1,4 @@
+import React from "react";
 import { FieldValues, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
 import { FormRendererProps, FormFieldConfig } from "./types";
@@ -10,45 +11,135 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
   return (
     <FormProvider {...methods}>
       <div className="my-5">
-        {FormFields.map((field: FormFieldConfig<T>) =>
-          field.type === "textarea" ? (
-            <FormTextarea
-              key={field.name as string}
-              label={field.label}
-              name={field.name}
-              type="textarea"
-              placeholder={field.placeholder}
-              required={field.required}
-            />
-          ) : field.type === "radio" ? (
-            <FormRadioGroup
-              key={field.name as string}
-              id={field.id}
-              label={field.label}
-              name={field.name}
-              type="radio"
-            />
-          ) : field.type === "select" ? (
-            <FormSelect
-              key={field.name as string}
-              label={field.label}
-              name={field.name}
-              options={field.options}
-              type="select"
-            />
-          ) : field.type === "checkbox" ? (
-            <FormCheckbox key={field.name as string} label={field.label} name={field.name} type="checkbox" />
-          ) : (
-            <FormInput
-              key={field.name as string}
-              label={field.label}
-              name={field.name}
-              type={field.type}
-              placeholder={field.placeholder}
-              required={field.required}
-            />
-          )
-        )}
+        {FormFields.reduce((acc: JSX.Element[], field: FormFieldConfig<T>, index: number) => {
+          if (field.processed) {
+            return acc;
+          }
+
+          const nextField = FormFields[index + 1];
+          const shouldPair = nextField && field.halfWidth && nextField.halfWidth;
+
+          if (field.type === "select" && shouldPair && nextField.type === "select") {
+            FormFields[index + 1] = { ...nextField, processed: true };
+            acc.push(
+              <div key={`${field.key}-${nextField.key}-pair`} className="flex space-x-4">
+                <FormSelect
+                  key={field.key}
+                  type={field.type}
+                  label={field.label}
+                  name={field.name}
+                  options={field.options}
+                  placeholder={field.placeholder}
+                  halfWidth={field.halfWidth}
+                  disabled={field.disabled}
+                  onChange={field.onChange}
+                />
+                <FormSelect
+                  key={nextField.key}
+                  type={nextField.type}
+                  label={nextField.label}
+                  name={nextField.name}
+                  options={nextField.options}
+                  placeholder={nextField.placeholder}
+                  halfWidth={nextField.halfWidth}
+                  disabled={nextField.disabled}
+                  onChange={nextField.onChange}
+                />
+              </div>
+            );
+          } else if (
+            (field.type === "text" || field.type === "number") &&
+            shouldPair &&
+            (nextField.type === "text" || nextField.type === "number")
+          ) {
+            FormFields[index + 1] = { ...nextField, processed: true };
+            acc.push(
+              <div key={`${field.key}-${nextField.key}-pair`} className="block space-x-4 md:flex">
+                <FormInput
+                  key={field.key}
+                  label={field.label}
+                  name={field.name}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  halfWidth={field.halfWidth}
+                  disabled={field.disabled}
+                />
+                <FormInput
+                  key={nextField.key}
+                  label={nextField.label}
+                  name={nextField.name}
+                  type={nextField.type}
+                  placeholder={nextField.placeholder}
+                  required={nextField.required}
+                  halfWidth={nextField.halfWidth}
+                  disabled={nextField.disabled}
+                />
+              </div>
+            );
+          } else if (field.type === "textarea") {
+            acc.push(
+              <FormTextarea
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type="textarea"
+                placeholder={field.placeholder}
+                required={field.required}
+                disabled={field.disabled}
+              />
+            );
+          } else if (field.type === "radio") {
+            acc.push(
+              <FormRadioGroup
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                options={field.options}
+                type="radio"
+                disabled={field.disabled}
+              />
+            );
+          } else if (field.type === "select") {
+            acc.push(
+              <FormSelect
+                key={field.key}
+                type="select"
+                label={field.label}
+                name={field.name}
+                options={field.options}
+                placeholder={field.placeholder}
+                halfWidth={field.halfWidth}
+                disabled={field.disabled}
+                onChange={field.onChange}
+              />
+            );
+          } else if (field.type === "checkbox") {
+            acc.push(
+              <FormCheckbox
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type="checkbox"
+                disabled={field.disabled}
+              />
+            );
+          } else {
+            acc.push(
+              <FormInput
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type={field.type}
+                placeholder={field.placeholder}
+                required={field.required}
+                halfWidth={field.halfWidth}
+                disabled={field.disabled}
+              />
+            );
+          }
+          return acc;
+        }, [])}
       </div>
     </FormProvider>
   );
