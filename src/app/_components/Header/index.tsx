@@ -125,7 +125,7 @@ const HeaderMenu = () => {
             </Accordion>
           )}
           {navMenu.mainNav.map((item, index) => (
-            <Link scroll={true} href="#" key={index}>
+            <Link scroll={true} href={item.hrefUrl} key={index}>
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
             </Link>
           ))}
