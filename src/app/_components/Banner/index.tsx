@@ -65,7 +65,7 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
       </div>
       <div className="container mt-6">
         <div className="border-b border-b-gray-200 text-center leading-[0rem]">
-          <span className="bg-white px-6 leading-[0rem] text-gray-400">探索類別</span>
+          <span className="px-6 leading-[0rem] text-gray-400">探索類別</span>
         </div>
         <div className="border-b pt-3 text-center text-lg font-bold md:text-xl">
           <button className="px-4 py-5 hover:bg-gray-200">台北</button>
