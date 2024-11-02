@@ -18,7 +18,7 @@ const buttonVariants = cva(
         donateNow: "bg-secondary text-base font-bold text-white",
         transparent:
           "border border-white bg-transparent shadow-sm hover:bg-transparent/40 text-white text-sm font-bold leading-[20px]",
-        bannerTag: "text-lg font-bold md:text-xl bg-white",
+        bannerTag: "text-lg font-bold md:text-xl",
       },
       size: {
         default: "h-9 px-4 py-2 rounded",
