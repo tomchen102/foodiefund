@@ -90,10 +90,8 @@ export default async function ProjectsLayout({ children, params }: ProviderProps
   return (
     <>
       <ProjectSummary {...ProjectSummaryData.find((project) => project.id === id.toString())!} />
-
       <LayoutContent>{children}</LayoutContent>
-
-      <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" />
+      <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" gridType="four" />
     </>
   );
 }
