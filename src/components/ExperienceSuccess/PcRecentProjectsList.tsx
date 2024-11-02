@@ -7,6 +7,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 import { ExpierieceSuccessListProp } from "@/types/ExpierieceSuccessListProps";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouselWithDot";
+import Image from "next/image";
 const PcRecentProjectsList = ({ data }: ExpierieceSuccessListProp) => {
   return (
     <ul className="hidden md:block">
@@ -18,13 +19,13 @@ const PcRecentProjectsList = ({ data }: ExpierieceSuccessListProp) => {
                 <a href="" className="group">
                   <div className="flex min-w-[550px] flex-row items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100">
                     <div className="h-[243px] overflow-hidden">
-                      <img
+                      <Image
                         src={item.imageUrl}
                         alt={item.title}
-                        /*   className="w-full rounded-tl-lg rounded-tr-lg" */
+                        width={256}
+                        height={256}
                         className="-py-5 h-full w-[256px] rounded-lg object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-
-                        /*  priority */
+                        priority
                       />
                     </div>
                     <div className="px-5 py-5">

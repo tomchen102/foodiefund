@@ -75,14 +75,14 @@ export default function RootLayout({ children }: ProviderProps) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col bg-[#FDFBF8] antialiased`}
         suppressHydrationWarning={true}
       >
         <AuthProvider>
           <ReactQueryProvider>
             <LoadingProvider>
               <HeaderMenu />
-              <main className="flex-1 bg-[#FDFBF8]">{children}</main>
+              <main className="flex-1">{children}</main>
               <FooterMenu />
             </LoadingProvider>
           </ReactQueryProvider>
