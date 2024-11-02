@@ -32,7 +32,7 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
                     </Link>
                   </Button>
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="secondary" asChild>
-                    <Link scroll={true} href="/404">
+                    <Link scroll={true} href="/projects">
                       我要贊助
                     </Link>
                   </Button>
@@ -65,13 +65,29 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
       </div>
       <div className="container mt-6">
         <div className="border-b border-b-gray-200 text-center leading-[0rem]">
-          <span className="bg-white px-6 leading-[0rem] text-gray-400">探索類別</span>
+          <span className="px-6 leading-[0rem] text-gray-400">探索類別</span>
         </div>
         <div className="border-b pt-3 text-center text-lg font-bold md:text-xl">
-          <button className="px-4 py-5 hover:bg-gray-200">台北</button>
-          <button className="px-4 py-5 hover:bg-gray-200">台中</button>
-          <button className="px-4 py-5 hover:bg-gray-200">台南</button>
-          <button className="px-4 py-5 hover:bg-gray-200">高雄</button>
+          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+            <Link scroll={true} href="/projects">
+              台北
+            </Link>
+          </Button>
+          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+            <Link scroll={true} href="/projects">
+              台中
+            </Link>
+          </Button>
+          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+            <Link scroll={true} href="/projects">
+              台南
+            </Link>
+          </Button>
+          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+            <Link scroll={true} href="/projects">
+              高雄
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
