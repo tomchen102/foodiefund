@@ -194,6 +194,102 @@ export const getProjectSummaryData = async (): Promise<ProjectSummaryDataProps[]
         instagram: "https://www.instagram.com/",
       },
     },
+    {
+      id: "9",
+      title: "綠意盎然",
+      description:
+        "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
+      imageUrlLg:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      imageUrlSm:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      proposer: "喬八",
+      progress: 30,
+      targetAmount: "500,000",
+      currentAmount: "100,000",
+      startDate: "2024-10-18",
+      endDate: "180",
+      numberOfBackers: 15,
+      location: "台北",
+      restaurantType: "素食餐廳",
+      socialLinks: {
+        facebook: "https://www.facebook.com/",
+        twitter: "https://twitter.com/",
+        instagram: "https://www.instagram.com/",
+      },
+    },
+    {
+      id: "10",
+      title: "綠意盎然",
+      description:
+        "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
+      imageUrlLg:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      imageUrlSm:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      proposer: "喬八",
+      progress: 30,
+      targetAmount: "500,000",
+      currentAmount: "100,000",
+      startDate: "2024-10-18",
+      endDate: "180",
+      numberOfBackers: 15,
+      location: "台北",
+      restaurantType: "素食餐廳",
+      socialLinks: {
+        facebook: "https://www.facebook.com/",
+        twitter: "https://twitter.com/",
+        instagram: "https://www.instagram.com/",
+      },
+    },
+    {
+      id: "11",
+      title: "綠意盎然",
+      description:
+        "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
+      imageUrlLg:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      imageUrlSm:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      proposer: "喬八",
+      progress: 30,
+      targetAmount: "500,000",
+      currentAmount: "100,000",
+      startDate: "2024-10-18",
+      endDate: "180",
+      numberOfBackers: 15,
+      location: "台北",
+      restaurantType: "素食餐廳",
+      socialLinks: {
+        facebook: "https://www.facebook.com/",
+        twitter: "https://twitter.com/",
+        instagram: "https://www.instagram.com/",
+      },
+    },
+    {
+      id: "12",
+      title: "綠意盎然",
+      description:
+        "綠意盎然是一家充滿自然氣息的花園風格餐廳，專注於新鮮健康的料理。這裡以充滿綠意的環境和季節性食材為特色，讓每位顧客在享用美食的同時，能夠感受到如置身大自然般的舒適與愜意。從豐富的蔬果沙拉到創意的植物性料理，綠意盎然致力於將每一份餐點都打造成充滿生命力的美味作品，為您帶來身心靈的綠色享受，是追求健康生活和自然美味的理想場所。",
+      imageUrlLg:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      imageUrlSm:
+        "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
+      proposer: "喬八",
+      progress: 30,
+      targetAmount: "500,000",
+      currentAmount: "100,000",
+      startDate: "2024-10-18",
+      endDate: "180",
+      numberOfBackers: 15,
+      location: "台北",
+      restaurantType: "素食餐廳",
+      socialLinks: {
+        facebook: "https://www.facebook.com/",
+        twitter: "https://twitter.com/",
+        instagram: "https://www.instagram.com/",
+      },
+    },
 
     // {
     //   id: "9",
