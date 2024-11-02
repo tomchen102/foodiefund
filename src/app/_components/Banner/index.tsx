@@ -68,22 +68,22 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
           <span className="px-6 leading-[0rem] text-gray-400">探索類別</span>
         </div>
         <div className="border-b pt-3 text-center text-lg font-bold md:text-xl">
-          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+          <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
             <Link scroll={true} href="/projects">
               台北
             </Link>
           </Button>
-          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+          <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
             <Link scroll={true} href="/projects">
               台中
             </Link>
           </Button>
-          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+          <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
             <Link scroll={true} href="/projects">
               台南
             </Link>
           </Button>
-          <Button className="px-4 py-5 hover:bg-gray-200" variant="secondary" asChild>
+          <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
             <Link scroll={true} href="/projects">
               高雄
             </Link>
