@@ -23,7 +23,7 @@ const PaymentForm = () => {
     resolver: zodResolver(FormPaymentSchema),
     defaultValues: {
       paymentMethods: "creditCard",
-      overweight: 0,
+      overweight: "",
       country: "taiwan",
       city: "臺北市",
       area: "中正區",

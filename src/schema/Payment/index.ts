@@ -2,7 +2,12 @@ import { z } from "zod";
 
 export const FormPaymentSchema = z.object({
   paymentMethods: z.string(),
-  overweight: z.number().optional(),
+  overweight: z
+    .string()
+    .optional()
+    .refine((value) => value === undefined || /^\d*$/.test(value), {
+      message: "只能輸入數字",
+    }),
   country: z.string(),
   city: z.string(),
   area: z.string(),
@@ -14,9 +19,11 @@ export const FormPaymentSchema = z.object({
   recipient: z.string().nonempty("收件人不得為空"),
   phone: z
     .string()
-    .nonempty("電話號碼不得為空")
-    .length(10, "電話號碼必須是10個數字")
-    .regex(/^\d+$/, "電話號碼必須是數字且不能包含e"),
+    .length(10, "手機長度必須為 10 位數")
+    .optional()
+    .refine((value) => value === undefined || /^\d*$/.test(value), {
+      message: "請輸入正確的手機號碼",
+    }),
   color: z.string().optional(),
   billType: z.string(),
   vehicle: z.number(),
