@@ -18,11 +18,11 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
           <li className="relative mt-6 flex flex-col" key={item.id}>
             <Link scroll={true} href={href} className="group">
               <div className="flex h-full flex-col rounded-lg border border-solid border-gray-200 bg-white">
-                <div className="relative">
+                <div className="relative h-full overflow-hidden">
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
-                    className="group-hover:scale-120 w-full rounded-tl-lg rounded-tr-lg duration-300 ease-in-out group-hover:scale-100"
+                    className="w-full rounded-tl-lg rounded-tr-lg duration-300 ease-in-out group-hover:scale-110"
                     width={376}
                     height={200}
                     priority
@@ -31,7 +31,7 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                   {item.projectType === "subscription" && <Badges text="訂閱式" className="absolute left-3 top-3" />}
                 </div>
                 <div className="flex h-full flex-col p-5">
-                  <h3 className="group-hover:text-tertiary mb-2 font-bold group-hover:underline">
+                  <h3 className="mb-2 font-bold group-hover:text-primary-primary-hover group-hover:underline">
                     <span>{item.title}</span>
                   </h3>
                   <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
