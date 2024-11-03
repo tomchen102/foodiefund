@@ -23,13 +23,13 @@ const MobileCarousel = ({ data }: ExpierieceSuccessListProp) => {
         <CarouselContent>
           {data.map((item) => (
             <CarouselItem key={item.id} className="relative">
-              <li className="relative">
+              <li className="relative h-full">
                 <div className="rounded-lg bg-white">
-                  <div className="relative">
+                  <div className="relative h-[256px] overflow-hidden">
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
-                      className="w-full rounded-tl-lg rounded-tr-lg"
+                      className="w-full rounded-tl-lg rounded-tr-lg object-cover"
                       width={376}
                       height={200}
                       priority

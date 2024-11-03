@@ -35,13 +35,13 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
                   <h3 className="mb-2 text-lg font-bold leading-6">{item.title}</h3>
                   <p className="pb-3 text-sm font-medium">{item.description}</p>
                 </div>
-                <div className="absolute bottom-[-16px] left-6 flex items-center">
+                <div className="absolute bottom-[-16px] flex w-full items-center pl-6">
                   <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
                   <div className="mr-auto">
                     <h4 className="text-sm font-bold">{item.avatarName}</h4>
                     <p className="text-sm text-gray">{item.avatarRole}</p>
                   </div>
-                  <div className="flex">
+                  <div className="ml-auto flex">
                     <IoEyeSharp size={20} className="mr-1" />
                     <p className="mr-3 text-sm text-gray">{item.views}人</p>
                     <FaHeart size={20} className="mr-1" />
