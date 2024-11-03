@@ -18,11 +18,11 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
           <li className="relative mt-6 flex flex-col" key={item.id}>
             <Link scroll={true} href={href} className="group">
               <div className="flex h-full flex-col rounded-lg border border-solid border-gray-200 bg-white">
-                <div className="relative">
+                <div className="relative h-full overflow-hidden">
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
-                    className="group-hover:scale-120 w-full rounded-tl-lg rounded-tr-lg duration-300 ease-in-out group-hover:scale-100"
+                    className="w-full rounded-tl-lg rounded-tr-lg duration-300 ease-in-out group-hover:scale-110"
                     width={376}
                     height={200}
                     priority
