@@ -49,7 +49,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                           {item.title}
                         </Link>
                       </h3>
-                      <p className="mb-5 text-sm font-medium">{item.description}</p>
+                      <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
                       <div className="flex items-center">
                         {item.projectType === "fundraising" && <TfiLocationPin size={20} className="mr-1" />}
                         {item.projectType === "fundraising" && (

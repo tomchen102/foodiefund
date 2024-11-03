@@ -69,7 +69,12 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               </span>
             </div>
           </div>
-          <h1 className="my-3 text-2xl font-bold lg:text-4xl">{ProjectSummaryData.title}</h1>
+          <div className="flex items-center">
+            <h1 className="my-3 text-2xl font-bold lg:text-4xl">{ProjectSummaryData.title}</h1>
+
+            {ProjectSummaryData.activeType == "A" && <Badges text="群眾募資" className="ml-2 h-1/2 text-xl" />}
+            {ProjectSummaryData.activeType == "Z" && <Badges text="訂閱式" className="ml-2 h-1/2 text-xl" />}
+          </div>
           <p className="mb-6 text-sm font-medium lg:mb-auto lg:text-base">{ProjectSummaryData.description}</p>
           <div className="mb-7 lg:mb-10 lg:flex">
             <div className="mr-6 lg:w-[426px]">

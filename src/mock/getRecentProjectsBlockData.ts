@@ -23,8 +23,8 @@ export const getRecentProjectsBlockData = async (): Promise<RecentProjectsProps[
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/aae2f533-1def-407f-9d22-0f4e17c24aca.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=SnllGJguuH573YS4JL3kwOKXayqfNR4a6rjQ1Yv0UQS16rBim%2F%2Fh2WIAU2tzXKlqjy64vqpXGKVfV8EmXp9Y%2Bno3HlPzH8sVAo0d3Zzj3mGGERIC00Zle3A579aCvi740gXRLBQyeBQm8oldKDGnRBamPZVTZrqQMvLU%2FZDJh8SmCQmqXMmu4AEDtyDX%2FvRnIEtG5pVskV8XuaCz6iub%2BD%2FSL3ig49HyghjFNE2LCUVnoW3HM7JNSL15wEHHO87QnMIm2GUzwGtx3fOpoAe6%2FZKjU2W1RTzuZE1U4PR%2FLYYtJJJHGWO47zh35BtWPXRHs%2BR2JX8Ii6NlycW%2By6BdQw%3D%3D",
       place: "台南",
-      percentage: 60,
-      currentAmount: "500,000",
+      percentage: 80,
+      currentAmount: "400,000",
       reciprocal: 20,
       href: "projects/6",
       projectType: "fundraising",
@@ -49,7 +49,7 @@ export const getRecentProjectsBlockData = async (): Promise<RecentProjectsProps[
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/e4095f28-7f53-4d9e-bd5a-7ee8b1c6ec8b.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=i2fHWTTMEzcfk8nnruBu4l0V%2FyAJ1ioDuVTetnVz27Vr8o5FhtfpUQGujGD218blWTw%2Fi7d7mwck8o9ltUYRkGuBBilNJKWXInwxmwx8KWe1Wns8ouha5ACZLZvpV3JK%2FJoa9Yoh%2BOG7GOlEJAzl8YI6uyLjge6%2FQ8eN6L4nDBpwB4nlqBT0nyVeLsF6U0wSavYCVSGFrEUYx97mqzhB6gsmw5kHOhgc71uSZZ2WE3qD1KSQhYWGk4rdNT%2B8j4vM1q7wlDACjt4edWldioaNA0SZu0bjNT3z1NdTVDe1dpRXK1JuRauk2whD%2BSK1yTyFb2Ys%2B38shCntt%2FBRIk%2FKkw%3D%3D",
       place: "台北",
-      percentage: 60,
+      percentage: 50,
       currentAmount: "500,000",
       reciprocal: 20,
       href: "projects/8",

@@ -28,11 +28,11 @@ export const getRecentProjectsBlockSubscriptionData = async (): Promise<RecentPr
     },
     {
       id: 11,
-      title: "海岸燒烤樂園",
+      title: "澎湖海鮮樂園",
       description: "在美麗海岸享受豐富的海鮮和肉類燒烤,體驗戶外用餐的樂趣。",
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/db050add-e297-434a-ab18-322fa54b82be.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=M6O87l1C00mvIY9t1rTTBwWSgBebkh1WTqTDzN0osSz6GU3Zu%2FMCMG3dRK8dODURXQb4MOA%2BEBoy9IRP6lNUARq57H0EPCd5KgkVhOrO7jJ%2BS16ayMCt%2BxYEUsRp7xbNotOKcp23ET7GCxF6R8oGV2SUteLRX%2BPxaGekHTFZj1qthR1LPU92kSNf1TSqkiirIg9OwM86fITifNdr%2BcFPg4xadHcNFF4gjQTFBukTEk%2F8lHVT59G5Pdy0Ib55PV%2BB%2Ff2Q6Qaa%2FXOFGz6tVraJRKYk%2BG5auQMUEd77%2B4Ih1sedrSso9Egd195j5vGm4P7NzDayXOdmPmWUA0xUogoUVw%3D%3D",
-      place: "台北",
+      place: "澎湖",
       currentAmount: "500",
       href: "projects/11",
       projectType: "subscription",

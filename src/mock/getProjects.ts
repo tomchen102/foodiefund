@@ -64,9 +64,9 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
     },
     {
       id: 5,
-      title: "咖啡與時光",
+      title: "喵喵咖啡廳",
       description:
-        "咖啡與時光是一家充滿溫暖氛圍的咖啡館，融合了意大利經典美食與令人意想不到的趣味元素。我們的菜單靈感來自浪漫的故事與歡樂的想像力，將手工披薩、義大利麵等美味料理與幽默風格結合，帶給顧客獨一無二的用餐體驗。在這裡，不僅能享受到正宗的義式美味，更能感受到童話般的用餐氛圍，是約會、聚會和家庭共度美好時光的理想場所。",
+        "喵喵咖啡館在於創辦人在台北時創立,我們的理念很簡單-提供優質的食物和咖啡,咖啡具有使人們停下來和彼此互動的能力。",
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/5b4342af-d487-4f93-87ad-fd614ce4a9dc.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=s5FM4O0SJCtEHYxl6umSRHR8yMVH7RGWuR8cXFfEhgbp7t0sXfjGLaOTZU%2BUqRjeBsDjhkHJHTBLQy3Me3J8CTCr6%2BZwkoffE1krerstww%2Fk2OFKEk%2F3vNYAzF7i3jkhFeP%2BZR3QmEWsc%2BlmkgWDCpHJ6nC%2BQpKDqDJmv9AEL5MNVPvvQL%2B25XEjoRrw5MXXi2m2CVHdVx2FmDMoJoofwIVjlkOwflwngkmHsSlIoynD3nv5j0MmZZKm7c0c6vOzL%2FQGw3Y2FC%2Fev82Ue7YESSbK4LlywtJAtSyJ%2FbhBJAWmYU7RkIc7x7eUh8FOYjuX73XAq%2B7mXBgCg8BoXWgiQw%3D%3D",
       percentage: 60,
@@ -100,7 +100,7 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/fcc46ba3-b10a-4c58-bac5-834626ae0cd9.jpg?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=vU%2Fk1XHhsxtJ9r1AwwLw6Xc3t4YNBiIbc4gqSc3IAEgPya4GBFD1XsvGVK1WRNXGUu3Eg05zHpaYaaiTiDFCaArK2MKRIARwRgHgSfNPtakZwa1cuBBahhUycTgzH6j%2FzcbgvxYoYyt2Q3tuXm1Tw441dgFweMEUYSGJeOxjRi%2FAyv2QlsjC4YEjTem44U%2B3F%2BZQ3ZxXAt0ptCWPIWNtmnW8yqXjZjug%2BsQdF6Lc5cmlbNuq4qBG4nnsUZKPTH3Q1HOHlnwMZiaPoiW5f0AlQSZcyqP8dzcT%2FHxSg5t3YfK9lkN5fJ5YKqbwt8K3X8H7NqOMZS09J6g%2FgTR7oUsZjQ%3D%3D",
       percentage: 90,
-      place: "台北",
+      place: "澎湖",
       currentAmount: "1,800,000",
       reciprocal: 30,
       href: "projects/7",
@@ -123,7 +123,7 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
       supporters: 15,
     },
     {
-      id: 9,
+      id: 13,
       title: "韓風炙熱",
       description:
         "韓風炙熱是一家正宗韓式餐廳，將韓國的獨特風味帶到您身邊。餐廳精心挑選地道食材，以傳統的韓式烹調方式呈現，為您帶來經典韓式料理的熱情和美味。無論是香辣的韓式炸雞、醇厚的韓牛燒烤，還是溫暖的石鍋拌飯，每道菜品都充滿濃郁的韓國風情。韓風炙熱提供溫馨的用餐氛圍，無論是家庭聚餐、朋友聚會或是浪漫約會，都是您的理想選擇。讓我們一起感受韓風美味的熱情魅力！",
@@ -138,10 +138,10 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
       supporters: 15,
     },
     {
-      id: 10,
+      id: 9,
       title: "泰享鮮味",
       description:
-        "泰享鮮味是一家充滿異國風情的泰式餐廳，專注於帶給您正宗的泰國美食體驗。我們選用新鮮的香料和食材，融合泰國地道的烹飪手法，為您呈現地道的泰式風味。從酸辣開胃的冬蔭功湯、香濃可口的綠咖哩，到爽口的泰式涼拌，讓每一口都帶您彷彿置身泰國。無論是喜歡辛香味十足還是清爽口感的饕客，泰享鮮味都能滿足您的味蕾。快來體驗這一場來自泰國的美味饗宴吧！",
+        "泰享鮮味是一家充滿異國風情的泰式餐廳，專注於帶給您正宗的泰國美食體驗。我們選用新鮮的香料和食材，融合泰國地道的烹飪手法，為您呈現地道的泰式風味。從酸辣開胃的冬蔭功湯、香濃可口的綠咖哩，到爽口的泰式涼拌，讓每一口都帶您彷彿置身泰國。無論是喜歡辛香味十足還是清爽口感的饕客，泰享鮮味都能滿足您的味蕾。快來體驗這一場來自泰國的美味饗宴吧！結合傳統與現代泰式料理,帶來令人驚豔的風味佳肴。「泰享鮮味」是一家致力於提供正宗泰式風味的餐廳，以新鮮、地道的食材帶來濃郁的泰國風情。每道料理不僅是舌尖上的享受，更是一場異國風情的探索。我們用心挑選香料和食材，將酸、甜、苦、辣的泰國經典滋味完美結合，讓顧客每一口都能品味到正宗的泰國靈魂。不論是香茅蝦湯的濃郁酸辣、青木瓜沙拉的爽脆清新，還是咖哩料理的濃郁醇厚，我們都致力於呈現純正泰式風味。在「泰享鮮味」，每一道料理都是一段故事，帶你感受來自泰國街頭的美食文化，用心傳遞鮮活的泰式體驗。",
       imageUrl:
         "https://storage.googleapis.com/fir-express-80358.appspot.com/images/95f8bccf-7d2f-4b14-b68c-eb81efaae71a.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=rUCHrAj2fQr%2FE71S1l8cG87ybih71GqaJpB%2FEsSGPh6b77JK6y2xsNuSDW4%2FtSf90xrKFVAO7%2FL1cmcu%2FmMP%2B2yU93P28cXAhg91ulJnQXOTc2bd45Zf0C381%2Fsff%2F2HAgssTLWM4LPk%2FGrRE0Gfc0o7E5ZwsZu8LowHWgKzvgYD9a7S2qhHwYLflQBeHuainWLohLwJHndgDmIZFFpdo9JlL0dFoX%2BlkiSJhZ0N2LfJ%2BTueFKLPIGM4M3vpqcgsey86WUs6qDBIyOwHr48nlx0WMJyyS67fwZJRQWq7FqFreFuIJ2Uyjw%2BlYgRSlad1Y%2BQ4ajWcmMOwaPvU30%2BC7w%3D%3D",
       percentage: 40,
@@ -153,7 +153,7 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
       supporters: 15,
     },
     {
-      id: 11,
+      id: 10,
       title: "異國美食薈萃",
       description:
         "異國美食薈萃是一家集合世界各地風味的餐廳，讓您不出國門就能品嚐多元的異國美食。我們精心挑選來自亞洲、歐洲、美洲等地的經典料理，從義式薄餅、法式烤牛排，到日式壽司和東南亞的香料美食，每一道菜品都力求還原地道風味，讓您感受各國的飲食文化。無論是約會、家庭聚餐，還是朋友相聚，異國美食薈萃都是您探索全球美味的最佳選擇。來這裡，開啟一場美食環遊世界的精彩之旅吧！",
@@ -168,7 +168,7 @@ export const getProjectsData = async (): Promise<RecentProjectsProps[]> => {
       supporters: 15,
     },
     {
-      id: 12,
+      id: 11,
       title: "海岸燒烤樂園",
       description:
         "異國美食薈萃是一家集合世界各地風味的餐廳，讓您不出國門就能品嚐多元的異國美食。我們精心挑選來自亞洲、歐洲、美洲等地的經典料理，從義式薄餅、法式烤牛排，到日式壽司和東南亞的香料美食，每一道菜品都力求還原地道風味，讓您感受各國的飲食文化。無論是約會、家庭聚餐，還是朋友相聚，異國美食薈萃都是您探索全球美味的最佳選擇。來這裡，開啟一場美食環遊世界的精彩之旅吧！",
