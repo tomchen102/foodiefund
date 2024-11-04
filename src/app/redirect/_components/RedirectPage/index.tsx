@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
 import { useSetLoading } from "@/hooks/useSetLoading";
+import Loading from "@/components/Loading";
+
 const RedirectPageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -28,15 +30,7 @@ const RedirectPageContent = () => {
     setIsLoading(false);
   }, [searchParams, router, setUser]);
 
-  return (
-    <div>
-      {/* Display the extracted search parameters */}
-      {/*  <p>Token: {searchParams.get("token")}</p>
-      <p>Name: {searchParams.get("name")}</p>
-      <p>email: {searchParams.get("email")}</p>
-      <p>photo: {searchParams.get("photo")}</p> */}
-    </div>
-  );
+  return <Loading />;
 };
 
 const RedirectPage = () => {
