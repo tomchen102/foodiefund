@@ -21,15 +21,11 @@ const RedirectPageContent = () => {
       photo = photo ? photo : "";
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
-      setTimeout(() => {
-        router.push("/");
-        setIsLoading(false);
-      }, 1000);
+      router.push("/");
+      setIsLoading(false);
     } else {
-      setTimeout(() => {
-        setIsLoading(false);
-        router.push("/Login");
-      }, 1000);
+      setIsLoading(false);
+      router.push("/Login");
     }
   }, [searchParams, router, setUser]);
 
