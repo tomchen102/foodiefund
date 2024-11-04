@@ -56,9 +56,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
               <MdPersonOutline size={20} className="mr-1 inline-block" />
               <span className="mr-1 text-sm font-medium text-gray">提案人</span>
               <span className="text-sm font-medium text-primary-dark hover:underline">
-                <Link scroll={true} href="#">
-                  {ProjectSummaryData.proposer}
-                </Link>
+                <Link href="#">{ProjectSummaryData.proposer}</Link>
               </span>
             </div>
             <div className="flex h-[30px] items-center">

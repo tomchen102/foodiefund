@@ -27,14 +27,10 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
                 <p className="mt-1 text-2xl leading-snug md:mt-4">在你心愛的餐廳成為合夥人</p>
                 <div className="mt-7 flex gap-2 text-2xl md:mt-10">
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="transparent" asChild>
-                    <Link scroll={true} href="/404">
-                      我要提案
-                    </Link>
+                    <Link href="/404">我要提案</Link>
                   </Button>
                   <Button className="w-1/2 px-5 py-4 text-lg md:w-auto" variant="secondary" asChild>
-                    <Link scroll={true} href="/projects">
-                      我要贊助
-                    </Link>
+                    <Link href="/projects">我要贊助</Link>
                   </Button>
                 </div>
               </div>
@@ -69,24 +65,16 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
         </div>
         <div className="border-b pt-3 text-center text-lg font-bold md:text-xl">
           <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
-            <Link scroll={true} href="/projects">
-              台北
-            </Link>
+            <Link href="/projects">台北</Link>
           </Button>
           <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
-            <Link scroll={true} href="/projects">
-              台中
-            </Link>
+            <Link href="/projects">台中</Link>
           </Button>
           <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
-            <Link scroll={true} href="/projects">
-              台南
-            </Link>
+            <Link href="/projects">台南</Link>
           </Button>
           <Button className="h-full px-4 py-5 hover:bg-gray-200" variant="bannerTag" asChild>
-            <Link scroll={true} href="/projects">
-              高雄
-            </Link>
+            <Link href="/projects">高雄</Link>
           </Button>
         </div>
       </div>

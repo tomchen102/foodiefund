@@ -16,7 +16,7 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
         const href = currentPath.includes("projects") ? `/projects/${item.id}` : `/projects/${item.id}`;
         return (
           <li className="relative mt-6 flex flex-col" key={item.id}>
-            <Link scroll={true} href={href} className="group">
+            <Link href={href} className="group">
               <div className="flex h-full flex-col rounded-lg border border-solid border-gray-200 bg-white">
                 <div className="relative h-full overflow-hidden">
                   <Image

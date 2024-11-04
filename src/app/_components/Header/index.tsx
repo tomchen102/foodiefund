@@ -112,7 +112,7 @@ const HeaderMenu = () => {
                     const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                     return (
-                      <Link scroll={true} href={item.hrefUrl} key={index}>
+                      <Link href={item.hrefUrl} key={index}>
                         <DropdownMenuItem>
                           {/* 渲染图标 */}
                           {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}
@@ -125,13 +125,13 @@ const HeaderMenu = () => {
             </Accordion>
           )}
           {navMenu.mainNav.map((item, index) => (
-            <Link scroll={true} href={item.hrefUrl} key={index}>
+            <Link href={item.hrefUrl} key={index}>
               <DropdownMenuItem>{item.title}</DropdownMenuItem>
             </Link>
           ))}
           {!user ? (
             // onClick={handleLogin}
-            <Link scroll={true} href="/login" className="hover:!primary-light">
+            <Link href="/login" className="hover:!primary-light">
               <DropdownMenuItem>登錄 / 註冊</DropdownMenuItem>
             </Link>
           ) : (
@@ -151,7 +151,7 @@ const HeaderMenu = () => {
             variant="ghost"
             asChild
           >
-            <Link scroll={true} href="#">
+            <Link href="#">
               <FaRegBell />
             </Link>
           </Button>
@@ -176,7 +176,7 @@ const HeaderMenu = () => {
                 const IconComponent = iconsMap[item.icon as keyof typeof iconsMap];
 
                 return (
-                  <Link scroll={true} href={item.hrefUrl} key={index}>
+                  <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem className="hover:!bg-primary-light">
                       {/* 渲染图标 */}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />} {item.title}

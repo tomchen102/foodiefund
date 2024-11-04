@@ -13,7 +13,7 @@ const RecentProjectsBlock = ({ data, title, className, gridType }: RecentProject
         <div className="mb-3 flex md:mb-6">
           <h2 className="text-lg font-bold md:text-2xl">{title}</h2>
           <Button className="ml-auto hidden items-center md:flex" variant="secondary" asChild>
-            <Link scroll={true} href="/projects">
+            <Link href="/projects">
               查看更多 <GoArrowRight size={16} className="ml-1" />
             </Link>
           </Button>
@@ -21,7 +21,7 @@ const RecentProjectsBlock = ({ data, title, className, gridType }: RecentProject
         <MobileRecentProjectsCarousel data={data} />
         <PcRecentProjectsList data={data} gridType={gridType} />
         <Button className="ml-auto mt-3 flex items-center md:hidden" variant="secondary" asChild>
-          <Link scroll={true} href="/projects">
+          <Link href="/projects">
             查看更多 <GoArrowRight size={16} className="ml-1" />
           </Link>
         </Button>

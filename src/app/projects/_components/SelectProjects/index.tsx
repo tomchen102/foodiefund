@@ -58,7 +58,7 @@ const SelectProjects = () => {
             <DropdownMenuContent>
               {navMenu.projectNav.map((item, index) => {
                 return (
-                  <Link scroll={true} href={item.hrefUrl} key={index}>
+                  <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
@@ -75,7 +75,7 @@ const SelectProjects = () => {
             <DropdownMenuContent>
               {navMenu.areaNav.map((item, index) => {
                 return (
-                  <Link scroll={true} href={item.hrefUrl} key={index}>
+                  <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
@@ -92,7 +92,7 @@ const SelectProjects = () => {
             <DropdownMenuContent>
               {navMenu.cuisineNav.map((item, index) => {
                 return (
-                  <Link scroll={true} href={item.hrefUrl} key={index}>
+                  <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
                       {item.title}
                     </DropdownMenuItem>
@@ -120,7 +120,7 @@ const SelectProjects = () => {
             <DropdownMenuContent>
               {navMenu.filterNav.map((item, index) => {
                 return (
-                  <Link scroll={true} href={item.hrefUrl} key={index}>
+                  <Link href={item.hrefUrl} key={index}>
                     <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:!bg-primary-light">
                       {item.title}
                     </DropdownMenuItem>

@@ -38,7 +38,7 @@ const RegisterForm = () => {
           <h2 className="mr-auto text-3xl font-bold">註冊</h2>
           <p className="text-sm">
             已經有帳號了嗎?
-            <Link scroll={true} href="/login" className={buttonVariants({ variant: "link" })}>
+            <Link href="/login" className={buttonVariants({ variant: "link" })}>
               登入
             </Link>
           </p>
