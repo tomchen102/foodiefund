@@ -24,12 +24,12 @@ const RedirectPageContent = () => {
       setTimeout(() => {
         setIsLoading(false);
         router.push("/");
-      }, 2000);
+      }, 0);
     } else {
       setTimeout(() => {
         setIsLoading(false);
         router.push("/Login");
-      }, 2000);
+      }, 0);
     }
   }, [searchParams, router, setUser]);
 
