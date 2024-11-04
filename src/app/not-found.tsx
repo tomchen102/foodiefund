@@ -11,10 +11,12 @@ const NotFound = () => {
           <h2 className="mb-6 text-2xl font-bold tracking-[0.2em] text-primary-dark">找不到頁面</h2>
           <p className="mb-8 text-primary-dark">很抱歉，您所查找的頁面不存在。也許它已被移除或連結錯誤。</p>
           <div className="">
-            <Button variant="secondary" className="mr-5">
+            <Button variant="secondary" className="mr-5" asChild>
               <Link href="/">返回首頁</Link>
             </Button>
-            <Button variant="secondary">探索專案</Button>
+            <Button variant="secondary" asChild>
+              <Link href="/projects">探索專案</Link>
+            </Button>
           </div>
         </div>
       </div>
