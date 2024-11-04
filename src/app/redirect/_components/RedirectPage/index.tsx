@@ -22,14 +22,14 @@ const RedirectPageContent = () => {
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
       setTimeout(() => {
-        setIsLoading(false);
         router.push("/");
-      }, 500);
+        setIsLoading(false);
+      }, 1000);
     } else {
       setTimeout(() => {
         setIsLoading(false);
         router.push("/Login");
-      }, 0);
+      }, 1000);
     }
   }, [searchParams, router, setUser]);
 
