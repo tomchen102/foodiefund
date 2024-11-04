@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
@@ -22,11 +22,10 @@ const RedirectPageContent = () => {
       Cookies.set("token", JSON.stringify({ name, photo, token }));
       setUser({ name, photo, token });
       router.push("/");
-      setIsLoading(false);
     } else {
-      setIsLoading(false);
       router.push("/Login");
     }
+    setIsLoading(false);
   }, [searchParams, router, setUser]);
 
   return (
@@ -41,11 +40,7 @@ const RedirectPageContent = () => {
 };
 
 const RedirectPage = () => {
-  return (
-    <Suspense fallback={<div>Loading....</div>}>
-      <RedirectPageContent></RedirectPageContent>
-    </Suspense>
-  );
+  return <RedirectPageContent></RedirectPageContent>;
 };
 
 export default RedirectPage;
