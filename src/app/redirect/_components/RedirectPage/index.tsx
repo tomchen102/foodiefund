@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useAuth } from "@/utils/providers/AuthProvider";
@@ -34,7 +34,11 @@ const RedirectPageContent = () => {
 };
 
 const RedirectPage = () => {
-  return <RedirectPageContent></RedirectPageContent>;
+  return (
+    <Suspense fallback={<div>Loading....</div>}>
+      <RedirectPageContent></RedirectPageContent>
+    </Suspense>
+  );
 };
 
 export default RedirectPage;
