@@ -8,6 +8,7 @@ import FooterMenu from "./_components/Footer";
 import { AuthProvider } from "@/utils/providers/AuthProvider";
 import { ProviderProps } from "@/types/ProviderType";
 import { Metadata } from "next";
+import ScrollToTop from "@/components/scrollToTop";
 
 const GeistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: ProviderProps) {
         <AuthProvider>
           <ReactQueryProvider>
             <LoadingProvider>
+              <ScrollToTop />
               <HeaderMenu />
               <main className="flex-1">{children}</main>
               <FooterMenu />
