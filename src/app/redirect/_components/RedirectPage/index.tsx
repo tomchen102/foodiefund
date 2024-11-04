@@ -24,7 +24,7 @@ const RedirectPageContent = () => {
       setTimeout(() => {
         setIsLoading(false);
         router.push("/");
-      }, 0);
+      }, 500);
     } else {
       setTimeout(() => {
         setIsLoading(false);
