@@ -5,7 +5,7 @@ import { BannerPropsType } from "./types";
 import "./css/embla.css";
 import { useGetNews } from "@/hooks/useNews";
 import NewInfo from "./NewInfo";
-import Loading from "./Loading";
+import NewInfoSkeleton from "./NewInfoSkeleton";
 import { Suspense } from "react";
 
 const Banner = ({ queryParams, data }: BannerPropsType) => {
@@ -48,8 +48,8 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
           </div>
         </div>
       </div>
-      <Suspense fallback={<Loading />}>
-        {!isFetching && newsData ? <NewInfo newsData={newsData} /> : <Loading />}
+      <Suspense fallback={<NewInfoSkeleton />}>
+        {!isFetching && newsData ? <NewInfo newsData={newsData} /> : <NewInfoSkeleton />}
       </Suspense>
       <div className="container mt-6">
         <div className="border-b border-b-gray-200 text-center leading-[0rem]">

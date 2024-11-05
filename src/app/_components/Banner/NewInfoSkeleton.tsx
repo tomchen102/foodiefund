@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Loading = () => {
+const NewInfoSkeleton = () => {
   return (
     <div className="container flex items-start justify-start font-bold">
       <div className="z-10 -mt-8 flex w-full flex-col items-start rounded-tl-3xl border-0 bg-white px-5 py-4 hover:cursor-pointer md:w-1/2">
@@ -15,4 +15,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default NewInfoSkeleton;
