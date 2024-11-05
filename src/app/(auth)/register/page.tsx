@@ -1,6 +1,8 @@
-"use client";
 import React from "react";
 import RegisterForm from "./_components/RegisterForm";
+import { createMetadata } from "@/utils/metadata";
+
+export const metadata = createMetadata({ title: "註冊" });
 
 const Register = () => {
   return (
