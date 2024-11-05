@@ -1,13 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { BannerPropsType } from "./types";
 import "./css/embla.css";
 import { useGetNews } from "@/hooks/useNews";
+import NewInfo from "./NewInfo";
+import Loading from "./Loading";
+import { Suspense } from "react";
 
 const Banner = ({ queryParams, data }: BannerPropsType) => {
-  const { data: newsData } = useGetNews(queryParams);
+  const { data: newsData, isFetching } = useGetNews(queryParams);
   return (
     <section>
       <div className="relative h-[624px] w-full overflow-hidden">
@@ -46,19 +48,9 @@ const Banner = ({ queryParams, data }: BannerPropsType) => {
           </div>
         </div>
       </div>
-      <div className="container flex items-start justify-start font-bold">
-        <div className="z-10 -mt-8 flex w-full flex-col items-start rounded-tl-3xl border-0 bg-white px-5 py-4 hover:cursor-pointer md:w-1/2">
-          <h2 className="text-2xl font-bold text-secondary">最新消息</h2>
-          <div className="flex w-full items-center md:justify-between">
-            {newsData?.map((item) => (
-              <p key={item._id} className="mt-2 text-xl hover:text-primary-dark hover:underline">
-                {item.title}
-              </p>
-            ))}
-            <ArrowRightIcon className="ml-1 h-4 w-4 text-gray-400" />
-          </div>
-        </div>
-      </div>
+      <Suspense fallback={<Loading />}>
+        {!isFetching && newsData ? <NewInfo newsData={newsData} /> : <Loading />}
+      </Suspense>
       <div className="container mt-6">
         <div className="border-b border-b-gray-200 text-center leading-[0rem]">
           <span className="px-6 leading-[0rem] text-gray-400">探索類別</span>
