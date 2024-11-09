@@ -7,7 +7,11 @@ import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
 import LayoutContent from "./content";
 import { createMetadata } from "@/utils/metadata";
 
-export default async function ProjectsLayout({ children, params }: ProviderProps) {
+export default async function ProjectsLayout(props: ProviderProps) {
+  const params = await props.params;
+
+  const { children } = props;
+
   const id = params!.id;
   const data = await getRecentProjectsBlockData();
   const ProjectSummaryData = await getProjectSummaryData();
@@ -21,7 +25,8 @@ export default async function ProjectsLayout({ children, params }: ProviderProps
   );
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const id = params.id;
   const ProjectSummaryData = await getProjectSummaryData();
   const project = ProjectSummaryData.find((project) => project.id === id);
