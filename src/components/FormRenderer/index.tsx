@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type JSX } from "react";
 import { FieldValues, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
 import { FormRendererProps, FormFieldConfig } from "./types";
