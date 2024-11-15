@@ -13,7 +13,6 @@ import Link from "next/link";
 import Logo from "./logo";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import "./index.css";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const HeaderMenu = () => {
