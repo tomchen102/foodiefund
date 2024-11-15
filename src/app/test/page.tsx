@@ -6,7 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { FiPlus } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 import { createColumns } from "./Columns";
-import { DataTable } from "./DataTable";
 import ModalDialog from "@/components/ModalDialog";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +14,7 @@ import { FormFieldConfig } from "@/components/FormRenderer/types";
 import { useDialog } from "@/utils/DialogContext";
 import { useEffect, useState } from "react";
 import { getProjectNewsData } from "@/mock/getProjectNewsData";
+import { DataTable } from "@/components/Table/DataTable";
 
 export interface ITableData {
   id: string;
