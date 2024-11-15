@@ -6,6 +6,8 @@ import FormTextarea from "./FormTextarea";
 import FormSelect from "./FormSelect";
 import FormRadioGroup from "./FormRadioGroup";
 import FormCheckbox from "./FormCheckbox";
+import FormDatePicker from "./FormDatePicker";
+import FormSwitch from "./FormSwitch";
 
 const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRendererProps<T>) => {
   return (
@@ -121,6 +123,27 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 label={field.label}
                 name={field.name}
                 type="checkbox"
+                disabled={field.disabled}
+              />
+            );
+          } else if (field.type === "date") {
+            acc.push(
+              <FormDatePicker
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type="date"
+                disabled={field.disabled}
+              />
+            );
+          } else if (field.type === "switch") {
+            acc.push(
+              <FormSwitch
+                id={field.id}
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                type="switch"
                 disabled={field.disabled}
               />
             );
