@@ -21,7 +21,8 @@ export interface FormFieldConfig<T extends FieldValues> {
     | "select"
     | "switch"
     | "date"
-    | "radio";
+    | "radio"
+    | "file";
   text?: string;
   className?: string;
   placeholder?: string;
