@@ -3,7 +3,8 @@ import { DialogState } from "@/types/DialogState";
 import { ProviderProps } from "@/types/ProviderType";
 import { createContext, useContext, useState } from "react";
 
-const DialogContext = createContext<DialogState<unknown> | undefined>(undefined);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DialogContext = createContext<DialogState<any> | undefined>(undefined);
 
 export const DialogProvider = <T,>({ children }: ProviderProps) => {
   const [dialogState, setDialogState] = useState<DialogState<T>>({
@@ -12,15 +13,19 @@ export const DialogProvider = <T,>({ children }: ProviderProps) => {
       currentItem: null,
       mode: null,
     },
+    openDialog: () => {},
+    closeDialog: () => {},
   });
 
-  const openDialog = (mode: "add" | "edit") =>
+  const openDialog = (mode: "add" | "edit" | "delete", currentItem?: T) =>
     setDialogState({
       dialogState: {
         isOpen: true,
-        currentItem: null,
+        currentItem: currentItem ?? null,
         mode,
       },
+      openDialog: () => {},
+      closeDialog: () => {},
     });
   const closeDialog = () =>
     setDialogState({
@@ -29,6 +34,8 @@ export const DialogProvider = <T,>({ children }: ProviderProps) => {
         currentItem: null,
         mode: null,
       },
+      openDialog: () => {},
+      closeDialog: () => {},
     });
 
   return (
