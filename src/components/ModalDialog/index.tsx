@@ -47,7 +47,10 @@ const ModalDialog = <T extends object>({
     [handleCancel, dialogState.mode, createData, updateData]
   );
   return (
-    <Dialog open={dialogState.isOpen} onOpenChange={handleCancel}>
+    <Dialog
+      open={(dialogState.isOpen && dialogState.mode === "add") || dialogState.mode === "edit"}
+      onOpenChange={handleCancel}
+    >
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{dialogState.mode === "edit" ? "修改資料" : "新增資料"}</DialogTitle>

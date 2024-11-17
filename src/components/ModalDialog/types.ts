@@ -4,14 +4,10 @@ import { FieldValues } from "react-hook-form";
 import { UseMutateFunction } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
 import { FormFieldConfig } from "../FormRenderer/types";
-import { DialogState } from "@/types/DialogState";
+import { DialogState, DialogStateDetails } from "@/types/DialogState";
 
 export interface ModalDialogProps<T extends FieldValues> {
-  dialogState: {
-    isOpen: boolean;
-    currentItem: T | null | unknown;
-    mode: "add" | "edit" | "delete" | null;
-  };
+  dialogState: DialogStateDetails<T>;
   updateIsOpen?: (newState: DialogState<T>) => void;
   closeDialog?: () => void;
   methods: UseFormReturn<T>;
