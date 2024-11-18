@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    reactCompiler: {
+      compilationMode: "annotation",
+    },
+  },
   images: {
     remotePatterns: [
       {

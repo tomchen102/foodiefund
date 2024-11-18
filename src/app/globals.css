@@ -7,17 +7,6 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-.clip-polygon {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 90%, 7% 90%, 0 100%, 0% 75%);
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -72,13 +61,55 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  h1 {
+    @apply text-5xl font-bold;
+  }
+  h2 {
+    @apply text-4xl font-bold;
+  }
+  h3 {
+    @apply text-3xl font-bold;
+  }
+  h4 {
+    @apply text-2xl font-bold;
+  }
+  h5 {
+    @apply text-xl font-bold;
+  }
+  h6 {
+    @apply text-lg font-bold;
+  }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer components {
+  .social-media svg {
+    @apply h-6 w-6;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .logo-link:hover .logo {
+    @apply animate-spin;
   }
+
+  div[data-orientation="vertical"]:has(.flex-1) {
+    @apply rounded-none;
+  }
+  header > button[data-state="open"] svg:nth-child(2) {
+    @apply block;
+  }
+  header > button[data-state="open"] svg:first-child {
+    @apply hidden;
+  }
+  [id="radix-:r1:"] a:has([role="menuitem"]):first-child [role="menuitem"] {
+    @apply border-b border-gray-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.clip-polygon {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 90%, 7% 90%, 0 100%, 0% 75%);
 }

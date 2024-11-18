@@ -1,16 +1,9 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { FormFieldConfig } from "./types";
-import { Textarea } from "../ui/textarea";
+import { Switch } from "../ui/switch";
 
-const FormTextarea = <T extends FieldValues>({
-  label,
-  name,
-  placeholder,
-  className,
-  disabled,
-  required,
-}: FormFieldConfig<T>) => {
+const FormSwitch = <T extends FieldValues>({ label, name, id }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
     <div className="my-5">
@@ -18,16 +11,14 @@ const FormTextarea = <T extends FieldValues>({
         control={control}
         name={name as Path<T>}
         render={({ field }) => (
-          <FormItem>
-            {required && <span className="text-red-500">*</span>}
-            <FormLabel>{label}</FormLabel>
+          <FormItem className="flex items-center">
+            <FormLabel className="mr-3 mt-2">{label}</FormLabel>
             <FormControl>
-              <Textarea
-                placeholder={placeholder}
+              <Switch
+                id={id}
                 {...field}
-                value={field.value || ""}
-                className={className}
-                disabled={disabled}
+                checked={field.value || false}
+                onCheckedChange={(checked) => field.onChange(checked)}
               />
             </FormControl>
             <FormMessage />
@@ -38,4 +29,4 @@ const FormTextarea = <T extends FieldValues>({
   );
 };
 
-export default FormTextarea;
+export default FormSwitch;
