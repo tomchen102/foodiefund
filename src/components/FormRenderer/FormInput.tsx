@@ -2,12 +2,9 @@ import { FieldValues, Path, useFormContext } from "react-hook-form";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { FormFieldConfig } from "./types";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-function isFile(value: unknown): value is File {
-  return value instanceof File;
-}
 const FormInput = <T extends FieldValues>({
   label,
   name,
@@ -20,25 +17,35 @@ const FormInput = <T extends FieldValues>({
 }: FormFieldConfig<T>) => {
   const { control, setValue, watch } = useFormContext<T>();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const previousUrlRef = useRef<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+    console.log("file:", file);
     if (file) {
       setValue(name as Path<T>, file as T[Path<T>]);
-      const objectUrl = URL.createObjectURL(file);
-      setPreviewUrl(objectUrl);
+      const newPreviewUrl = URL.createObjectURL(file);
+      setPreviewUrl(newPreviewUrl);
     }
   };
 
-  const file = watch(name as Path<T>);
+  const fieldValue = watch(name as Path<T>);
 
   useEffect(() => {
-    if (type === "file" && isFile(file)) {
-      const objectUrl = URL.createObjectURL(file);
-      setPreviewUrl(objectUrl);
-      return () => URL.revokeObjectURL(objectUrl);
+    let newPreviewUrl: string | null = null;
+
+    if (type === "file" && typeof fieldValue === "string") {
+      newPreviewUrl = fieldValue;
+      setPreviewUrl(newPreviewUrl);
     }
-  }, [file, type]);
+
+    return () => {
+      if (previousUrlRef.current?.startsWith("blob:")) {
+        URL.revokeObjectURL(previousUrlRef.current);
+      }
+      previousUrlRef.current = newPreviewUrl;
+    };
+  }, [fieldValue, type]);
 
   return (
     <div className={`my-5 ${halfWidth ? "!ml-0 w-full md:mr-4 md:w-1/2" : "w-full"}`}>
@@ -51,7 +58,7 @@ const FormInput = <T extends FieldValues>({
             <FormLabel>{label}</FormLabel>
             <FormControl>
               {type === "file" ? (
-                <Input type="file" placeholder={placeholder} onChange={handleFileChange} ref={ref} />
+                <Input type="file" placeholder={placeholder} onChange={handleFileChange} ref={ref} accept="image/*" />
               ) : (
                 <Input
                   className={className}
@@ -66,14 +73,8 @@ const FormInput = <T extends FieldValues>({
             <FormMessage />
             {type === "file" && previewUrl && (
               <div className="flex justify-center">
-                <div className="relative mt-5 w-full overflow-hidden rounded-lg border border-gray-300">
-                  <Image
-                    src={previewUrl}
-                    width={100}
-                    height="100"
-                    alt="Preview"
-                    className="h-full w-full object-cover"
-                  />
+                <div className="relative mt-5 h-60 w-full overflow-hidden rounded-lg border border-gray-300">
+                  <Image src={previewUrl} alt="Preview" fill className="object-contain" unoptimized />
                 </div>
               </div>
             )}
