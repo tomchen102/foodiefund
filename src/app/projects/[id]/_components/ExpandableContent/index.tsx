@@ -33,11 +33,23 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
           return child;
         }
       } else if (React.isValidElement(child)) {
-        if (child.type === "img" || child.type === Image) {
-          return child;
+        // 使用泛型來正確處理props的類型
+        const elementChild = child as React.ReactElement<{ children?: ReactNode }>;
+
+        // 檢查是否為圖片元素
+        if (elementChild.type === "img" || elementChild.type === Image) {
+          return elementChild;
         }
-        const newChildren = React.Children.map(child.props.children, traverseChildren);
-        return React.cloneElement(child, { ...child.props, children: newChildren });
+
+        // 處理子元素
+        const childrenProp = elementChild.props.children;
+        const newChildren = React.Children.map(childrenProp, traverseChildren);
+
+        // 使用類型斷言來安全地處理props
+        return React.cloneElement<{ children?: ReactNode }>(elementChild, {
+          ...elementChild.props,
+          children: newChildren,
+        });
       }
       return null;
     };
