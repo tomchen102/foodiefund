@@ -1,101 +1,73 @@
 "use client";
 import SectionPadding from "@/components/SectionPadding";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FiPlus } from "react-icons/fi";
-import { IoIosSearch } from "react-icons/io";
 import { createColumns } from "./Columns";
 import ModalDialog from "@/components/ModalDialog";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import { useDialog } from "@/utils/DialogContext";
-import { useEffect, useState } from "react";
-import { getProjectNewsData } from "@/mock/getProjectNewsData";
 import { DataTable } from "@/components/Table/DataTable";
-
-export interface ITableData {
-  id: string;
-  title: string;
-  content: string;
-  isActive: boolean;
-}
-
-export type dataQueryResponse = {
-  data: ITableData[];
-  message: string;
-  success: boolean;
-  pagination: {
-    current_page: number;
-    has_next: boolean;
-    has_pre: boolean;
-    total: number;
-    total_pages: number;
-  };
-};
+import DeleteDialog from "@/components/DeleteDialog";
+import { UserNewsListResponse } from "@/schema/UserNewsSchema";
+import {
+  useDeleteUserNewsMutation,
+  useGetUserNews,
+  usePostUserNewsMutation,
+  useUpdateUserNewsMutation,
+} from "@/hooks/uesUserNews";
+import { UserNewsListResponseType } from "@/api/services/userNews/types";
 
 const initialValues = {
   id: "",
   title: "",
   content: "",
+  isTop: false,
   isActive: false,
+  image: null,
 };
 
-const NewsFormFields: FormFieldConfig<ITableData>[] = [
-  { label: "標題", name: "title", type: "text", key: "title" },
-  { label: "內容", name: "content", type: "textarea", key: "content" },
-  { label: "是否置頂", name: "isActive", type: "switch", key: "isActive", id: "isActive" },
+const userNewsFormFields: FormFieldConfig<UserNewsListResponseType>[] = [
+  { label: "標題", name: "title", type: "text", key: "title", required: true },
+  { label: "圖片", name: "image", type: "file", key: "image" },
+  { label: "內容", name: "content", type: "textarea", key: "content", required: true },
+  { label: "是否置頂", name: "isActive", type: "switch", key: "isActive", id: "isTop" },
+  { label: "是否啟用", name: "isTop", type: "switch", key: "isTop", id: "isTop" },
 ];
 
 const Test = () => {
-  const methods = useForm<ITableData>({
-    resolver: zodResolver(z.object({ id: z.string(), title: z.string(), context: z.string(), isActive: z.boolean() })),
+  const methods = useForm<UserNewsListResponseType>({
+    resolver: zodResolver(UserNewsListResponse),
     defaultValues: initialValues,
   });
-  const { dialogState, openDialog, closeDialog } = useDialog();
-  const [tableData, setTableData] = useState<ITableData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { dialogState, openDialog, closeDialog } = useDialog<UserNewsListResponseType>();
+  const { data, isFetching } = useGetUserNews();
+  const { mutate: DeleteUserNewsMutation } = useDeleteUserNewsMutation();
+  const { mutate: createData } = usePostUserNewsMutation();
+  const { mutate: updateData } = useUpdateUserNewsMutation();
 
-  const handleEdit = (item: ITableData) => {
+  const handleEdit = (item: UserNewsListResponseType) => {
     methods.reset(item);
-    if (openDialog) {
-      openDialog("edit");
-    }
+    openDialog("edit");
+    console.log("Edit item:", item);
   };
 
-  const handleDelete = (item: ITableData) => {
+  const handleDelete = (item: UserNewsListResponseType) => {
     console.log("Delete item:", item);
+    openDialog("delete", item);
+  };
+
+  const deleteItem = (item: UserNewsListResponseType) => {
+    console.log("Delete item", item);
+    DeleteUserNewsMutation(item.id!);
+    closeDialog();
   };
 
   const columns = createColumns(handleEdit, handleDelete);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const result = await getProjectNewsData();
-        console.log("Fetched data:", result.data);
-
-        if (Array.isArray(result.data)) {
-          setTableData(result.data);
-        } else {
-          console.error("Data is not an array:", result.data);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  if (isFetching) return <div>Loading...</div>;
 
   return (
     <SectionPadding className="container px-3 xl:px-0">
@@ -117,33 +89,28 @@ const Test = () => {
           <h1 className="mr-3">最新消息</h1>
           <Button
             onClick={() => {
-              if (openDialog) {
-                openDialog("add");
-              }
+              openDialog("add");
               methods.reset(initialValues);
             }}
           >
             <FiPlus size={20} />
           </Button>
-          <ModalDialog<ITableData>
-            FormFields={NewsFormFields}
+          <ModalDialog<UserNewsListResponseType>
+            FormFields={userNewsFormFields}
             dialogState={dialogState}
             closeDialog={closeDialog}
             methods={methods}
             initialValues={initialValues}
+            createData={createData}
+            updateData={updateData}
           />
-          <div className="ml-auto">
-            <div className="relative mr-3 flex flex-grow items-center justify-start md:mr-4">
-              <IoIosSearch className="absolute left-[18px] text-base" />
-              <Input
-                className="h-[46px] rounded-none bg-[#fff] pl-10 text-sm md:min-w-60"
-                type="text"
-                placeholder="搜尋標題"
-              />
-            </div>
-          </div>
+          <DeleteDialog<UserNewsListResponseType>
+            dialogState={dialogState}
+            deleteItem={deleteItem}
+            title={dialogState.currentItem?.title || ""}
+          />
         </div>
-        <DataTable className="mt-10" columns={columns} data={tableData || []} />
+        {data && <DataTable className="mt-10" columns={columns} data={data} />}
       </div>
     </SectionPadding>
   );
