@@ -3,7 +3,14 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/
 import { FormFieldConfig } from "./types";
 import { Textarea } from "../ui/textarea";
 
-const FormTextarea = <T extends FieldValues>({ label, name, placeholder, className, disabled }: FormFieldConfig<T>) => {
+const FormTextarea = <T extends FieldValues>({
+  label,
+  name,
+  placeholder,
+  className,
+  disabled,
+  required,
+}: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
     <div className="my-5">
@@ -12,6 +19,7 @@ const FormTextarea = <T extends FieldValues>({ label, name, placeholder, classNa
         name={name as Path<T>}
         render={({ field }) => (
           <FormItem>
+            {required && <span className="text-red-500">*</span>}
             <FormLabel>{label}</FormLabel>
             <FormControl>
               <Textarea
