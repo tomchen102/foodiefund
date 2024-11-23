@@ -8,7 +8,7 @@ const ExperienceSuccess = ({ data, title, className }: ExpierieceSuccessListType
     <section className={cn("pb-12 pt-8 md:pb-20 md:pt-[60px]", className)}>
       <div className="container px-3 xl:px-0">
         <div className="mb-3 text-center md:mb-6">
-          <h2 className="text-xl font-bold md:text-2xl">{title}</h2>
+          <h2 className="text-base md:text-2xl">{title}</h2>
         </div>
         <MobileRecentProjectsCarousel data={data} />
         <PcRecentProjectsList data={data} />

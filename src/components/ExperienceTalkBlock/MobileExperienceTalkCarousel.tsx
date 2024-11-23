@@ -32,7 +32,7 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
                       priority
                     />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold leading-6">{item.title}</h3>
+                  <h3 className="mb-2 text-base leading-6">{item.title}</h3>
                   <p className="pb-3 text-sm font-medium">{item.description}</p>
                 </div>
                 <div className="absolute bottom-[-16px] left-6 flex w-full items-center">

@@ -20,7 +20,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
           <li className="relative flex flex-col" key={item.id}>
             <div className="flex h-full flex-col rounded-lg border border-solid border-gray-200 bg-white">
               <Link href={href} className="group block h-full">
-                <div className="flex h-full flex-col">
+                <div className="flex h-full flex-col overflow-hidden">
                   <div className="relative">
                     <Image
                       src={item.imageUrl}
@@ -34,7 +34,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                     {item.projectType === "subscription" && <Badges text="訂閱式" className="absolute left-3 top-3" />}
                   </div>
                   <div className="flex h-full flex-col p-5">
-                    <h3 className="mb-2 font-bold group-hover:text-primary-primary-hover group-hover:underline">
+                    <h3 className="mb-2 text-base group-hover:text-primary-primary-hover group-hover:underline">
                       {item.title}
                     </h3>
                     <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>

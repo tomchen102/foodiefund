@@ -36,7 +36,7 @@ const MobileCarousel = ({ data }: ExpierieceSuccessListProp) => {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="mb-2 font-bold">{item.title}</h3>
+                    <h3 className="mb-2 text-base">{item.title}</h3>
                     <p className="mb-5 text-sm font-medium">{item.description}</p>
                     <div className="flex text-gray">
                       <TfiLocationPin size={20} className="mr-1" />

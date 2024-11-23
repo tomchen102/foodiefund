@@ -15,7 +15,7 @@ const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
           <div className="drop-shadow-[0px_4px_4px_rgba(0,0,0,0.15)]">
             <div className="clip-polygon mb-4 h-[440px] rounded-lg bg-[#E2E8E6] px-5 pt-5">
               <Image src={item.imageUrl} alt={item.title} className="mb-5 w-full" width={376} height={200} priority />
-              <h3 className="mb-3 font-bold leading-6">{item.title}</h3>
+              <h3 className="mb-3 text-base leading-6">{item.title}</h3>
               <p className="text-sm font-medium">{item.description}</p>
             </div>
           </div>

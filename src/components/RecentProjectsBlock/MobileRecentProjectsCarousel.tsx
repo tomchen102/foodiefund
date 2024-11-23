@@ -44,7 +44,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                       />
                     </div>
                     <div className="p-5">
-                      <h3 className="mb-2 font-bold">
+                      <h3 className="mb-2 text-base">
                         <Link href={href} className="hover:text-primary-dark hover:underline">
                           {item.title}
                         </Link>

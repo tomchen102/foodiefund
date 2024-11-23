@@ -36,7 +36,7 @@ const Rewards = () => {
               style={ImageStyle}
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -69,7 +69,7 @@ const Rewards = () => {
               style={ImageStyle}
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -102,7 +102,7 @@ const Rewards = () => {
               style={ImageStyle}
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -135,7 +135,7 @@ const Rewards = () => {
               style={ImageStyle}
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -171,7 +171,7 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -204,7 +204,7 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
@@ -237,7 +237,7 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 font-bold">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
                 <span className="text-sm font-medium text-gray">已被贊助</span>
