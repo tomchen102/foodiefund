@@ -11,6 +11,7 @@ import { Metadata } from "next";
 import ScrollToTop from "@/components/scrollToTop";
 import { createMetadata } from "@/utils/metadata";
 import { DialogProvider } from "@/utils/DialogContext";
+import { Toaster } from "@/components/ui/toaster";
 
 const GeistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: ProviderProps) {
             <LoadingProvider>
               <DialogProvider>
                 <ScrollToTop />
+                <Toaster />
                 <HeaderMenu />
                 <main className="flex-1">{children}</main>
                 <FooterMenu />
