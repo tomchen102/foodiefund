@@ -7,7 +7,8 @@ import { UserNewsListResponseType } from "@/api/services/userNews/types";
 
 export const createColumns = (
   handleEdit: (item: UserNewsListResponseType) => void,
-  handleDelete: (item: UserNewsListResponseType) => void
+  handleDelete: (item: UserNewsListResponseType) => void,
+  onToggle: (field: "isActive" | "isTop", checked: boolean, item: UserNewsListResponseType) => void
 ): ColumnDef<UserNewsListResponseType>[] => [
   {
     id: "index",
@@ -19,7 +20,9 @@ export const createColumns = (
     header: "是否啟用",
     cell: ({ row }) => {
       const item = row?.original;
-      return <Switch checked={item.isActive}></Switch>;
+      return (
+        <Switch checked={item.isActive} onCheckedChange={(checked) => onToggle("isActive", checked, item)}></Switch>
+      );
     },
   },
   {
@@ -27,7 +30,7 @@ export const createColumns = (
     header: "是否置頂",
     cell: ({ row }) => {
       const item = row?.original;
-      return <Switch checked={item.isTop}></Switch>;
+      return <Switch checked={item.isTop} onCheckedChange={(checked) => onToggle("isTop", checked, item)}></Switch>;
     },
   },
   {
