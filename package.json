@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "mock": "npx msw init public/"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -65,6 +66,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.10",
+    "msw": "^2.6.5",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.1.0",
@@ -87,5 +89,10 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
