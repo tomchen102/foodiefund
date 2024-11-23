@@ -16,9 +16,13 @@ import {
   useDeleteUserNewsMutation,
   useGetUserNews,
   usePostUserNewsMutation,
+  useUpdateNewsTableMutation,
   useUpdateUserNewsMutation,
 } from "@/hooks/uesUserNews";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
+import { initMocks } from "@/lib/msw";
+import { useEffect, useState } from "react";
+import TableSkeleton from "./TableSkeleton";
 
 const initialValues = {
   id: "",
@@ -38,15 +42,19 @@ const userNewsFormFields: FormFieldConfig<UserNewsListResponseType>[] = [
 ];
 
 const Test = () => {
+  const [isMockInitialized, setMockInitialized] = useState(false);
   const methods = useForm<UserNewsListResponseType>({
     resolver: zodResolver(UserNewsListResponse),
     defaultValues: initialValues,
   });
   const { dialogState, openDialog, closeDialog } = useDialog<UserNewsListResponseType>();
-  const { data, isFetching } = useGetUserNews();
+  const { data, isFetching } = useGetUserNews({
+    enabled: isMockInitialized,
+  });
   const { mutate: DeleteUserNewsMutation } = useDeleteUserNewsMutation();
   const { mutate: createData } = usePostUserNewsMutation();
   const { mutate: updateData } = useUpdateUserNewsMutation();
+  const { mutate: updateSwitchTable } = useUpdateNewsTableMutation();
 
   const handleEdit = (item: UserNewsListResponseType) => {
     methods.reset(item);
@@ -65,15 +73,26 @@ const Test = () => {
     closeDialog();
   };
 
-  const columns = createColumns(handleEdit, handleDelete);
+  const updateSwitch = (field: "isTop" | "isActive", checked: boolean, item: UserNewsListResponseType) => {
+    const updatedItem = { ...item, [field]: checked };
+    updateSwitchTable(updatedItem);
+  };
 
-  if (isFetching) return <div>Loading...</div>;
+  const columns = createColumns(handleEdit, handleDelete, updateSwitch);
+
+  useEffect(() => {
+    const initialize = async () => {
+      await initMocks();
+      setMockInitialized(true);
+    };
+    initialize();
+  }, []);
 
   return (
     <SectionPadding className="container px-3 xl:px-0">
       <div>
         <div className="mb-5">
-          <Select>
+          <Select disabled={isFetching}>
             <SelectTrigger className="w-[255px]">
               <SelectValue placeholder="金華火腿主題咖啡屋" />
             </SelectTrigger>
@@ -84,10 +103,10 @@ const Test = () => {
             </SelectContent>
           </Select>
         </div>
-
         <div className="flex items-center">
           <h1 className="mr-3">最新消息</h1>
           <Button
+            disabled={isFetching}
             onClick={() => {
               openDialog("add");
               methods.reset(initialValues);
@@ -110,7 +129,7 @@ const Test = () => {
             title={dialogState.currentItem?.title || ""}
           />
         </div>
-        {data && <DataTable className="mt-10" columns={columns} data={data} />}
+        {isFetching ? <TableSkeleton /> : data && <DataTable className="mt-10" columns={columns} data={data} />}
       </div>
     </SectionPadding>
   );
