@@ -11,7 +11,6 @@ import { useDialog } from "@/utils/DialogContext";
 import { DataTable } from "@/components/Table/DataTable";
 import DeleteDialog from "@/components/DeleteDialog";
 import { createColumns } from "./Columns";
-import TableSkeleton from "./TableSkeleton";
 import { UserQuestionsAndAnswersListResponseType } from "@/api/services/userQuestionsAndAnswers/types";
 import { userQuestionsAndAnswersResponseTypeSchema } from "@/schema/userQuestionsAndAnswers";
 import {
@@ -21,6 +20,7 @@ import {
   useUpdateUserQuestionsAndAnswersMutation,
 } from "@/hooks/UserQuestionsAndAnswers";
 import "@/lib/msw/setup";
+import TableSkeleton from "@/components/TableSkeleton";
 
 const initialValues = {
   id: "",
@@ -62,7 +62,7 @@ const Test1 = () => {
   };
 
   const columns = createColumns(handleEdit, handleDelete);
-
+  const columnHeaders = columns.map((column) => column.header as string);
   return (
     <SectionPadding className="container px-3 xl:px-0">
       <div>
@@ -104,7 +104,11 @@ const Test1 = () => {
             title={dialogState.currentItem?.questions || ""}
           />
         </div>
-        {isFetching ? <TableSkeleton /> : data && <DataTable className="mt-10" columns={columns} data={data} />}
+        {isFetching ? (
+          <TableSkeleton columns={columnHeaders} />
+        ) : (
+          data && <DataTable className="mt-10" columns={columns} data={data} />
+        )}
       </div>
     </SectionPadding>
   );

@@ -20,8 +20,8 @@ import {
   useUpdateUserNewsMutation,
 } from "@/hooks/uesUserNews";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
-import TableSkeleton from "./TableSkeleton";
 import "@/lib/msw/setup";
+import TableSkeleton from "@/components/TableSkeleton";
 
 const initialValues = {
   id: "",
@@ -75,6 +75,7 @@ const Test = () => {
   };
 
   const columns = createColumns(handleEdit, handleDelete, updateSwitch);
+  const columnHeaders = columns.map((column) => column.header as string);
 
   return (
     <SectionPadding className="container px-3 xl:px-0">
@@ -117,7 +118,11 @@ const Test = () => {
             title={dialogState.currentItem?.title || ""}
           />
         </div>
-        {isFetching ? <TableSkeleton /> : data && <DataTable className="mt-10" columns={columns} data={data} />}
+        {isFetching ? (
+          <TableSkeleton columns={columnHeaders} />
+        ) : (
+          data && <DataTable className="mt-10" columns={columns} data={data} />
+        )}
       </div>
     </SectionPadding>
   );
