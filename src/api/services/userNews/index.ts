@@ -1,8 +1,7 @@
 import axios from "axios";
 import { UserNewsListResponseType } from "./types";
 
-const baseUrl =
-  process.env.NODE_ENV === "development" ? "userNews" : "https://673ae3a1339a4ce4451990f4.mockapi.io/mock/userNews";
+const baseUrl = process.env.NODE_ENV === "development" ? "userNews" : "userNews";
 
 export const getUserNewsList = async () => {
   const response = await axios.get(`${baseUrl}`);
