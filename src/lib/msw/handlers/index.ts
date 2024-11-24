@@ -1,3 +1,4 @@
 import { userNewsHandlers } from "./userNewsHandlers";
+import { userQuestionsAndAnswersHandlers } from "./userQuestionsAndAnswersHandlers";
 
-export const handlers = [...userNewsHandlers];
+export const handlers = [...userNewsHandlers, ...userQuestionsAndAnswersHandlers];
