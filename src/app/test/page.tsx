@@ -20,9 +20,8 @@ import {
   useUpdateUserNewsMutation,
 } from "@/hooks/uesUserNews";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
-import { initMocks } from "@/lib/msw";
-import { useEffect, useState } from "react";
 import TableSkeleton from "./TableSkeleton";
+import "@/lib/msw/setup";
 
 const initialValues = {
   id: "",
@@ -42,15 +41,12 @@ const userNewsFormFields: FormFieldConfig<UserNewsListResponseType>[] = [
 ];
 
 const Test = () => {
-  const [isMockInitialized, setMockInitialized] = useState(false);
   const methods = useForm<UserNewsListResponseType>({
     resolver: zodResolver(UserNewsListResponse),
     defaultValues: initialValues,
   });
   const { dialogState, openDialog, closeDialog } = useDialog<UserNewsListResponseType>();
-  const { data, isFetching } = useGetUserNews({
-    enabled: isMockInitialized,
-  });
+  const { data, isFetching } = useGetUserNews();
   const { mutate: DeleteUserNewsMutation } = useDeleteUserNewsMutation();
   const { mutate: createData } = usePostUserNewsMutation();
   const { mutate: updateData } = useUpdateUserNewsMutation();
@@ -79,14 +75,6 @@ const Test = () => {
   };
 
   const columns = createColumns(handleEdit, handleDelete, updateSwitch);
-
-  useEffect(() => {
-    const initialize = async () => {
-      await initMocks();
-      setMockInitialized(true);
-    };
-    initialize();
-  }, []);
 
   return (
     <SectionPadding className="container px-3 xl:px-0">
