@@ -4,7 +4,11 @@ import { newsResponseArraySchema } from "@/schema/newsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 
-const fetchAndParseNews = async (queryParams: NewsQueryParams): Promise<newsResponseArraySchemaType> => {
+const newsKeys = {
+  key: ["News"] as const,
+};
+
+const fetchAndParseNews = async (queryParams: NewsQueryParams) => {
   const response = await getNews(queryParams);
   const result = safeParseResponse(newsResponseArraySchema, response.data);
   return result;
@@ -12,14 +16,14 @@ const fetchAndParseNews = async (queryParams: NewsQueryParams): Promise<newsResp
 
 export const useGetNews = (queryParams: NewsQueryParams) => {
   return useQuery<newsResponseArraySchemaType, Error>({
-    queryKey: ["News", queryParams],
+    queryKey: [newsKeys.key, queryParams],
     queryFn: async () => fetchAndParseNews(queryParams),
   });
 };
 
 export const prefetchNews = async (queryClient: QueryClient, queryParams: NewsQueryParams) => {
   await queryClient.prefetchQuery({
-    queryKey: ["News", queryParams],
+    queryKey: [newsKeys.key, queryParams],
     queryFn: async () => fetchAndParseNews(queryParams),
   });
 };
