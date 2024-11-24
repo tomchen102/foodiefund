@@ -1,9 +1,9 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
+import { TableSkeletonProps } from "./types";
 
-const TableSkeleton = () => {
+const TableSkeleton = ({ columns }: TableSkeletonProps) => {
   const rows = Array.from({ length: 10 });
-  const columns = ["編號", "建立時間", "問題", "答覆", "操作"];
 
   return (
     <div className="mt-10">
