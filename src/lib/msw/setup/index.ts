@@ -7,3 +7,5 @@ export async function initMocks() {
     console.log("Mock worker started");
   }
 }
+
+initMocks();
