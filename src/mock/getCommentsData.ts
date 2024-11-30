@@ -1,4 +1,4 @@
-import { CommentProps } from "@/app/projects/[id]/comments/_components/types";
+import { CommentProps } from "@/app/projects/[id]/(tab)/comments/_components/types";
 
 export const getCommentsData = async (): Promise<CommentProps[]> => {
   return [
