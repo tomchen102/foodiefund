@@ -7,7 +7,7 @@ import { usePathname, useParams, useRouter } from "next/navigation";
 
 const Rewards = () => {
   const pathname = usePathname();
-  const isProjectList = pathname.includes("/projectlist");
+  const isProjectList = pathname.includes("/project-list");
   const { id } = useParams();
   const ImageStyle = {
     width: "100%",
@@ -18,7 +18,7 @@ const Rewards = () => {
 
   const handleDonateClick = () => {
     if (user) {
-      router.push(`/projects/${id}/projectlist/payment`);
+      router.push(`/projects/${id}/project-list/payment`);
     }
   };
   return (
@@ -52,7 +52,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -85,7 +85,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -118,7 +118,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -151,7 +151,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -187,7 +187,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -220,7 +220,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>
@@ -253,7 +253,7 @@ const Rewards = () => {
                 <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
-                <Link href={`/projects/${id}/projectlist/payment`} onClick={handleDonateClick}>
+                <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                   立即贊助
                 </Link>
               </Button>

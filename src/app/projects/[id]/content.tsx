@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export function LayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isProjectList = pathname.includes("/projectlist");
+  const isProjectList = pathname.includes("/project-list");
 
   return (
     <>
