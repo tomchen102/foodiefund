@@ -109,7 +109,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
               </Link>
               {gridType === "three" && (
                 <Button className="mr-5 mt-auto" variant="donateNow" size="lg" asChild>
-                  <Link href={`/projects/${item.id}/projectlist`}>立即贊助</Link>
+                  <Link href={`/projects/${item.id}/project-list`}>立即贊助</Link>
                 </Button>
               )}
             </div>

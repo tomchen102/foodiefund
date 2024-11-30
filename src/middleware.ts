@@ -5,7 +5,7 @@ export async function middleware(req: NextRequest) {
   const tokenCookie = req.cookies.get("token");
   const token = tokenCookie ? tokenCookie.value : null;
 
-  const protectedRoutes = [/^\/projects\/\d+\/projectlist\/payment$/, /^\/payment-successful$/, /^\/payment$/];
+  const protectedRoutes = [/^\/projects\/\d+\/project-list\/payment$/, /^\/payment-successful$/, /^\/payment$/];
 
   const publicRoutes = [/^\/login$/, /^\/register$/, /^\/redirect$/, /^\/payment$/];
 
@@ -25,5 +25,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/login", "/redirect", "/register", "/payment-successful", "/projects/:id/projectlist/payment"], // 保護的路由和登錄頁面
+  matcher: ["/login", "/redirect", "/register", "/payment-successful", "/projects/:id/project-list/payment"], // 保護的路由和登錄頁面
 };
