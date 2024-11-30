@@ -8,7 +8,7 @@ import FooterMenu from "./_components/Footer";
 import { AuthProvider } from "@/utils/providers/AuthProvider";
 import { ProviderProps } from "@/types/ProviderType";
 import { Metadata } from "next";
-import ScrollToTop from "@/components/scrollToTop";
+import ScrollToTop from "@/components/ScrollToTop";
 import { createMetadata } from "@/utils/metadata";
 import { DialogProvider } from "@/utils/DialogContext";
 import { Toaster } from "@/components/ui/toaster";

@@ -6,7 +6,7 @@ import Logo from "../Header/logo";
 const fooMenu = {
   aboutNav: [
     { title: "首頁", hrefUrl: "/" },
-    { title: "關於我們", hrefUrl: "/aboutUs" },
+    { title: "關於我們", hrefUrl: "/about-us" },
     { title: "最新消息", hrefUrl: "#" },
   ],
   helpNav: [
