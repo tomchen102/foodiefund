@@ -1,130 +1,144 @@
 "use client";
-import FormRenderer from "@/components/FormRenderer";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
-import { replyFormSchema, replyFormSchemaType } from "@/schema/Reply";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { replyFormFields } from "./replyFormFields";
-import { useAuth } from "@/utils/providers/AuthProvider";
+
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Badges from "@/components/Badges";
-import { CommentDataProps } from "./types";
+import { useAuth } from "@/utils/providers/AuthProvider";
+import { CommentsType, CommentsReplyPostType, ReplyType } from "@/api/services/comments/types";
+import ReplyFormComponent from "./ReplyFormComponent";
+import { useGetCommentsList, usePostCommentsMutation, usePostReplyMutation } from "@/hooks/useComments";
+import { RxAvatar } from "react-icons/rx";
+import "@/lib/msw/setup";
+import { format } from "date-fns";
 
-const ReplyForm = ({ commentsData }: CommentDataProps) => {
+const ReplyForm = () => {
   const { user } = useAuth();
-  const form = useForm<replyFormSchemaType>({
-    resolver: zodResolver(replyFormSchema),
-    defaultValues: {
-      comments: "",
-    },
-  });
+  const { data, isFetching } = useGetCommentsList();
+  const { mutate: postComments } = usePostCommentsMutation();
+  const { mutate: postReply } = usePostReplyMutation();
 
-  const onSubmit = (data: replyFormSchemaType) => {
-    console.log(data);
-    form.reset();
+  const handleCommentSubmit = (data: CommentsReplyPostType) => {
+    console.log("Comment submitted:", data);
+    postComments({ ...data });
   };
+
+  const handleReplySubmit = (data: CommentsReplyPostType, plan_id: string) => {
+    console.log("Reply submitted to comment:", plan_id, data);
+    postReply({ ...data });
+  };
+
+  if (isFetching) return <p>Loading...</p>;
+
   return (
     <>
+      {/* 留言區標題 */}
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-lg font-bold lg:text-2xl">留言 (8)</h2>
+        <h2 className="text-lg font-bold lg:text-2xl">留言 ({data?.[0]?.comments?.length ?? 0})</h2>
       </div>
+
+      {/* 登入與留言表單 */}
       {user ? (
         <div className="mt-4 flex items-center space-x-4">
           <div className="flex w-full items-center space-x-2">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="mb-5 w-full space-y-6">
-                <FormRenderer<replyFormSchemaType> methods={form} FormFields={replyFormFields} />
-                <Button type="submit">送出</Button>
-              </form>
-            </Form>
+            <ReplyFormComponent
+              data={{
+                plan_id: data?.[0]?.plan_id ?? "",
+              }}
+              onSubmit={handleCommentSubmit}
+            />
           </div>
         </div>
       ) : (
         <div className="mb-5 bg-gray-100 p-5">
-          成為 眾資成城 會員才能留言。請先進行
+          成為會員才能留言，請先
           <Link href="/login" className={buttonVariants({ variant: "link" })}>
             登入
           </Link>
-          或者
+          或
           <Link href="/register" className={buttonVariants({ variant: "link" })}>
             註冊
           </Link>
           再進行留言。
         </div>
       )}
+
+      {/* 留言列表 */}
       <ul>
-        {commentsData.map((comment) => (
+        {data?.[0]?.comments.map((comment: CommentsType) => (
           <li key={comment.id} className="mb-5 bg-gray-100">
-            <article className="mx-6 rounded-lg bg-gray-100 py-6 lg:p-6">
-              <footer className="mb-2 flex items-center justify-between">
-                <div className="flex items-center">
-                  <Avatar className="mr-3">
-                    <AvatarImage src={comment.avatar} alt={comment.name} />
-                    <AvatarFallback>大頭貼</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="mb-2 font-bold">{comment.name}</p>
-                    <p className="text-sm">
-                      <time dateTime={comment.date} title={comment.date} className="text-gray">
-                        {comment.date}
-                      </time>
-                    </p>
-                  </div>
+            <article className="rounded-lg bg-gray-100 p-4">
+              <header className="mb-4 flex items-center">
+                <Avatar className="mr-3">
+                  <AvatarImage src={comment.avatar} alt={comment.name} />
+                  <AvatarFallback>
+                    <RxAvatar size={40} />
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="font-bold">{comment.name}</p>
+                  <p className="text-sm text-gray-500">
+                    <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
+                      {format(new Date(comment.publicAt), "yyyy-MM-dd")}
+                    </time>
+                  </p>
                 </div>
-              </footer>
-              <p className="text-gray-500">{comment.content}</p>
-              {comment.replies.length
-                ? null
-                : user && (
-                    <div className="mt-4 flex items-center space-x-4">
-                      <div className="flex w-full items-center space-x-2">
-                        <Form {...form}>
-                          <form onSubmit={form.handleSubmit(onSubmit)} className="mb-5 w-full space-y-6">
-                            <FormRenderer<replyFormSchemaType> methods={form} FormFields={replyFormFields} />
-                            <Button type="submit">送出</Button>
-                          </form>
-                        </Form>
-                      </div>
-                    </div>
-                  )}
+              </header>
+              <p className="text-gray-700">{comment.content}</p>
+
+              {/* 回覆列表 */}
+              {comment.replies?.length > 0 ? (
+                <ul className="mt-4 space-y-4 border-gray-200">
+                  {comment.replies.map((reply: ReplyType, index) => (
+                    <li key={reply.id}>
+                      <article className="rounded-lg bg-gray-50 p-2">
+                        <header className="mb-2 flex items-center">
+                          <Avatar className="mr-3">
+                            <AvatarImage src={reply.avatar} alt={reply.name} />
+                            <AvatarFallback>
+                              <RxAvatar size={40} />
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="flex items-center font-bold">
+                              {reply.name}
+                              {reply.commentRule && <Badges text={reply.commentRule} className="ml-2" />}
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
+                                {format(new Date(comment.publicAt), "yyyy-MM-dd")}
+                              </time>
+                            </p>
+                          </div>
+                        </header>
+                        <p className="text-gray-700">{reply.content}</p>
+                      </article>
+                      {index === comment.replies.length - 1 && (
+                        <div className="mt-4">
+                          <ReplyFormComponent
+                            data={{
+                              plan_id: data?.[0]?.plan_id ?? "",
+                              comment_id: data?.[0]?.comments[index]?.comment_id ?? "",
+                            }}
+                            onSubmit={(data) => handleReplySubmit(data, comment.id)}
+                          />
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="mt-4">
+                  <ReplyFormComponent
+                    data={{
+                      plan_id: data?.[0]?.plan_id ?? "",
+                      comment_id: data?.[0]?.comments[0]?.comment_id ?? "",
+                    }}
+                    onSubmit={(data) => handleReplySubmit(data, comment.id)}
+                  />
+                </div>
+              )}
             </article>
-            {comment.replies.map((reply, index) => (
-              <article key={reply.id} className="mx-6 ml-6 rounded-lg bg-gray-100 pb-6 lg:ml-12">
-                <footer className="mb-2 flex items-center justify-between">
-                  <div className="flex items-center">
-                    <Avatar className="mr-3">
-                      <AvatarImage src={reply.avatar} alt={reply.name} />
-                      <AvatarFallback>大頭貼</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="mb-2 flex items-center font-bold">
-                        {reply.name} {reply.badge && <Badges text={reply.badge} className="ml-2" />}
-                      </p>
-                      <p className="text-sm">
-                        <time dateTime={reply.date} title={reply.date} className="text-gray">
-                          {reply.date}
-                        </time>
-                      </p>
-                    </div>
-                  </div>
-                </footer>
-                <p className="text-gray-500">{reply.content}</p>
-                {index === comment.replies.length - 1 && user && (
-                  <div className="mt-4 flex items-center space-x-4">
-                    <div className="flex w-full items-center space-x-2">
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="mb-5 w-full space-y-6">
-                          <FormRenderer<replyFormSchemaType> methods={form} FormFields={replyFormFields} />
-                          <Button type="submit">送出</Button>
-                        </form>
-                      </Form>
-                    </div>
-                  </div>
-                )}
-              </article>
-            ))}
           </li>
         ))}
       </ul>
