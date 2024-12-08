@@ -5,6 +5,7 @@ import { UseMutateFunction } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
 import { FormFieldConfig } from "../FormRenderer/types";
 import { DialogState, DialogStateDetails } from "@/types/DialogState";
+import { ErrorResponse } from "@/types/errorResponse";
 
 export interface ModalDialogProps<T extends FieldValues> {
   dialogState: DialogStateDetails<T>;
@@ -13,6 +14,6 @@ export interface ModalDialogProps<T extends FieldValues> {
   methods: UseFormReturn<T>;
   FormFields: FormFieldConfig<T>[];
   initialValues: T;
-  createData?: UseMutateFunction<AxiosResponse<T>, AxiosError<AxiosError>, T>;
-  updateData?: UseMutateFunction<AxiosResponse<T>, AxiosError<AxiosError>, T>;
+  createData?: UseMutateFunction<AxiosResponse<T>, AxiosError<ErrorResponse>, T>;
+  updateData?: UseMutateFunction<AxiosResponse<T>, AxiosError<ErrorResponse>, T>;
 }

@@ -5,6 +5,7 @@ import { safeParseResponse } from "@/utils/zodUtils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useToast } from "./use-toast";
+import { ErrorResponse } from "@/types/errorResponse";
 
 const userNewsKeys = {
   key: ["UserNews"] as const,
@@ -33,7 +34,7 @@ export const usePostUserNewsMutation = () => {
         description: "新增成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
@@ -54,7 +55,7 @@ export const useUpdateUserNewsMutation = () => {
         description: "修改成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
@@ -75,7 +76,7 @@ export const useDeleteUserNewsMutation = () => {
         description: "刪除成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
