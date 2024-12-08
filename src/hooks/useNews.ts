@@ -1,5 +1,5 @@
 import { getNews } from "@/api/services/news";
-import { NewsQueryParams, newsResponseArraySchemaType } from "@/api/services/news/types";
+import { NewsQueryParams } from "@/api/services/news/types";
 import { newsResponseArraySchema } from "@/schema/newsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
@@ -15,7 +15,7 @@ const fetchAndParseNews = async (queryParams: NewsQueryParams) => {
 };
 
 export const useGetNews = (queryParams: NewsQueryParams) => {
-  return useQuery<newsResponseArraySchemaType, Error>({
+  return useQuery({
     queryKey: [newsKeys.key, queryParams],
     queryFn: async () => fetchAndParseNews(queryParams),
   });

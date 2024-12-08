@@ -1,14 +1,14 @@
+import { CommentsReplyPostType } from "@/api/services/comments/types";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
-import { replyFormSchemaType } from "@/schema/Reply";
 
-export const replyFormFields: FormFieldConfig<replyFormSchemaType>[] = [
+export const replyFormFields: FormFieldConfig<CommentsReplyPostType>[] = [
   {
     label: "",
-    name: "comments",
+    name: "content",
     type: "textarea",
     placeholder: "留言...",
-    id: "comments",
+    id: "content",
     className: "bg-white",
-    key: "comments",
+    key: "content",
   },
 ];

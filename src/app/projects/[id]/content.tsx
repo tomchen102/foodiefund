@@ -19,7 +19,7 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
           <Navbar />
           <SectionPadding className="container px-3">
             <div className="lg:grid lg:grid-cols-12 lg:gap-6">
-              <div className="mb-8 pr-10 lg:col-span-9">{children}</div>
+              <div className="mb-8 pr-0 lg:col-span-9 lg:pr-10">{children}</div>
               <Rewards />
             </div>
           </SectionPadding>
