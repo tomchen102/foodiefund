@@ -95,13 +95,16 @@ const Test = () => {
         <div className="flex items-center">
           <h1 className="mr-3">最新消息</h1>
           <Button
+            className="ml-auto"
+            variant="donateNow"
             disabled={isFetching}
             onClick={() => {
               openDialog("add");
               methods.reset(initialValues);
             }}
           >
-            <FiPlus size={20} />
+            <FiPlus size={20} className="mr-2" />
+            新增資料
           </Button>
           <ModalDialog<UserNewsListResponseType>
             FormFields={userNewsFormFields}
