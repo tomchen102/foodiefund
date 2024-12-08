@@ -1,21 +1,5 @@
-interface Reply {
-  id: number;
-  avatar: string;
-  name: string;
-  date: string;
-  content: string;
-  badge?: string;
-}
-
-export interface CommentProps {
-  id: number;
-  avatar: string;
-  name: string;
-  date: string;
-  content: string;
-  replies: Reply[];
-}
+import { CommentsListResponseType } from "@/api/services/comments/types";
 
 export interface CommentDataProps {
-  commentsData: CommentProps[];
+  commentsData: CommentsListResponseType[];
 }
