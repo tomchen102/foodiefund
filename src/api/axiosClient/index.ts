@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from "axios";
+import { ErrorResponse } from "@/types/errorResponse";
+import axios, { AxiosError, AxiosResponse } from "axios";
 
 const axiosClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
@@ -14,8 +15,9 @@ axiosClient.interceptors.response.use(
     }
     return response;
   },
-  (error) => {
-    return Promise.reject(error);
+  (error: AxiosError<ErrorResponse>) => {
+    console.log(error.response?.data.message);
+    return Promise.reject(error.response?.data.message);
   }
 );
 
