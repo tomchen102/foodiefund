@@ -18,7 +18,7 @@ import {
   useGetUserQuestionsAndAnswers,
   usePostUserQuestionsAndAnswersMutation,
   useUpdateUserQuestionsAndAnswersMutation,
-} from "@/hooks/UserQuestionsAndAnswers";
+} from "@/hooks/useUserQuestionsAndAnswers";
 import "@/lib/msw/setup";
 import TableSkeleton from "@/components/TableSkeleton";
 

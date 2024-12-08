@@ -9,11 +9,12 @@ import {
   updateUserQuestionsAndAnswers,
 } from "@/api/services/userQuestionsAndAnswers";
 import { UserQuestionsAndAnswersListArrayResponse } from "@/schema/userQuestionsAndAnswers";
+import { ErrorResponse } from "@/types/errorResponse";
 
 const UserQuestionsAndAnswersKeys = {
   key: ["UserQuestionsAndAnswers"] as const,
 };
-export const useGetUserQuestionsAndAnswers = (options = {}) => {
+export const useGetUserQuestionsAndAnswers = () => {
   return useQuery({
     queryKey: UserQuestionsAndAnswersKeys.key,
     queryFn: async () => {
@@ -22,7 +23,6 @@ export const useGetUserQuestionsAndAnswers = (options = {}) => {
       const result = safeParseResponse(UserQuestionsAndAnswersListArrayResponse, response.data);
       return result;
     },
-    ...options,
   });
 };
 
@@ -37,7 +37,7 @@ export const usePostUserQuestionsAndAnswersMutation = () => {
         description: "新增成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
@@ -58,7 +58,7 @@ export const useUpdateUserQuestionsAndAnswersMutation = () => {
         description: "修改成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
@@ -79,7 +79,7 @@ export const useDeleteUserQuestionsAndAnswersMutation = () => {
         description: "刪除成功!",
       });
     },
-    onError: (error: AxiosError<AxiosError>) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       console.error("Error creating News:", error.response?.data.message);
       toast({
         variant: "destructive",
