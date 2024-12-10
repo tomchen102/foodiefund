@@ -1,16 +1,18 @@
+import React from "react";
 import { IconType } from "react-icons/lib";
+import { IconProps } from "@radix-ui/react-icons/dist/types";
 
-export interface HeaderProps {
-  data: {
-    mainNav: {
-      title: string;
-      hrefUrl: string;
-    };
-    userNav: {
-      title: string;
-      icon: IconType;
-      userTitle: string;
-      hrefUrl: string;
-    };
-  }[];
-}
+export type MenuType = {
+  title: string;
+  href: string;
+}[];
+
+export type MenuProps = {
+  [key: string]: MenuType;
+};
+
+export type MemberMenuType = {
+  title: string;
+  href: string;
+  icon: IconType | React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
+}[];
