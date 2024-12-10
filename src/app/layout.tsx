@@ -4,7 +4,7 @@ import { LoadingProvider } from "@/utils/providers/LoadingContext";
 import "./globals.css";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
 import Header from "./_components/Header";
-import FooterMenu from "./_components/Footer";
+import Footer from "./_components/Footer";
 import { AuthProvider } from "@/utils/providers/AuthProvider";
 import { ProviderProps } from "@/types/ProviderType";
 import { Metadata } from "next";
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: ProviderProps) {
                 <Toaster />
                 <Header />
                 <main className="flex-1">{children}</main>
-                <FooterMenu />
+                <Footer />
               </DialogProvider>
             </LoadingProvider>
           </ReactQueryProvider>
