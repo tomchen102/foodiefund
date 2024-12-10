@@ -94,6 +94,18 @@ const SheetDescription = React.forwardRef<
 ));
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
+const SheetSubContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Content>, SheetContentProps>(
+  ({ side = "right", className, children, ...props }, ref) => (
+    <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
+      <SheetPrimitive.Close className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary">
+        <span className="sr-only">Close</span>
+      </SheetPrimitive.Close>
+      {children}
+    </SheetPrimitive.Content>
+  )
+);
+SheetSubContent.displayName = SheetPrimitive.Content.displayName;
+
 export {
   Sheet,
   SheetPortal,
@@ -105,4 +117,5 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
+  SheetSubContent,
 };
