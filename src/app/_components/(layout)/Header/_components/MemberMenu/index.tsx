@@ -10,7 +10,7 @@ import { useAuth } from "@/utils/providers/AuthProvider";
 import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { ExitIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import AvatarCircle from "../AvatarCircle";
-import { MemberMenuType } from "../types";
+import { MemberMenuType } from "../../types";
 
 const memberMenu: MemberMenuType = [
   { title: "帳號設定", href: "#", icon: FaRegUser },

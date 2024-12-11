@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Logo from "../../Logo";
+import Logo from "../../../Logo";
 import {
   Sheet,
   SheetClose,
@@ -17,7 +17,7 @@ import { FaDollarSign, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { ChevronRightIcon, ChevronLeftIcon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import AvatarCircle from "../AvatarCircle";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import { MenuProps, MemberMenuType } from "../types";
+import { MemberMenuType, MenuProps } from "../../types";
 
 const memberMenu: MemberMenuType = [
   { title: "帳號設定", href: "#", icon: FaRegUser },

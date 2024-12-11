@@ -1,8 +1,9 @@
 "use client";
 import Logo from "../Logo";
-import Navbar from "./Navbar";
-import MobileNavbar from "./Navbar/MobileNavbar";
-import MemberMenu from "./MemberMenu";
+import MemberMenu from "./_components/MemberMenu";
+import Navbar from "./_components/Navbar";
+import MobileNavbar from "./_components/Navbar/MobileNavbar";
+
 import { MenuType } from "./types";
 
 const navMenu: MenuType = [
