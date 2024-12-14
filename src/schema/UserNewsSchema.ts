@@ -8,7 +8,7 @@ export const UserNewsListResponse = z.object({
   isTop: z.boolean(),
   image: z
     .union([
-      z.string().nullable().optional(),
+      z.string().url().nullable(),
       z
         .instanceof(File)
         .refine((file) => file.type.startsWith("image/"), {

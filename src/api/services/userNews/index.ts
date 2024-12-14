@@ -1,38 +1,23 @@
+import axios from "axios";
 import { UserNewsListResponseType } from "./types";
-import axiosClient from "@/api/axiosClient";
+
+const baseUrl = process.env.NODE_ENV === "development" ? "userNews" : "userNews";
 
 export const getUserNewsList = async () => {
-  const response = await axiosClient.get(`/plan/64c5ae5c6f2d3e001ccf9abc/news`);
-  console.log("response", response);
+  const response = await axios.get(`${baseUrl}`);
   return response.data;
 };
 
 export const postUserNews = async (data: UserNewsListResponseType) => {
-  const formData = new FormData();
-  if (data.image) {
-    formData.append("file", data.image);
-  }
-  const response = await axiosClient.post(`/plan/64c5ae5c6f2d3e001ccf9abc/news`, data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+  const response = await axios.post(`${baseUrl}`, data);
   return response.data;
 };
 
 export const updateUserNews = async (data: UserNewsListResponseType) => {
-  const formData = new FormData();
-  if (data.image) {
-    formData.append("file", data.image);
-  }
-  const response = await axiosClient.put(`/plan/64c5ae5c6f2d3e001ccf9abc/news/${data.id}`, data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+  const response = await axios.put(`${baseUrl}/${data.id}`, data);
   return response.data;
 };
 
 export const deleteUserNews = async (id: string) => {
-  return axiosClient.delete(`/plan/64c5ae5c6f2d3e001ccf9abc/news/${id}`);
+  return axios.delete(`${baseUrl}/${id}`);
 };

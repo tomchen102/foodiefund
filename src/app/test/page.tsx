@@ -20,6 +20,7 @@ import {
   useUpdateUserNewsMutation,
 } from "@/hooks/uesUserNews";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
+import "@/lib/msw/setup";
 import TableSkeleton from "@/components/TableSkeleton";
 
 const initialValues = {

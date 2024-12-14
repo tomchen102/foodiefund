@@ -1,20 +1,10 @@
 import { ErrorResponse } from "@/types/errorResponse";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import cookies from "js-cookie";
-
-const userCookie = cookies.get("token");
-
-let token = "";
-if (userCookie) {
-  const user = JSON.parse(userCookie);
-  token = user.token;
-}
 
 const axiosClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
   },
 });
 
