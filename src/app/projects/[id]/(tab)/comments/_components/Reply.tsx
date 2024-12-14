@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Badges from "@/components/Badges";
 import { useAuth } from "@/utils/providers/AuthProvider";
 import { CommentsType, CommentsReplyPostType, ReplyType } from "@/api/services/comments/types";
-import ReplyFormComponent from "./ReplyFormComponent";
+import ReplyFormComponent from "../../../comments/_components/ReplyFormComponent";
 import { useGetCommentsList, usePostCommentsMutation, usePostReplyMutation } from "@/hooks/useComments";
 import { RxAvatar } from "react-icons/rx";
 import "@/lib/msw/setup";
