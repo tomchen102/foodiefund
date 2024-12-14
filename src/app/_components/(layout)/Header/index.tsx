@@ -15,7 +15,7 @@ const navMenu: MenuType = [
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 bg-white">
+    <header className="sticky top-0 z-30 bg-white drop-shadow-sm">
       <div className="container flex h-12 pl-3 md:h-14 md:pl-0">
         <Logo />
         <Navbar menuList={navMenu} />
