@@ -1,6 +1,6 @@
 import { FieldValues, UseFormReturn } from "react-hook-form";
 
-interface Option {
+export interface Option {
   value: string;
   label: string;
 }
@@ -22,7 +22,8 @@ export interface FormFieldConfig<T extends FieldValues> {
     | "switch"
     | "date"
     | "radio"
-    | "file";
+    | "file"
+    | "editor";
   text?: string;
   className?: string;
   placeholder?: string;
