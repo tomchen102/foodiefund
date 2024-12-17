@@ -4,7 +4,7 @@ import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { Icons } from "../Icons";
 
 const Sheet = SheetPrimitive.Root;
 
@@ -58,7 +58,8 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
       <SheetOverlay />
       <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
         <SheetPrimitive.Close className="absolute right-0 top-0 flex h-12 w-12 items-center justify-center opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary">
-          <Cross1Icon className="size-6 text-primary-dark" />
+          <Icons.Close dimension="s" />
+          {/* <Cross1Icon className="size-6 text-primary-dark" /> */}
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
         {children}
