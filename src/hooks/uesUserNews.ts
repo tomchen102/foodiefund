@@ -10,7 +10,7 @@ import { ErrorResponse } from "@/types/errorResponse";
 const userNewsKeys = {
   key: ["UserNews"] as const,
 };
-export const useGetUserNews = (options = {}) => {
+export const useGetUserNews = () => {
   return useQuery({
     queryKey: userNewsKeys.key,
     queryFn: async () => {
@@ -19,7 +19,6 @@ export const useGetUserNews = (options = {}) => {
       const result = safeParseResponse(UserNewsListArrayResponse, response.data);
       return result;
     },
-    ...options,
   });
 };
 
