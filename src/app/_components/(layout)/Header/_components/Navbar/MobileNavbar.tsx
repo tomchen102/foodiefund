@@ -13,17 +13,16 @@ import {
   SheetTrigger,
   SheetSubContent,
 } from "@/components/ui/sheet";
-import { FaDollarSign, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { ChevronRightIcon, ChevronLeftIcon, ExitIcon, HamburgerMenuIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import AvatarCircle from "../AvatarCircle";
 import { useAuth } from "@/utils/providers/AuthProvider";
 import { MemberMenuType, MenuProps } from "../../types";
+import { Icons } from "@/components/Icons";
 
 const memberMenu: MemberMenuType = [
-  { title: "帳號設定", href: "#", icon: FaRegUser },
-  { title: "贊助紀錄", href: "#", icon: FaDollarSign },
-  { title: "收藏紀錄", href: "#", icon: FaRegHeart },
-  { title: "提案紀錄", href: "#", icon: Pencil1Icon },
+  { title: "帳號設定", href: "#", icon: Icons.Account },
+  { title: "贊助紀錄", href: "#", icon: Icons.Money },
+  { title: "收藏紀錄", href: "#", icon: Icons.Favorite },
+  { title: "提案紀錄", href: "#", icon: Icons.Plan },
 ];
 
 const MobileNavbar = ({ menuList }: MenuProps) => {
@@ -40,7 +39,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
   return (
     <Sheet open={isAllSheetsOpen} onOpenChange={setIsAllSheetsOpen}>
       <SheetTrigger className="flex h-12 w-12 items-center justify-center md:hidden">
-        <HamburgerMenuIcon className="h-6 w-6 text-primary-dark" />
+        <Icons.Menu dimension="s" />
       </SheetTrigger>
       <SheetContent className="h-full w-full p-0">
         <SheetHeader className="flex h-12 items-center justify-center pl-3">
@@ -53,8 +52,8 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
             <SheetTrigger className="flex h-11 w-full items-center bg-primary pl-3 hover:bg-primary-light">
               <AvatarCircle />
               <div className="w-16 truncate text-base font-bold capitalize text-primary-dark">{user.name}</div>
-              <div className="absolute right-0 flex size-11 items-center justify-center">
-                <ChevronRightIcon className="size-5 text-primary-dark" />
+              <div className="absolute right-0 flex h-11 w-12 items-center justify-center">
+                <Icons.Next dimension="s" />
               </div>
             </SheetTrigger>
             <SheetSubContent className="absolute top-12 size-full p-0">
@@ -66,9 +65,9 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
                 onClick={closeAllSheets}
               ></Link>
               <button className="absolute -top-12 right-0 size-12 bg-transparent" onClick={closeAllSheets}></button>
-              <SheetClose className="flex w-full items-center bg-primary text-base font-bold text-primary-dark hover:bg-primary-light">
-                <div className="flex size-11 items-center justify-center">
-                  <ChevronLeftIcon className="size-5 text-primary-dark" />
+              <SheetClose className="flex h-11 w-full items-center bg-primary text-base font-bold text-primary-dark hover:bg-primary-light">
+                <div className="flex h-11 w-14 items-center justify-center">
+                  <Icons.Back dimension="s" />
                 </div>
                 返回
               </SheetClose>
@@ -84,9 +83,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
                       href={item.href}
                       key={item.title}
                     >
-                      <div className="mr-2 flex size-5 items-center justify-center">
-                        {<item.icon className="size-4" />}
-                      </div>
+                      {<item.icon dimension="s" />}
                       {item.title}
                     </Link>
                   </div>
@@ -97,9 +94,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
                   className="flex h-11 w-full items-center justify-center bg-primary text-base font-bold text-primary-dark hover:bg-primary-light"
                   onClick={handleLogout}
                 >
-                  <div className="mr-2 flex size-5 items-center justify-center">
-                    <ExitIcon className="size-4 text-primary-dark" />
-                  </div>
+                  <Icons.Exit dimension="s" className="mr-2" />
                   登出
                 </div>
               </div>

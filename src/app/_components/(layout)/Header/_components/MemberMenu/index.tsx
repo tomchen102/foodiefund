@@ -7,16 +7,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import { FaDollarSign, FaRegBell, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { ExitIcon, Pencil1Icon } from "@radix-ui/react-icons";
 import AvatarCircle from "../AvatarCircle";
 import { MemberMenuType } from "../../types";
+import { Icons } from "@/components/Icons";
 
 const memberMenu: MemberMenuType = [
-  { title: "帳號設定", href: "#", icon: FaRegUser },
-  { title: "贊助紀錄", href: "#", icon: FaDollarSign },
-  { title: "收藏紀錄", href: "#", icon: FaRegHeart },
-  { title: "提案紀錄", href: "#", icon: Pencil1Icon },
+  { title: "帳號設定", href: "#", icon: Icons.Account },
+  { title: "贊助紀錄", href: "#", icon: Icons.Money },
+  { title: "收藏紀錄", href: "#", icon: Icons.Favorite },
+  { title: "提案紀錄", href: "#", icon: Icons.Plan },
 ];
 
 const MemberMenu = () => {
@@ -38,7 +37,7 @@ const MemberMenu = () => {
             href="#"
             className="mx-8 flex h-full w-11 cursor-pointer items-center justify-center text-base text-primary-dark"
           >
-            <FaRegBell className="h-6 w-6 text-primary-dark" />
+            <Icons.Notify />
           </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex w-36 items-center justify-center gap-2 bg-primary px-3 hover:bg-primary-light focus-visible:outline-none">
@@ -49,10 +48,8 @@ const MemberMenu = () => {
               {memberMenu.map((item) => {
                 return (
                   <Link href={item.href} key={item.title}>
-                    <DropdownMenuItem className="h-12 truncate text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark">
-                      <div className="mr-2 flex size-5 items-center justify-center">
-                        {<item.icon className="size-4" />}
-                      </div>
+                    <DropdownMenuItem className="h-12 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark">
+                      {<item.icon dimension="s" className="mr-2" />}
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -60,12 +57,10 @@ const MemberMenu = () => {
               })}
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                className="h-12 truncate text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark"
+                className="h-12 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark"
                 onClick={handleLogout}
               >
-                <div className="mr-2 flex size-5 items-center justify-center">
-                  <ExitIcon className="size-4 text-primary-dark" />
-                </div>
+                <Icons.Exit dimension="s" className="mr-2" />
                 登出
               </DropdownMenuItem>
             </DropdownMenuContent>

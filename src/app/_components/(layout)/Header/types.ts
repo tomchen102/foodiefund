@@ -1,6 +1,5 @@
+import { IconBaseProps } from "@/components/Icons/type";
 import React from "react";
-import { IconType } from "react-icons/lib";
-import { IconProps } from "@radix-ui/react-icons/dist/types";
 
 export type MenuType = {
   title: string;
@@ -14,5 +13,5 @@ export type MenuProps = {
 export type MemberMenuType = {
   title: string;
   href: string;
-  icon: IconType | React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
+  icon: React.FC<IconBaseProps>;
 }[];
