@@ -8,6 +8,7 @@ import FormRadioGroup from "./FormRadioGroup";
 import FormCheckbox from "./FormCheckbox";
 import FormDatePicker from "./FormDatePicker";
 import FormSwitch from "./FormSwitch";
+import FormSunEditor from "./FormSunEditor";
 
 const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRendererProps<T>) => {
   return (
@@ -17,7 +18,6 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
           if (field.processed) {
             return acc;
           }
-
           const nextField = FormFields[index + 1];
           const shouldPair = nextField && field.halfWidth && nextField.halfWidth;
 
@@ -146,6 +146,10 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 type="switch"
                 disabled={field.disabled}
               />
+            );
+          } else if (field.type === "editor") {
+            acc.push(
+              <FormSunEditor id={field.id} key={field.key} label={field.label} name={field.name} type="editor" />
             );
           } else {
             acc.push(
