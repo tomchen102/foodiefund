@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { FaRegUserCircle } from "react-icons/fa";
 import { useAuth } from "@/utils/providers/AuthProvider";
+import { Icons } from "@/components/Icons";
 
 type ClassNameProps = {
   className?: string;
@@ -13,7 +13,7 @@ const AvatarCircle = ({ className = "size-9" }: ClassNameProps) => {
     <Avatar className={className}>
       <AvatarImage src={user?.photo} />
       <AvatarFallback className="bg-transparent">
-        <FaRegUserCircle className="size-6 text-primary-dark" />
+        <Icons.Avatar />
       </AvatarFallback>
     </Avatar>
   );

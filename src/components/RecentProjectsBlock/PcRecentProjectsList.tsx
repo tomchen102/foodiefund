@@ -3,12 +3,10 @@ import Badges from "@/components/Badges";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import Link from "next/link";
-import { TfiLocationPin } from "react-icons/tfi";
-import { TfiUser } from "react-icons/tfi";
-import { PiForkKnifeFill } from "react-icons/pi";
 import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import { Icons } from "../Icons";
 
 const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
   const currentPath = usePathname();
@@ -38,16 +36,16 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                       {item.title}
                     </h3>
                     <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
-                    <div className="mt-auto flex">
+                    <div className="mt-auto flex items-center">
                       {item.projectType === "fundraising" && (
                         <>
-                          <TfiLocationPin size={20} className="mr-1" />
+                          <Icons.Location dimension="s" className="size-8 text-gray-500" />
                           {gridType === "three" && (
-                            <span className="mr-auto text-sm font-bold text-[#71717A]">{item.address}</span>
+                            <span className="mr-auto text-sm font-bold text-gray-500">{item.address}</span>
                           )}
                           {gridType === "four" && (
                             <>
-                              <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
+                              <span className="mr-auto text-sm font-bold text-gray-500">{item.place}</span>
                               <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
                             </>
                           )}
@@ -56,16 +54,16 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                       {item.projectType === "subscription" && (
                         <div className="mr-auto flex items-center gap-3">
                           <div className="flex items-center">
-                            <TfiLocationPin size={20} className="mr-1" />
+                            <Icons.Location dimension="s" className="size-8 text-gray-500" />
                             {gridType === "three" && (
-                              <span className="mr-auto text-sm font-bold text-[#71717A]">{item.address}</span>
+                              <span className="mr-auto text-sm font-bold text-gray-500">{item.address}</span>
                             )}
                             {gridType === "four" && (
-                              <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
+                              <span className="mr-auto text-sm font-bold text-gray-500">{item.place}</span>
                             )}
                           </div>
                           <div className="flex items-center">
-                            <TfiUser size={20} className="mr-1" />
+                            <Icons.Account dimension="s" className="size-8 text-gray-500" />
                             <span className="text-sm">{item.subscriberCount} 人訂閱</span>
                           </div>
                         </div>
@@ -73,9 +71,9 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                     </div>
 
                     {gridType === "three" && (
-                      <div className="my-3 flex items-center">
-                        <PiForkKnifeFill size={20} className="mr-1" />
-                        <span className="mr-auto text-sm font-bold text-[#71717A]">
+                      <div className="flex items-center">
+                        <Icons.Restaurant dimension="s" className="size-8 text-gray-500" />
+                        <span className="mr-auto text-sm font-bold text-gray-500">
                           {item.dishes} | {item.cuisine}
                         </span>
                       </div>
@@ -83,7 +81,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                     {item.projectType === "fundraising" && gridType === "four" && (
                       <Progress value={item.percentage} className="my-5" />
                     )}
-                    <div className="flex items-center">
+                    <div className="mt-3 flex items-center">
                       {item.projectType === "fundraising" && (
                         <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
                       )}

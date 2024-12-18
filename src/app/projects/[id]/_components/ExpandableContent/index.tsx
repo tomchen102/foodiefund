@@ -2,8 +2,8 @@
 import React, { ReactNode, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { FaArrowDown } from "react-icons/fa6";
 import styles from "./index.module.css";
+import { Icons } from "@/components/Icons";
 
 interface ExpandableContentProps {
   children: ReactNode;
@@ -65,7 +65,8 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
         </div>
         {!isExpanded && (
           <Button onClick={toggleContent} variant="outline" className="w-full text-sm font-bold">
-            展開內容 <FaArrowDown className="ml-1" />
+            展開內容
+            <Icons.ArrowDown size={20} dimension="s" className="text-black" />
           </Button>
         )}
       </div>
