@@ -5,8 +5,6 @@ import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { MdOutlineCalendarMonth, MdPersonOutline } from "react-icons/md";
-import { TiHeartFullOutline } from "react-icons/ti";
 import { ProjectSummaryDataProps } from "./types";
 import {
   FacebookShareButton,
@@ -17,6 +15,7 @@ import {
   LineIcon,
 } from "next-share";
 import { usePathname } from "next/navigation";
+import { Icons } from "@/components/Icons";
 
 const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
   const pathname = usePathname();
@@ -53,14 +52,14 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
           </div>
           <div className="lg:flex lg:items-center">
             <div className="mb-1 flex h-[30px] items-center lg:mb-0 lg:mr-5">
-              <MdPersonOutline size={20} className="mr-1 inline-block" />
+              <Icons.Account dimension="s" className="text-gray-500" />
               <span className="mr-1 text-sm font-medium text-gray">提案人</span>
               <span className="text-sm font-medium text-primary-dark hover:underline">
                 <Link href="#">{ProjectSummaryData.proposer}</Link>
               </span>
             </div>
             <div className="flex h-[30px] items-center">
-              <MdOutlineCalendarMonth size={20} className="mr-1 inline-block" />
+              <Icons.Calendar dimension="s" className="text-gray-500" />
               <span className="mr-1 text-sm font-medium text-gray">開始於</span>
               <span className="text-sm font-medium text-primary-dark">
                 <time dateTime="2024/08/08 22:06">{ProjectSummaryData.startDate}</time>
@@ -141,7 +140,7 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
                     <Link href={`/projects/${ProjectSummaryData.id}/project-list`}>立即贊助</Link>
                   </Button>
                   <Button className="flex-shrink-0" variant="secondary" size="icon">
-                    <TiHeartFullOutline size={24} />
+                    <Icons.FavoriteFill dimension="s" mode="dark" />
                   </Button>
                 </div>
               )}
