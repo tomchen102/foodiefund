@@ -3,8 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { IoEyeSharp } from "react-icons/io5";
-import { FaHeart } from "react-icons/fa";
+import { Icons } from "../Icons";
 
 const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
   return (
@@ -41,10 +40,10 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
                     <h4 className="text-sm font-bold">{item.avatarName}</h4>
                     <p className="text-sm text-gray">{item.avatarRole}</p>
                   </div>
-                  <div className="mr-6 flex">
-                    <IoEyeSharp size={20} className="mr-1" />
-                    <p className="mr-3 text-sm text-gray">{item.views}人</p>
-                    <FaHeart size={20} className="mr-1" />
+                  <div className="mr-6 flex items-center">
+                    <Icons.ViewFill dimension="s" className="text-gray-500" />
+                    <p className="mr-3 text-sm text-gray-500">{item.views}人</p>
+                    <Icons.FavoriteFill dimension="s" className="text-gray-500" />
                     <p className="text-sm text-gray">{item.favorites}人</p>
                   </div>
                 </div>

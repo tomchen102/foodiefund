@@ -1,10 +1,10 @@
 import MobileExperienceTalkCarousel from "@/components/ExperienceTalkBlock/MobileExperienceTalkCarousel";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { GoArrowRight } from "react-icons/go";
 import ExperienceTalkList from "./ExperienceTalkList";
 import { ExperienceTalkListType } from "@/types/ExperienceTalkListProps";
 import { cn } from "@/lib/utils";
+import { Icons } from "../Icons";
 
 const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
   return (
@@ -13,7 +13,8 @@ const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
         <h2 className="text-lg font-bold md:text-2xl">募資提案經驗談</h2>
         <Button className="ml-auto hidden items-center md:flex" variant="secondary" asChild>
           <Link href="/404">
-            查看更多 <GoArrowRight size={16} className="ml-1" />
+            查看更多
+            <Icons.ArrowRight size={20} mode="dark" className="size-8" />
           </Link>
         </Button>
       </div>
@@ -22,7 +23,8 @@ const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
       <ExperienceTalkList data={data} />
       <Button className="ml-auto mt-3 flex items-center md:hidden" variant="secondary" asChild>
         <Link href="/404">
-          查看更多 <GoArrowRight size={16} className="ml-1" />
+          查看更多
+          <Icons.ArrowRight size={20} mode="dark" className="size-8" />
         </Link>
       </Button>
     </section>
