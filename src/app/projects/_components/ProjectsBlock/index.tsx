@@ -2,11 +2,10 @@
 import Badges from "@/components/Badges";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
-import { TfiLocationPin } from "react-icons/tfi";
-import { TfiUser } from "react-icons/tfi";
 import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Icons } from "@/components/Icons";
 
 const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
   const currentPath = usePathname();
@@ -35,10 +34,10 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                     <span>{item.title}</span>
                   </h3>
                   <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
-                  <div className="mt-auto flex">
+                  <div className="mt-auto flex items-center">
                     {item.projectType === "fundraising" && (
                       <>
-                        <TfiLocationPin size={20} className="mr-1" />
+                        <Icons.Location dimension="s" />
                         <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
                         <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
                       </>
@@ -46,32 +45,31 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                     {item.projectType === "subscription" && (
                       <div className="mr-auto flex items-center gap-3">
                         <div className="flex items-center">
-                          <TfiLocationPin size={20} className="mr-1" />
-
+                          <Icons.Location dimension="s" />
                           <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
                         </div>
                         <div className="flex items-center">
-                          <TfiUser size={20} className="mr-1" />
+                          <Icons.Account dimension="s" />
                           <span className="text-sm">{item.subscriberCount} 人訂閱</span>
                         </div>
                       </div>
                     )}
                   </div>
 
-                  {item.projectType === "fundraising" && <Progress value={item.percentage} className="my-5" />}
+                  {item.projectType === "fundraising" && <Progress value={item.percentage} className="my-3" />}
                   <div className="flex items-center">
                     {item.projectType === "fundraising" && (
                       <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
                     )}
                     {item.projectType === "fundraising" && (
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-bold">
                         倒數 <span className="text-[#0F514E]">{item.reciprocal}</span> 天
                       </span>
                     )}
                     {item.projectType === "subscription" && (
                       <div className="mr-auto mt-3 flex items-center gap-3">
                         <span className="text-xl font-bold text-[#0F514E]">NT$ {item.currentAmount}</span>
-                        <span className="text-sm font-medium">/ 每月</span>
+                        <span className="text-sm font-bold">/ 每月</span>
                       </div>
                     )}
                   </div>
