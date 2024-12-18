@@ -3,12 +3,11 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Badges from "@/components/Badges";
-import { TfiLocationPin } from "react-icons/tfi";
-import { TfiUser } from "react-icons/tfi";
 import { Progress } from "@/components/ui/progress";
 import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Icons } from "../Icons";
 
 const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
   const currentPath = usePathname();
@@ -51,7 +50,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                       </h3>
                       <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
                       <div className="flex items-center">
-                        {item.projectType === "fundraising" && <TfiLocationPin size={20} className="mr-1" />}
+                        {item.projectType === "fundraising" && <Icons.Location dimension="s" />}
                         {item.projectType === "fundraising" && (
                           <span className="mr-auto text-sm font-bold text-gray-500">{item.place}</span>
                         )}
@@ -61,11 +60,11 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                         {item.projectType === "subscription" && (
                           <div className="mr-auto flex items-center gap-3">
                             <div className="flex items-center">
-                              <TfiLocationPin size={20} className="mr-1" />
+                              <Icons.Location dimension="s" />
                               <span className="text-sm font-bold text-gray-500">{item.place}</span>
                             </div>
                             <div className="flex items-center">
-                              <TfiUser size={20} className="mr-1" />
+                              <Icons.Account dimension="s" />
                               <span className="text-sm">{item.subscriberCount} 人訂閱</span>
                             </div>
                           </div>
