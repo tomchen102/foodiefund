@@ -1,3 +1,4 @@
+"use client";
 import { ErrorResponse } from "@/types/errorResponse";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import cookies from "js-cookie";
@@ -26,8 +27,15 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error: AxiosError<ErrorResponse>) => {
-    console.log(error.response?.data.message);
-    return Promise.reject(error.response?.data.message);
+    console.log(error.response?.data);
+    const status = error?.response?.status || null;
+    console.log("status", status === 401);
+    if (status == 401) {
+      if (typeof window !== "undefined") {
+        window.location.href = "/login";
+      }
+    }
+    return Promise.reject(error.response?.data);
   }
 );
 
