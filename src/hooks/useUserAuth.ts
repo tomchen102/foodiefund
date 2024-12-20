@@ -1,32 +1,31 @@
-import { signIn, signUp } from "@/api/services/signFlow";
-import { DataResponse } from "@/api/services/signFlow/types";
-import { FormLoginSchemaType, FormRegisterSchemaType } from "@/schema/UserAuth";
-import { ErrorResponse } from "@/types/errorResponse";
-import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import { AxiosError, AxiosResponse } from "axios";
+import { useMutation } from "@tanstack/react-query";
+import { useToast } from "./use-toast";
+import { signFlowApi } from "@/api/services/signFlow";
 
-export const useLogInMutation = (): UseMutationResult<
-  AxiosResponse<DataResponse>,
-  AxiosError<ErrorResponse>,
-  FormLoginSchemaType
-> => {
-  return useMutation<AxiosResponse<DataResponse>, AxiosError<ErrorResponse>, FormLoginSchemaType>({
-    mutationFn: async (user: FormLoginSchemaType) => await signIn(user),
-    onError: (error: AxiosError<ErrorResponse>) => {
-      console.error("Error logging in user:", error.response?.data.message);
+export const useLogInMutation = () => {
+  const { toast } = useToast();
+  return useMutation({
+    mutationFn: signFlowApi.signIn,
+    onError: (error) => {
+      console.error("Error logging in user:", error.message);
+      toast({
+        variant: "destructive",
+        description: error.message,
+      });
     },
   });
 };
 
-export const useRegisterMutation = (): UseMutationResult<
-  AxiosResponse<DataResponse>,
-  AxiosError<ErrorResponse>,
-  FormRegisterSchemaType
-> => {
-  return useMutation<AxiosResponse<DataResponse>, AxiosError<ErrorResponse>, FormRegisterSchemaType>({
-    mutationFn: async (user: FormRegisterSchemaType) => await signUp(user),
-    onError: (error: AxiosError<ErrorResponse>) => {
-      console.error("Error logging in user:", error.response?.data.message);
+export const useRegisterMutation = () => {
+  const { toast } = useToast();
+  return useMutation({
+    mutationFn: signFlowApi.signUp,
+    onError: (error) => {
+      console.error("Error logging in user:", error.message);
+      toast({
+        variant: "destructive",
+        description: error.message,
+      });
     },
   });
 };

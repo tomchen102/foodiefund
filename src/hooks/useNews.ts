@@ -1,4 +1,4 @@
-import { getNews } from "@/api/services/news";
+import { NewsApi } from "@/api/services/news";
 import { NewsQueryParams } from "@/api/services/news/types";
 import { newsResponseArraySchema } from "@/schema/newsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
@@ -9,7 +9,7 @@ const newsKeys = {
 };
 
 const fetchAndParseNews = async (queryParams: NewsQueryParams) => {
-  const response = await getNews(queryParams);
+  const response = await NewsApi.getAll(queryParams);
   const result = safeParseResponse(newsResponseArraySchema, response.data);
   return result;
 };
