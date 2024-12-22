@@ -7,7 +7,7 @@ import { Form } from "@/components/ui/form";
 import FormRenderer from "@/components/FormRenderer";
 import { commentFormSchema } from "@/schema/commentsSchema";
 import { CommentsReplyPostType } from "@/api/services/comments/types";
-import { replyFormFields } from "../../(tab)/comments/_components/replyFormFields";
+import { replyFormFields } from "./replyFormFields";
 
 interface ReplyFormComponentProps {
   onSubmit: (data: CommentsReplyPostType) => void;
