@@ -1,4 +1,5 @@
 "use client";
+import MobileNavbar from "./@Navbar/MobileNavbar";
 import Navbar from "./@Navbar/page";
 
 export function LayoutContent({ children }: { children: React.ReactNode }) {
@@ -7,6 +8,7 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
       <div className="lg:grid lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-3">
           <Navbar />
+          <MobileNavbar />
         </div>
         <div className="lg:col-span-9">{children}</div>
       </div>
