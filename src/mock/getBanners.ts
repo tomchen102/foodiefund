@@ -1,4 +1,4 @@
-import { BannerProps } from "@/app/_components/Banner/types";
+import { BannerProps } from "@/components/Home/Banner/types";
 
 export const getBanners = async (): Promise<BannerProps[]> => {
   return [
