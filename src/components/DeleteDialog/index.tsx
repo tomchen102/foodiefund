@@ -11,13 +11,7 @@ import {
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { useDialog } from "@/utils/DialogContext";
-import { DialogStateDetails } from "@/types/DialogState";
-
-export interface AlertDialogProps<T extends object> {
-  dialogState: DialogStateDetails<T>;
-  deleteItem: (item: T) => void;
-  title: string;
-}
+import { AlertDialogProps } from "./types";
 
 const DeleteDialog = <T extends object>({ dialogState, deleteItem, title }: AlertDialogProps<T>) => {
   const { closeDialog } = useDialog();
