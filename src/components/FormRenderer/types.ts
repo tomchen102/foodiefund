@@ -1,29 +1,32 @@
-import { FieldValues, UseFormReturn } from "react-hook-form";
+import { MutationAction } from "@/types/mutationTypes";
+import { DefaultValues, FieldValues, UseFormReturn } from "react-hook-form";
 
 export interface Option {
   value: string;
   label: string;
 }
 
+type FormFieldType =
+  | "text"
+  | "password"
+  | "email"
+  | "number"
+  | "tel"
+  | "checkbox"
+  | "textarea"
+  | "select"
+  | "switch"
+  | "date"
+  | "radio"
+  | "file"
+  | "editor";
+
 export interface FormFieldConfig<T extends FieldValues> {
   id?: string;
   label: string;
   key: string;
   name: keyof T;
-  type:
-    | "text"
-    | "password"
-    | "email"
-    | "number"
-    | "tel"
-    | "checkbox"
-    | "textarea"
-    | "select"
-    | "switch"
-    | "date"
-    | "radio"
-    | "file"
-    | "editor";
+  type: FormFieldType;
   text?: string;
   className?: string;
   placeholder?: string;
@@ -39,4 +42,13 @@ export interface FormFieldConfig<T extends FieldValues> {
 export interface FormRendererProps<T extends FieldValues> {
   FormFields: FormFieldConfig<T>[];
   methods: UseFormReturn<T>;
+}
+
+export interface FormPageProps<T extends FieldValues> {
+  initialValues: DefaultValues<T>;
+  fetchedData: DefaultValues<T>;
+  formFields: FormFieldConfig<T>[];
+  create: MutationAction<T>;
+  update: MutationAction<T>;
+  redirectUrl: string;
 }
