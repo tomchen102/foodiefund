@@ -1,9 +1,10 @@
 import { UserNewsListQueryResponseType, UserNewsListResponseType } from "@/api/services/userNews/types";
-import { UserNewsListArrayResponse } from "@/schema/UserNewsSchema";
+import { UserNewsListArrayResponseSchema, UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "./use-toast";
 import { userNewsApi } from "@/api/services/userNews";
+import { MutationResult } from "@/types/mutationTypes";
 
 const userNewsKeys = {
   key: ["UserNews"] as const,
@@ -14,49 +15,62 @@ export const useGetUserNews = () => {
     queryFn: async () => {
       const response = await userNewsApi.getAll();
       console.log("getUserNewsList response:", response.data);
-      const result = safeParseResponse(UserNewsListArrayResponse, response.data);
+      const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
     },
   });
 };
 
-export const usePostUserNewsMutation = () => {
+export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }) => {
+  return useQuery({
+    queryKey: userNewsKeys.key,
+    queryFn: async () => {
+      const response = await userNewsApi.getById(id);
+      console.log("getUserNewsList response:", response.data);
+      const result = safeParseResponse(UserNewsListResponseSchema, response.data);
+      return result;
+    },
+    enabled: options?.enabled !== false && Boolean(id),
+  });
+};
+
+export const usePostUserNewsMutation = (): MutationResult<UserNewsListResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
     mutationFn: userNewsApi.create,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
       toast({
         description: "新增成功!",
       });
+      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
     },
     onError: (error) => {
-      console.error("Error creating News:", error.message);
+      console.error("Error creating News:", error);
       toast({
         variant: "destructive",
-        description: "新增失敗!",
+        description: error.message,
       });
     },
   });
 };
 
-export const useUpdateUserNewsMutation = () => {
+export const useUpdateUserNewsMutation = (): MutationResult<UserNewsListResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
     mutationFn: userNewsApi.update,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
       toast({
         description: "修改成功!",
       });
+      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
     },
     onError: (error) => {
-      console.error("Error creating News:", error.message);
+      console.error("Error creating News:", error);
       toast({
         variant: "destructive",
-        description: "修改失敗!",
+        description: error.message,
       });
     },
   });
