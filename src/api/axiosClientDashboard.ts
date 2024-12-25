@@ -11,7 +11,7 @@ if (userCookie) {
   token = user.token;
 }
 
-export const axiosClientFrontend = applyInterceptors(
+export const axiosClientDashboard = applyInterceptors(
   axios.create({
     baseURL: process.env.NEXT_PUBLIC_DASHBOARD_API_URL,
     headers: {
@@ -21,4 +21,4 @@ export const axiosClientFrontend = applyInterceptors(
   })
 );
 
-export default axiosClientFrontend;
+export default axiosClientDashboard;
