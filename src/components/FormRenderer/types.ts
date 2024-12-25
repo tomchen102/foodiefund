@@ -1,5 +1,6 @@
 import { MutationAction } from "@/types/mutationTypes";
 import { DefaultValues, FieldValues, UseFormReturn } from "react-hook-form";
+import { z } from "zod";
 
 export interface Option {
   value: string;
@@ -51,4 +52,5 @@ export interface FormPageProps<T extends FieldValues> {
   create: MutationAction<T>;
   update: MutationAction<T>;
   redirectUrl: string;
+  schema: z.ZodSchema<T>;
 }
