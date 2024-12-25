@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="fixed inset-0 flex select-none items-center justify-center bg-gray-500 bg-opacity-75">
+    <div className="fixed inset-0 z-40 flex select-none items-center justify-center bg-gray-500 bg-opacity-75">
       <div className="relative h-[100px] w-[100px]">
         {[...Array(6)].map((_, index) => (
           <div
