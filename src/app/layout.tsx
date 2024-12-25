@@ -1,5 +1,4 @@
 import React from "react";
-import localFont from "next/font/local";
 import { LoadingProvider } from "@/utils/providers/LoadingContext";
 import "./globals.css";
 import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
@@ -12,16 +11,13 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { createMetadata } from "@/utils/metadata";
 import { DialogProvider } from "@/utils/DialogContext";
 import { Toaster } from "@/components/ui/toaster";
+import { Noto_Sans_TC } from "next/font/google";
 
-const GeistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const GeistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const notoSansTC = Noto_Sans_TC({
+  subsets: ["latin"],
+  weight: ["500", "100", "300", "400", "700", "900"],
+  display: "swap",
+  variable: "--font-noto-sans",
 });
 
 export const metadata: Metadata = createMetadata({
@@ -37,7 +33,7 @@ export default function RootLayout({ children }: ProviderProps) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-screen flex-col bg-[#FDFBF8] antialiased`}
+        className={`${notoSansTC.variable} ${notoSansTC.className} flex min-h-screen flex-col bg-[#FDFBF8] antialiased`}
         suppressHydrationWarning={true}
       >
         <AuthProvider>

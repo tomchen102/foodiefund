@@ -16,6 +16,9 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        noto: ["var(--font-noto-sans)"],
+      },
       textColor: {
         DEFAULT: "#09090B",
       },
