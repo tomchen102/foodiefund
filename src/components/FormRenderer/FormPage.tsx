@@ -2,7 +2,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import FormRenderer from ".";
 import { Button } from "../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
@@ -15,6 +14,7 @@ const FormPage = <T extends FieldValues>({
   create,
   update,
   redirectUrl,
+  schema,
 }: FormPageProps<T>) => {
   const params = useParams();
   const router = useRouter();
@@ -22,16 +22,12 @@ const FormPage = <T extends FieldValues>({
   const [isMode] = useState<boolean>(isCreateMode);
 
   const methods = useForm<T>({
-    resolver: zodResolver(UserNewsListResponseSchema),
+    resolver: zodResolver(schema),
     defaultValues: isCreateMode ? initialValues : fetchedData,
   });
-  useEffect(() => {
-    if (!isCreateMode && fetchedData) {
-      methods.reset(fetchedData);
-    }
-  }, [fetchedData, methods, isCreateMode]);
-
   const onSubmit = async (formData: T) => {
+    console.log(isCreateMode);
+
     if (isCreateMode) {
       await create(formData);
     } else {
@@ -39,6 +35,13 @@ const FormPage = <T extends FieldValues>({
     }
     router.push(redirectUrl);
   };
+
+  useEffect(() => {
+    if (!isCreateMode && fetchedData) {
+      methods.reset(fetchedData);
+    }
+  }, [fetchedData, methods, isCreateMode]);
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
