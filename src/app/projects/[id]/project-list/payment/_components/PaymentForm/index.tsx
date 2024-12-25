@@ -3,7 +3,7 @@ import { PaymentFormType } from "@/api/services/payment/types";
 import FormRenderer from "@/components/FormRenderer";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { FormPaymentSchema } from "@/schema/Payment";
+import { FormPaymentSchema } from "@/schema/PaymentSchema";
 import { useForm } from "react-hook-form";
 import { PaymentFormFields } from "./PaymentFormFields";
 import { useRouter } from "next/navigation";

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const UserNewsListResponse = z.object({
-  id: z.string().optional(),
+export const UserNewsListResponseSchema = z.object({
+  id: z.string(),
   title: z.string().nonempty("標題不可為空"),
   content: z.string(),
   isActive: z.boolean(),
@@ -20,10 +20,10 @@ export const UserNewsListResponse = z.object({
   publicAt: z.string().optional(),
 });
 
-export const UserNewsListArrayResponse = z.array(UserNewsListResponse);
+export const UserNewsListArrayResponseSchema = z.array(UserNewsListResponseSchema);
 
 export const UserNewsListQueryResponseSchema = z.object({
   success: z.boolean(),
-  data: z.array(UserNewsListResponse),
+  data: z.array(UserNewsListResponseSchema),
   message: z.string(),
 });

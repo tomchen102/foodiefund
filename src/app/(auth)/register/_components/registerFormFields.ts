@@ -1,5 +1,5 @@
+import { FormRegisterSchemaType } from "@/api/services/signFlow/types";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
-import { FormRegisterSchemaType } from "@/schema/UserAuth";
 
 export const registerFormFields: FormFieldConfig<FormRegisterSchemaType>[] = [
   { label: "名稱", name: "name", type: "text", id: "name", placeholder: "請輸入您的名稱", required: true, key: "name" },

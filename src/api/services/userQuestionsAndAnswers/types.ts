@@ -1,7 +1,7 @@
 import {
   userQuestionsAndAnswersQueryResponseSchema,
   userQuestionsAndAnswersResponseTypeSchema,
-} from "@/schema/userQuestionsAndAnswers";
+} from "@/schema/userQuestionsAndAnswersSchema";
 import { z } from "zod";
 
 export type UserQuestionsAndAnswersListResponseType = z.infer<typeof userQuestionsAndAnswersResponseTypeSchema>;

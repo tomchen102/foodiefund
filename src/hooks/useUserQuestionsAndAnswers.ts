@@ -2,7 +2,7 @@ import { safeParseResponse } from "@/utils/zodUtils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "./use-toast";
 
-import { UserQuestionsAndAnswersListArrayResponse } from "@/schema/userQuestionsAndAnswers";
+import { UserQuestionsAndAnswersListArrayResponseSchema } from "@/schema/userQuestionsAndAnswersSchema";
 import { faqApi } from "@/api/services/userQuestionsAndAnswers";
 
 const UserQuestionsAndAnswersKeys = {
@@ -14,7 +14,7 @@ export const useGetUserQuestionsAndAnswers = () => {
     queryFn: async () => {
       const response = await faqApi.getAll();
       console.log("getUserQuestionsAndAnswersList response:", response.data);
-      const result = safeParseResponse(UserQuestionsAndAnswersListArrayResponse, response.data);
+      const result = safeParseResponse(UserQuestionsAndAnswersListArrayResponseSchema, response.data);
       return result;
     },
   });

@@ -14,8 +14,6 @@ export const FormLoginSchema = z.object({
   }),
 });
 
-export type FormLoginSchemaType = z.infer<typeof FormLoginSchema>;
-
 export const FormRegisterSchema = FormLoginSchema.extend({
   name: z.string().min(2, {
     message: "名稱必須至少有 2 個字符",
@@ -28,5 +26,3 @@ export const FormRegisterSchema = FormLoginSchema.extend({
   message: "密碼不一致",
   path: ["confirmPassword"],
 });
-
-export type FormRegisterSchemaType = z.infer<typeof FormRegisterSchema>;

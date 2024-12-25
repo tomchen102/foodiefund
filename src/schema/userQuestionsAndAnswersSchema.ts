@@ -7,7 +7,7 @@ export const userQuestionsAndAnswersResponseTypeSchema = z.object({
   publicAt: z.string().optional(),
 });
 
-export const UserQuestionsAndAnswersListArrayResponse = z.array(userQuestionsAndAnswersResponseTypeSchema);
+export const UserQuestionsAndAnswersListArrayResponseSchema = z.array(userQuestionsAndAnswersResponseTypeSchema);
 
 export const userQuestionsAndAnswersQueryResponseSchema = z.object({
   success: z.boolean(),
