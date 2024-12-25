@@ -1,13 +1,11 @@
 "use client";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
-import FormRenderer from "@/components/FormRenderer";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import SectionPadding from "@/components/SectionPadding";
-import { Button } from "@/components/ui/button";
-import { UserNewsListResponse } from "@/schema/UserNewsSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { useParams } from "next/navigation";
+import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/uesUserNews";
+import FormPage from "@/components/FormRenderer/FormPage";
 
 const initialValues = {
   id: "",
@@ -27,24 +25,26 @@ const userNewsFormFields: FormFieldConfig<UserNewsListResponseType>[] = [
 ];
 
 const NewsId = () => {
-  const methods = useForm<UserNewsListResponseType>({
-    resolver: zodResolver(UserNewsListResponse),
-    defaultValues: initialValues,
+  const params = useParams();
+  const id = params.id as string;
+  const isCreateMode = id === "create";
+
+  const { data: userNewsIdData } = useGetUserNewsId(id, {
+    enabled: !isCreateMode,
   });
+  const { mutate: create } = usePostUserNewsMutation();
+  const { mutate: update } = useUpdateUserNewsMutation();
 
   return (
-    <SectionPadding className="container px-3 xl:px-0">
-      <FormProvider {...methods}>
-        <form>
-          <FormRenderer<UserNewsListResponseType> FormFields={userNewsFormFields} methods={methods} />
-          <div className="flex">
-            <Button type="submit" variant="outline" className="mr-auto">
-              返回
-            </Button>
-            <Button type="submit">新增</Button>
-          </div>
-        </form>
-      </FormProvider>
+    <SectionPadding container>
+      <FormPage<UserNewsListResponseType>
+        initialValues={initialValues}
+        fetchedData={userNewsIdData!}
+        formFields={userNewsFormFields}
+        create={create}
+        update={update}
+        redirectUrl={`/dashboard/${params.plan_id}/news`}
+      />
     </SectionPadding>
   );
 };
