@@ -3,9 +3,6 @@ import axiosClientDashboard from "@/api/axiosClientDashboard";
 
 export const userFaqApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/faqs`,
-  MULTIPART_HEADERS: {
-    "Content-Type": "multipart/form-data",
-  },
   getAll: async () => {
     const response = await axiosClientDashboard.get(userFaqApi.getBaseUrl());
     return response.data;
@@ -15,15 +12,15 @@ export const userFaqApi = {
     return response.data;
   },
   create: async (data: UserFaqListResponseType) => {
-    const response = await axiosClientDashboard.post(userFaqApi.getBaseUrl(), data, {
-      headers: userFaqApi.MULTIPART_HEADERS,
-    });
+    console.log("createUrl", data);
+    const response = await axiosClientDashboard.post(userFaqApi.getBaseUrl(), data);
+    console.log("createUrl response:", response);
     return response.data;
   },
   update: async (data: UserFaqListResponseType) => {
-    const response = await axiosClientDashboard.put(`${userFaqApi.getBaseUrl()}/${data.id}`, data, {
-      headers: userFaqApi.MULTIPART_HEADERS,
-    });
+    console.log("updateUrl", data);
+    const response = await axiosClientDashboard.put(`${userFaqApi.getBaseUrl()}/${data.id}`, data);
+    console.log("updateUrl response:", response);
     return response.data;
   },
   delete: async (id: string) => {
