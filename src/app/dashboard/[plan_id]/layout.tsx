@@ -16,7 +16,7 @@ export default async function ProjectsLayout(props: ProviderProps) {
 
   return (
     <>
-      <SectionPadding className="container px-3 xl:px-0">
+      <SectionPadding container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-3"></div>
           <div className="mb-5">

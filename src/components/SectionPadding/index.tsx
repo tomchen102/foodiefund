@@ -1,8 +1,18 @@
 import { cn } from "@/lib/utils";
-import { ProviderProps } from "@/types/ProviderType";
+import { SectionPaddingProps } from "@/types/ProviderType";
 
-const SectionPadding = ({ children, className }: ProviderProps) => {
-  return <section className={cn("pb-8 pt-6 lg:gap-6 lg:pb-[120px] lg:pt-[100px]", className)}>{children}</section>;
+const SectionPadding = ({ children, className, container }: SectionPaddingProps) => {
+  return (
+    <section
+      className={cn(
+        "pb-8 pt-6 lg:gap-6 lg:pb-[120px] lg:pt-[100px]",
+        container ? "container px-3 xl:px-0" : "",
+        className
+      )}
+    >
+      {children}
+    </section>
+  );
 };
 
 export default SectionPadding;

@@ -12,12 +12,14 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
     <>
       {isProjectList ? (
         <>
-          <SectionPadding className="container px-3 lg:pt-0 xl:px-0">{children}</SectionPadding>
+          <SectionPadding container className="lg:pt-0">
+            {children}
+          </SectionPadding>
         </>
       ) : (
         <>
           <Navbar />
-          <SectionPadding className="container px-3">
+          <SectionPadding container>
             <div className="lg:grid lg:grid-cols-12 lg:gap-6">
               <div className="mb-8 pr-0 lg:col-span-9 lg:pr-10">{children}</div>
               <Rewards />

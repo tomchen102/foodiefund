@@ -12,7 +12,7 @@ import { DataTable } from "@/components/Table/DataTable";
 import DeleteDialog from "@/components/DeleteDialog";
 import { createColumns } from "./Columns";
 import { UserQuestionsAndAnswersListResponseType } from "@/api/services/userQuestionsAndAnswers/types";
-import { userQuestionsAndAnswersResponseTypeSchema } from "@/schema/userQuestionsAndAnswers";
+import { userQuestionsAndAnswersResponseTypeSchema } from "@/schema/userQuestionsAndAnswersSchema";
 import {
   useDeleteUserQuestionsAndAnswersMutation,
   useGetUserQuestionsAndAnswers,
@@ -64,7 +64,7 @@ const Test1 = () => {
   const columns = createColumns(handleEdit, handleDelete);
   const columnHeaders = columns.map((column) => column.header as string);
   return (
-    <SectionPadding className="container px-3 xl:px-0">
+    <SectionPadding container>
       <div>
         <div className="mb-5">
           <Select disabled={isFetching}>

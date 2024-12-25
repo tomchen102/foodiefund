@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <SectionPadding className="container px-3 xl:px-0">
+    <SectionPadding container>
       <div className="flex h-[60vh] items-center justify-center md:px-[110px]">
         <div className="flex h-[478px] w-[1076px] flex-col items-center justify-center rounded-[24px] border bg-[#EEEFEF] text-center">
           <h1 className="mb-6 text-5xl font-extrabold tracking-[0.15em] text-primary md:text-[160px]">404</h1>

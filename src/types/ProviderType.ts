@@ -5,3 +5,7 @@ export interface ProviderProps {
     id: number;
   };
 }
+
+export interface SectionPaddingProps extends ProviderProps {
+  container?: boolean;
+}
