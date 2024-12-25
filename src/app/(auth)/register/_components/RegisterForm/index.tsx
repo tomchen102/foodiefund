@@ -5,11 +5,12 @@ import { Form, FormMessage } from "@/components/ui/form";
 import useHandleUserLogin from "@/hooks/useHandleUserLogin";
 import { useSetLoading } from "@/hooks/useSetLoading";
 import { useRegisterMutation } from "@/hooks/useUserAuth";
-import { FormRegisterSchemaType, FormRegisterSchema } from "@/schema/UserAuth";
+import { FormRegisterSchema } from "@/schema/UserAuthSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { registerFormFields } from "../registerFormFields";
+import { FormRegisterSchemaType } from "@/api/services/signFlow/types";
 
 const RegisterForm = () => {
   const form = useForm<FormRegisterSchemaType>({
@@ -44,7 +45,7 @@ const RegisterForm = () => {
           </p>
         </div>
         <FormRenderer<FormRegisterSchemaType> methods={form} FormFields={registerFormFields} />
-        {error && <FormMessage>{error.response?.data.message}</FormMessage>}
+        {error && <FormMessage>{error.message}</FormMessage>}
         <Button type="submit" className="w-full">
           立即註冊
         </Button>

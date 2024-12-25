@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormLoginSchema, FormLoginSchemaType } from "@/schema/UserAuth";
+import { FormLoginSchema } from "@/schema/UserAuthSchema";
 import { useLogInMutation } from "@/hooks/useUserAuth";
 import LocalStorageService from "@/utils/LocalStorageService";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import { useSetLoading } from "@/hooks/useSetLoading";
 import FormRenderer from "@/components/FormRenderer";
 import useHandleUserLogin from "@/hooks/useHandleUserLogin";
 import { loginFormFields } from "../loginFormFields";
+import { FormLoginSchemaType } from "@/api/services/signFlow/types";
 
 const localStorageService = LocalStorageService.getInstance();
 
@@ -52,7 +53,7 @@ const LoginForm = () => {
         <h2 className="text-3xl font-bold">登入</h2>
         <Oauth />
         <FormRenderer<FormLoginSchemaType> methods={form} FormFields={loginFormFields} />
-        {error && <FormMessage>{error.response?.data.message}</FormMessage>}
+        {error && <FormMessage>{error.message}</FormMessage>}
         <RememberUser username={form.watch("email")} localStorageService={localStorageService} />
         <Button type="submit" className="w-full">
           登入
