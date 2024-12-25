@@ -10,15 +10,15 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { TrashIcon } from "lucide-react";
 import { AlertDialogTriggerDeleteProps } from "./types";
+import { Icons } from "../Icons";
 
 export function AlertDialogTriggerDelete({ title, deleteData }: AlertDialogTriggerDeleteProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="outline" className="text-red-500">
-          <TrashIcon />
+          <Icons.Delete dimension="s" className="text-red-500" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
