@@ -1,5 +1,5 @@
 import { UserNewsListResponseType } from "./types";
-import axiosClient from "@/api/axiosClient";
+import axiosClientFrontend from "@/api/axiosClientFrontend";
 
 export const userNewsApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/news`,
@@ -14,24 +14,28 @@ export const userNewsApi = {
     return formData;
   },
   getAll: async () => {
-    const response = await axiosClient.get(userNewsApi.getBaseUrl());
+    const response = await axiosClientFrontend.get(userNewsApi.getBaseUrl());
+    return response.data;
+  },
+  getById: async (id: string) => {
+    const response = await axiosClientFrontend.get(`${userNewsApi.getBaseUrl()}/${id}`);
     return response.data;
   },
   create: async (data: UserNewsListResponseType) => {
-    const formData = userNewsApi.createFormData(data);
-    const response = await axiosClient.post(userNewsApi.getBaseUrl(), formData, {
+    userNewsApi.createFormData(data);
+    const response = await axiosClientFrontend.post(userNewsApi.getBaseUrl(), data, {
       headers: userNewsApi.MULTIPART_HEADERS,
     });
     return response.data;
   },
   update: async (data: UserNewsListResponseType) => {
-    const formData = userNewsApi.createFormData(data);
-    const response = await axiosClient.put(`${userNewsApi.getBaseUrl()}/${data.id}`, formData, {
+    userNewsApi.createFormData(data);
+    const response = await axiosClientFrontend.put(`${userNewsApi.getBaseUrl()}/${data.id}`, data, {
       headers: userNewsApi.MULTIPART_HEADERS,
     });
     return response.data;
   },
   delete: async (id: string) => {
-    return axiosClient.delete(`${userNewsApi.getBaseUrl()}/${id}`);
+    return axiosClientFrontend.delete(`${userNewsApi.getBaseUrl()}/${id}`);
   },
 };
