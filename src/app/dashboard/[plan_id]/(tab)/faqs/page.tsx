@@ -8,17 +8,18 @@ import { format } from "date-fns";
 import { useDeleteUserFaqMutation, useGetUserFaq } from "@/hooks/useUserFaq";
 import { Icons } from "@/components/Icons";
 import Link from "next/link";
+import FaqCardSkeleton from "./_components/FaqCardSkeleton";
 
 const UserFaqPage = () => {
   const createUserFaqUrl = usePathname();
-
-  const { data } = useGetUserFaq();
+  const { data, isFetching } = useGetUserFaq();
   const { mutate: DeleteUserFaqMutation } = useDeleteUserFaqMutation();
 
   const deleteItem = (id: string) => {
     console.log("Delete item", id);
     DeleteUserFaqMutation(id);
   };
+
   return (
     <SectionPadding container>
       <div>
@@ -31,17 +32,22 @@ const UserFaqPage = () => {
         </div>
         <div>
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.isArray(data) &&
+            {isFetching ? (
+              <FaqCardSkeleton />
+            ) : (
+              Array.isArray(data) &&
               data.map((item) => (
                 <li key={item.id} className="rounded-lg bg-white p-4 shadow-md">
                   <div className="mb-4 flex items-center justify-between">
-                    <div className="text-lg font-bold">{item.questions}</div>
+                    <div className="line-clamp-2 h-[calc(2*1.75rem)] overflow-hidden text-ellipsis text-lg font-bold">
+                      {item.questions}
+                    </div>
                   </div>
                   <div className="mb-4 text-gray-600">建立時間：{format(item.createdAt!, "yyyy-MM-dd")}</div>
                   <div className="flex items-center space-x-4">
-                    <div className="mr-auto flex">
+                    <div className="mr-auto flex gap-3">
                       <Link
-                        className={cn("mr-3 text-primary", buttonVariants({ variant: "outline" }))}
+                        className={cn("text-primary", buttonVariants({ variant: "outline" }))}
                         href={`${createUserFaqUrl}/${item.id}`}
                       >
                         <Icons.Plan dimension="s" className="text-primary-dark" />
@@ -50,7 +56,8 @@ const UserFaqPage = () => {
                     </div>
                   </div>
                 </li>
-              ))}
+              ))
+            )}
           </ul>
         </div>
       </div>
