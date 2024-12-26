@@ -6,6 +6,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/uesUserNews";
 import FormPage from "@/components/FormRenderer/FormPage";
+import { UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
 
 const initialValues = {
   id: "",
@@ -44,6 +45,7 @@ const NewsId = () => {
         create={create}
         update={update}
         redirectUrl={`/dashboard/${params.plan_id}/news`}
+        schema={UserNewsListResponseSchema}
       />
     </SectionPadding>
   );
