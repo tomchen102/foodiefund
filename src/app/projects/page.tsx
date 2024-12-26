@@ -26,7 +26,7 @@ async function getData() {
   };
 }
 
-export default async function ProjectsList() {
+const ProjectsList = async () => {
   const { recentProjectsBlockHotData, getExperienceTalk, projectsData } = await getData();
   return (
     <section>
@@ -85,4 +85,6 @@ export default async function ProjectsList() {
       </div>
     </section>
   );
-}
+};
+
+export default ProjectsList;

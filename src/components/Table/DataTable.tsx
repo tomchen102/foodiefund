@@ -9,7 +9,7 @@ interface DataTableProps<TData, TValue> {
   className?: string;
 }
 
-export function DataTable<TData, TValue>({ columns, data, className }: DataTableProps<TData, TValue>) {
+const DataTable = <TData, TValue>({ columns, data, className }: DataTableProps<TData, TValue>) => {
   const table = useReactTable({
     data,
     columns,
@@ -54,4 +54,6 @@ export function DataTable<TData, TValue>({ columns, data, className }: DataTable
       </Table>
     </div>
   );
-}
+};
+
+export default DataTable;

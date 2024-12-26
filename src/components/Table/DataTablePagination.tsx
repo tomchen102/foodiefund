@@ -11,13 +11,13 @@ interface DataTablePaginationProps<TData> {
   totalPages: number;
 }
 
-export function DataTablePagination<TData>({
+const DataTablePagination = <TData,>({
   table,
   currentPage,
   pageSize,
   handlePageChange,
   totalPages,
-}: DataTablePaginationProps<TData>) {
+}: DataTablePaginationProps<TData>) => {
   const canPreviousPage = currentPage > 0;
   const canNextPage = currentPage < totalPages - 1;
 
@@ -86,4 +86,6 @@ export function DataTablePagination<TData>({
       </div>
     </div>
   );
-}
+};
+
+export default DataTablePagination;

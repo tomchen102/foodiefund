@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { AlertDialogTriggerDeleteProps } from "./types";
 import { Icons } from "../Icons";
 
-export function AlertDialogTriggerDelete({ title, deleteData }: AlertDialogTriggerDeleteProps) {
+export const AlertDialogTriggerDelete = ({ title, deleteData }: AlertDialogTriggerDeleteProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -37,4 +37,4 @@ export function AlertDialogTriggerDelete({ title, deleteData }: AlertDialogTrigg
       </AlertDialogContent>
     </AlertDialog>
   );
-}
+};

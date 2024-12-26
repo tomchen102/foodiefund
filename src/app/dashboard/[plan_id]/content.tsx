@@ -2,7 +2,7 @@
 import MobileNavbar from "./@Navbar/MobileNavbar";
 import Navbar from "./@Navbar/page";
 
-export function LayoutContent({ children }: { children: React.ReactNode }) {
+export const LayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="lg:grid lg:grid-cols-12 lg:gap-6">
@@ -14,6 +14,6 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
       </div>
     </>
   );
-}
+};
 
 export default LayoutContent;

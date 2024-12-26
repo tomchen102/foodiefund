@@ -26,7 +26,7 @@ export const metadata: Metadata = createMetadata({
   },
 });
 
-export default function RootLayout({ children }: ProviderProps) {
+const RootLayout = ({ children }: ProviderProps) => {
   return (
     <html lang="zh">
       <head>
@@ -52,4 +52,6 @@ export default function RootLayout({ children }: ProviderProps) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

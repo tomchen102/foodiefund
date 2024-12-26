@@ -3,7 +3,7 @@
 import { ProviderProps } from "@/types/ProviderType";
 import { motion } from "framer-motion";
 
-export default function AnimatedContainer({ children, ...props }: ProviderProps) {
+const AnimatedContainer = ({ children, ...props }: ProviderProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,4 +15,6 @@ export default function AnimatedContainer({ children, ...props }: ProviderProps)
       {children}
     </motion.div>
   );
-}
+};
+
+export default AnimatedContainer;

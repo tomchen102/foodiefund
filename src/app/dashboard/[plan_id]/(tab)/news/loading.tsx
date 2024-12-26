@@ -1,6 +1,6 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import Skeleton from "@/components/ui/skeleton";
 
-export default function Loading() {
+export const Loading = () => {
   const rows = Array.from({ length: 9 });
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -24,4 +24,6 @@ export default function Loading() {
       ))}
     </div>
   );
-}
+};
+
+export default Loading;

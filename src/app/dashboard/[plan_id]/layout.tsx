@@ -11,7 +11,7 @@ const navMenu = {
     { title: "龍蝦盛宴", hrefUrl: "#" },
   ],
 };
-export default async function ProjectsLayout(props: ProviderProps) {
+const ProjectsLayout = (props: ProviderProps) => {
   const { children } = props;
 
   return (
@@ -38,4 +38,6 @@ export default async function ProjectsLayout(props: ProviderProps) {
       </SectionPadding>
     </>
   );
-}
+};
+
+export default ProjectsLayout;

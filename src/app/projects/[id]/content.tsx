@@ -4,7 +4,7 @@ import Rewards from "./@Rewards/page";
 import SectionPadding from "@/components/SectionPadding";
 import { usePathname } from "next/navigation";
 
-export function LayoutContent({ children }: { children: React.ReactNode }) {
+export const LayoutContent = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/project-list");
 
@@ -29,6 +29,6 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
       )}
     </>
   );
-}
+};
 
 export default LayoutContent;

@@ -7,7 +7,7 @@ import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
 import LayoutContent from "./content";
 import { createMetadata } from "@/utils/metadata";
 
-export default async function ProjectsLayout(props: ProviderProps) {
+const ProjectsLayout = async (props: ProviderProps) => {
   const params = await props.params;
 
   const { children } = props;
@@ -23,7 +23,7 @@ export default async function ProjectsLayout(props: ProviderProps) {
       <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" gridType="four" />
     </>
   );
-}
+};
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const params = await props.params;
@@ -64,3 +64,5 @@ export async function generateStaticParams() {
     id: project.id.toString(),
   }));
 }
+
+export default ProjectsLayout;

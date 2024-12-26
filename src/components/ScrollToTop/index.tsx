@@ -1,9 +1,11 @@
 "use client";
 import { useEffect } from "react";
 
-export default function ScrollToTop() {
+const ScrollToTop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return null;
-}
+};
+
+export default ScrollToTop;

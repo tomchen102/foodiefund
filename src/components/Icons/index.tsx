@@ -51,15 +51,16 @@ const iconVariants = cva("flex justify-center items-center", {
   },
 });
 
-export function createIconComponent(Icon: IconType) {
-  return function IconComponent({ mode, dimension, size, className }: IconBaseProps) {
+export const createIconComponent = (Icon: IconType) => {
+  const IconComponent = ({ mode, dimension, size, className }: IconBaseProps) => {
     return (
       <div className={cn(iconVariants({ mode, dimension }), className)}>
         <Icon size={size} className={size ? "" : dimension === "s" ? "size-6" : "size-7"} />
       </div>
     );
   };
-}
+  return IconComponent;
+};
 
 export const Icons = {
   Account: createIconComponent(MdOutlinePerson),

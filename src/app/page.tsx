@@ -35,7 +35,7 @@ async function getData() {
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-export default async function Home() {
+const Home = async () => {
   const {
     dehydratedState,
     recentProjectsBlockHotData,
@@ -71,4 +71,6 @@ export default async function Home() {
       </main>
     </HydrationBoundary>
   );
-}
+};
+
+export default Home;
