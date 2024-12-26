@@ -1,6 +1,6 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
 import { TableSkeletonProps } from "./types";
+import Skeleton from "../ui/skeleton";
 
 const TableSkeleton = ({ columns }: TableSkeletonProps) => {
   const rows = Array.from({ length: 10 });
