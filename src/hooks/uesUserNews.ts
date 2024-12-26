@@ -1,7 +1,7 @@
 import { UserNewsListQueryResponseType, UserNewsListResponseType } from "@/api/services/userNews/types";
 import { UserNewsListArrayResponseSchema, UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { dehydrate, QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "./use-toast";
 import { userNewsApi } from "@/api/services/userNews";
 import { MutationResult } from "@/types/mutationTypes";
@@ -21,17 +21,33 @@ export const useGetUserNews = () => {
   });
 };
 
-export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }) => {
+export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }, isFrontend: boolean = false) => {
   return useQuery({
-    queryKey: userNewsKeys.key,
+    queryKey: [userNewsKeys.key, id, isFrontend],
     queryFn: async () => {
-      const response = await userNewsApi.getById(id);
-      console.log("getUserNewsList response:", response.data);
+      const response = await userNewsApi.getById(id, isFrontend);
       const result = safeParseResponse(UserNewsListResponseSchema, response.data);
       return result;
     },
     enabled: options?.enabled !== false && Boolean(id),
   });
+};
+
+export const prefetchUserNewsId = async (queryClient: QueryClient, id: string, isFrontend: boolean = true) => {
+  await queryClient.prefetchQuery({
+    queryKey: [userNewsKeys.key, id, isFrontend],
+    queryFn: async () => {
+      const response = await userNewsApi.getById(id, isFrontend);
+      return safeParseResponse(UserNewsListResponseSchema, response.data);
+    },
+  });
+};
+
+export const initializeQueryNewsClient = async (id: string) => {
+  const queryClient = new QueryClient();
+  await prefetchUserNewsId(queryClient, id);
+  const dehydratedState = dehydrate(queryClient);
+  return { queryClient, dehydratedState };
 };
 
 export const usePostUserNewsMutation = (): MutationResult<UserNewsListResponseType> => {
