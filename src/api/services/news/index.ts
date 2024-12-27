@@ -1,4 +1,5 @@
 import axiosClientFrontend from "@/api/axiosClientFrontend";
+
 import { NewsQueryParamsType } from "./types";
 
 export const NewsApi = {

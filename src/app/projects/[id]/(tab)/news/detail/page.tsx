@@ -1,5 +1,7 @@
-import { initializeQueryNewsClient } from "@/hooks/uesUserNews";
 import { HydrationBoundary } from "@tanstack/react-query";
+
+import { initializeQueryNewsClient } from "@/hooks/uesUserNews";
+
 import DetailContent from "./DetailContent";
 
 const DUMMY_ID = "676cdded66e5be04cc208901";

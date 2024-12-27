@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import cookies from "js-cookie";
+
 import { applyInterceptors } from "./applyInterceptors";
 
 const userCookie = cookies.get("token");
@@ -11,7 +12,7 @@ if (userCookie) {
   token = user.token;
 }
 
-export const axiosClientFrontend = applyInterceptors(
+const axiosClientFrontend = applyInterceptors(
   axios.create({
     baseURL: process.env.NEXT_PUBLIC_FRONTEND_API_URL,
     headers: {

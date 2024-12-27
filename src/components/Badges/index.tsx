@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
 import { LiteralUnion } from "react-hook-form";
+
+import { cn } from "@/lib/utils";
 
 interface BadgesProps {
   text: LiteralUnion<"募資中" | "台北" | "訂閱式", string>;

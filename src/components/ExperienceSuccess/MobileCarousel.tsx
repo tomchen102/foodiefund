@@ -1,10 +1,11 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { Progress } from "@/components/ui/progress";
 
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Progress } from "@/components/ui/progress";
 import { ExpierieceSuccessListProp } from "@/types/ExpierieceSuccessListProps";
+
 import { Icons } from "../Icons";
 
 const MobileCarousel = ({ data }: ExpierieceSuccessListProp) => {

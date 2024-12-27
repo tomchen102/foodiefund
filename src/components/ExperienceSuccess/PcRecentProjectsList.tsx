@@ -1,11 +1,14 @@
 "use client";
-import { Progress } from "@/components/ui/progress";
-import { ProgressOrg } from "./_components/progress";
-import { ExpierieceSuccessListProp } from "@/types/ExpierieceSuccessListProps";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouselWithDot";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouselWithDot";
+import { Progress } from "@/components/ui/progress";
+import { ExpierieceSuccessListProp } from "@/types/ExpierieceSuccessListProps";
+
 import { Icons } from "../Icons";
+
+import { ProgressOrg } from "./_components/progress";
 
 const PcRecentProjectsList = ({ data }: ExpierieceSuccessListProp) => {
   return (

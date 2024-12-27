@@ -1,9 +1,10 @@
 "use client";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaThList } from "react-icons/fa";
+
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const pathname = usePathname();

@@ -1,13 +1,16 @@
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { FieldValues, Path, PathValue, useFormContext } from "react-hook-form";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Button } from "../ui/button";
+
 import { cn } from "@/lib/utils";
-import { CalendarIcon } from "lucide-react";
+
+import { Button } from "../ui/button";
 import { Calendar } from "../ui/calendar";
-import { format } from "date-fns";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+
+import { FormFieldConfig } from "./types";
 
 const FormDatePicker = <T extends FieldValues>({ label, name }: FormFieldConfig<T>) => {
   const { control, setValue } = useFormContext<T>();

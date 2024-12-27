@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import SectionPadding from "@/components/SectionPadding";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 const NotFound = () => {
   return (

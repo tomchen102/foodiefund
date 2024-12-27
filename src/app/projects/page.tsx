@@ -1,8 +1,5 @@
-import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import ExperienceTalkBlock from "@/components/ExperienceTalkBlock";
-import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
-import { getExperienceTalkData } from "@/mock/getExperienceTalk";
-import { getProjectsData } from "@/mock/getProjects";
+import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import {
   Pagination,
   PaginationContent,
@@ -12,6 +9,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { getExperienceTalkData } from "@/mock/getExperienceTalk";
+import { getProjectsData } from "@/mock/getProjects";
+import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
+
 import ProjectsBlock from "./_components/ProjectsBlock";
 import SelectProjects from "./_components/SelectProjects";
 

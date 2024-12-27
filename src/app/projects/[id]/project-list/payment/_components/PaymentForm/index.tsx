@@ -1,17 +1,19 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { getLocation } from "@/api/services/location";
+import { AreaState, City, CityState } from "@/api/services/location/types";
 import { PaymentFormType } from "@/api/services/payment/types";
 import FormRenderer from "@/components/FormRenderer";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { FormPaymentSchema } from "@/schema/PaymentSchema";
-import { useForm } from "react-hook-form";
-import { PaymentFormFields } from "./PaymentFormFields";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import { useEffect, useState } from "react";
-import { getLocation } from "@/api/services/location";
-import { AreaState, City, CityState } from "@/api/services/location/types";
-import { zodResolver } from "@hookform/resolvers/zod";
+
+import { PaymentFormFields } from "./PaymentFormFields";
 
 const PaymentForm = () => {
   const router = useRouter();

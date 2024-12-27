@@ -1,4 +1,8 @@
 "use client";
+import { DialogClose } from "@radix-ui/react-dialog";
+import { useCallback } from "react";
+import { FormProvider } from "react-hook-form";
+
 import {
   Dialog,
   DialogContent,
@@ -7,12 +11,11 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Button } from "../ui/button";
-import { DialogClose } from "@radix-ui/react-dialog";
-import { ModalDialogProps } from "./types";
+
 import FormRenderer from "../FormRenderer";
-import { FormProvider } from "react-hook-form";
-import { useCallback } from "react";
+import { Button } from "../ui/button";
+
+import { ModalDialogProps } from "./types";
 
 const ModalDialog = <T extends object>({
   dialogState,
@@ -24,7 +27,9 @@ const ModalDialog = <T extends object>({
 }: ModalDialogProps<T>) => {
   const handleCancel = useCallback(() => {
     methods.reset();
-    closeDialog && closeDialog();
+    if (closeDialog) {
+      closeDialog();
+    }
   }, [methods, closeDialog]);
 
   const onSubmit = useCallback(

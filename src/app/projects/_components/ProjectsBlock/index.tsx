@@ -1,11 +1,12 @@
 "use client";
-import Badges from "@/components/Badges";
-import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
-import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import Badges from "@/components/Badges";
 import { Icons } from "@/components/Icons";
+import { Progress } from "@/components/ui/progress";
+import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 
 const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
   const currentPath = usePathname();

@@ -1,6 +1,7 @@
 "use client";
-import Rewards from "../@Rewards/page";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
+import Rewards from "../@Rewards/page";
 
 const RewardsBar = () => {
   return (

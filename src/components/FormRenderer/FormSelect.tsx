@@ -1,8 +1,11 @@
 import { ControllerRenderProps, FieldValues, Path, useFormContext } from "react-hook-form";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+
 import { cn } from "@/lib/utils";
+
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+
+import { FormFieldConfig } from "./types";
 
 const FormSelect = <T extends FieldValues>({
   label,

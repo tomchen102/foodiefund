@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 import {
   CommentDataSchema,
   commentFormSchema,
@@ -5,7 +7,6 @@ import {
   CommentSchema,
   ReplySchema,
 } from "@/schema/commentsSchema";
-import { z } from "zod";
 
 export type CommentsReplyPostType = z.infer<typeof commentFormSchema>;
 export type CommentsType = z.infer<typeof CommentSchema>;

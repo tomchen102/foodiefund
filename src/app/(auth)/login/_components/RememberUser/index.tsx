@@ -1,8 +1,9 @@
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import LocalStorageService from "@/utils/LocalStorageService";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
 interface RememberUserProps {
   username: string;

@@ -1,11 +1,11 @@
 "use client";
+import { useParams } from "next/navigation";
+
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
+import FormPage from "@/components/FormRenderer/FormPage";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import SectionPadding from "@/components/SectionPadding";
-import React from "react";
-import { useParams } from "next/navigation";
 import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/uesUserNews";
-import FormPage from "@/components/FormRenderer/FormPage";
 import { UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
 
 const initialValues = {

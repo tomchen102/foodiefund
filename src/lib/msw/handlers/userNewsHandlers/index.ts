@@ -1,5 +1,7 @@
-import { UserNewsListResponseType } from "@/api/services/userNews/types";
 import { http, HttpResponse } from "msw";
+
+import { UserNewsListResponseType } from "@/api/services/userNews/types";
+
 import { allUserNews } from "./data";
 
 export const userNewsHandlers = [

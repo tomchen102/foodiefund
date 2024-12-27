@@ -1,6 +1,6 @@
 import Skeleton from "@/components/ui/skeleton";
 
-export const Loading = () => {
+const Loading = () => {
   const rows = Array.from({ length: 9 });
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

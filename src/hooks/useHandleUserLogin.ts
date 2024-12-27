@@ -1,9 +1,10 @@
+import { AxiosResponse } from "axios";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
-import { useAuth } from "@/utils/providers/AuthProvider";
-import { AxiosResponse } from "axios";
+
 import { DataResponse } from "@/api/services/signFlow/types";
+import { useAuth } from "@/utils/providers/AuthProvider";
 
 const useHandleUserLogin = (axiosResponse: AxiosResponse<DataResponse, unknown> | undefined) => {
   const router = useRouter();

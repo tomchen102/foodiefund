@@ -1,12 +1,14 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import Badges from "@/components/Badges";
-import { Progress } from "@/components/ui/progress";
-import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import Badges from "@/components/Badges";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Progress } from "@/components/ui/progress";
+import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
+
 import { Icons } from "../Icons";
 
 const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {

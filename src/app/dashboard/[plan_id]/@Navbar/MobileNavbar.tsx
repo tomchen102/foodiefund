@@ -1,9 +1,9 @@
 "use client";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaThList } from "react-icons/fa";
+
 import {
   Sheet,
   SheetClose,
@@ -14,6 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const MobileNavbar = () => {
   const pathname = usePathname();

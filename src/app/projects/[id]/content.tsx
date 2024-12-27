@@ -1,10 +1,12 @@
 "use client";
-import Navbar from "./@Navbar/page";
-import Rewards from "./@Rewards/page";
-import SectionPadding from "@/components/SectionPadding";
 import { usePathname } from "next/navigation";
 
-export const LayoutContent = ({ children }: { children: React.ReactNode }) => {
+import SectionPadding from "@/components/SectionPadding";
+
+import Navbar from "./@Navbar/page";
+import Rewards from "./@Rewards/page";
+
+const LayoutContent = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/project-list");
 

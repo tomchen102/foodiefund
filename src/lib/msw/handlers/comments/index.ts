@@ -1,6 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { allComments } from "./data";
+
 import { commentFormSchema } from "@/schema/commentsSchema";
+
+import { allComments } from "./data";
 export const CommentsHandlers = [
   // 攔截對 comments 的 GET 請求
   http.get("/comments", () => {

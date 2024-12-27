@@ -1,6 +1,7 @@
 import axiosClientDashboard from "@/api/axiosClientDashboard";
-import { UserNewsListResponseType } from "./types";
 import axiosClientFrontend from "@/api/axiosClientFrontend";
+
+import { UserNewsListResponseType } from "./types";
 
 export const userNewsApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/news`,

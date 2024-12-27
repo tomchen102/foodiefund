@@ -10,8 +10,10 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { AlertDialogTriggerDeleteProps } from "./types";
+
 import { Icons } from "../Icons";
+
+import { AlertDialogTriggerDeleteProps } from "./types";
 
 export const AlertDialogTriggerDelete = ({ title, deleteData }: AlertDialogTriggerDeleteProps) => {
   return (

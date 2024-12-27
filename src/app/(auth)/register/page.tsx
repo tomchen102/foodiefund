@@ -1,6 +1,6 @@
-import React from "react";
-import RegisterForm from "./_components/RegisterForm";
 import { createMetadata } from "@/utils/metadata";
+
+import RegisterForm from "./_components/RegisterForm";
 
 export const metadata = createMetadata({ title: "註冊" });
 

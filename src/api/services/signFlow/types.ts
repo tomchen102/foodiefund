@@ -1,5 +1,6 @@
-import { FormLoginSchema, FormRegisterSchema } from "@/schema/UserAuthSchema";
 import { z } from "zod";
+
+import { FormLoginSchema, FormRegisterSchema } from "@/schema/UserAuthSchema";
 
 export interface DataResponse {
   user: {

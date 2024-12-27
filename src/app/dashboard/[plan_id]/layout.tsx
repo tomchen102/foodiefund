@@ -1,8 +1,8 @@
-import { ProviderProps } from "@/types/ProviderType";
+import SectionPadding from "@/components/SectionPadding";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ProviderProps } from "@/types/ProviderType";
 
 import LayoutContent from "./content";
-import SectionPadding from "@/components/SectionPadding";
 
 const navMenu = {
   projectNav: [

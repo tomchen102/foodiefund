@@ -1,4 +1,9 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { FormRegisterSchemaType } from "@/api/services/signFlow/types";
 import FormRenderer from "@/components/FormRenderer";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Form, FormMessage } from "@/components/ui/form";
@@ -6,11 +11,8 @@ import useHandleUserLogin from "@/hooks/useHandleUserLogin";
 import { useSetLoading } from "@/hooks/useSetLoading";
 import { useRegisterMutation } from "@/hooks/useUserAuth";
 import { FormRegisterSchema } from "@/schema/UserAuthSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
+
 import { registerFormFields } from "../registerFormFields";
-import { FormRegisterSchemaType } from "@/api/services/signFlow/types";
 
 const RegisterForm = () => {
   const form = useForm<FormRegisterSchemaType>({

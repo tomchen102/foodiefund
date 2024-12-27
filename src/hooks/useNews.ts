@@ -1,8 +1,9 @@
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
 import { NewsApi } from "@/api/services/news";
 import { NewsQueryParamsType } from "@/api/services/news/types";
 import { newsResponseArraySchema } from "@/schema/newsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 
 const newsKeys = {
   key: ["News"] as const,

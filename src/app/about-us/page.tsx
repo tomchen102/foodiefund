@@ -1,6 +1,7 @@
-import React from "react";
-import AboutUs from "./_components/AboutUs"; // Updated import path
 import { Metadata } from "next";
+import React from "react";
+
+import AboutUs from "./_components/AboutUs"; // Updated import path
 
 export const metadata: Metadata = {
   title: "關於我們 | 眾資成城-在你心愛的餐廳成為合夥人",

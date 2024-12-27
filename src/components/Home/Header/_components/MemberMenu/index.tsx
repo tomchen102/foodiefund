@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+import { Icons } from "@/components/Icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,9 +9,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import AvatarCircle from "../AvatarCircle";
+
 import { MemberMenuType } from "../../types";
-import { Icons } from "@/components/Icons";
+import AvatarCircle from "../AvatarCircle";
 
 const memberMenu: MemberMenuType = [
   { title: "帳號設定", href: "#", icon: Icons.Account },

@@ -1,10 +1,11 @@
 "use client";
 
-import AnimatedContainer from "@/components/AnimatedContainer";
-import { useGetUserNewsId } from "@/hooks/uesUserNews";
 import { format } from "date-fns";
 import parse from "html-react-parser";
 import Image from "next/image";
+
+import AnimatedContainer from "@/components/AnimatedContainer";
+import { useGetUserNewsId } from "@/hooks/uesUserNews";
 
 const DetailContent = ({ id }: { id: string }) => {
   const { data, isLoading, isError } = useGetUserNewsId(id, { enabled: true }, true);

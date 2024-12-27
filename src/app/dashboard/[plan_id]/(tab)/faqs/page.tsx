@@ -1,13 +1,15 @@
 "use client";
+import { format } from "date-fns";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
+import { Icons } from "@/components/Icons";
 import SectionPadding from "@/components/SectionPadding";
 import { buttonVariants } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
-import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
 import { useDeleteUserFaqMutation, useGetUserFaq } from "@/hooks/useUserFaq";
-import { Icons } from "@/components/Icons";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+
 import FaqCardSkeleton from "./_components/FaqCardSkeleton";
 
 const UserFaqPage = () => {

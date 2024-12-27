@@ -1,12 +1,15 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { BannerPropsType } from "./types";
-import "./css/embla.css";
+import { Suspense } from "react";
+
+import { Button } from "@/components/ui/button";
 import { useGetNews } from "@/hooks/useNews";
+
 import NewInfo from "./NewInfo";
 import NewInfoSkeleton from "./NewInfoSkeleton";
-import { Suspense } from "react";
+import { BannerPropsType } from "./types";
+
+import "./css/embla.css";
 
 const Banner = ({ queryParams, data }: BannerPropsType) => {
   const { data: newsData, isFetching } = useGetNews(queryParams);

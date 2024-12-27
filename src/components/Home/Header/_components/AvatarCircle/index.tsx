@@ -1,6 +1,6 @@
+import { Icons } from "@/components/Icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/utils/providers/AuthProvider";
-import { Icons } from "@/components/Icons";
 
 type ClassNameProps = {
   className?: string;

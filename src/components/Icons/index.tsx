@@ -1,6 +1,6 @@
-import React from "react";
-import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
+import React from "react";
+import { IconType } from "react-icons/lib";
 import {
   MdAttachMoney,
   MdCheckCircle,
@@ -31,7 +31,9 @@ import {
   MdOutlineSouthEast,
   MdRemoveRedEye,
 } from "react-icons/md";
-import { IconType } from "react-icons/lib";
+
+import { cn } from "@/lib/utils";
+
 import { IconBaseProps } from "./type";
 
 const iconVariants = cva("flex justify-center items-center", {

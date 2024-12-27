@@ -1,6 +1,7 @@
 "use client";
-import React, { createContext, useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
+import React, { createContext, useState, useEffect, useContext } from "react";
+
 import { ProviderProps } from "@/types/ProviderType";
 
 export interface User {

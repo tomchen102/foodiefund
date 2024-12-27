@@ -1,7 +1,8 @@
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { FaLine, FaGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+
+import { buttonVariants } from "@/components/ui/button";
 
 const Oauth = () => {
   return (

@@ -1,9 +1,10 @@
 "use client";
 
-import { useToast } from "@/hooks/use-toast";
-import { ProviderProps } from "@/types/ProviderType";
 import { QueryClientProvider, QueryClient, QueryCache } from "@tanstack/react-query";
 import { useState } from "react";
+
+import { useToast } from "@/hooks/use-toast";
+import { ProviderProps } from "@/types/ProviderType";
 
 const ReactQueryProvider = ({ children }: ProviderProps) => {
   const { toast } = useToast();

@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { Button } from "../ui/button";
 import { GoArrowRight } from "react-icons/go";
+
 import MobileRecentProjectsCarousel from "@/components/RecentProjectsBlock/MobileRecentProjectsCarousel";
 import PcRecentProjectsList from "@/components/RecentProjectsBlock/PcRecentProjectsList";
-import { RecentProjectsBlockType } from "@/types/RecentProjectsListProps";
 import { cn } from "@/lib/utils";
+import { RecentProjectsBlockType } from "@/types/RecentProjectsListProps";
+
+import { Button } from "../ui/button";
 
 const RecentProjectsBlock = ({ data, title, className, gridType }: RecentProjectsBlockType) => {
   return (

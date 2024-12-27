@@ -1,6 +1,8 @@
-import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
 import Image from "next/image";
 import React from "react";
+
+import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
+
 import { Icons } from "../Icons";
 const ExperienceTalkList = ({ data }: ExperienceTalkListProps) => {
   const ImageStyle = {

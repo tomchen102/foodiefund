@@ -8,9 +8,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { useDialog } from "@/utils/DialogContext";
+
+import { buttonVariants } from "../ui/button";
+
 import { AlertDialogProps } from "./types";
 
 const DeleteDialog = <T extends object>({ dialogState, deleteItem, title }: AlertDialogProps<T>) => {

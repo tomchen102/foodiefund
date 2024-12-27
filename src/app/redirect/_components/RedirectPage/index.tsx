@@ -1,11 +1,12 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { useAuth } from "@/utils/providers/AuthProvider";
-import { useSetLoading } from "@/hooks/useSetLoading";
+import { useSearchParams, useRouter } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+
 import Loading from "@/components/Loading";
+import { useSetLoading } from "@/hooks/useSetLoading";
+import { useAuth } from "@/utils/providers/AuthProvider";
 
 const RedirectPageContent = () => {
   const searchParams = useSearchParams();

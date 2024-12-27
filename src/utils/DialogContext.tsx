@@ -1,7 +1,8 @@
 "use client";
+import { createContext, useContext, useState } from "react";
+
 import { DialogState } from "@/types/DialogState";
 import { ProviderProps } from "@/types/ProviderType";
-import { createContext, useContext, useState } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DialogContext = createContext<DialogState<any> | undefined>(undefined);

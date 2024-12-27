@@ -1,5 +1,6 @@
-import { UserFaqListResponseType } from "./types";
 import axiosClientDashboard from "@/api/axiosClientDashboard";
+
+import { UserFaqListResponseType } from "./types";
 
 export const userFaqApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/faqs`,

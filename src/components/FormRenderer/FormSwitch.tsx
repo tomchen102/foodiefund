@@ -1,7 +1,9 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
 import { Switch } from "../ui/switch";
+
+import { FormFieldConfig } from "./types";
 
 const FormSwitch = <T extends FieldValues>({ label, name, id }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();

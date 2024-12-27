@@ -1,8 +1,10 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { ExperienceTalkListProps } from "@/types/ExperienceTalkListProps";
+
 import { Icons } from "../Icons";
 
 const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {

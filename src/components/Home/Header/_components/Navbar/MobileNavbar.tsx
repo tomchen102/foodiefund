@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
-import Logo from "../../../Logo";
+import { useState } from "react";
+
+import { Icons } from "@/components/Icons";
 import {
   Sheet,
   SheetClose,
@@ -13,10 +14,11 @@ import {
   SheetTrigger,
   SheetSubContent,
 } from "@/components/ui/sheet";
-import AvatarCircle from "../AvatarCircle";
 import { useAuth } from "@/utils/providers/AuthProvider";
+
+import Logo from "../../../Logo";
 import { MemberMenuType, MenuProps } from "../../types";
-import { Icons } from "@/components/Icons";
+import AvatarCircle from "../AvatarCircle";
 
 const memberMenu: MemberMenuType = [
   { title: "帳號設定", href: "#", icon: Icons.Account },

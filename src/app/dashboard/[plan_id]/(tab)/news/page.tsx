@@ -1,16 +1,18 @@
 "use client";
-import SectionPadding from "@/components/SectionPadding";
-import { buttonVariants } from "@/components/ui/button";
+import { format } from "date-fns";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Icons } from "@/components/Icons";
-import Loading from "./loading";
-import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
+
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
 import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
-import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
+import SectionPadding from "@/components/SectionPadding";
+import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { format } from "date-fns";
+import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
+import { cn } from "@/lib/utils";
+
+import Loading from "./loading";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();

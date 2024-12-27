@@ -1,6 +1,8 @@
 import Link from "next/link";
-import Logo from "../Logo";
 import { RiFacebookBoxFill, RiInstagramFill, RiLineFill } from "react-icons/ri";
+
+import Logo from "../Logo";
+
 import { SitemapType } from "./types";
 
 const sitemap: SitemapType = [

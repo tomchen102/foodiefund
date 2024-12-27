@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import ExpandableContent from "./_components/ExpandableContent";
 
 const projects = async () => {

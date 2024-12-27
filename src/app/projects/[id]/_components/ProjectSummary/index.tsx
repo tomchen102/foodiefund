@@ -1,11 +1,7 @@
 "use client";
-import Badges from "@/components/Badges";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { ProjectSummaryDataProps } from "./types";
+import { usePathname } from "next/navigation";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -14,8 +10,14 @@ import {
   LineShareButton,
   LineIcon,
 } from "next-share";
-import { usePathname } from "next/navigation";
+import React from "react";
+
+import Badges from "@/components/Badges";
 import { Icons } from "@/components/Icons";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+
+import { ProjectSummaryDataProps } from "./types";
 
 const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
   const pathname = usePathname();

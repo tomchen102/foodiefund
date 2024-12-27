@@ -1,9 +1,11 @@
 "use client";
-import React, { ReactNode, useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import styles from "./index.module.css";
+import { Children, cloneElement, isValidElement, ReactNode, useState } from "react";
+
 import { Icons } from "@/components/Icons";
+import { Button } from "@/components/ui/button";
+
+import styles from "./index.module.css";
 
 interface ExpandableContentProps {
   children: ReactNode;
@@ -32,7 +34,7 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
           length += child.length;
           return child;
         }
-      } else if (React.isValidElement(child)) {
+      } else if (isValidElement(child)) {
         // 使用泛型來正確處理props的類型
         const elementChild = child as React.ReactElement<{ children?: ReactNode }>;
 
@@ -43,10 +45,10 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
 
         // 處理子元素
         const childrenProp = elementChild.props.children;
-        const newChildren = React.Children.map(childrenProp, traverseChildren);
+        const newChildren = Children.map(childrenProp, traverseChildren);
 
         // 使用類型斷言來安全地處理props
-        return React.cloneElement<{ children?: ReactNode }>(elementChild, {
+        return cloneElement<{ children?: ReactNode }>(elementChild, {
           ...elementChild.props,
           children: newChildren,
         });
@@ -54,7 +56,7 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
       return null;
     };
 
-    return React.Children.map(children, traverseChildren);
+    return Children.map(children, traverseChildren);
   };
 
   return (

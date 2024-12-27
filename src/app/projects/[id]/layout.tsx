@@ -1,11 +1,13 @@
-import { ProviderProps } from "@/types/ProviderType";
-import RecentProjectsBlock from "@/components/RecentProjectsBlock";
-import ProjectSummary from "./_components/ProjectSummary";
 import { Metadata } from "next";
+
+import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import { getProjectSummaryData } from "@/mock/getProjectSummaryData";
 import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
-import LayoutContent from "./content";
+import { ProviderProps } from "@/types/ProviderType";
 import { createMetadata } from "@/utils/metadata";
+
+import ProjectSummary from "./_components/ProjectSummary";
+import LayoutContent from "./content";
 
 const ProjectsLayout = async (props: ProviderProps) => {
   const params = await props.params;

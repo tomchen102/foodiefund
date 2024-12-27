@@ -1,16 +1,18 @@
-import RecentProjectsBlock from "@/components/RecentProjectsBlock";
-import AboutUs from "../components/Home/AboutUsSection";
-import ExperienceTalkBlock from "../components/ExperienceTalkBlock";
-import ExperienceSuccess from "../components/ExperienceSuccess";
-import Banner from "../components/Home/Banner";
 import { HydrationBoundary } from "@tanstack/react-query";
+
+import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import { initializeQueryNewsClient } from "@/hooks/useNews";
-import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
-import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
-import { getRecentProjectsBlockSubscriptionData } from "@/mock/getRecentProjectsBlockSubscriptionData";
-import { getExperienceTalkData } from "@/mock/getExperienceTalk";
 import { getBanners } from "@/mock/getBanners";
+import { getExperienceTalkData } from "@/mock/getExperienceTalk";
+import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
+import { getRecentProjectsBlockHotData } from "@/mock/getRecentProjectsBlockHotData";
+import { getRecentProjectsBlockSubscriptionData } from "@/mock/getRecentProjectsBlockSubscriptionData";
 import { getSuccess } from "@/mock/getSuccess";
+
+import ExperienceSuccess from "../components/ExperienceSuccess";
+import ExperienceTalkBlock from "../components/ExperienceTalkBlock";
+import AboutUs from "../components/Home/AboutUsSection";
+import Banner from "../components/Home/Banner";
 
 async function getData() {
   const queryParams = { page: 1, limit: 1 };

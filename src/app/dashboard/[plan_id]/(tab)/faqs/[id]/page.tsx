@@ -1,12 +1,13 @@
 "use client";
+import { useParams } from "next/navigation";
+import React from "react";
+
 import { UserFaqListResponseType } from "@/api/services/userFaq/types";
 import FormPage from "@/components/FormRenderer/FormPage";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import SectionPadding from "@/components/SectionPadding";
 import { useGetUserFaqId, usePostUserFaqMutation, useUpdateUserFaqMutation } from "@/hooks/useUserFaq";
 import { userFaqResponseTypeSchema } from "@/schema/UserFaqSchema";
-import { useParams } from "next/navigation";
-import React from "react";
 
 const initialValues = {
   id: "",

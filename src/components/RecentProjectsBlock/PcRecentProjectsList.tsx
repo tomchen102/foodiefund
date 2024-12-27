@@ -1,11 +1,13 @@
 "use client";
-import Badges from "@/components/Badges";
-import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import Link from "next/link";
-import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
-import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+
+import Badges from "@/components/Badges";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { RecentProjectsListProps } from "@/types/RecentProjectsListProps";
+
 import { Icons } from "../Icons";
 
 const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {

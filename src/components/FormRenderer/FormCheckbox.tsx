@@ -1,7 +1,9 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
+
 import { Checkbox } from "../ui/checkbox";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+
+import { FormFieldConfig } from "./types";
 
 const FormCheckbox = <T extends FieldValues>({ label, name, className, disabled }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();

@@ -1,7 +1,9 @@
-import { FieldValues, Path, useFormContext } from "react-hook-form";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
 import dynamic from "next/dynamic";
+import { FieldValues, Path, useFormContext } from "react-hook-form";
+
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+
+import { FormFieldConfig } from "./types";
 import "suneditor/dist/css/suneditor.min.css";
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,

@@ -1,8 +1,11 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+
 import { cn } from "@/lib/utils";
+
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+
+import { FormFieldConfig } from "./types";
 
 const FormRadioGroup = <T extends FieldValues>({
   label,

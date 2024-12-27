@@ -1,17 +1,18 @@
-import React from "react";
-import { LoadingProvider } from "@/utils/providers/LoadingContext";
 import "./globals.css";
-import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
-import Header from "../components/Home/Header";
-import Footer from "../components/Home/Footer";
-import { AuthProvider } from "@/utils/providers/AuthProvider";
-import { ProviderProps } from "@/types/ProviderType";
 import { Metadata } from "next";
-import ScrollToTop from "@/components/ScrollToTop";
-import { createMetadata } from "@/utils/metadata";
-import { DialogProvider } from "@/utils/DialogContext";
-import { Toaster } from "@/components/ui/toaster";
 import { Noto_Sans_TC } from "next/font/google";
+
+import ScrollToTop from "@/components/ScrollToTop";
+import { Toaster } from "@/components/ui/toaster";
+import { ProviderProps } from "@/types/ProviderType";
+import { DialogProvider } from "@/utils/DialogContext";
+import { createMetadata } from "@/utils/metadata";
+import { AuthProvider } from "@/utils/providers/AuthProvider";
+import { LoadingProvider } from "@/utils/providers/LoadingContext";
+import ReactQueryProvider from "@/utils/providers/ReactQueryProvider";
+
+import Footer from "../components/Home/Footer";
+import Header from "../components/Home/Header";
 
 const notoSansTC = Noto_Sans_TC({
   subsets: ["latin"],

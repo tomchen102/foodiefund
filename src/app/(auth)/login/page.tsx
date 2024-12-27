@@ -1,6 +1,7 @@
 import SectionPadding from "@/components/SectionPadding";
-import LoginForm from "./_components/LoginForm";
 import { createMetadata } from "@/utils/metadata";
+
+import LoginForm from "./_components/LoginForm";
 
 export const metadata = createMetadata({ title: "登入" });
 

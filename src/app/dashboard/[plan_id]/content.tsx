@@ -2,7 +2,7 @@
 import MobileNavbar from "./@Navbar/MobileNavbar";
 import Navbar from "./@Navbar/page";
 
-export const LayoutContent = ({ children }: { children: React.ReactNode }) => {
+const LayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="lg:grid lg:grid-cols-12 lg:gap-6">

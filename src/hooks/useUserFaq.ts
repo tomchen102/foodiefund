@@ -1,10 +1,12 @@
-import { safeParseResponse } from "@/utils/zodUtils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useToast } from "./use-toast";
+
 import { userFaqApi } from "@/api/services/userFaq";
-import { UserFaqListArrayResponseSchema, userFaqResponseTypeSchema } from "@/schema/UserFaqSchema";
 import { UserFaqListResponseType } from "@/api/services/userFaq/types";
+import { UserFaqListArrayResponseSchema, userFaqResponseTypeSchema } from "@/schema/UserFaqSchema";
 import { MutationResult } from "@/types/mutationTypes";
+import { safeParseResponse } from "@/utils/zodUtils";
+
+import { useToast } from "./use-toast";
 
 const userFaqKeys = {
   key: ["UserFaq"] as const,

@@ -1,7 +1,8 @@
 "use client";
+import React, { createContext, useContext, useState } from "react";
+
 import ClientLoadingWrapper from "@/components/Loading/ClientLoadingWrapper";
 import { ProviderProps } from "@/types/ProviderType";
-import React, { createContext, useContext, useState } from "react";
 
 interface LoadingContextType {
   isLoading: boolean;

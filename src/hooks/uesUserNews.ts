@@ -1,10 +1,12 @@
+import { dehydrate, QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
+import { userNewsApi } from "@/api/services/userNews";
 import { UserNewsListQueryResponseType, UserNewsListResponseType } from "@/api/services/userNews/types";
 import { UserNewsListArrayResponseSchema, UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
-import { safeParseResponse } from "@/utils/zodUtils";
-import { dehydrate, QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useToast } from "./use-toast";
-import { userNewsApi } from "@/api/services/userNews";
 import { MutationResult } from "@/types/mutationTypes";
+import { safeParseResponse } from "@/utils/zodUtils";
+
+import { useToast } from "./use-toast";
 
 const userNewsKeys = {
   key: ["UserNews"] as const,

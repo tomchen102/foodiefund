@@ -1,5 +1,6 @@
-import { IconBaseProps } from "@/components/Icons/type";
 import React from "react";
+
+import { IconBaseProps } from "@/components/Icons/type";
 
 export type MenuType = {
   title: string;

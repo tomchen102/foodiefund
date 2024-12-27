@@ -1,15 +1,16 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import React from "react";
+import { BsFilterLeft } from "react-icons/bs";
+import { IoIosSearch } from "react-icons/io";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import React from "react";
-import Link from "next/link";
-import { BsFilterLeft } from "react-icons/bs";
 import { Input } from "@/components/ui/input";
-import { IoIosSearch } from "react-icons/io";
 
 const navMenu = {
   projectNav: [

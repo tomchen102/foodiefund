@@ -1,7 +1,9 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { FormFieldConfig } from "./types";
 import { Textarea } from "../ui/textarea";
+
+import { FormFieldConfig } from "./types";
 
 const FormTextarea = <T extends FieldValues>({
   label,

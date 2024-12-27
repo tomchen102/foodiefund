@@ -1,16 +1,18 @@
 "use client";
-
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import Badges from "@/components/Badges";
-import { useAuth } from "@/utils/providers/AuthProvider";
-import { CommentsType, CommentsReplyPostType, ReplyType } from "@/api/services/comments/types";
-import ReplyFormComponent from "./ReplyFormComponent";
-import { useGetCommentsList, usePostCommentsMutation, usePostReplyMutation } from "@/hooks/useComments";
-import { RxAvatar } from "react-icons/rx";
-import "@/lib/msw/setup";
 import { format } from "date-fns";
+import Link from "next/link";
+import { RxAvatar } from "react-icons/rx";
+
+import { CommentsType, CommentsReplyPostType, ReplyType } from "@/api/services/comments/types";
+import Badges from "@/components/Badges";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
+import { useGetCommentsList, usePostCommentsMutation, usePostReplyMutation } from "@/hooks/useComments";
+import { useAuth } from "@/utils/providers/AuthProvider";
+
+import ReplyFormComponent from "./ReplyFormComponent";
+
+import "@/lib/msw/setup";
 
 const ReplyForm = () => {
   const { user } = useAuth();

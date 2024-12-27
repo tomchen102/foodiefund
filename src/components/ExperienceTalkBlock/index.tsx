@@ -1,10 +1,13 @@
+import Link from "next/link";
+
 import MobileExperienceTalkCarousel from "@/components/ExperienceTalkBlock/MobileExperienceTalkCarousel";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import ExperienceTalkList from "./ExperienceTalkList";
-import { ExperienceTalkListType } from "@/types/ExperienceTalkListProps";
 import { cn } from "@/lib/utils";
+import { ExperienceTalkListType } from "@/types/ExperienceTalkListProps";
+
 import { Icons } from "../Icons";
+
+import ExperienceTalkList from "./ExperienceTalkList";
 
 const ExperienceTalk = ({ data, className }: ExperienceTalkListType) => {
   return (

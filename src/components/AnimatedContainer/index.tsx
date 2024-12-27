@@ -1,7 +1,8 @@
 "use client";
 
-import { ProviderProps } from "@/types/ProviderType";
 import { motion } from "framer-motion";
+
+import { ProviderProps } from "@/types/ProviderType";
 
 const AnimatedContainer = ({ children, ...props }: ProviderProps) => {
   return (

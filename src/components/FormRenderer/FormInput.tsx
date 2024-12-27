@@ -1,9 +1,11 @@
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { FieldValues, Path, useFormContext } from "react-hook-form";
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
+
 import { FormFieldConfig } from "./types";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
 const FormInput = <T extends FieldValues>({
   label,
