@@ -1,4 +1,4 @@
-import axiosClientFrontend from "@/api/axiosClientFrontendFrontend";
+import axiosClientFrontend from "@/api/axiosClientFrontend";
 import { DataResponse, FormLoginSchemaType, FormRegisterSchemaType } from "./types";
 
 export const signFlowApi = {
