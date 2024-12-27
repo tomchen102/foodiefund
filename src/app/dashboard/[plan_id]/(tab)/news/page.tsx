@@ -12,7 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
 import { cn } from "@/lib/utils";
 
-import Loading from "./loading";
+import NewsSkeleton from "./NewsSkeleton";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();
@@ -32,28 +32,30 @@ const UserNewsPage = () => {
   };
   return (
     <SectionPadding container>
-      <div>
-        <div className="mb-5 flex items-center">
-          <h1 className="mr-auto">最新消息</h1>
-          <Link href={`${createUserNewsUrl}/create`} className={buttonVariants({ variant: "donateNow" })}>
-            <Icons.Add dimension="s" className="text-white" />
-            新增資料
-          </Link>
-        </div>
+      {isFetching ? (
+        <NewsSkeleton />
+      ) : (
         <div>
-          {isFetching ? (
-            <Loading />
-          ) : (
+          <div className="mb-5 flex items-center justify-between">
+            <h1>最新消息</h1>
+            <Link href={`${createUserNewsUrl}/create`} className={buttonVariants({ variant: "donateNow" })}>
+              <Icons.Add dimension="s" className="text-white" />
+              新增資料
+            </Link>
+          </div>
+          <div>
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {Array.isArray(data) &&
                 data.map((item) => (
                   <li key={item.id} className="rounded-lg bg-white p-4 shadow-md">
                     <div className="mb-4 flex items-center justify-between">
-                      <div className="text-lg font-bold">{item.title}</div>
+                      <div className="line-clamp-2 h-[calc(2*1.75rem)] overflow-hidden text-ellipsis text-lg font-bold">
+                        {item.title}
+                      </div>
                     </div>
                     <div className="mb-4 text-gray-600">發布日期：{format(item.publicAt!, "yyyy-MM-dd")}</div>
-                    <div className="flex items-center space-x-4">
-                      <div className="mr-auto flex">
+                    <div className="flex items-center justify-between space-x-4">
+                      <div className="flex">
                         <Link
                           className={cn("mr-3 text-primary", buttonVariants({ variant: "outline" }))}
                           href={`${createUserNewsUrl}/${item.id}`}
@@ -79,9 +81,9 @@ const UserNewsPage = () => {
                   </li>
                 ))}
             </ul>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </SectionPadding>
   );
 };
