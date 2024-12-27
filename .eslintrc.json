@@ -1,5 +1,18 @@
 {
-  "extends": ["next", "next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
   "plugins": ["@typescript-eslint", "prettier", "import"],
   "rules": {
     "prettier/prettier": [
@@ -10,26 +23,7 @@
         "printWidth": 120,
         "tabWidth": 2,
         "trailingComma": "es5",
-        "endOfLine": "auto",
-        "max-len": [
-          "error",
-          {
-            "code": 120
-          }
-        ],
-        "object-curly-newline": [
-          "error",
-          {
-            "multiline": true,
-            "consistent": true
-          }
-        ],
-        "object-property-newline": [
-          "error",
-          {
-            "allowAllPropertiesOnSameLine": true
-          }
-        ]
+        "endOfLine": "auto"
       }
     ],
     "react/function-component-definition": [
@@ -38,11 +32,66 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      {
+        "fixToUnknown": false,
+        "ignoreRestArgs": false
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/named": "error",
+    "import/default": "error",
+    "import/namespace": "error",
+    "import/no-duplicates": "error",
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "json": "always"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          }
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
     ]
   },
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"]
+      }
     }
   }
 }
