@@ -1,7 +1,7 @@
 import { HydrationBoundary } from "@tanstack/react-query";
 
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
-import { initializeQueryNewsClient } from "@/hooks/useNews";
+import { initializeHomeNewsQueryClient } from "@/hooks/useNews";
 import { getBanners } from "@/mock/getBanners";
 import { getExperienceTalkData } from "@/mock/getExperienceTalk";
 import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
@@ -16,7 +16,7 @@ import Banner from "../components/Home/Banner";
 
 async function getData() {
   const queryParams = { page: 1, limit: 1 };
-  const { dehydratedState } = await initializeQueryNewsClient(queryParams);
+  const { dehydratedState } = await initializeHomeNewsQueryClient(queryParams);
   const recentProjectsBlockHotData = await getRecentProjectsBlockHotData();
   const recentProjectsBlockData = await getRecentProjectsBlockData();
   const recentProjectsBlockSubscriptionData = await getRecentProjectsBlockSubscriptionData();
