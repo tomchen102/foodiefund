@@ -3,6 +3,7 @@ import { z } from "zod";
 export const UserNewsListResponseSchema = z.object({
   id: z.string(),
   title: z.string().nonempty("標題不可為空"),
+  intro: z.string(),
   content: z.string(),
   isActive: z.boolean(),
   isTop: z.boolean(),
