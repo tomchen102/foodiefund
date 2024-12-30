@@ -1,11 +1,14 @@
 import axiosClientDashboard from "@/api/axiosClientDashboard";
+import axiosClientFrontend from "@/api/axiosClientFrontend";
+import { ClientType } from "@/types/clientTypes";
 
 import { UserFaqListResponseType } from "./types";
 
 export const userFaqApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/faqs`,
-  getAll: async () => {
-    const response = await axiosClientDashboard.get(userFaqApi.getBaseUrl());
+  getAll: async (clientType: ClientType) => {
+    const client = clientType ? axiosClientFrontend : axiosClientDashboard;
+    const response = await client.get(userFaqApi.getBaseUrl());
     return response.data;
   },
   getById: async (id: string) => {

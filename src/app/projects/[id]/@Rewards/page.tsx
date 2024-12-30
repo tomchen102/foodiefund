@@ -19,7 +19,7 @@ const Rewards = () => {
     }
   };
   return (
-    <div className="lg:col-span-3">
+    <>
       {isProjectList ? (
         <ul className="relative flex w-full gap-6">
           <li className="mb-5 flex-shrink-0 md:mb-8 md:min-w-[200px]">
@@ -258,7 +258,7 @@ const Rewards = () => {
           </li>
         </ul>
       )}
-    </div>
+    </>
   );
 };
 

@@ -15,28 +15,26 @@ const ProjectsLayout = (props: ProviderProps) => {
   const { children } = props;
 
   return (
-    <>
-      <SectionPadding container>
-        <div className="lg:grid lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-3"></div>
-          <div className="mb-5">
-            <Select>
-              <SelectTrigger className="w-[255px]">
-                <SelectValue placeholder="金華火腿主題咖啡屋" />
-              </SelectTrigger>
-              <SelectContent>
-                {navMenu.projectNav.map((item, index) => (
-                  <SelectItem key={index} value={item.title}>
-                    {item.title}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+    <SectionPadding container>
+      <div className="lg:grid lg:grid-cols-12 lg:gap-6">
+        <div className="lg:col-span-3"></div>
+        <div className="mb-5">
+          <Select>
+            <SelectTrigger className="w-[255px]">
+              <SelectValue placeholder="金華火腿主題咖啡屋" />
+            </SelectTrigger>
+            <SelectContent>
+              {navMenu.projectNav.map((item, index) => (
+                <SelectItem key={index} value={item.title}>
+                  {item.title}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-        <LayoutContent>{children}</LayoutContent>
-      </SectionPadding>
-    </>
+      </div>
+      <LayoutContent>{children}</LayoutContent>
+    </SectionPadding>
   );
 };
 

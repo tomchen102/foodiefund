@@ -5,6 +5,7 @@ export const userFaqResponseTypeSchema = z.object({
   questions: z.string(),
   answers: z.string(),
   createdAt: z.string().optional(),
+  updatedAt: z.string().optional(),
 });
 
 export const UserFaqListArrayResponseSchema = z.array(userFaqResponseTypeSchema);

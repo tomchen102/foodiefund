@@ -2,11 +2,9 @@
 import { usePathname } from "next/navigation";
 
 import SectionPadding from "@/components/SectionPadding";
+import { ProviderLayoutProps } from "@/types/ProviderType";
 
-import Navbar from "./@Navbar/page";
-import Rewards from "./@Rewards/page";
-
-const LayoutContent = ({ children }: { children: React.ReactNode }) => {
+const LayoutContent = ({ children, Navbar, Rewards }: ProviderLayoutProps) => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/project-list");
 
@@ -20,11 +18,11 @@ const LayoutContent = ({ children }: { children: React.ReactNode }) => {
         </>
       ) : (
         <>
-          <Navbar />
+          {Navbar}
           <SectionPadding container>
             <div className="lg:grid lg:grid-cols-12 lg:gap-6">
               <div className="mb-8 pr-0 lg:col-span-9 lg:pr-10">{children}</div>
-              <Rewards />
+              <div className="lg:col-span-3">{Rewards}</div>
             </div>
           </SectionPadding>
         </>

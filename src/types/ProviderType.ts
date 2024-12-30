@@ -9,3 +9,8 @@ export interface ProviderProps {
 export interface SectionPaddingProps extends ProviderProps {
   container?: boolean;
 }
+
+export type ProviderLayoutProps = ProviderProps & {
+  Navbar?: React.ReactNode;
+  Rewards?: React.ReactNode;
+};
