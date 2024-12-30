@@ -1,8 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { userFaqApi } from "@/api/services/userFaq";
 import { UserFaqListResponseType } from "@/api/services/userFaq/types";
+import { initializeQueryClient, prefetchData } from "@/lib/reactQuery";
 import { UserFaqListArrayResponseSchema, userFaqResponseTypeSchema } from "@/schema/UserFaqSchema";
+import { ClientType } from "@/types/clientTypes";
 import { MutationResult } from "@/types/mutationTypes";
 import { safeParseResponse } from "@/utils/zodUtils";
 
@@ -11,16 +13,27 @@ import { useToast } from "./use-toast";
 const userFaqKeys = {
   key: ["UserFaq"] as const,
 };
-export const useGetUserFaq = () => {
+export const useGetUserFaq = (clientType: ClientType) => {
   return useQuery({
     queryKey: userFaqKeys.key,
     queryFn: async () => {
-      const response = await userFaqApi.getAll();
+      const response = await userFaqApi.getAll(clientType);
       console.log("getUserFaqList response:", response.data);
       const result = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
       return result;
     },
   });
+};
+
+export const prefetchUserFaqClient = (queryClient: QueryClient) => {
+  return prefetchData(queryClient, [userFaqKeys.key], async () => {
+    const response = await userFaqApi.getAll("frontend");
+    return safeParseResponse(UserFaqListArrayResponseSchema, response.data);
+  });
+};
+
+export const initializeUserFaqListQueryClient = () => {
+  return initializeQueryClient((queryClient) => prefetchUserFaqClient(queryClient));
 };
 
 export const useGetUserFaqId = (id: string, options?: { enabled?: boolean }) => {

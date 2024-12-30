@@ -1,8 +1,10 @@
-import { dehydrate, QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { userNewsApi } from "@/api/services/userNews";
 import { UserNewsListQueryResponseType, UserNewsListResponseType } from "@/api/services/userNews/types";
+import { initializeQueryClient, prefetchData } from "@/lib/reactQuery";
 import { UserNewsListArrayResponseSchema, UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
+import { ClientType } from "@/types/clientTypes";
 import { MutationResult } from "@/types/mutationTypes";
 import { safeParseResponse } from "@/utils/zodUtils";
 
@@ -11,11 +13,12 @@ import { useToast } from "./use-toast";
 const userNewsKeys = {
   key: ["UserNews"] as const,
 };
-export const useGetUserNews = () => {
+
+export const useGetUserNews = (clientType: ClientType) => {
   return useQuery({
-    queryKey: userNewsKeys.key,
+    queryKey: [userNewsKeys.key, clientType],
     queryFn: async () => {
-      const response = await userNewsApi.getAll();
+      const response = await userNewsApi.getAll(clientType);
       console.log("getUserNewsList response:", response.data);
       const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
@@ -23,11 +26,22 @@ export const useGetUserNews = () => {
   });
 };
 
-export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }, isFrontend: boolean = false) => {
+export const prefetchNewsListByClient = (queryClient: QueryClient) => {
+  return prefetchData(queryClient, [userNewsKeys.key], async () => {
+    const response = await userNewsApi.getAll("frontend");
+    return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
+  });
+};
+
+export const initializeNewsListQueryClient = () => {
+  return initializeQueryClient((queryClient) => prefetchNewsListByClient(queryClient));
+};
+
+export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }) => {
   return useQuery({
-    queryKey: [userNewsKeys.key, id, isFrontend],
+    queryKey: [userNewsKeys.key, id],
     queryFn: async () => {
-      const response = await userNewsApi.getById(id, isFrontend);
+      const response = await userNewsApi.getById(id, "dashboard");
       const result = safeParseResponse(UserNewsListResponseSchema, response.data);
       return result;
     },
@@ -35,21 +49,15 @@ export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }, is
   });
 };
 
-export const prefetchUserNewsId = async (queryClient: QueryClient, id: string, isFrontend: boolean = true) => {
-  await queryClient.prefetchQuery({
-    queryKey: [userNewsKeys.key, id, isFrontend],
-    queryFn: async () => {
-      const response = await userNewsApi.getById(id, isFrontend);
-      return safeParseResponse(UserNewsListResponseSchema, response.data);
-    },
+export const prefetchNewsById = (queryClient: QueryClient, id: string) => {
+  return prefetchData(queryClient, [userNewsKeys.key, id], async () => {
+    const response = await userNewsApi.getById(id, "frontend");
+    return safeParseResponse(UserNewsListResponseSchema, response.data);
   });
 };
 
-export const initializeQueryNewsClient = async (id: string) => {
-  const queryClient = new QueryClient();
-  await prefetchUserNewsId(queryClient, id);
-  const dehydratedState = dehydrate(queryClient);
-  return { queryClient, dehydratedState };
+export const initializeNewsByIdQueryClient = (id: string) => {
+  return initializeQueryClient((queryClient) => prefetchNewsById(queryClient, id));
 };
 
 export const usePostUserNewsMutation = (): MutationResult<UserNewsListResponseType> => {

@@ -14,7 +14,7 @@ import FaqCardSkeleton from "./_components/FaqCardSkeleton";
 
 const UserFaqPage = () => {
   const createUserFaqUrl = usePathname();
-  const { data, isFetching } = useGetUserFaq();
+  const { data, isFetching } = useGetUserFaq("dashboard");
   const { mutate: DeleteUserFaqMutation } = useDeleteUserFaqMutation();
 
   const deleteItem = (id: string) => {

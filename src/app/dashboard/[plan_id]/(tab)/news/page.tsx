@@ -16,7 +16,7 @@ import Loading from "./loading";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();
-  const { data, isFetching } = useGetUserNews();
+  const { data, isFetching } = useGetUserNews("dashboard");
   const { mutate: deleteUserNews } = useDeleteUserNewsMutation();
   const { mutate: updateIsActive } = useUpdateNewsTableMutation();
 

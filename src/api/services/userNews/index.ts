@@ -1,5 +1,6 @@
 import axiosClientDashboard from "@/api/axiosClientDashboard";
 import axiosClientFrontend from "@/api/axiosClientFrontend";
+import { ClientType } from "@/types/clientTypes";
 
 import { UserNewsListResponseType } from "./types";
 
@@ -15,12 +16,13 @@ export const userNewsApi = {
     }
     return formData;
   },
-  getAll: async () => {
-    const response = await axiosClientDashboard.get(userNewsApi.getBaseUrl());
+  getAll: async (clientType: ClientType) => {
+    const client = clientType ? axiosClientFrontend : axiosClientDashboard;
+    const response = await client.get(userNewsApi.getBaseUrl());
     return response.data;
   },
-  getById: async (id: string, isFrontend: boolean = false) => {
-    const client = isFrontend ? axiosClientFrontend : axiosClientDashboard;
+  getById: async (id: string, clientType: ClientType) => {
+    const client = clientType ? axiosClientFrontend : axiosClientDashboard;
     const response = await client.get(`${userNewsApi.getBaseUrl()}/${id}`);
     return response.data;
   },
