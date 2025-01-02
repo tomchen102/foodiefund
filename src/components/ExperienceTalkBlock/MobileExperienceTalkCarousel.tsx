@@ -22,7 +22,7 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
           {data.map((item) => (
             <CarouselItem key={item.id} className="relative">
               <li className="relative mb-4">
-                <div className="clip-polygon bg-[#E2E8E6] p-3 pb-12">
+                <div className="clip-polygon bg-white p-3 pb-12">
                   <div className="mb-4">
                     <Image
                       src={item.imageUrl}
@@ -33,20 +33,20 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
                       priority
                     />
                   </div>
-                  <h3 className="mb-2 text-base leading-6">{item.title}</h3>
-                  <p className="pb-3 text-sm font-medium">{item.description}</p>
+                  <h3 className="mb-2 text-lg leading-6">{item.title}</h3>
+                  <p className="pb-3">{item.description}</p>
                 </div>
                 <div className="absolute bottom-[-16px] left-6 flex w-full items-center">
                   <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
                   <div className="mr-auto">
-                    <h4 className="text-sm font-bold">{item.avatarName}</h4>
-                    <p className="text-sm text-gray">{item.avatarRole}</p>
+                    <h4 className="font-bold">{item.avatarName}</h4>
+                    <p className="text-gray">{item.avatarRole}</p>
                   </div>
                   <div className="mr-6 flex items-center">
                     <Icons.ViewFill dimension="s" className="text-gray-500" />
-                    <p className="mr-3 text-sm text-gray-500">{item.views}人</p>
+                    <p className="mr-3 text-gray-500">{item.views}人</p>
                     <Icons.FavoriteFill dimension="s" className="text-gray-500" />
-                    <p className="text-sm text-gray">{item.favorites}人</p>
+                    <p className="text-gray">{item.favorites}人</p>
                   </div>
                 </div>
               </li>

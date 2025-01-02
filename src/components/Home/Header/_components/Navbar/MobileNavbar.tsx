@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import Logo from "@/components/Home/Logo";
 import { Icons } from "@/components/Icons";
 import {
   Sheet,
@@ -16,7 +17,6 @@ import {
 } from "@/components/ui/sheet";
 import { useAuth } from "@/utils/providers/AuthProvider";
 
-import Logo from "../../../Logo";
 import { MemberMenuType, MenuProps } from "../../types";
 import AvatarCircle from "../AvatarCircle";
 
@@ -41,7 +41,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
   return (
     <Sheet open={isAllSheetsOpen} onOpenChange={setIsAllSheetsOpen}>
       <SheetTrigger className="flex h-12 w-12 items-center justify-center md:hidden">
-        <Icons.Menu dimension="s" />
+        <Icons.Menu />
       </SheetTrigger>
       <SheetContent className="h-full w-full p-0">
         <SheetHeader className="flex h-12 items-center justify-center pl-3">
@@ -51,11 +51,13 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
         </SheetHeader>
         {user && (
           <Sheet open={isChildSheetOpen} onOpenChange={setIsChildSheetOpen}>
-            <SheetTrigger className="flex h-11 w-full items-center bg-primary pl-3 hover:bg-primary-light">
-              <AvatarCircle />
-              <div className="w-16 truncate text-base font-bold capitalize text-primary-dark">{user.name}</div>
-              <div className="absolute right-0 flex h-11 w-12 items-center justify-center">
-                <Icons.Next dimension="s" />
+            <SheetTrigger className="flex h-11 w-full items-center justify-between bg-primary pl-3 hover:bg-primary-light">
+              <div className="flex items-center">
+                <AvatarCircle />
+                <div className="w-16 truncate text-base font-bold capitalize text-primary-dark">{user.name}</div>
+              </div>
+              <div className="flex h-11 w-12 items-center justify-center">
+                <Icons.Next />
               </div>
             </SheetTrigger>
             <SheetSubContent className="absolute top-12 size-full p-0">
@@ -69,7 +71,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
               <button className="absolute -top-12 right-0 size-12 bg-transparent" onClick={closeAllSheets}></button>
               <SheetClose className="flex h-11 w-full items-center bg-primary text-base font-bold text-primary-dark hover:bg-primary-light">
                 <div className="flex h-11 w-14 items-center justify-center">
-                  <Icons.Back dimension="s" />
+                  <Icons.Back />
                 </div>
                 返回
               </SheetClose>
@@ -85,7 +87,7 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
                       href={item.href}
                       key={item.title}
                     >
-                      {<item.icon dimension="s" />}
+                      {<item.icon />}
                       {item.title}
                     </Link>
                   </div>
@@ -93,10 +95,10 @@ const MobileNavbar = ({ menuList }: MenuProps) => {
               })}
               <div className="w-full" onClick={closeAllSheets}>
                 <div
-                  className="flex h-11 w-full items-center justify-center bg-primary text-base font-bold text-primary-dark hover:bg-primary-light"
+                  className="flex h-11 w-full items-center justify-center gap-2 bg-primary text-base font-bold text-primary-dark hover:bg-primary-light"
                   onClick={handleLogout}
                 >
-                  <Icons.Exit dimension="s" className="mr-2" />
+                  <Icons.Exit />
                   登出
                 </div>
               </div>

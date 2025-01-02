@@ -42,7 +42,7 @@ const MemberMenu = () => {
             <Icons.Notify />
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex w-36 items-center justify-center gap-2 bg-primary px-3 hover:bg-primary-light focus-visible:outline-none">
+            <DropdownMenuTrigger className="flex w-36 items-center justify-center gap-2 bg-primary px-3 hover:bg-primary/80 focus-visible:outline-none">
               <AvatarCircle />
               <div className="truncate text-base font-bold capitalize text-primary-dark">{user.name}</div>
             </DropdownMenuTrigger>
@@ -50,8 +50,8 @@ const MemberMenu = () => {
               {memberMenu.map((item) => {
                 return (
                   <Link href={item.href} key={item.title}>
-                    <DropdownMenuItem className="h-12 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark">
-                      {<item.icon dimension="s" className="mr-2" />}
+                    <DropdownMenuItem className="flex h-12 gap-2 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark">
+                      {<item.icon />}
                       {item.title}
                     </DropdownMenuItem>
                   </Link>
@@ -59,10 +59,10 @@ const MemberMenu = () => {
               })}
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                className="h-12 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark"
+                className="flex h-12 gap-2 truncate pl-3 pr-5 text-base font-bold capitalize hover:!bg-primary-light hover:!text-primary-dark"
                 onClick={handleLogout}
               >
-                <Icons.Exit dimension="s" className="mr-2" />
+                <Icons.Exit />
                 登出
               </DropdownMenuItem>
             </DropdownMenuContent>

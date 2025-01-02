@@ -47,13 +47,13 @@ const navMenu = {
 
 const SelectProjects = () => {
   return (
-    <div className="container bg-[#FDFBF8] px-3 lg:px-0">
+    <div className="container bg-white px-3 lg:px-0">
       <h1 className="mt-[28px] text-2xl font-bold lg:mt-[34px]">探索專案</h1>
       <div className="mt-6 flex flex-wrap">
         <div className="flex w-full md:mr-auto md:w-auto">
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-4 flex w-full items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-60">
-              <span className="mr-auto text-sm md:ml-1">專案性質</span>
+              <span className="mr-auto md:ml-1">專案性質</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -70,7 +70,7 @@ const SelectProjects = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-4 flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="mr-auto text-sm md:ml-1">區域</span>
+              <span className="mr-auto md:ml-1">區域</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -87,7 +87,7 @@ const SelectProjects = () => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="mr-auto flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="mr-auto text-sm md:ml-1">類別</span>
+              <span className="mr-auto md:ml-1">類別</span>
               <ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -105,17 +105,13 @@ const SelectProjects = () => {
         </div>
         <div className="mt-3 flex w-full md:mt-0 md:w-auto">
           <div className="relative mr-3 flex flex-grow items-center justify-start md:mr-4">
-            <IoIosSearch className="absolute left-[18px] text-base" />
-            <Input
-              className="h-[46px] rounded-none bg-[#fff] pl-10 text-sm md:min-w-60"
-              type="text"
-              placeholder="搜尋專案"
-            />
+            <IoIosSearch className="absolute left-[18px] text-lg" />
+            <Input className="h-[46px] rounded-none bg-[#fff] pl-10 md:min-w-60" type="text" placeholder="搜尋專案" />
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex min-w-20 items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none">
-              <span className="text-sm md:ml-1">排序</span>
+              <span className="md:ml-1">排序</span>
               <BsFilterLeft />
             </DropdownMenuTrigger>
             <DropdownMenuContent>

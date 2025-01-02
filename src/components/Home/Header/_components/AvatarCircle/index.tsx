@@ -13,7 +13,7 @@ const AvatarCircle = ({ className = "size-9" }: ClassNameProps) => {
     <Avatar className={className}>
       <AvatarImage src={user?.photo} />
       <AvatarFallback className="bg-transparent">
-        <Icons.Avatar />
+        <Icons.Avatar size={28} />
       </AvatarFallback>
     </Avatar>
   );

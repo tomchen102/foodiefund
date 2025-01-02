@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { GoArrowRight } from "react-icons/go";
 
 import MobileRecentProjectsCarousel from "@/components/RecentProjectsBlock/MobileRecentProjectsCarousel";
 import PcRecentProjectsList from "@/components/RecentProjectsBlock/PcRecentProjectsList";
 import { cn } from "@/lib/utils";
 import { RecentProjectsBlockType } from "@/types/RecentProjectsListProps";
 
+import { Icons } from "../Icons";
 import { Button } from "../ui/button";
 
 const RecentProjectsBlock = ({ data, title, className, gridType }: RecentProjectsBlockType) => {
@@ -14,17 +14,19 @@ const RecentProjectsBlock = ({ data, title, className, gridType }: RecentProject
       <div className="container px-3 xl:px-0">
         <div className="mb-3 flex md:mb-6">
           <h2 className="text-lg font-bold md:text-2xl">{title}</h2>
-          <Button className="ml-auto hidden items-center md:flex" variant="secondary" asChild>
+          <Button className="ml-auto hidden items-center md:flex" variant="secondary" size="iconButton" asChild>
             <Link href="/projects">
-              查看更多 <GoArrowRight size={16} className="ml-1" />
+              查看更多
+              <Icons.ArrowRightFill dimension="s" mode="dark" />
             </Link>
           </Button>
         </div>
         <MobileRecentProjectsCarousel data={data} />
         <PcRecentProjectsList data={data} gridType={gridType} />
-        <Button className="ml-auto mt-3 flex items-center md:hidden" variant="secondary" asChild>
+        <Button className="ml-auto mt-3 flex items-center md:hidden" variant="secondary" size="iconButton" asChild>
           <Link href="/projects">
-            查看更多 <GoArrowRight size={16} className="ml-1" />
+            查看更多
+            <Icons.ArrowRightFill dimension="s" mode="dark" />
           </Link>
         </Button>
       </div>

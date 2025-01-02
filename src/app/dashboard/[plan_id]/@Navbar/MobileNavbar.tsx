@@ -59,7 +59,7 @@ const MobileNavbar = () => {
             <SheetDescription className="hidden"></SheetDescription>
           </SheetHeader>
           <div className="flex justify-center">
-            <ul className="w-36 text-sm font-medium text-gray-900">
+            <ul className="w-36 text-gray-900">
               <div className="flex items-center gap-2">
                 <FaThList></FaThList>提案紀錄
               </div>

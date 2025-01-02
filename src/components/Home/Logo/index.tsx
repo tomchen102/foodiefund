@@ -11,10 +11,7 @@ const Logo = ({ darkMode = false }: modeProps) => {
   return (
     <Link
       href="/"
-      className={cn(
-        "mr-auto flex items-center font-bold",
-        darkMode ? "gap-3 text-2xl text-[#ffffff]" : "gap-2 text-base text-[#09090B]"
-      )}
+      className={cn("mr-auto flex items-center font-bold", darkMode ? "gap-3 text-2xl text-white" : "gap-2 text-base")}
     >
       <div className={cn("relative inline-block", darkMode ? "size-8" : "size-6")}>
         <Image

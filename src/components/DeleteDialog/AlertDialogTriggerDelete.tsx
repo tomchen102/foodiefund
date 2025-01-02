@@ -20,7 +20,7 @@ export const AlertDialogTriggerDelete = ({ title, deleteData }: AlertDialogTrigg
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="outline" className="text-red-500">
-          <Icons.Delete dimension="s" className="text-red-500" />
+          <Icons.Delete className="text-red-500" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

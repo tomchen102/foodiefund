@@ -54,16 +54,16 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
           </div>
           <div className="lg:flex lg:items-center">
             <div className="mb-1 flex h-[30px] items-center lg:mb-0 lg:mr-5">
-              <Icons.Account dimension="s" className="text-gray-500" />
-              <span className="mr-1 text-sm font-medium text-gray">提案人</span>
-              <span className="text-sm font-medium text-primary-dark hover:underline">
+              <Icons.Account type="indicator" />
+              <span className="mr-1 text-gray">提案人</span>
+              <span className="text-primary-dark hover:underline">
                 <Link href="#">{ProjectSummaryData.proposer}</Link>
               </span>
             </div>
             <div className="flex h-[30px] items-center">
-              <Icons.Calendar dimension="s" className="text-gray-500" />
-              <span className="mr-1 text-sm font-medium text-gray">開始於</span>
-              <span className="text-sm font-medium text-primary-dark">
+              <Icons.Calendar type="indicator" />
+              <span className="mr-1 text-gray">開始於</span>
+              <span className="text-primary-dark">
                 <time dateTime="2024/08/08 22:06">{ProjectSummaryData.startDate}</time>
               </span>
             </div>
@@ -74,14 +74,12 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
             {ProjectSummaryData.activeType == "A" && <Badges text="群眾募資" className="ml-2 h-1/2 text-xl" />}
             {ProjectSummaryData.activeType == "Z" && <Badges text="訂閱式" className="ml-2 h-1/2 text-xl" />}
           </div>
-          <p className="mb-6 text-sm font-medium lg:mb-auto lg:text-base">{ProjectSummaryData.description}</p>
+          <p className="mb-6 lg:mb-auto">{ProjectSummaryData.description}</p>
           <div className="mb-7 lg:mb-10 lg:flex">
             <div className="mr-6 lg:w-[426px]">
               <div className="flex">
-                <span className="mr-auto font-medium leading-6 text-gray">
-                  目標 NT$ {ProjectSummaryData.targetAmount}
-                </span>
-                <span className="text-sm font-bold text-primary-dark">{ProjectSummaryData.progress} %</span>
+                <span className="mr-auto leading-6 text-gray">目標 NT$ {ProjectSummaryData.targetAmount}</span>
+                <span className="font-bold text-primary-dark">{ProjectSummaryData.progress} %</span>
               </div>
               <Progress value={ProjectSummaryData.progress} className="my-5" />
               <div className="mb-6 lg:mb-0">
@@ -92,13 +90,13 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
             </div>
             <div className="flex flex-shrink-0 gap-4 lg:w-[256px]">
               <div className="w-1/2 rounded-lg border p-2 text-center lg:py-[14px]">
-                <span className="mb-3 block text-sm font-medium text-[#27272A] lg:mb-5 lg:text-base">募資倒數</span>
+                <span className="mb-3 block lg:mb-5">募資倒數</span>
                 <span className="block text-2xl font-bold text-primary-dark lg:text-[30px] lg:leading-9">
                   {ProjectSummaryData.endDate} 天
                 </span>
               </div>
-              <div className="w-1/2 rounded-lg border p-2 text-center lg:py-[14px]">
-                <span className="mb-3 block text-sm font-medium text-[#27272A] lg:mb-5 lg:text-base">贊助人數</span>
+              <div className="w-1/2 rounded-lg border border-gray-200 p-2 text-center lg:py-[14px]">
+                <span className="mb-3 block lg:mb-5">贊助人數</span>
                 <span className="block text-2xl font-bold text-primary-dark lg:text-[30px] lg:leading-9">
                   {ProjectSummaryData.numberOfBackers}人
                 </span>
@@ -137,12 +135,12 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
                 </li>
               </ul>
               {isProjectList ? null : (
-                <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
-                  <Button className="mr-5" variant="donateNow" size="lg" asChild>
+                <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center gap-3 border-t bg-white p-4 lg:relative lg:justify-start lg:border-t-0 lg:p-0">
+                  <Button className="w-full" variant="secondary" asChild>
                     <Link href={`/projects/${ProjectSummaryData.id}/project-list`}>立即贊助</Link>
                   </Button>
                   <Button className="flex-shrink-0" variant="secondary" size="icon">
-                    <Icons.FavoriteFill dimension="s" mode="dark" />
+                    <Icons.FavoriteFill mode="dark" />
                   </Button>
                 </div>
               )}

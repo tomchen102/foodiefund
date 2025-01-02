@@ -31,27 +31,27 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                   {item.projectType === "subscription" && <Badges text="訂閱式" className="absolute left-3 top-3" />}
                 </div>
                 <div className="flex h-full flex-col p-5">
-                  <h3 className="mb-2 text-base group-hover:text-primary-primary-hover group-hover:underline">
+                  <h3 className="group-hover:text-primary-primary-hover mb-2 text-lg font-bold group-hover:underline">
                     <span>{item.title}</span>
                   </h3>
-                  <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
+                  <p className="mb-5 line-clamp-3 font-medium">{item.description}</p>
                   <div className="mt-auto flex items-center">
                     {item.projectType === "fundraising" && (
                       <>
-                        <Icons.Location dimension="s" />
-                        <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
-                        <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
+                        <Icons.Location type="indicator" />
+                        <span className="mr-auto font-bold text-gray">{item.place}</span>
+                        <span className="font-bold text-primary-dark">{item.percentage} %</span>
                       </>
                     )}
                     {item.projectType === "subscription" && (
                       <div className="mr-auto flex items-center gap-3">
                         <div className="flex items-center">
-                          <Icons.Location dimension="s" />
-                          <span className="mr-auto text-sm font-bold text-[#71717A]">{item.place}</span>
+                          <Icons.Location type="indicator" />
+                          <span className="mr-auto font-bold text-gray">{item.place}</span>
                         </div>
                         <div className="flex items-center">
-                          <Icons.Account dimension="s" />
-                          <span className="text-sm">{item.subscriberCount} 人訂閱</span>
+                          <Icons.Account type="indicator" />
+                          <span className="">{item.subscriberCount} 人訂閱</span>
                         </div>
                       </div>
                     )}
@@ -63,14 +63,14 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                       <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
                     )}
                     {item.projectType === "fundraising" && (
-                      <span className="text-sm font-bold">
-                        倒數 <span className="text-[#0F514E]">{item.reciprocal}</span> 天
+                      <span className="font-bold">
+                        倒數 <span className="text-primary-dark">{item.reciprocal}</span> 天
                       </span>
                     )}
                     {item.projectType === "subscription" && (
                       <div className="mr-auto mt-3 flex items-center gap-3">
-                        <span className="text-xl font-bold text-[#0F514E]">NT$ {item.currentAmount}</span>
-                        <span className="text-sm font-bold">/ 每月</span>
+                        <span className="text-xl font-bold text-primary-dark">NT$ {item.currentAmount}</span>
+                        <span className="font-bold">/ 每月</span>
                       </div>
                     )}
                   </div>

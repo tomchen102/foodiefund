@@ -50,24 +50,24 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                           {item.title}
                         </Link>
                       </h3>
-                      <p className="mb-5 line-clamp-3 text-sm font-medium">{item.description}</p>
+                      <p className="mb-5 line-clamp-3">{item.description}</p>
                       <div className="flex items-center">
-                        {item.projectType === "fundraising" && <Icons.Location dimension="s" />}
+                        {item.projectType === "fundraising" && <Icons.Location />}
                         {item.projectType === "fundraising" && (
-                          <span className="mr-auto text-sm font-bold text-gray-500">{item.place}</span>
+                          <span className="mr-auto font-bold text-gray-500">{item.place}</span>
                         )}
                         {item.projectType === "fundraising" && (
-                          <span className="text-sm font-bold text-[#0F514E]">{item.percentage} %</span>
+                          <span className="font-bold text-primary-dark">{item.percentage} %</span>
                         )}
                         {item.projectType === "subscription" && (
                           <div className="mr-auto flex items-center gap-3">
                             <div className="flex items-center">
-                              <Icons.Location dimension="s" />
-                              <span className="text-sm font-bold text-gray-500">{item.place}</span>
+                              <Icons.Location />
+                              <span className="font-bold text-gray-500">{item.place}</span>
                             </div>
                             <div className="flex items-center">
-                              <Icons.Account dimension="s" />
-                              <span className="text-sm">{item.subscriberCount} 人訂閱</span>
+                              <Icons.Account />
+                              <span className="">{item.subscriberCount} 人訂閱</span>
                             </div>
                           </div>
                         )}
@@ -78,14 +78,14 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                           <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
                         )}
                         {item.projectType === "fundraising" && (
-                          <span className="text-sm font-medium">
-                            倒數 <span className="text-[#0F514E]">{item.reciprocal}</span> 天
+                          <span className="">
+                            倒數 <span className="text-primary-dark">{item.reciprocal}</span> 天
                           </span>
                         )}
                         {item.projectType === "subscription" && (
                           <div className="mr-auto mt-3 flex items-center gap-3">
-                            <span className="text-xl font-bold text-[#0F514E]">NT$ {item.currentAmount}</span>
-                            <span className="text-sm font-medium">/ 每月</span>
+                            <span className="text-xl font-bold text-primary-dark">NT$ {item.currentAmount}</span>
+                            <span className="">/ 每月</span>
                           </div>
                         )}
                       </div>

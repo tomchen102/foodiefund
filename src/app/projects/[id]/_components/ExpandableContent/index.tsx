@@ -62,18 +62,18 @@ const ExpandableContent = ({ children, previewLength }: ExpandableContentProps) 
   return (
     <div className="mb-6">
       <div className="block lg:hidden">
-        <div className={`text-base leading-relaxed text-gray-700 ${!isExpanded ? styles["fade-out"] : ""}`}>
+        <div className={`text-xl leading-relaxed text-gray-700 ${!isExpanded ? styles["fade-out"] : ""}`}>
           {isExpanded ? children : renderPreview(children, previewLength)}
         </div>
         {!isExpanded && (
-          <Button onClick={toggleContent} variant="outline" className="w-full text-sm font-bold">
+          <Button onClick={toggleContent} variant="outline" className="w-full font-bold">
             展開內容
-            <Icons.ArrowDown size={20} dimension="s" className="text-black" />
+            <Icons.ArrowDown className="text-black" />
           </Button>
         )}
       </div>
       <div className="hidden lg:block">
-        <div className="text-base leading-relaxed text-gray-700">{children}</div>
+        <div className="text-xl leading-relaxed text-gray-700">{children}</div>
       </div>
     </div>
   );

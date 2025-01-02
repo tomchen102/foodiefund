@@ -12,7 +12,7 @@ const NewInfo = ({ newsData }: { newsData: newsResponseArraySchemaType }) => {
               {item.title}
             </p>
           ))}
-          <Icons.ArrowRight dimension="s" className="text-gray-400" />
+          <Icons.ArrowRightFill className="text-gray-400" />
         </div>
       </div>
     </div>
