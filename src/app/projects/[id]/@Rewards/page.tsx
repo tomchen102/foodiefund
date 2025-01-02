@@ -33,20 +33,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-lg">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -66,20 +66,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -99,20 +99,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -132,20 +132,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -168,20 +168,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -201,20 +201,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
@@ -234,20 +234,20 @@ const Rewards = () => {
               priority
             />
             <div className="border p-5">
-              <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
+              <h3 className="mb-2 text-xl">【限量單品】布偶貓托特包</h3>
               <div className="mb-2 flex">
                 <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
-                <span className="text-sm font-medium text-gray">已被贊助</span>
-                <span className="text-sm font-medium text-primary-dark">24/25</span>
-                <span className="text-sm font-medium text-gray">次</span>
+                <span className="text-gray">已被贊助</span>
+                <span className="text-primary-dark">24/25</span>
+                <span className="text-gray">次</span>
               </div>
               <div className="mb-2">
-                <span className="text-sm font-bold text-gray">剩餘 1 份</span>
+                <span className="font-bold text-gray">剩餘 1 份</span>
               </div>
               <div className="mb-5">
-                <p className="text-sm font-medium">【限量單品】</p>
-                <p className="text-sm font-medium">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
-                <p className="text-sm font-medium">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
+                <p className="">【限量單品】</p>
+                <p className="">「容量大！又方便！簡單又樸素讓你出門不怕滑倒！ 」</p>
+                <p className="">規格 : 約21x23x15cm(把手11cm)/厚帆</p>
               </div>
               <Button variant="donateNow" size="lg" asChild>
                 <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>

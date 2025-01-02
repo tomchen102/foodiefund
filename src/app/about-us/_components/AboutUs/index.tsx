@@ -50,7 +50,7 @@ const aboutUs = () => {
                 alt="Mission-1"
               />
               <h3 className="mb-2 text-xl font-bold">連接平台</h3>
-              <p className="text-sm md:text-base">為您創造連接，展示我們的項目的平台。</p>
+              <p>為您創造連接，展示我們的項目的平台。</p>
             </div>
             <div className="py-5 text-center md:py-10">
               <Image
@@ -63,7 +63,7 @@ const aboutUs = () => {
                 alt="Mission-2"
               />
               <h3 className="mb-2 text-xl font-bold">多元化的項目選擇</h3>
-              <p className="text-sm md:text-base">我們的平臺會為您提供不同類型的優質項目。</p>
+              <p>我們的平臺會為您提供不同類型的優質項目。</p>
             </div>
             <div className="py-5 text-center md:py-10">
               <Image
@@ -76,7 +76,7 @@ const aboutUs = () => {
                 alt="Mission-3"
               />
               <h3 className="mb-2 text-xl font-bold">專業的開發支持</h3>
-              <p className="text-sm md:text-base">我們的專業團隊將為您提供全方位的支持。</p>
+              <p>我們的專業團隊將為您提供全方位的支持。</p>
             </div>
           </div>
         </section>
@@ -96,9 +96,7 @@ const aboutUs = () => {
                 alt="Why-1"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">多元化的項目選擇</h3>
-              <p className="text-sm md:text-base">
-                我們的平台涵蓋了不同風格和地區的餐飲項目，讓您輕鬆找到適合的投資機會。
-              </p>
+              <p>我們的平台涵蓋了不同風格和地區的餐飲項目，讓您輕鬆找到適合的投資機會。</p>
             </div>
             <div className="mb-6 text-center">
               <Image
@@ -111,9 +109,7 @@ const aboutUs = () => {
                 alt="Why-2"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">專業的團隊支持</h3>
-              <p className="text-sm md:text-base">
-                我們的專家團隊將為每一個項目提供專業指導和支援,確保項目的成功發展。
-              </p>
+              <p>我們的專家團隊將為每一個項目提供專業指導和支援,確保項目的成功發展。</p>
             </div>
             <div className="text-center">
               <Image
@@ -126,7 +122,7 @@ const aboutUs = () => {
                 alt="Why-3"
               />
               <h3 className="mb-1 text-xl font-bold md:mb-2">透明和安全</h3>
-              <p className="text-sm md:text-base">我們提供透明的訊息和安全的交易環境,讓投資者安心地參與募資過程。</p>
+              <p>我們提供透明的訊息和安全的交易環境,讓投資者安心地參與募資過程。</p>
             </div>
           </div>
         </section>

@@ -72,7 +72,7 @@ const UserNewsPage = () => {
                         />
                         <label
                           htmlFor={item.id}
-                          className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          className="cursor-pointer leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         >
                           啟用
                         </label>

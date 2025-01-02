@@ -79,7 +79,7 @@ const ReplyForm = () => {
                 </Avatar>
                 <div>
                   <p className="font-bold">{comment.name}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-gray">
                     <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
                       {format(new Date(comment.publicAt), "yyyy-MM-dd")}
                     </time>
@@ -106,7 +106,7 @@ const ReplyForm = () => {
                               {reply.name}
                               {reply.commentRule && <Badges text={reply.commentRule} className="ml-2" />}
                             </p>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-gray">
                               <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
                                 {format(new Date(comment.publicAt), "yyyy-MM-dd")}
                               </time>

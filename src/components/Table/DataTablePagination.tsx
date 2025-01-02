@@ -24,12 +24,12 @@ const DataTablePagination = <TData,>({
 
   return (
     <div className="flex items-center justify-between px-2">
-      <div className="flex-1 text-sm text-muted-foreground">
+      <div className="flex-1 text-muted-foreground">
         {table.getFilteredSelectedRowModel().rows.length} of {table.getCoreRowModel().rows.length} row(s) selected.
       </div>
       <div className="flex items-center space-x-6 lg:space-x-8">
         <div className="flex items-center space-x-2">
-          <p className="text-sm font-medium">每頁行數</p>
+          <p className=" ">每頁行數</p>
           <Select value={`${pageSize}`} onValueChange={(value) => handlePageChange(0, Number(value))}>
             <SelectTrigger className="h-8 w-[70px]">
               <SelectValue placeholder={pageSize} />
@@ -43,7 +43,7 @@ const DataTablePagination = <TData,>({
             </SelectContent>
           </Select>
         </div>
-        <div className="flex w-[100px] items-center justify-center text-sm font-medium">
+        <div className="flex w-[100px] items-center justify-center">
           第 {currentPage + 1} 到 {totalPages} 頁
         </div>
         <div className="flex items-center space-x-2">

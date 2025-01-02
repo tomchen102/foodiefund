@@ -39,7 +39,7 @@ const RegisterForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <div className="flex">
           <h2 className="mr-auto text-3xl font-bold">註冊</h2>
-          <p className="text-sm">
+          <p>
             已經有帳號了嗎?
             <Link href="/login" className={buttonVariants({ variant: "link" })}>
               登入

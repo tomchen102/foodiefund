@@ -34,7 +34,7 @@ const RememberUser = ({ username, localStorageService }: RememberUserProps) => {
   return (
     <div className="flex items-center">
       <Checkbox checked={isChecked} id="terms" onCheckedChange={handleCheckboxChange} />
-      <label htmlFor="terms" className="ml-3 text-sm font-medium leading-none hover:cursor-pointer">
+      <label htmlFor="terms" className="ml-3 leading-none hover:cursor-pointer">
         記住帳號
       </label>
       <div className="ml-auto">
