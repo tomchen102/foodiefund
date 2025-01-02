@@ -103,6 +103,13 @@ body {
   [id="radix-:r1:"] a:has([role="menuitem"]):first-child [role="menuitem"] {
     @apply border-b border-gray-200;
   }
+
+  .type-primary {
+    @apply text-lg font-bold;
+  }
+  .type-secondary {
+    @apply text-gray;
+  }
 }
 
 @layer utilities {
