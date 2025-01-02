@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
+import tailwindAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
@@ -44,20 +44,17 @@ const config: Config = {
         },
         primary: {
           DEFAULT: "#40E0D0",
+          hover: "#0F514E",
+          dark: "#0F514E",
+          light: "#D6F4F0",
           foreground: "hsl(var(--primary-foreground))",
-          "primary-hover": "#0F514E",
         },
         secondary: {
           DEFAULT: "#FE4710",
+          hover: "#EF2D07",
+          dark: "#EF2D07",
+          light: "#FFEFD8",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        "primary-dark": {
-          DEFAULT: "#0F514E",
-          foreground: "hsl(var(--primary-dark-foreground))",
-        },
-        "primary-light": {
-          DEFAULT: "#98E4DA",
-          foreground: "hsl(var(--primary-light-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -72,8 +69,8 @@ const config: Config = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        input: "#E4E4E7",
+        ring: "#0F514E",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
@@ -81,8 +78,20 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        black: {
+          DEFAULT: "#09090B", //primary-text
+          foreground: "hsl(var(--black-foreground))",
+        },
+        white: {
+          DEFAULT: "#FAFAFA", //default-background, white text
+          foreground: "hsl(var(--white-foreground))",
+        },
         gray: {
-          DEFAULT: "#71717A",
+          DEFAULT: "#71717A", //secondary-text
+          200: "#E4E4E7", //input border, divider
+          400: "#A1A1AA", //control icon, placeholder
+          500: "#71717A", // icon-indicator
+          600: "#52525B", //input/select text
         },
       },
       borderRadius: {
@@ -96,60 +105,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("tailwindcss-animate"),
-    plugin(function ({ addUtilities }) {
-      addUtilities([
-        {
-          ".text-primary": {
-            color: "#40E0D0",
-            "&:hover": {
-              color: "#0F514E",
-            },
-            "&:active": {
-              color: "#07302f",
-            },
-          },
-          ".bg-primary": {
-            backgroundColor: "#40E0D0",
-            "&:hover": {
-              backgroundColor: "#0F514E",
-            },
-            "&:active": {
-              backgroundColor: "#07302f",
-            },
-          },
-          ".text-secondary": {
-            color: "#FE4710",
-            "&:hover": {
-              color: "#EF2D07",
-            },
-            "&:active": {
-              color: "#C61B09",
-            },
-          },
-          ".bg-secondary": {
-            backgroundColor: "#FE4710",
-            "&:hover": {
-              backgroundColor: "#EF2D07",
-            },
-            "&:active": {
-              backgroundColor: "#C41F05",
-            },
-          },
-        },
-        {
-          ".line-clamp-3": {
-            display: "-webkit-box",
-            "-webkit-line-clamp": "3",
-            "-webkit-box-orient": "vertical",
-            overflow: "hidden",
-            "text-overflow": "ellipsis",
-          },
-        },
-      ]);
-    }),
-  ],
+  plugins: [tailwindAnimate],
 };
 export default config;
