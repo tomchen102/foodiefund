@@ -2,6 +2,7 @@ import { cva } from "class-variance-authority";
 import React from "react";
 import { IconType } from "react-icons/lib";
 import {
+  MdArrowForward,
   MdAttachMoney,
   MdCheckCircle,
   MdClose,
@@ -15,7 +16,6 @@ import {
   MdOutlineAccountCircle,
   MdOutlineAdd,
   MdOutlineArrowDownward,
-  MdOutlineArrowForward,
   MdOutlineCalendarMonth,
   MdOutlineEdit,
   MdOutlineExpandLess,
@@ -26,38 +26,58 @@ import {
   MdOutlineLocationOn,
   MdOutlineNotifications,
   MdOutlinePerson,
-  MdOutlineRestaurant,
   MdOutlineSearch,
   MdOutlineSouthEast,
   MdRemoveRedEye,
+  MdRestaurant,
 } from "react-icons/md";
 
 import { cn } from "@/lib/utils";
 
 import { IconBaseProps } from "./type";
 
-const iconVariants = cva("flex justify-center items-center", {
+const iconVariants = cva("flex justify-center items-center transition-colors", {
   variants: {
     mode: {
       light: "text-primary-dark",
       dark: "text-white",
     },
     dimension: {
-      s: "size-9",
-      m: "size-12",
+      s: "size-6",
+      m: "size-8",
+    },
+    type: {
+      action: "",
+      indicator: "size-7 text-gray-500",
     },
   },
   defaultVariants: {
     mode: "light",
     dimension: "m",
+    type: "action",
   },
 });
 
 export const createIconComponent = (Icon: IconType) => {
-  const IconComponent = ({ mode, dimension, size, className }: IconBaseProps) => {
+  const isOutline: boolean = Icon.name.includes("Outline");
+  let assetSize: string = "size-6";
+  const IconComponent = ({ mode, dimension, type, size, className }: IconBaseProps) => {
+    assetSize = size
+      ? ""
+      : type === "indicator"
+        ? isOutline
+          ? "size-6"
+          : "size-5"
+        : dimension === "s"
+          ? isOutline
+            ? "size-5"
+            : "size-4"
+          : isOutline
+            ? "size-7"
+            : "size-6";
     return (
-      <div className={cn(iconVariants({ mode, dimension }), className)}>
-        <Icon size={size} className={size ? "" : dimension === "s" ? "size-6" : "size-7"} />
+      <div className={cn(iconVariants({ mode, dimension, type }), className)}>
+        <Icon size={size} className={assetSize} />
       </div>
     );
   };
@@ -77,7 +97,7 @@ export const Icons = {
   Next: createIconComponent(MdNavigateNext),
   Notify: createIconComponent(MdOutlineNotifications),
   Plan: createIconComponent(MdOutlineEdit),
-  ArrowRight: createIconComponent(MdOutlineArrowForward),
+  ArrowRightFill: createIconComponent(MdArrowForward),
   Location: createIconComponent(MdOutlineLocationOn),
   Filter: createIconComponent(MdOutlineFilterList),
   Search: createIconComponent(MdOutlineSearch),
@@ -87,7 +107,7 @@ export const Icons = {
   Calendar: createIconComponent(MdOutlineCalendarMonth),
   Add: createIconComponent(MdOutlineAdd),
   Delete: createIconComponent(MdDeleteOutline),
-  Restaurant: createIconComponent(MdOutlineRestaurant),
+  RestaurantFill: createIconComponent(MdRestaurant),
   CheckCircleFill: createIconComponent(MdCheckCircle),
   ViewFill: createIconComponent(MdRemoveRedEye),
   ViewMore: createIconComponent(MdOutlineSouthEast),
