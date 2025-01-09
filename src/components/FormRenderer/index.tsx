@@ -150,7 +150,14 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
             );
           } else if (field.type === "editor") {
             acc.push(
-              <FormSunEditor id={field.id} key={field.key} label={field.label} name={field.name} type="editor" />
+              <FormSunEditor
+                id={field.id}
+                key={field.key}
+                label={field.label}
+                name={field.name}
+                buttonList={field.buttonList}
+                type="editor"
+              />
             );
           } else {
             acc.push(

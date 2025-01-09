@@ -38,8 +38,8 @@ const ProjectSummary = ({ ...ProjectSummaryData }: ProjectSummaryDataProps) => {
         />
         <Image
           src={ProjectSummaryData.imageUrlSm}
-          width={100}
-          height={240}
+          width={550}
+          height={550}
           alt="喵喵咖啡廳"
           className="w-full bg-cover bg-center md:hidden"
           priority

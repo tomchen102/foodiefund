@@ -9,7 +9,7 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const FormSunEditor = <T extends FieldValues>({ label, name }: FormFieldConfig<T>) => {
+const FormSunEditor = <T extends FieldValues>({ label, name, buttonList }: FormFieldConfig<T>) => {
   const { control } = useFormContext<T>();
   return (
     <div className="my-5">
@@ -25,12 +25,12 @@ const FormSunEditor = <T extends FieldValues>({ label, name }: FormFieldConfig<T
                 height="500px"
                 setContents={field.value}
                 setOptions={{
-                  buttonList: [
+                  buttonList: buttonList || [
                     ["undo", "redo"],
                     ["bold", "underline", "italic", "strike"],
                     ["fontColor", "hiliteColor", "align", "list", "table"],
                     ["link", "image", "video"],
-                    ["fullScreen", "showBlocks", "codeView", "preview"],
+                    ["fullScreen", "showBlocks", "preview"],
                   ],
                 }}
                 onChange={field.onChange}

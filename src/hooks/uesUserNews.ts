@@ -1,10 +1,12 @@
+import { get } from "http";
+
 import { QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { userNewsApi } from "@/api/services/userNews";
+import { extendedUserNewsApi } from "@/api/services/userNews/extendedUserNewsApi";
 import { UserNewsListQueryResponseType, UserNewsListResponseType } from "@/api/services/userNews/types";
 import { initializeQueryClient, prefetchData } from "@/lib/reactQuery";
 import { UserNewsListArrayResponseSchema, UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
-import { ClientType } from "@/types/clientTypes";
 import { MutationResult } from "@/types/mutationTypes";
 import { safeParseResponse } from "@/utils/zodUtils";
 
@@ -14,11 +16,23 @@ const userNewsKeys = {
   key: ["UserNews"] as const,
 };
 
-export const useGetUserNews = (clientType: ClientType) => {
+export const useGetUserNewsFrontend = () => {
   return useQuery({
-    queryKey: [userNewsKeys.key, clientType],
+    queryKey: [userNewsKeys.key],
     queryFn: async () => {
-      const response = await userNewsApi.getAll(clientType);
+      const response = await extendedUserNewsApi.getAll("frontend");
+      console.log("getUserNewsList response:", response.data);
+      const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
+      return result;
+    },
+  });
+};
+
+export const useGetUserNewsDashboard = () => {
+  return useQuery({
+    queryKey: [userNewsKeys.key],
+    queryFn: async () => {
+      const response = await extendedUserNewsApi.getAll("dashboard");
       console.log("getUserNewsList response:", response.data);
       const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
@@ -28,7 +42,7 @@ export const useGetUserNews = (clientType: ClientType) => {
 
 export const prefetchNewsListByClient = (queryClient: QueryClient) => {
   return prefetchData(queryClient, [userNewsKeys.key], async () => {
-    const response = await userNewsApi.getAll("frontend");
+    const response = await extendedUserNewsApi.getAll("frontend");
     return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
   });
 };
@@ -39,9 +53,9 @@ export const initializeNewsListQueryClient = () => {
 
 export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }) => {
   return useQuery({
-    queryKey: [userNewsKeys.key, id],
+    queryKey: [userNewsKeys.key],
     queryFn: async () => {
-      const response = await userNewsApi.getById(id, "dashboard");
+      const response = await extendedUserNewsApi.getById(id, "dashboard");
       const result = safeParseResponse(UserNewsListResponseSchema, response.data);
       return result;
     },
@@ -50,8 +64,8 @@ export const useGetUserNewsId = (id: string, options?: { enabled?: boolean }) =>
 };
 
 export const prefetchNewsById = (queryClient: QueryClient, id: string) => {
-  return prefetchData(queryClient, [userNewsKeys.key, id], async () => {
-    const response = await userNewsApi.getById(id, "frontend");
+  return prefetchData(queryClient, [userNewsKeys.key], async () => {
+    const response = await extendedUserNewsApi.getById(id, "frontend");
     return safeParseResponse(UserNewsListResponseSchema, response.data);
   });
 };
@@ -69,7 +83,7 @@ export const usePostUserNewsMutation = (): MutationResult<UserNewsListResponseTy
       toast({
         description: "新增成功!",
       });
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
     },
     onError: (error) => {
       console.error("Error creating News:", error);
@@ -90,7 +104,7 @@ export const useUpdateUserNewsMutation = (): MutationResult<UserNewsListResponse
       toast({
         description: "修改成功!",
       });
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
     },
     onError: (error) => {
       console.error("Error creating News:", error);
@@ -108,10 +122,10 @@ export const useDeleteUserNewsMutation = () => {
   return useMutation({
     mutationFn: userNewsApi.delete,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
       toast({
         description: "刪除成功!",
       });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
     },
     onError: (error) => {
       console.error("Error creating News:", error.message);
@@ -157,7 +171,7 @@ export const useUpdateNewsTableMutation = () => {
     },
     onSuccess: () => {
       console.log("Update News Table Success");
-      queryClient.invalidateQueries({ queryKey: userNewsKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
       toast({
         description: "修改成功!",
       });
