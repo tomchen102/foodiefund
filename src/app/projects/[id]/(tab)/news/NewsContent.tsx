@@ -4,10 +4,10 @@ import parse from "html-react-parser";
 import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
-import { useGetUserNews } from "@/hooks/uesUserNews";
+import { useGetUserNewsFrontend } from "@/hooks/uesUserNews";
 
 const NewsContent = () => {
-  const { data, isLoading, isError } = useGetUserNews("frontend");
+  const { data, isLoading, isError } = useGetUserNewsFrontend();
 
   if (isLoading) {
     return <div>Loading...</div>;
