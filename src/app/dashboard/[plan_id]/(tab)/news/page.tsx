@@ -9,14 +9,14 @@ import { Icons } from "@/components/Icons";
 import SectionPadding from "@/components/SectionPadding";
 import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
+import { useDeleteUserNewsMutation, useGetUserNewsDashboard, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
 import { cn } from "@/lib/utils";
 
 import NewsSkeleton from "./NewsSkeleton";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();
-  const { data, isFetching } = useGetUserNews("dashboard");
+  const { data, isFetching } = useGetUserNewsDashboard();
   const { mutate: deleteUserNews } = useDeleteUserNewsMutation();
   const { mutate: updateIsActive } = useUpdateNewsTableMutation();
 
