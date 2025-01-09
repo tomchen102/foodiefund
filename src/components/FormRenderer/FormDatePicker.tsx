@@ -50,7 +50,6 @@ const FormDatePicker = <T extends FieldValues>({ label, name }: FormFieldConfig<
                   mode="single"
                   selected={field.value ? new Date(field.value) : undefined}
                   onSelect={handleSelect}
-                  disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
                   initialFocus
                 />
               </PopoverContent>
