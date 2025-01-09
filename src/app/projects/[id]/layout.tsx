@@ -9,17 +9,14 @@ import { createMetadata } from "@/utils/metadata";
 import ProjectSummary from "./_components/ProjectSummary";
 import LayoutContent from "./content";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 const ProjectsLayout = async ({ params, children, Navbar, Rewards }: ProviderLayoutProps) => {
-  const id = params!.id;
+  const { id } = (await params) as { id: string };
   const data = await getRecentProjectsBlockData();
   const ProjectSummaryData = await getProjectSummaryData();
 
   return (
     <>
-      <ProjectSummary {...ProjectSummaryData.find((project) => project.id === id.toString())!} />
+      <ProjectSummary {...ProjectSummaryData.find((project) => project.id === id)!} />
       <LayoutContent Navbar={Navbar} Rewards={Rewards}>
         {children}
       </LayoutContent>
