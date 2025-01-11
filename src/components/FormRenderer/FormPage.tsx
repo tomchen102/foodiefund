@@ -28,8 +28,6 @@ const FormPage = <T extends FieldValues>({
     defaultValues: isCreateMode ? initialValues : fetchedData,
   });
   const onSubmit = async (formData: T) => {
-    console.log(isCreateMode);
-
     if (isCreateMode) {
       await create(formData);
     } else {
