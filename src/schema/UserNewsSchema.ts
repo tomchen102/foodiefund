@@ -4,7 +4,6 @@ export const UserNewsListResponseSchema = z.object({
   id: z.string(),
   title: z.string().nonempty("標題不可為空"),
   intro: z.string(),
-  content: z.string(),
   isActive: z.boolean(),
   isTop: z.boolean(),
   image: z
@@ -19,6 +18,10 @@ export const UserNewsListResponseSchema = z.object({
     ])
     .optional(),
   publicAt: z.string().optional(),
+});
+
+export const UserNewsDetailResponseSchema = UserNewsListResponseSchema.extend({
+  content: z.string(),
 });
 
 export const UserNewsListArrayResponseSchema = z.array(UserNewsListResponseSchema);
