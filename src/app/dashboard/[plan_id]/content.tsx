@@ -1,6 +1,6 @@
 "use client";
-import MobileNavbar from "./@Navbar/MobileNavbar";
-import Navbar from "./@Navbar/page";
+import Navbar from "../_components/Navbar";
+import MobileNavbar from "../_components/Navbar/MobileNavbar";
 
 const LayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
