@@ -1,5 +1,4 @@
 "use client";
-import { format } from "date-fns";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -45,7 +44,7 @@ const UserFaqPage = () => {
                         {item.questions}
                       </div>
                     </div>
-                    <div className="mb-4 text-gray-600">建立時間：{format(item.createdAt!, "yyyy-MM-dd")}</div>
+                    <div className="mb-4 text-gray-600">建立時間：{item.createdAt}</div>
                     <div className="flex items-center space-x-4">
                       <div className="mr-auto flex gap-3">
                         <Link

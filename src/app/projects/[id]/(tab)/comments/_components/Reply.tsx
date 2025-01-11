@@ -1,5 +1,4 @@
 "use client";
-import { format } from "date-fns";
 import Link from "next/link";
 import { RxAvatar } from "react-icons/rx";
 
@@ -80,9 +79,7 @@ const ReplyForm = () => {
                 <div>
                   <p className="font-bold">{comment.name}</p>
                   <p className="text-gray">
-                    <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
-                      {format(new Date(comment.publicAt), "yyyy-MM-dd")}
-                    </time>
+                    <time dateTime={comment.publicAt}>{comment.publicAt}</time>
                   </p>
                 </div>
               </header>
@@ -107,9 +104,7 @@ const ReplyForm = () => {
                               {reply.commentRule && <Badges text={reply.commentRule} className="ml-2" />}
                             </p>
                             <p className="text-gray">
-                              <time dateTime={format(new Date(comment.publicAt), "yyyy-MM-dd")}>
-                                {format(new Date(comment.publicAt), "yyyy-MM-dd")}
-                              </time>
+                              <time dateTime={comment.publicAt}>{comment.publicAt}</time>
                             </p>
                           </div>
                         </header>
