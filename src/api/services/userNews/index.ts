@@ -1,7 +1,8 @@
 import axiosClientDashboard from "@/api/axiosClientDashboard";
-import axiosClientFrontend from "@/api/axiosClientFrontend";
+import { selectClient } from "@/api/extensions/selectClient";
+import { ClientType } from "@/types/clientTypes";
 
-import { UserNewsListResponseType } from "./types";
+import { UserNewsListResponseType, UserNewsDetailResponseType } from "./types";
 
 export const userNewsApi = {
   getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/news`,
@@ -15,22 +16,24 @@ export const userNewsApi = {
     }
     return formData;
   },
-  getAll: async () => {
-    const response = await axiosClientFrontend.get(userNewsApi.getBaseUrl());
+  getAll: async (clientType: ClientType) => {
+    const client = selectClient(clientType);
+    const response = await client.get(userNewsApi.getBaseUrl());
     return response.data;
   },
-  getById: async (id: string) => {
-    const response = await axiosClientFrontend.get(`${userNewsApi.getBaseUrl()}/${id}`);
+  getById: async (id: string, clientType: ClientType) => {
+    const client = selectClient(clientType);
+    const response = await client.get(`${userNewsApi.getBaseUrl()}/${id}`);
     return response.data;
   },
-  create: async (data: UserNewsListResponseType) => {
+  create: async (data: UserNewsDetailResponseType) => {
     userNewsApi.createFormData(data);
     const response = await axiosClientDashboard.post(userNewsApi.getBaseUrl(), data, {
       headers: userNewsApi.MULTIPART_HEADERS,
     });
     return response.data;
   },
-  update: async (data: UserNewsListResponseType) => {
+  update: async (data: UserNewsDetailResponseType) => {
     userNewsApi.createFormData(data);
     const response = await axiosClientDashboard.put(`${userNewsApi.getBaseUrl()}/${data.id}`, data, {
       headers: userNewsApi.MULTIPART_HEADERS,

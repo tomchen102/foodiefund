@@ -1,5 +1,4 @@
 "use client";
-import { format } from "date-fns";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,14 +8,14 @@ import { Icons } from "@/components/Icons";
 import SectionPadding from "@/components/SectionPadding";
 import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useDeleteUserNewsMutation, useGetUserNewsDashboard, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
+import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
 import { cn } from "@/lib/utils";
 
 import NewsSkeleton from "./NewsSkeleton";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();
-  const { data, isFetching } = useGetUserNewsDashboard();
+  const { data, isFetching } = useGetUserNews("dashboard");
   const { mutate: deleteUserNews } = useDeleteUserNewsMutation();
   const { mutate: updateIsActive } = useUpdateNewsTableMutation();
 
@@ -28,6 +27,7 @@ const UserNewsPage = () => {
     updateIsActive({
       ...item,
       isActive: checked,
+      content: "",
     });
   };
   return (
@@ -53,7 +53,7 @@ const UserNewsPage = () => {
                         {item.title}
                       </div>
                     </div>
-                    <div className="mb-4 text-gray-600">發布日期：{format(item.publicAt!, "yyyy-MM-dd")}</div>
+                    <div className="mb-4 text-gray-600">發布日期：{item.publicAt}</div>
                     <div className="flex items-center justify-between space-x-4">
                       <div className="flex">
                         <Link

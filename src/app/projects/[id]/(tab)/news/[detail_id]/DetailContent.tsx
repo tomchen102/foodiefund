@@ -1,6 +1,5 @@
 "use client";
 
-import { format } from "date-fns";
 import parse from "html-react-parser";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -11,7 +10,7 @@ import { useGetUserNewsId } from "@/hooks/uesUserNews";
 const DetailContent = () => {
   const params = useParams();
   const id = params.detail_id as string;
-  const { data, isLoading, isError } = useGetUserNewsId(id, { enabled: true });
+  const { data, isLoading, isError } = useGetUserNewsId(id, "frontend");
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -39,7 +38,7 @@ const DetailContent = () => {
           </div>
           <h2 className="mb-2 text-lg font-bold md:text-2xl">計畫更新: {data.title}</h2>
           <div className="mb-3">
-            <span className="text-gray">發佈日期：{format(new Date(data.publicAt!), "yyyy-MM-dd")}</span>
+            <span className="text-gray">發佈日期：{data.publicAt}</span>
           </div>
           <div className="prose mb-2">{parse(data.content ?? "")}</div>
         </div>
