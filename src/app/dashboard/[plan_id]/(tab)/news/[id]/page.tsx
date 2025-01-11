@@ -1,12 +1,12 @@
 "use client";
 import { useParams } from "next/navigation";
 
-import { UserNewsListResponseType } from "@/api/services/userNews/types";
+import { UserNewsDetailResponseType } from "@/api/services/userNews/types";
 import FormPage from "@/components/FormRenderer/FormPage";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import SectionPadding from "@/components/SectionPadding";
 import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/uesUserNews";
-import { UserNewsListResponseSchema } from "@/schema/UserNewsSchema";
+import { UserNewsDetailResponseSchema } from "@/schema/UserNewsSchema";
 
 const initialValues = {
   id: "",
@@ -18,7 +18,7 @@ const initialValues = {
   image: null,
 };
 
-const userNewsFormFields: FormFieldConfig<UserNewsListResponseType>[] = [
+const userNewsFormFields: FormFieldConfig<UserNewsDetailResponseType>[] = [
   { label: "標題", name: "title", type: "text", key: "title", required: true },
   { label: "圖片", name: "image", type: "file", key: "image" },
   { label: "簡介", name: "intro", type: "textarea", key: "intro", required: true },
@@ -32,7 +32,7 @@ const NewsId = () => {
   const id = params.id as string;
   const isCreateMode = id === "create";
 
-  const { data: userNewsIdData } = useGetUserNewsId(id, {
+  const { data: userNewsIdData } = useGetUserNewsId(id, "dashboard", {
     enabled: !isCreateMode,
   });
   const { mutate: create } = usePostUserNewsMutation();
@@ -40,14 +40,14 @@ const NewsId = () => {
 
   return (
     <SectionPadding container>
-      <FormPage<UserNewsListResponseType>
+      <FormPage<UserNewsDetailResponseType>
         initialValues={initialValues}
         fetchedData={userNewsIdData!}
         formFields={userNewsFormFields}
         create={create}
         update={update}
         redirectUrl={`/dashboard/${params.plan_id}/news`}
-        schema={UserNewsListResponseSchema}
+        schema={UserNewsDetailResponseSchema}
       />
     </SectionPadding>
   );
