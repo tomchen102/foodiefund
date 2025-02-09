@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 
 import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
 import { Icons } from "@/components/Icons";
-import SectionPadding from "@/components/SectionPadding";
 import { buttonVariants } from "@/components/ui/button";
 import { useDeleteUserFaqMutation, useGetUserFaq } from "@/hooks/useUserFaq";
 import { cn } from "@/lib/utils";
@@ -22,7 +21,7 @@ const UserFaqPage = () => {
   };
 
   return (
-    <SectionPadding container>
+    <>
       {isFetching ? (
         <FaqSkeleton />
       ) : (
@@ -62,7 +61,7 @@ const UserFaqPage = () => {
           </div>
         </div>
       )}
-    </SectionPadding>
+    </>
   );
 };
 

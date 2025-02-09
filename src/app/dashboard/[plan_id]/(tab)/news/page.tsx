@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
 import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
 import { Icons } from "@/components/Icons";
-import SectionPadding from "@/components/SectionPadding";
 import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
@@ -31,7 +30,7 @@ const UserNewsPage = () => {
     });
   };
   return (
-    <SectionPadding container>
+    <>
       {isFetching ? (
         <NewsSkeleton />
       ) : (
@@ -84,7 +83,7 @@ const UserNewsPage = () => {
           </div>
         </div>
       )}
-    </SectionPadding>
+    </>
   );
 };
 
