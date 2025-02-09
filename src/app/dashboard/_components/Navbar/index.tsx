@@ -40,21 +40,22 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="hidden h-full bg-[#d6f4f0] py-3 md:block">
-      <div className="flex justify-center">
-        <ul className="w-36 text-gray-900">
-          <div className="flex items-center gap-2">
-            <FaThList></FaThList>提案紀錄
-          </div>
+    <nav className="hidden h-full w-[220px] bg-[#27272a] pt-5 md:block">
+      <div className="flex flex-col justify-center">
+        <div className="flex items-center px-4 pb-3 font-bold text-white">提案紀錄</div>
+        <ul>
           {links.map((link) => (
-            <li className="w-full px-4 py-2" key={link.href}>
+            <li className="w-full" key={link.href}>
               <Link
                 href={link.href}
-                className={cn("border-l-2 pl-3", {
-                  "border-secondary text-secondary": isActive(link.href),
-                  "border-transparent text-primary-dark hover:border-secondary": !isActive(link.href),
+                className={cn("flex items-center py-3 hover:bg-[#71717A] hover:text-white", {
+                  "bg-[#71717A] text-white": isActive(link.href),
+                  "border-transparent text-[#71717A] hover:border-secondary": !isActive(link.href),
                 })}
               >
+                <div className="ml-5 mr-3">
+                  <FaThList />
+                </div>
                 {link.label}
               </Link>
             </li>
