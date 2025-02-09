@@ -18,10 +18,10 @@ const ReactQueryProvider = ({ children }: ProviderProps) => {
         },
         queryCache: new QueryCache({
           onError: (error) => {
-            console.error("Global Query Error:", error);
+            console.error("Global Query Error:", error.message);
             return toast({
               variant: "destructive",
-              description: `${error}`,
+              description: `${error.message}`,
             });
           },
         }),
