@@ -8,4 +8,5 @@ export interface ProviderProps {
 
 export interface SectionPaddingProps extends ProviderProps {
   container?: boolean;
+  adminContainer?: boolean;
 }
