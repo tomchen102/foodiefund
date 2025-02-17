@@ -20,7 +20,7 @@ const config: Config = {
         noto: ["var(--font-noto-sans)"],
       },
       textColor: {
-        DEFAULT: "#09090B",
+        DEFAULT: "#18181B",
       },
       keyframes: {
         fadeIn: {
@@ -44,7 +44,7 @@ const config: Config = {
         },
         primary: {
           DEFAULT: "#40E0D0",
-          hover: "#0F514E",
+          hover: "#079A91",
           dark: "#0F514E",
           light: "#D6F4F0",
           foreground: "hsl(var(--primary-foreground))",
@@ -79,16 +79,16 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
         black: {
-          DEFAULT: "#09090B", //primary-text
+          DEFAULT: "#18181B", //primary-text
           foreground: "hsl(var(--black-foreground))",
         },
         white: {
-          DEFAULT: "#FAFAFA", //default-background, white text
+          DEFAULT: "#FDFBF8", //default-background, white text
           foreground: "hsl(var(--white-foreground))",
         },
         gray: {
           DEFAULT: "#71717A", //secondary-text
-          200: "#E4E4E7", //input border, divider
+          200: "#D4D4D8", //input border, divider
           400: "#A1A1AA", //control icon, placeholder
           500: "#71717A", // icon-indicator
           600: "#52525B", //input/select text
