@@ -1,18 +1,18 @@
 "use client";
 import { ProviderProps } from "@/types/ProviderType";
 
-import Navbar from "../_components/Navbar";
-import MobileNavbar from "../_components/Navbar/MobileNavbar";
 import PlanSelect from "../_components/PlanSelect";
+import Sidebar from "../_components/Sidebar";
+import MobileNavbar from "../_components/Sidebar/MobileNavbar";
 
 const LayoutContent = ({ children }: ProviderProps) => {
   return (
     <div className="flex">
-      <div className="mr-8">
-        <Navbar />
+      <div className="lg:mr-8">
+        <Sidebar />
         <MobileNavbar />
       </div>
-      <div>
+      <div className="w-full">
         <PlanSelect />
         {children}
       </div>
