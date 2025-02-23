@@ -1,18 +1,23 @@
-import { FiPlus } from "react-icons/fi";
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/Icons";
+import SectionPadding from "@/components/SectionPadding";
+import { buttonVariants } from "@/components/ui/button";
 
 const Rewards = () => {
+  const createRewardUrl = usePathname();
   return (
-    <div>
-      <div className="my-5 flex items-center">
-        <h1 className="mr-3">計畫回饋</h1>
-        <Button className="ml-auto" variant="donateNow">
-          <FiPlus size={20} className="mr-2" />
+    <SectionPadding container>
+      <div className="mb-5 flex items-center justify-between">
+        <h1>計畫回饋</h1>
+        <Link href={`${createRewardUrl}/create`} className={buttonVariants({ variant: "donateNow" })}>
+          <Icons.Add dimension="s" className="text-white" />
           新增資料
-        </Button>
+        </Link>
       </div>
-    </div>
+    </SectionPadding>
   );
 };
 
