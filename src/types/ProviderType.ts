@@ -4,8 +4,6 @@ export interface ProviderProps {
   params?: {
     id: string;
   };
-  Navbar?: React.ReactNode;
-  Rewards?: React.ReactNode;
 }
 
 export interface SectionPaddingProps extends ProviderProps {
