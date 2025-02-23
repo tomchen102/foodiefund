@@ -3,9 +3,7 @@ import { ProviderProps } from "@/types/ProviderType";
 
 import LayoutContent from "./content";
 
-const DashboardLayout = (props: ProviderProps) => {
-  const { children } = props;
-
+const DashboardLayout = ({ children }: ProviderProps) => {
   return (
     <SectionPadding container adminContainer>
       <LayoutContent>{children}</LayoutContent>
