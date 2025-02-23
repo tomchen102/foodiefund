@@ -2,12 +2,12 @@
 import { createContext, useContext, useState } from "react";
 
 import { DialogState } from "@/types/DialogState";
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DialogContext = createContext<DialogState<any> | undefined>(undefined);
 
-export const DialogProvider = <T,>({ children }: ProviderProps) => {
+export const DialogProvider = <T,>({ children }: ChildrenProps) => {
   const [dialogState, setDialogState] = useState<DialogState<T>>({
     dialogState: {
       isOpen: false,

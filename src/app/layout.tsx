@@ -4,7 +4,7 @@ import { Noto_Sans_TC } from "next/font/google";
 
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/toaster";
-import { ProviderProps } from "@/types/ProviderType";
+import { LayoutProps } from "@/types/ProviderType";
 import { DialogProvider } from "@/utils/DialogContext";
 import { createMetadata } from "@/utils/metadata";
 import { AuthProvider } from "@/utils/providers/AuthProvider";
@@ -27,7 +27,7 @@ export const metadata: Metadata = createMetadata({
   },
 });
 
-const RootLayout = ({ children }: ProviderProps) => {
+const RootLayout = ({ children }: LayoutProps) => {
   return (
     <html lang="zh">
       <head>

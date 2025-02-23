@@ -1,14 +1,17 @@
 import { ReactNode } from "react";
 
-export interface ProviderProps {
+export interface LayoutProps {
   children: ReactNode;
+}
+
+export interface ChildrenProps extends LayoutProps {
   className?: string;
   params?: {
-    id: string | number;
+    id: string;
   };
 }
 
-export interface SectionPaddingProps extends ProviderProps {
+export interface SectionPaddingProps extends ChildrenProps {
   container?: boolean;
   adminContainer?: boolean;
 }

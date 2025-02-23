@@ -2,10 +2,10 @@
 import React from "react";
 
 import Loading from "@/components/Loading";
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 import { useLoading } from "@/utils/providers/LoadingContext";
 
-const ClientLoadingWrapper = ({ children }: ProviderProps) => {
+const ClientLoadingWrapper = ({ children }: ChildrenProps) => {
   const { isLoading } = useLoading();
   return (
     <>

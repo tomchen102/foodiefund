@@ -1,11 +1,11 @@
 "use client";
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
 import PlanSelect from "../_components/PlanSelect";
 import Sidebar from "../_components/Sidebar";
 import MobileNavbar from "../_components/Sidebar/MobileNavbar";
 
-const LayoutContent = ({ children }: ProviderProps) => {
+const LayoutContent = ({ children }: ChildrenProps) => {
   return (
     <div className="flex">
       <div className="lg:mr-8">

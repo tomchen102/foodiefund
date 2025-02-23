@@ -2,12 +2,12 @@
 import { usePathname } from "next/navigation";
 
 import SectionPadding from "@/components/SectionPadding";
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
 import Navbar from "./_components/Navbar";
 import Rewards from "./_components/Rewards";
 
-const LayoutContent = ({ children }: ProviderProps) => {
+const LayoutContent = ({ children }: ChildrenProps) => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/project-list");
 

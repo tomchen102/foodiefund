@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 import ClientLoadingWrapper from "@/components/Loading/ClientLoadingWrapper";
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
 interface LoadingContextType {
   isLoading: boolean;
@@ -19,7 +19,7 @@ export const useLoading = () => {
   return context;
 };
 
-export const LoadingProvider = ({ children }: ProviderProps) => {
+export const LoadingProvider = ({ children }: ChildrenProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (

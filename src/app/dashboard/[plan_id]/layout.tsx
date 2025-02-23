@@ -1,12 +1,7 @@
-import { ReactNode } from "react";
-
 import SectionPadding from "@/components/SectionPadding";
+import { LayoutProps } from "@/types/ProviderType";
 
 import LayoutContent from "./content";
-interface LayoutProps {
-  children: ReactNode;
-}
-
 const DashboardLayout = ({ children }: LayoutProps) => {
   return (
     <SectionPadding container adminContainer>

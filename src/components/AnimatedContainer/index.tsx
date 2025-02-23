@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
-const AnimatedContainer = ({ children, ...props }: ProviderProps) => {
+const AnimatedContainer = ({ children, ...props }: ChildrenProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -2,7 +2,7 @@
 import Cookies from "js-cookie";
 import React, { createContext, useState, useEffect, useContext } from "react";
 
-import { ProviderProps } from "@/types/ProviderType";
+import { ChildrenProps } from "@/types/ProviderType";
 
 export interface User {
   name: string;
@@ -18,7 +18,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider = ({ children }: ProviderProps) => {
+export const AuthProvider = ({ children }: ChildrenProps) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
