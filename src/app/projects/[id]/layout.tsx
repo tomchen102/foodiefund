@@ -3,13 +3,13 @@ import { Metadata } from "next";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import { getProjectSummaryData } from "@/mock/getProjectSummaryData";
 import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
-import { ProviderLayoutProps } from "@/types/ProviderType";
+import { ProviderProps } from "@/types/ProviderType";
 import { createMetadata } from "@/utils/metadata";
 
 import ProjectSummary from "./_components/ProjectSummary";
 import LayoutContent from "./content";
 
-const ProjectsLayout = async ({ params, children, Navbar, Rewards }: ProviderLayoutProps) => {
+const ProjectsLayout = async ({ params, children }: ProviderProps) => {
   const { id } = (await params) as { id: string };
   const data = await getRecentProjectsBlockData();
   const ProjectSummaryData = await getProjectSummaryData();
@@ -17,9 +17,7 @@ const ProjectsLayout = async ({ params, children, Navbar, Rewards }: ProviderLay
   return (
     <>
       <ProjectSummary {...ProjectSummaryData.find((project) => project.id === id)!} />
-      <LayoutContent Navbar={Navbar} Rewards={Rewards}>
-        {children}
-      </LayoutContent>
+      <LayoutContent>{children}</LayoutContent>
       <RecentProjectsBlock className="bg-[#F5E5CE]" data={data} title="近期專案" gridType="four" />
     </>
   );
