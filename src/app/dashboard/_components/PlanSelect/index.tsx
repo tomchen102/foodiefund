@@ -10,24 +10,26 @@ const navMenu = {
 };
 const PlanSelect = () => {
   return (
-    <div className="mb-10 flex items-center">
-      <div className="mr-6">
+    <div className="lg:mb-10 lg:flex lg:items-center">
+      <div className="mb-6 lg:mr-6">
         <h5>募資監控中心</h5>
       </div>
-      <Select>
-        <SelectTrigger className="w-[192px]">
-          <SelectValue placeholder="金華火腿主題咖啡屋" />
-        </SelectTrigger>
-        <SelectContent>
-          {navMenu.projectNav.map((item, index) => (
-            <SelectItem key={index} value={item.title}>
-              {item.title}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <div className="ml-3">
-        <Badges text="審核中" />
+      <div className="mb-5 flex items-center">
+        <Select>
+          <SelectTrigger className="w-[192px]">
+            <SelectValue placeholder="金華火腿主題咖啡屋" />
+          </SelectTrigger>
+          <SelectContent>
+            {navMenu.projectNav.map((item, index) => (
+              <SelectItem key={index} value={item.title}>
+                {item.title}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <div className="ml-3">
+          <Badges text="審核中" />
+        </div>
       </div>
     </div>
   );
