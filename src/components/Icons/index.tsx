@@ -30,6 +30,13 @@ import {
   MdOutlineSouthEast,
   MdRemoveRedEye,
   MdRestaurant,
+  MdCheck,
+  MdAccessTime,
+  MdOutlineShoppingBag,
+  MdOutlineMonetizationOn,
+  MdThumbUpOffAlt,
+  MdKeyboardReturn,
+  MdListAlt,
 } from "react-icons/md";
 
 import { cn } from "@/lib/utils";
@@ -113,4 +120,11 @@ export const Icons = {
   ViewMore: createIconComponent(MdOutlineSouthEast),
   DoubleArrowLeft: createIconComponent(MdOutlineKeyboardDoubleArrowLeft),
   DoubleArrowRight: createIconComponent(MdOutlineKeyboardDoubleArrowRight),
+  Check: createIconComponent(MdCheck),
+  Time: createIconComponent(MdAccessTime),
+  ShoppingBag: createIconComponent(MdOutlineShoppingBag),
+  Monetization: createIconComponent(MdOutlineMonetizationOn),
+  ThumbUpOffAlt: createIconComponent(MdThumbUpOffAlt),
+  KeyboardReturn: createIconComponent(MdKeyboardReturn),
+  ListAlt: createIconComponent(MdListAlt),
 };
