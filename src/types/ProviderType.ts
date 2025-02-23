@@ -4,7 +4,7 @@ export interface ProviderProps {
   children: ReactNode;
   className?: string;
   params?: {
-    id: string;
+    id: string | number;
   };
 }
 
