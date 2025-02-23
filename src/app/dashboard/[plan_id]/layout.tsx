@@ -3,7 +3,7 @@ import { ProviderProps } from "@/types/ProviderType";
 
 import LayoutContent from "./content";
 
-const ProjectsLayout = (props: ProviderProps) => {
+const DashboardLayout = (props: ProviderProps) => {
   const { children } = props;
 
   return (
@@ -13,4 +13,4 @@ const ProjectsLayout = (props: ProviderProps) => {
   );
 };
 
-export default ProjectsLayout;
+export default DashboardLayout;

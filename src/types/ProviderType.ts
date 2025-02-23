@@ -1,7 +1,5 @@
-import { ReactNode } from "react";
-
 export interface ProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
   params?: {
     id: string;
