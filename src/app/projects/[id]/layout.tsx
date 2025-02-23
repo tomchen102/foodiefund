@@ -3,13 +3,13 @@ import { Metadata } from "next";
 import RecentProjectsBlock from "@/components/RecentProjectsBlock";
 import { getProjectSummaryData } from "@/mock/getProjectSummaryData";
 import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
-import { ProviderLayoutProps } from "@/types/ProviderType";
+import { ProviderProps } from "@/types/ProviderType";
 import { createMetadata } from "@/utils/metadata";
 
 import ProjectSummary from "./_components/ProjectSummary";
 import LayoutContent from "./content";
 
-const ProjectsLayout = async ({ params, children, Navbar, Rewards }: ProviderLayoutProps) => {
+const ProjectsLayout = async ({ params, children, Navbar, Rewards }: ProviderProps) => {
   const { id } = (await params) as { id: string };
   const data = await getRecentProjectsBlockData();
   const ProjectSummaryData = await getProjectSummaryData();
