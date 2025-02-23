@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-const MobileNavbar = () => {
+const MobileSidebar = () => {
   const pathname = usePathname();
   const params = useParams();
   const [currentPath, setCurrentPath] = useState("");
@@ -88,4 +88,4 @@ const MobileNavbar = () => {
   );
 };
 
-export default MobileNavbar;
+export default MobileSidebar;

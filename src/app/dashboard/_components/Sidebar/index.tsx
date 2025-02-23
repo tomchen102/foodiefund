@@ -6,7 +6,7 @@ import { FaThList } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
 
-const Navbar = () => {
+const Sidebar = () => {
   const pathname = usePathname();
   const params = useParams();
   const [currentPath, setCurrentPath] = useState("");
@@ -66,4 +66,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Sidebar;
