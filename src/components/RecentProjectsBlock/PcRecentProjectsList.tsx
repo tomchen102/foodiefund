@@ -75,7 +75,7 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                       </div>
                     )}
                     {item.projectType === "fundraising" && gridType === "four" && (
-                      <Progress value={item.percentage} className="my-5" />
+                      <Progress value={item.percentage!} className="my-5" />
                     )}
                     <div className="mt-3 flex items-center">
                       {item.projectType === "fundraising" && (

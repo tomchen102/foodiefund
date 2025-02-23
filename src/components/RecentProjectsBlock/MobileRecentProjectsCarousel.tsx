@@ -72,7 +72,7 @@ const MobileRecentProjectsCarousel = ({ data }: RecentProjectsListProps) => {
                           </div>
                         )}
                       </div>
-                      {item.projectType === "fundraising" && <Progress value={item.percentage} className="my-5" />}
+                      {item.projectType === "fundraising" && <Progress value={item.percentage!} className="my-5" />}
                       <div className="flex">
                         {item.projectType === "fundraising" && (
                           <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>

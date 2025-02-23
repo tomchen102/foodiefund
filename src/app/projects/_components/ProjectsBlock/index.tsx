@@ -57,7 +57,7 @@ const ProjectsBlock = ({ data }: RecentProjectsListProps) => {
                     )}
                   </div>
 
-                  {item.projectType === "fundraising" && <Progress value={item.percentage} className="my-3" />}
+                  {item.projectType === "fundraising" && <Progress value={item.percentage!} className="my-3" />}
                   <div className="flex items-center">
                     {item.projectType === "fundraising" && (
                       <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
