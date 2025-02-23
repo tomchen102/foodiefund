@@ -12,7 +12,7 @@ export const UserNewsListResponseSchema = z.object({
       z
         .instanceof(File)
         .refine((file) => file.type.startsWith("image/"), {
-          message: "必须是有效的图片文件",
+          message: "必須是有效的圖片文件",
         })
         .optional(),
     ])
