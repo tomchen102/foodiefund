@@ -18,7 +18,7 @@ const ProgressPlan = () => {
             {index > 0 && (
               <div
                 className={`absolute left-[-50%] top-6 h-0.5 w-full bg-[#D4D4D8] ${
-                  steps[index - 1].status !== "pending" ? "bg-[#079A91]" : ""
+                  steps[index - 1].status !== "pending" ? "bg-primary-hover" : ""
                 }`}
               />
             )}
@@ -27,16 +27,16 @@ const ProgressPlan = () => {
             <div
               className={`z-10 flex h-12 w-12 items-center justify-center rounded-full border-[3px] bg-white ${
                 step.status === "completed"
-                  ? "border-[#079A91]"
+                  ? "border-primary-hover"
                   : step.status === "current"
-                    ? "border-[#079A91]"
+                    ? "border-primary-hover"
                     : "border-[#D4D4D8]"
               }`}
             >
               {step.status === "completed" ? (
-                <Icons.Check className="text-[#079A91]" />
+                <Icons.Check className="text-primary-hover" />
               ) : step.status === "current" ? (
-                <div className="h-5 w-5 rounded-full bg-[#079A91]"></div>
+                <div className="h-5 w-5 rounded-full bg-primary-hover"></div>
               ) : null}
             </div>
 
@@ -45,7 +45,7 @@ const ProgressPlan = () => {
               className={`mt-2 hidden lg:block ${
                 step.status === "completed" || step.status === "current"
                   ? "font-bold text-black"
-                  : "font-medium text-[#71717A]"
+                  : "font-medium text-gray"
               }`}
             >
               {step.label}

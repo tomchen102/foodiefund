@@ -11,7 +11,7 @@ interface ProgressProps extends React.ComponentPropsWithoutRef<typeof ProgressPr
 
 const Progress = React.forwardRef<React.ElementRef<typeof ProgressPrimitive.Root>, ProgressProps>(
   ({ className, value, type = "frontend", ...props }, ref) => {
-    const indicatorClassName = type === "frontend" ? "bg-primary" : "bg-[#079a91]";
+    const indicatorClassName = type === "frontend" ? "bg-primary" : "bg-primary-hover";
     const rootClassName = type === "frontend" ? "bg-primary/20" : "h-8 rounded-lg bg-[#f4f4f5]";
 
     return (

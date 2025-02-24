@@ -48,9 +48,9 @@ const Sidebar = () => {
             <li className="w-full" key={link.href}>
               <Link
                 href={link.href}
-                className={cn("flex items-center py-3 hover:bg-[#71717A] hover:text-white", {
-                  "bg-[#71717A] text-white": isActive(link.href),
-                  "border-transparent text-[#71717A] hover:border-secondary": !isActive(link.href),
+                className={cn("flex items-center py-3 hover:bg-gray hover:text-white", {
+                  "bg-gray text-white": isActive(link.href),
+                  "border-transparent text-gray hover:border-secondary": !isActive(link.href),
                 })}
               >
                 <div className="ml-5 mr-3">

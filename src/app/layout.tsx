@@ -34,7 +34,7 @@ const RootLayout = ({ children }: LayoutProps) => {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
-        className={`${notoSansTC.variable} ${notoSansTC.className} flex min-h-screen flex-col bg-[#FDFBF8] antialiased`}
+        className={`${notoSansTC.variable} ${notoSansTC.className} flex min-h-screen flex-col bg-white antialiased`}
         suppressHydrationWarning={true}
       >
         <AuthProvider>
