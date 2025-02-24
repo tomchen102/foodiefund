@@ -2,6 +2,7 @@ import { cva } from "class-variance-authority";
 import React from "react";
 import { IconType } from "react-icons/lib";
 import {
+  MdAddCircle,
   MdArrowForward,
   MdAttachMoney,
   MdCheckCircle,
@@ -18,6 +19,7 @@ import {
   MdOutlineAdd,
   MdOutlineArrowDownward,
   MdOutlineCalendarMonth,
+  MdOutlineCheck,
   MdOutlineEdit,
   MdOutlineEditNote,
   MdOutlineExpandLess,
@@ -39,10 +41,10 @@ import {
   MdOutlineSouthEast,
   MdOutlineThumbUpAlt,
   MdOutlineVerified,
+  MdRemoveCircle,
   MdRemoveRedEye,
   MdRestaurant,
   MdViewList,
-  MdCheck,
   MdAccessTime,
   MdOutlineShoppingBag,
   MdOutlineMonetizationOn,
@@ -146,9 +148,11 @@ export const Icons = {
   Wallet: createIconComponent(MdOutlineAccountBalanceWallet),
   Comment: createIconComponent(MdOutlineQuestionAnswer),
   Remain: createIconComponent(MdOutlineInventory),
-  Check: createIconComponent(MdCheck),
   Time: createIconComponent(MdAccessTime),
   ThumbUpOffAlt: createIconComponent(MdThumbUpOffAlt),
   KeyboardReturn: createIconComponent(MdKeyboardReturn),
   ListAlt: createIconComponent(MdListAlt),
+  ExpendFill: createIconComponent(MdAddCircle),
+  CollapseFill: createIconComponent(MdRemoveCircle),
+  Check: createIconComponent(MdOutlineCheck),
 };
