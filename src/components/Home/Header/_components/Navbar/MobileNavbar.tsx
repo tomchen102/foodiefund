@@ -24,7 +24,7 @@ const memberMenu: MemberMenuType = [
   { title: "帳號設定", href: "#", icon: Icons.Account },
   { title: "贊助紀錄", href: "#", icon: Icons.Money },
   { title: "收藏紀錄", href: "#", icon: Icons.Favorite },
-  { title: "提案紀錄", href: "#", icon: Icons.Plan },
+  { title: "提案紀錄", href: "/dashboard/64c5ae5c6f2d3e001c", icon: Icons.Plan },
 ];
 
 const MobileNavbar = ({ menuList }: MenuProps) => {
