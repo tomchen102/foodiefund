@@ -10,7 +10,7 @@ const navMenu: MenuType = [
   { title: "首頁", href: "/" },
   { title: "我要提案", href: "/dashboard/64c5ae5c6f2d3e001c" },
   { title: "探索專案", href: "/projects" },
-  { title: "問與答", href: "#" },
+  { title: "關於我", href: "/about-us" },
 ];
 
 const Header = () => {
