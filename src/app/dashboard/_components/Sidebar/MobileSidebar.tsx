@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaThList } from "react-icons/fa";
 
+import { Icons } from "@/components/Icons";
 import {
   Sheet,
   SheetClose,
@@ -50,25 +50,24 @@ const MobileSidebar = () => {
   };
 
   return (
-    <nav className="">
+    <nav>
       <Sheet open={isAllSheetsOpen} onOpenChange={setIsAllSheetsOpen} key="bottom">
-        <SheetTrigger className="fixed bottom-1/2 right-6 h-12 bg-[#d6f4f0] px-2 md:hidden">Open</SheetTrigger>
-        <SheetContent className="h-1/2 w-full p-0" side="bottom">
+        <SheetTrigger className="fixed bottom-[10%] right-6 h-12 w-12 rounded-full border bg-[#d6f4f0] px-2 md:hidden">
+          <Icons.List />
+        </SheetTrigger>
+        <SheetContent className="w-full p-0" side="bottom">
           <SheetHeader>
-            <SheetTitle className="hidden"></SheetTitle>
-            <SheetDescription className="hidden"></SheetDescription>
+            <SheetTitle></SheetTitle>
+            <SheetDescription></SheetDescription>
           </SheetHeader>
           <div className="flex justify-center">
-            <ul className="w-36 text-gray-900">
-              <div className="flex items-center gap-2">
-                <FaThList></FaThList>提案紀錄
-              </div>
+            <ul className="w-full text-gray-900">
               {links.map((link) => (
-                <li className="w-full px-4 py-2" key={link.href}>
+                <li className="w-full px-4 py-2 text-center" key={link.href}>
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={cn("border-l-2 pl-3", {
+                    className={cn("pl-3", {
                       "border-secondary text-secondary": isActive(link.href),
                       "border-transparent text-primary-dark hover:border-secondary": !isActive(link.href),
                     })}
