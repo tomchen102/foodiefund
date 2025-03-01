@@ -5,9 +5,14 @@ export async function middleware(req: NextRequest) {
   const tokenCookie = req.cookies.get("token");
   const token = tokenCookie ? tokenCookie.value : null;
 
-  const protectedRoutes = [/^\/projects\/\d+\/project-list\/payment$/, /^\/payment-successful$/, /^\/payment$/];
+  const protectedRoutes = [
+    /^\/projects\/\d+\/project-list\/payment$/,
+    /^\/payment-successful$/,
+    /^\/payment$/,
+    /^\/dashboard(\/.*)?$/,
+  ];
 
-  const publicRoutes = [/^\/login$/, /^\/register$/, /^\/redirect$/, /^\/payment$/];
+  const publicRoutes = [/^\/login$/, /^\/register$/, /^\/redirect$/, /^\/payment$/, /^\/dashboard$/];
 
   // 如果用戶已經登錄，並且嘗試訪問登錄或註冊頁面，則重定向到主頁
   if (token && publicRoutes.some((route) => route.test(req.nextUrl.pathname))) {
@@ -25,5 +30,12 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/login", "/redirect", "/register", "/payment-successful", "/projects/:id/project-list/payment"], // 保護的路由和登錄頁面
+  matcher: [
+    "/login",
+    "/redirect",
+    "/register",
+    "/payment-successful",
+    "/projects/:id/project-list/payment",
+    "/dashboard/:path*",
+  ], // 保護的路由和登錄頁面
 };
