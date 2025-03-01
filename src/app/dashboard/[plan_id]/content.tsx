@@ -3,7 +3,7 @@ import { ChildrenProps } from "@/types/ProviderType";
 
 import PlanSelect from "../_components/PlanSelect";
 import Sidebar from "../_components/Sidebar";
-import MobileNavbar from "../_components/Sidebar/MobileNavbar";
+import MobileNavbar from "../_components/Sidebar/MobileSidebar";
 
 const LayoutContent = ({ children }: ChildrenProps) => {
   return (
