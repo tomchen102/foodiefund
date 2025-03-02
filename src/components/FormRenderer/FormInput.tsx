@@ -63,12 +63,25 @@ const FormInput = <T extends FieldValues>({
                 <Input type="file" placeholder={placeholder} onChange={handleFileChange} ref={ref} accept="image/*" />
               ) : (
                 <Input
+                  id={name as Path<T>}
                   className={className}
                   placeholder={placeholder}
                   {...field}
                   type={type}
-                  value={field.value || ""}
+                  value={field.value ?? ""}
                   disabled={disabled}
+                  autoComplete={type === "password" ? "current-password" : "on"}
+                  {...(type === "tel" && {
+                    inputMode: "numeric",
+                    pattern: "[0-9]*",
+                    onChange: (e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        const numericValue = value === "" ? "" : Number(value);
+                        field.onChange(numericValue);
+                      }
+                    },
+                  })}
                 />
               )}
             </FormControl>
