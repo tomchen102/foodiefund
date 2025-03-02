@@ -54,7 +54,7 @@ export const planApiSchema = z.object({
     activeTime: z.string(),
     repurchaseRate: z.number(),
     address: z.string(),
-    end_at: z.string(),
+    endAt: z.string(),
     coverage: z.number(),
     avgAmount: z.number(),
     targetAmount: z.number(),
