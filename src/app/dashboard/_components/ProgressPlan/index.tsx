@@ -8,8 +8,6 @@ import { useGetPlan } from "@/hooks/usePlan";
 const ProgressPlan = () => {
   const params = useParams();
   const id = params.plan_id as string;
-  console.log("id", id);
-
   const { data } = useGetPlan(id ?? "");
 
   return (

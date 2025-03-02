@@ -8,7 +8,6 @@ import { useGetPlan } from "@/hooks/usePlan";
 const FinancialPlan = () => {
   const params = useParams();
   const id = params.plan_id as string;
-  console.log("id", id);
   const { data } = useGetPlan(id ?? "");
 
   return (
@@ -44,7 +43,7 @@ const FinancialPlan = () => {
             <div className="mb-3 mr-auto lg:mb-0">
               <h4>NT$ {data?.plan.targetAmount}</h4>
             </div>
-            <span className="text-gray lg:ml-2">最後募資期限：{data?.plan.end_at}</span>
+            <span className="text-gray lg:ml-2">最後募資期限：{data?.plan.endAt}</span>
           </div>
           <Progress value={data?.plan.coverage ?? 0} type="backend" />
         </div>
