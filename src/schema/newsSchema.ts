@@ -7,7 +7,7 @@ export const newsResponseTypeSchema = z.object({
   isEnabled: z.boolean().optional(),
   isTop: z.boolean().optional(),
   publicAt: z.string().optional(),
-  updateAt: z.string().optional(),
+  updatedAt: z.string().optional(),
   id: z.string().optional(),
 });
 
