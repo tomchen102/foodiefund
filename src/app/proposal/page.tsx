@@ -10,7 +10,7 @@ const Proposal = () => {
     <>
       <section>
         <div className="absolute h-[30rem] w-full bg-black/40 md:h-[31.25rem]"></div>
-        <div className="absolute top-[25rem] flex w-full flex-col gap-4 text-center text-white md:left-[12.5rem] md:text-left">
+        <div className="absolute top-[25rem] flex w-full flex-col gap-4 text-center text-white md:left-[12.5rem] md:w-fit md:text-left">
           <div className="text-2xl font-bold md:text-5xl">我要提案</div>
           <div className="font-bold md:text-2xl">集眾人之力，成就非凡未來！</div>
         </div>
