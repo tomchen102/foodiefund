@@ -65,8 +65,8 @@ export const prefetchNewsById = (queryClient: QueryClient, id: string, project: 
   });
 };
 
-export const initializeNewsByIdQueryClient = (id: string, project: string) => {
-  return initializeQueryClient((queryClient) => prefetchNewsById(queryClient, project, id));
+export const initializeNewsByIdQueryClient = (projectId: string, id: string) => {
+  return initializeQueryClient((queryClient) => prefetchNewsById(queryClient, projectId, id));
 };
 
 export const usePostUserNewsMutation = (projectId: string): MutationResult<UserNewsDetailResponseType> => {

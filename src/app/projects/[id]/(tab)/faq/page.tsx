@@ -4,15 +4,16 @@ import { initializeUserFaqListQueryClient } from "@/hooks/useUserFaq";
 
 import FaqContent from "./FaqContent";
 
-const getData = async () => {
-  const { dehydratedState } = await initializeUserFaqListQueryClient();
+const getData = async (projectId: string) => {
+  const { dehydratedState } = await initializeUserFaqListQueryClient(projectId);
   return {
     dehydratedState,
   };
 };
 
 const Faq = async () => {
-  const { dehydratedState } = await getData();
+  const projectId = "66fb66d32bebc04b1d517eb0";
+  const { dehydratedState } = await getData(projectId);
   return (
     <HydrationBoundary state={dehydratedState}>
       <FaqContent />
