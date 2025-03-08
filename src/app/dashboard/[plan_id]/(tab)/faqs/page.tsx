@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
 import { Icons } from "@/components/Icons";
@@ -12,8 +12,10 @@ import FaqSkeleton from "./FaqSkeleton";
 
 const UserFaqPage = () => {
   const createUserFaqUrl = usePathname();
-  const { data, isFetching } = useGetUserFaq("dashboard");
-  const { mutate: DeleteUserFaqMutation } = useDeleteUserFaqMutation();
+  const params = useParams();
+  const id = params.plan_id as string;
+  const { data, isFetching } = useGetUserFaq("dashboard", id);
+  const { mutate: DeleteUserFaqMutation } = useDeleteUserFaqMutation(id);
 
   const deleteItem = (id: string) => {
     console.log("Delete item", id);

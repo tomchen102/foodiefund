@@ -5,29 +5,29 @@ import { ClientType } from "@/types/clientTypes";
 import { UserFaqListResponseType } from "./types";
 
 export const userFaqApi = {
-  getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/faqs`,
-  getAll: async (clientType: ClientType) => {
+  getBaseUrl: (projectId: string) => `/plan/${projectId}/faqs`,
+  getAll: async (clientType: ClientType, projectId: string) => {
     const client = clientType ? axiosClientFrontend : axiosClientDashboard;
-    const response = await client.get(userFaqApi.getBaseUrl());
+    const response = await client.get(userFaqApi.getBaseUrl(projectId));
     return response.data;
   },
-  getById: async (id: string) => {
-    const response = await axiosClientDashboard.get(`${userFaqApi.getBaseUrl()}/${id}`);
+  getById: async (projectId: string, id: string) => {
+    const response = await axiosClientDashboard.get(`${userFaqApi.getBaseUrl(projectId)}/${id}`);
     return response.data;
   },
-  create: async (data: UserFaqListResponseType) => {
+  create: async (data: UserFaqListResponseType, projectId: string) => {
     console.log("createUrl", data);
-    const response = await axiosClientDashboard.post(userFaqApi.getBaseUrl(), data);
+    const response = await axiosClientDashboard.post(userFaqApi.getBaseUrl(projectId), data);
     console.log("createUrl response:", response);
     return response.data;
   },
-  update: async (data: UserFaqListResponseType) => {
+  update: async (data: UserFaqListResponseType, projectId: string) => {
     console.log("updateUrl", data);
-    const response = await axiosClientDashboard.put(`${userFaqApi.getBaseUrl()}/${data.id}`, data);
+    const response = await axiosClientDashboard.put(`${userFaqApi.getBaseUrl(projectId)}/${data.id}`, data);
     console.log("updateUrl response:", response);
     return response.data;
   },
-  delete: async (id: string) => {
-    return axiosClientDashboard.delete(`${userFaqApi.getBaseUrl()}/${id}`);
+  delete: async (projectId: string, id: string) => {
+    return axiosClientDashboard.delete(`${userFaqApi.getBaseUrl(projectId)}/${id}`);
   },
 };

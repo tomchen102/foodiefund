@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useGetUserFaq } from "@/hooks/useUserFaq";
 
 const FaqContent = () => {
-  const { data, isLoading, isError } = useGetUserFaq("frontend");
+  const { data, isLoading, isError } = useGetUserFaq("frontend", "66fb66d32bebc04b1d517eb0");
 
   if (isLoading) {
     return <div>Loading...</div>;

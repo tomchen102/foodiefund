@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 import { UserNewsListResponseType } from "@/api/services/userNews/types";
 import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogTriggerDelete";
@@ -14,9 +14,11 @@ import NewsSkeleton from "./NewsSkeleton";
 
 const UserNewsPage = () => {
   const createUserNewsUrl = usePathname();
-  const { data, isFetching } = useGetUserNews("dashboard");
-  const { mutate: deleteUserNews } = useDeleteUserNewsMutation();
-  const { mutate: updateIsActive } = useUpdateNewsTableMutation();
+  const params = useParams();
+  const id = params.plan_id as string;
+  const { data, isFetching } = useGetUserNews("dashboard", id);
+  const { mutate: deleteUserNews } = useDeleteUserNewsMutation(id);
+  const { mutate: updateIsActive } = useUpdateNewsTableMutation(id);
 
   const deleteItem = (id: string) => {
     deleteUserNews(id);

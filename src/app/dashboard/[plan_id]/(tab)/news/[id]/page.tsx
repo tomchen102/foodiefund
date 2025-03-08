@@ -30,13 +30,14 @@ const userNewsFormFields: FormFieldConfig<UserNewsDetailResponseType>[] = [
 const NewsId = () => {
   const params = useParams();
   const id = params.id as string;
+  const projectId = params.plan_id as string;
   const isCreateMode = id === "create";
 
-  const { data: userNewsIdData } = useGetUserNewsId(id, "dashboard", {
+  const { data: userNewsIdData } = useGetUserNewsId("dashboard", projectId, id, {
     enabled: !isCreateMode,
   });
-  const { mutate: create } = usePostUserNewsMutation();
-  const { mutate: update } = useUpdateUserNewsMutation();
+  const { mutate: create } = usePostUserNewsMutation(projectId);
+  const { mutate: update } = useUpdateUserNewsMutation(projectId);
 
   return (
     <SectionPadding container>
