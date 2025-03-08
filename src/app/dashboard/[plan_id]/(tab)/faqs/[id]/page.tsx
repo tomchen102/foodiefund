@@ -23,13 +23,14 @@ const userFaqFormFields: FormFieldConfig<UserFaqListResponseType>[] = [
 const FaqId = () => {
   const params = useParams();
   const id = params.id as string;
+  const projectId = params.plan_id as string;
   const isCreateMode = id === "create";
 
-  const { data: userFaqIdData } = useGetUserFaqId(id, {
+  const { data: userFaqIdData } = useGetUserFaqId(projectId, id, {
     enabled: !isCreateMode,
   });
-  const { mutate: create } = usePostUserFaqMutation();
-  const { mutate: update } = useUpdateUserFaqMutation();
+  const { mutate: create } = usePostUserFaqMutation(projectId);
+  const { mutate: update } = useUpdateUserFaqMutation(projectId);
 
   return (
     <SectionPadding container>

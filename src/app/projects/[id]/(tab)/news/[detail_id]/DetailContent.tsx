@@ -10,7 +10,9 @@ import { useGetUserNewsId } from "@/hooks/uesUserNews";
 const DetailContent = () => {
   const params = useParams();
   const id = params.detail_id as string;
-  const { data, isLoading, isError } = useGetUserNewsId(id, "frontend");
+  const projectId = params.plan_id as string;
+  const { data, isLoading, isError } = useGetUserNewsId("frontend", projectId, id);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }

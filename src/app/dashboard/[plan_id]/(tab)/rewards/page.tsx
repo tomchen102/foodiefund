@@ -14,8 +14,8 @@ const Rewards = () => {
   const createRewardUrl = usePathname();
   const params = useParams();
   const id = params.plan_id as string;
-  const { mutate: deleteReward } = useDeleteRewardMutation(params.plan_id as string);
-  const { mutate: updateIsActive } = useUpdateRewardTableMutation(params.plan_id as string);
+  const { mutate: deleteReward } = useDeleteRewardMutation(id);
+  const { mutate: updateIsActive } = useUpdateRewardTableMutation(id);
 
   const { data } = useGetReward("dashboard", id);
 
