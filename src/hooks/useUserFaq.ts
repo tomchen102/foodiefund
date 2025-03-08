@@ -13,11 +13,11 @@ import { useToast } from "./use-toast";
 const userFaqKeys = {
   key: ["UserFaq"] as const,
 };
-export const useGetUserFaq = (clientType: ClientType) => {
+export const useGetUserFaq = (clientType: ClientType, projectId: string) => {
   return useQuery({
     queryKey: userFaqKeys.key,
     queryFn: async () => {
-      const response = await userFaqApi.getAll(clientType);
+      const response = await userFaqApi.getAll(clientType, projectId);
       console.log("getUserFaqList response:", response.data);
       const result = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
       return result;
@@ -25,22 +25,22 @@ export const useGetUserFaq = (clientType: ClientType) => {
   });
 };
 
-export const prefetchUserFaqClient = (queryClient: QueryClient) => {
+export const prefetchUserFaqClient = (queryClient: QueryClient, projectId: string) => {
   return prefetchData(queryClient, [userFaqKeys.key], async () => {
-    const response = await userFaqApi.getAll("frontend");
+    const response = await userFaqApi.getAll("frontend", projectId);
     return safeParseResponse(UserFaqListArrayResponseSchema, response.data);
   });
 };
 
-export const initializeUserFaqListQueryClient = () => {
-  return initializeQueryClient((queryClient) => prefetchUserFaqClient(queryClient));
+export const initializeUserFaqListQueryClient = (projectId: string) => {
+  return initializeQueryClient((queryClient) => prefetchUserFaqClient(queryClient, projectId));
 };
 
-export const useGetUserFaqId = (id: string, options?: { enabled?: boolean }) => {
+export const useGetUserFaqId = (projectId: string, id: string, options?: { enabled?: boolean }) => {
   return useQuery({
     queryKey: userFaqKeys.key,
     queryFn: async () => {
-      const response = await userFaqApi.getById(id);
+      const response = await userFaqApi.getById(projectId, id);
       console.log("getUserFaqList response:", response.data);
       const result = safeParseResponse(userFaqResponseTypeSchema, response.data);
       return result;
@@ -49,11 +49,13 @@ export const useGetUserFaqId = (id: string, options?: { enabled?: boolean }) => 
   });
 };
 
-export const usePostUserFaqMutation = (): MutationResult<UserFaqListResponseType> => {
+export const usePostUserFaqMutation = (projectId: string): MutationResult<UserFaqListResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userFaqApi.create,
+    mutationFn: async (data: UserFaqListResponseType) => {
+      return userFaqApi.create(data, projectId);
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
       toast({
@@ -70,11 +72,13 @@ export const usePostUserFaqMutation = (): MutationResult<UserFaqListResponseType
   });
 };
 
-export const useUpdateUserFaqMutation = (): MutationResult<UserFaqListResponseType> => {
+export const useUpdateUserFaqMutation = (projectId: string): MutationResult<UserFaqListResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userFaqApi.update,
+    mutationFn: async (data: UserFaqListResponseType) => {
+      return userFaqApi.update(data, projectId);
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
       toast({
@@ -91,11 +95,13 @@ export const useUpdateUserFaqMutation = (): MutationResult<UserFaqListResponseTy
   });
 };
 
-export const useDeleteUserFaqMutation = () => {
+export const useDeleteUserFaqMutation = (projectId: string) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userFaqApi.delete,
+    mutationFn: async (id: string) => {
+      return userFaqApi.delete(id, projectId);
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
       toast({

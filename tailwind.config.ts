@@ -27,9 +27,19 @@ const config: Config = {
           "0%, 100%": { opacity: "0" },
           "50%": { opacity: "1" },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "85" },
+        },
+        "accordion-up": {
+          from: { height: "85" },
+          to: { height: "0" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 3s infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
         background: "hsl(var(--background))",
@@ -88,6 +98,7 @@ const config: Config = {
         },
         gray: {
           DEFAULT: "#71717A", //secondary-text
+          100: "#F4F4F5", //background
           200: "#D4D4D8", //input border, divider
           400: "#A1A1AA", //control icon, placeholder
           500: "#71717A", // icon-indicator

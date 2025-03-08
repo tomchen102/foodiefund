@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { useGetUserNews } from "@/hooks/uesUserNews";
 
 const NewsContent = () => {
-  const { data, isLoading, isError } = useGetUserNews("frontend");
+  const { data, isLoading, isError } = useGetUserNews("frontend", "66fb66d32bebc04b1d517eb0");
 
   if (isLoading) {
     return <div>Loading...</div>;

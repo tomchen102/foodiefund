@@ -4,17 +4,16 @@ import { initializeNewsByIdQueryClient } from "@/hooks/uesUserNews";
 
 import DetailContent from "./DetailContent";
 
-const DUMMY_ID = "676cdded66e5be04cc208901";
-
-const getData = async () => {
-  const { dehydratedState } = await initializeNewsByIdQueryClient(DUMMY_ID);
+const getData = async (projectId: string) => {
+  const { dehydratedState } = await initializeNewsByIdQueryClient(projectId, "project");
   return {
     dehydratedState,
   };
 };
 
 const Detail = async () => {
-  const { dehydratedState } = await getData();
+  const projectId = "676cdded66e5be04cc208901";
+  const { dehydratedState } = await getData(projectId);
 
   return (
     <HydrationBoundary state={dehydratedState}>
