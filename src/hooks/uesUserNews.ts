@@ -18,11 +18,11 @@ const userNewsKeys = {
   key: ["UserNews"] as const,
 };
 
-export const useGetUserNews = (clientType: ClientType) => {
+export const useGetUserNews = (clientType: ClientType, project: string) => {
   return useQuery({
     queryKey: [userNewsKeys.key],
     queryFn: async () => {
-      const response = await userNewsApi.getAll(clientType);
+      const response = await userNewsApi.getAll(clientType, project);
       console.log("getUserNewsList response:", response.data);
       const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
@@ -30,22 +30,16 @@ export const useGetUserNews = (clientType: ClientType) => {
   });
 };
 
-export const prefetchNewsListByClient = (queryClient: QueryClient) => {
-  return prefetchData(queryClient, [userNewsKeys.key], async () => {
-    const response = await userNewsApi.getAll("frontend");
-    return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
-  });
-};
-
-export const initializeNewsListQueryClient = () => {
-  return initializeQueryClient((queryClient) => prefetchNewsListByClient(queryClient));
-};
-
-export const useGetUserNewsId = (id: string, clientType: ClientType, options?: { enabled?: boolean }) => {
+export const useGetUserNewsId = (
+  clientType: ClientType,
+  project: string,
+  id: string,
+  options?: { enabled?: boolean }
+) => {
   return useQuery({
     queryKey: [userNewsKeys.key],
     queryFn: async () => {
-      const response = await userNewsApi.getById(id, clientType);
+      const response = await userNewsApi.getById(clientType, project, id);
       const result = safeParseResponse(UserNewsDetailResponseSchema, response.data);
       return result;
     },
@@ -53,22 +47,35 @@ export const useGetUserNewsId = (id: string, clientType: ClientType, options?: {
   });
 };
 
-export const prefetchNewsById = (queryClient: QueryClient, id: string) => {
+export const prefetchNewsListByClient = (queryClient: QueryClient, project: string) => {
   return prefetchData(queryClient, [userNewsKeys.key], async () => {
-    const response = await userNewsApi.getById(id, "frontend");
+    const response = await userNewsApi.getAll("frontend", project);
+    return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
+  });
+};
+
+export const initializeNewsListQueryClient = (project: string) => {
+  return initializeQueryClient((queryClient) => prefetchNewsListByClient(queryClient, project));
+};
+
+export const prefetchNewsById = (queryClient: QueryClient, id: string, project: string) => {
+  return prefetchData(queryClient, [userNewsKeys.key], async () => {
+    const response = await userNewsApi.getById("frontend", project, id);
     return safeParseResponse(UserNewsDetailResponseSchema, response.data);
   });
 };
 
-export const initializeNewsByIdQueryClient = (id: string) => {
-  return initializeQueryClient((queryClient) => prefetchNewsById(queryClient, id));
+export const initializeNewsByIdQueryClient = (id: string, project: string) => {
+  return initializeQueryClient((queryClient) => prefetchNewsById(queryClient, project, id));
 };
 
-export const usePostUserNewsMutation = (): MutationResult<UserNewsDetailResponseType> => {
+export const usePostUserNewsMutation = (projectId: string): MutationResult<UserNewsDetailResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userNewsApi.create,
+    mutationFn: async (data: UserNewsDetailResponseType) => {
+      return userNewsApi.create(data, projectId);
+    },
     onSuccess: () => {
       toast({
         description: "新增成功!",
@@ -85,11 +92,13 @@ export const usePostUserNewsMutation = (): MutationResult<UserNewsDetailResponse
   });
 };
 
-export const useUpdateUserNewsMutation = (): MutationResult<UserNewsDetailResponseType> => {
+export const useUpdateUserNewsMutation = (projectId: string): MutationResult<UserNewsDetailResponseType> => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userNewsApi.update,
+    mutationFn: async (data: UserNewsDetailResponseType) => {
+      return userNewsApi.update(data, projectId);
+    },
     onSuccess: () => {
       toast({
         description: "修改成功!",
@@ -106,11 +115,13 @@ export const useUpdateUserNewsMutation = (): MutationResult<UserNewsDetailRespon
   });
 };
 
-export const useDeleteUserNewsMutation = () => {
+export const useDeleteUserNewsMutation = (projectId: string) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userNewsApi.delete,
+    mutationFn: async (id: string) => {
+      return userNewsApi.delete(id, projectId);
+    },
     onSuccess: () => {
       toast({
         description: "刪除成功!",
@@ -127,11 +138,13 @@ export const useDeleteUserNewsMutation = () => {
   });
 };
 
-export const useUpdateNewsTableMutation = () => {
+export const useUpdateNewsTableMutation = (projectId: string) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: userNewsApi.update,
+    mutationFn: async (data: UserNewsDetailResponseType) => {
+      return userNewsApi.update(data, projectId);
+    },
     onMutate: async (updatedData: UserNewsListResponseType) => {
       await queryClient.cancelQueries({ queryKey: userNewsKeys.key });
       const previousData = queryClient.getQueryData<UserNewsListResponseType[]>(userNewsKeys.key);
