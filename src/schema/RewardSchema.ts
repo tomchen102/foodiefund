@@ -18,12 +18,12 @@ export const RewardFormSchema = z.object({
   price: z.number({ message: "請輸入計畫回饋價錢" }),
   startedAt: z.string().nonempty("請輸入計畫回饋開始時間"),
   endAt: z.string().nonempty("請輸入計畫回饋結束時間"),
-  remain_qty: z.number(),
-  purchased_qty: z.number(),
 });
 
 export const RewardListSchema = RewardFormSchema.extend({
   updatedAt: z.string(),
+  remain_qty: z.number(),
+  purchased_qty: z.number(),
 });
 
 export const RewardQueryResponseSchema = z.array(RewardListSchema);
