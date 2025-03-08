@@ -5,7 +5,7 @@ import { ClientType } from "@/types/clientTypes";
 import { UserNewsListResponseType, UserNewsDetailResponseType } from "./types";
 
 export const userNewsApi = {
-  getBaseUrl: (planId: string = "64c5ae5c6f2d3e001ccf9abc") => `/plan/${planId}/news`,
+  getBaseUrl: (projectId: string) => `/plan/${projectId}/news`,
   MULTIPART_HEADERS: {
     "Content-Type": "multipart/form-data",
   },
@@ -16,31 +16,31 @@ export const userNewsApi = {
     }
     return formData;
   },
-  getAll: async (clientType: ClientType) => {
+  getAll: async (clientType: ClientType, projectId: string) => {
     const client = selectClient(clientType);
-    const response = await client.get(userNewsApi.getBaseUrl());
+    const response = await client.get(userNewsApi.getBaseUrl(projectId));
     return response.data;
   },
-  getById: async (id: string, clientType: ClientType) => {
+  getById: async (clientType: ClientType, projectId: string, id: string) => {
     const client = selectClient(clientType);
-    const response = await client.get(`${userNewsApi.getBaseUrl()}/${id}`);
+    const response = await client.get(`${userNewsApi.getBaseUrl(projectId)}/${id}`);
     return response.data;
   },
-  create: async (data: UserNewsDetailResponseType) => {
+  create: async (data: UserNewsDetailResponseType, projectId: string) => {
     userNewsApi.createFormData(data);
-    const response = await axiosClientDashboard.post(userNewsApi.getBaseUrl(), data, {
+    const response = await axiosClientDashboard.post(userNewsApi.getBaseUrl(projectId), data, {
       headers: userNewsApi.MULTIPART_HEADERS,
     });
     return response.data;
   },
-  update: async (data: UserNewsDetailResponseType) => {
+  update: async (data: UserNewsDetailResponseType, projectId: string) => {
     userNewsApi.createFormData(data);
-    const response = await axiosClientDashboard.put(`${userNewsApi.getBaseUrl()}/${data.id}`, data, {
+    const response = await axiosClientDashboard.put(`${userNewsApi.getBaseUrl(projectId)}/${data.id}`, data, {
       headers: userNewsApi.MULTIPART_HEADERS,
     });
     return response.data;
   },
-  delete: async (id: string) => {
-    return axiosClientDashboard.delete(`${userNewsApi.getBaseUrl()}/${id}`);
+  delete: async (id: string, projectId: string) => {
+    return axiosClientDashboard.delete(`${userNewsApi.getBaseUrl(projectId)}/${id}`);
   },
 };
