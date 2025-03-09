@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -17,8 +17,7 @@ import { planFormFields } from "./planFormFields";
 
 const CreatePlan = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const value = (searchParams.get("value") as "A" | "B") || "A";
+  const value = "A";
   const form = useForm<PlanFormSchemaType>({
     resolver: zodResolver(PlanFormSchema),
     defaultValues: {
@@ -44,10 +43,8 @@ const CreatePlan = () => {
 
   const onSubmit = async (data: PlanFormSchemaType) => {
     console.log(data);
-    try {
-      const res = await registerMutation(data);
-      router.push(`/dashboard/${res.id}`);
-    } catch (error) {}
+    const res = await registerMutation(data);
+    router.push(`/dashboard/${res.id}`);
   };
   return (
     <SectionPadding container>
