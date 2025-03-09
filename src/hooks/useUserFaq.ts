@@ -22,6 +22,7 @@ export const useGetUserFaq = (clientType: ClientType, projectId: string) => {
       const result = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
       return result;
     },
+    staleTime: 0,
   });
 };
 

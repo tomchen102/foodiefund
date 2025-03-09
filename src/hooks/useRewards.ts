@@ -21,6 +21,7 @@ export const useGetReward = (clientType: ClientType, projectId: string) => {
       const result = safeParseResponse(RewardQueryResponseSchema, response.data);
       return result;
     },
+    staleTime: 0,
   });
 };
 

@@ -27,6 +27,7 @@ export const useGetUserNews = (clientType: ClientType, projectId: string) => {
       const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
     },
+    staleTime: 0,
   });
 };
 
