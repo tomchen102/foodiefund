@@ -79,7 +79,7 @@ const config: Config = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         border: "hsl(var(--border))",
-        input: "#E4E4E7",
+        input: "#D4D4D8",
         ring: "#0F514E",
         chart: {
           "1": "hsl(var(--chart-1))",
@@ -94,6 +94,7 @@ const config: Config = {
         },
         white: {
           DEFAULT: "#FDFBF8", //default-background, white text
+          pure: "#FFFFFF",
           foreground: "hsl(var(--white-foreground))",
         },
         gray: {
