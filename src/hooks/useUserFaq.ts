@@ -15,7 +15,7 @@ const userFaqKeys = {
 };
 export const useGetUserFaq = (clientType: ClientType, projectId: string) => {
   return useQuery({
-    queryKey: userFaqKeys.key,
+    queryKey: [userFaqKeys.key, projectId],
     queryFn: async () => {
       const response = await userFaqApi.getAll(clientType, projectId);
       console.log("getUserFaqList response:", response.data);
@@ -26,7 +26,7 @@ export const useGetUserFaq = (clientType: ClientType, projectId: string) => {
 };
 
 export const prefetchUserFaqClient = (queryClient: QueryClient, projectId: string) => {
-  return prefetchData(queryClient, [userFaqKeys.key], async () => {
+  return prefetchData(queryClient, [userFaqKeys.key, projectId], async () => {
     const response = await userFaqApi.getAll("frontend", projectId);
     return safeParseResponse(UserFaqListArrayResponseSchema, response.data);
   });
@@ -38,7 +38,7 @@ export const initializeUserFaqListQueryClient = (projectId: string) => {
 
 export const useGetUserFaqId = (projectId: string, id: string, options?: { enabled?: boolean }) => {
   return useQuery({
-    queryKey: userFaqKeys.key,
+    queryKey: [userFaqKeys.key, projectId],
     queryFn: async () => {
       const response = await userFaqApi.getById(projectId, id);
       console.log("getUserFaqList response:", response.data);
@@ -57,7 +57,7 @@ export const usePostUserFaqMutation = (projectId: string): MutationResult<UserFa
       return userFaqApi.create(data, projectId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userFaqKeys.key, projectId] });
       toast({
         description: "新增成功!",
       });
@@ -80,7 +80,7 @@ export const useUpdateUserFaqMutation = (projectId: string): MutationResult<User
       return userFaqApi.update(data, projectId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userFaqKeys.key, projectId] });
       toast({
         description: "修改成功!",
       });
@@ -103,7 +103,7 @@ export const useDeleteUserFaqMutation = (projectId: string) => {
       return userFaqApi.delete(id, projectId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userFaqKeys.key });
+      queryClient.invalidateQueries({ queryKey: [userFaqKeys.key, projectId] });
       toast({
         description: "刪除成功!",
       });

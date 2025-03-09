@@ -14,7 +14,7 @@ const rewardKeys = {
 
 export const useGetReward = (clientType: ClientType, projectId: string) => {
   return useQuery({
-    queryKey: rewardKeys.key,
+    queryKey: [rewardKeys.key, projectId],
     queryFn: async () => {
       const response = await rewardApi.getAll(clientType, projectId);
       console.log("useGetReward response", response);
@@ -31,7 +31,7 @@ export const useGetRewardId = (
   options?: { enabled?: boolean }
 ) => {
   return useQuery({
-    queryKey: rewardKeys.key,
+    queryKey: [rewardKeys.key, projectId],
     queryFn: async () => {
       const response = await rewardApi.getById(clientType, projectId, rewardId);
       console.log("useGetReward response", response);
@@ -50,7 +50,7 @@ export const usePostRewardMutation = (projectId: string) => {
       return rewardApi.create(data, projectId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: rewardKeys.key });
+      queryClient.invalidateQueries({ queryKey: [rewardKeys.key, projectId] });
       toast({
         description: "新增成功!",
       });
@@ -73,7 +73,7 @@ export const useUpdateRewardMutation = (projectId: string) => {
       return rewardApi.update(data, projectId);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: rewardKeys.key });
+      queryClient.invalidateQueries({ queryKey: [rewardKeys.key, projectId] });
       toast({
         description: "修改成功!",
       });
@@ -96,7 +96,7 @@ export const useDeleteRewardMutation = (projectId: string) => {
       return rewardApi.delete(projectId, id);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: rewardKeys.key });
+      queryClient.invalidateQueries({ queryKey: [rewardKeys.key, projectId] });
       toast({
         description: "刪除成功!",
       });
@@ -120,13 +120,13 @@ export const useUpdateRewardTableMutation = (projectId: string) => {
       return rewardApi.update(data, projectId);
     },
     onMutate: async (updatedData: RewardFormSchemaType) => {
-      await queryClient.cancelQueries({ queryKey: rewardKeys.key });
+      await queryClient.cancelQueries({ queryKey: [rewardKeys.key, projectId] });
 
-      const previousData = queryClient.getQueryData<RewardQuerySchemaType[]>(rewardKeys.key);
+      const previousData = queryClient.getQueryData<RewardQuerySchemaType[]>([rewardKeys.key, projectId]);
       if (!previousData) {
         return { previousData: null };
       }
-      queryClient.setQueryData(rewardKeys.key, (old: RewardQuerySchemaType[] | undefined) => {
+      queryClient.setQueryData([rewardKeys.key, projectId], (old: RewardQuerySchemaType[] | undefined) => {
         if (!old) return old;
         return old.map((item) => {
           if ("id" in item && item.id === updatedData.id) {
@@ -140,7 +140,7 @@ export const useUpdateRewardTableMutation = (projectId: string) => {
     },
     onError: (error, updatedData, context) => {
       if (context?.previousData) {
-        queryClient.setQueryData(rewardKeys.key, context.previousData);
+        queryClient.setQueryData([rewardKeys.key, projectId], context.previousData);
       }
       console.error("Update failed:", error);
       toast({
@@ -150,7 +150,7 @@ export const useUpdateRewardTableMutation = (projectId: string) => {
     },
     onSuccess: () => {
       console.log("Update Reward Table Success");
-      queryClient.invalidateQueries({ queryKey: rewardKeys.key });
+      queryClient.invalidateQueries({ queryKey: [rewardKeys.key, projectId] });
       toast({
         description: "修改成功!",
       });
