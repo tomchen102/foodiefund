@@ -67,6 +67,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   required={field.required}
                   halfWidth={field.halfWidth}
                   disabled={field.disabled}
+                  enableCrop={field.enableCrop}
                 />
                 <FormInput
                   key={nextField.key}
@@ -77,6 +78,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                   required={nextField.required}
                   halfWidth={nextField.halfWidth}
                   disabled={nextField.disabled}
+                  enableCrop={field.enableCrop}
                 />
               </div>
             );
@@ -99,6 +101,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 label={field.label}
                 name={field.name}
                 options={field.options}
+                orientation={field.orientation}
                 type="radio"
                 disabled={field.disabled}
               />
@@ -170,6 +173,7 @@ const FormRenderer = <T extends FieldValues>({ FormFields, methods }: FormRender
                 required={field.required}
                 halfWidth={field.halfWidth}
                 disabled={field.disabled}
+                enableCrop={field.enableCrop}
               />
             );
           }

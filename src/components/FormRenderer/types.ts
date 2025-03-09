@@ -38,6 +38,8 @@ export interface FormFieldConfig<T extends FieldValues> {
   halfWidth?: boolean;
   processed?: boolean;
   disabled?: boolean;
+  orientation?: string;
+  enableCrop?: boolean;
   buttonList?: string[][];
   onChange?: (value: string) => void;
 }
