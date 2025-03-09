@@ -11,6 +11,7 @@ const FormRadioGroup = <T extends FieldValues>({
   label,
   name,
   options = [],
+  orientation,
   className,
   disabled,
 }: FormFieldConfig<T>) => {
@@ -28,18 +29,28 @@ const FormRadioGroup = <T extends FieldValues>({
                 onValueChange={field.onChange}
                 defaultValue={field.value}
                 value={field.value}
-                className="flex flex-col space-y-1"
+                className={cn("grid space-y-1", orientation ? "grid-cols-2 gap-5 md:grid-cols-6" : "grid-cols-1")}
                 disabled={disabled}
               >
                 {options.map((option) => {
                   const isSelected = field.value === option.value;
                   return (
-                    <FormItem key={option.value} className="flex items-center space-x-3 border">
+                    <FormItem
+                      key={option.value}
+                      className={cn("flex items-center gap-3", orientation ? "" : "rounded-sm border")}
+                    >
                       <FormControl>
-                        <RadioGroupItem value={option.value} className={cn("ml-5 mt-2", className)} />
+                        <RadioGroupItem
+                          value={option.value}
+                          className={cn("mt-2", orientation ? "" : "ml-5", className)}
+                        />
                       </FormControl>
                       <FormLabel
-                        className={cn("w-full py-5 font-bold", isSelected ? "text-primary-dark" : "text-gray-700")}
+                        className={cn(
+                          "w-full font-bold",
+                          orientation ? "" : "py-5",
+                          isSelected ? "text-primary-dark" : "text-gray-700"
+                        )}
                       >
                         {option.label}
                       </FormLabel>
