@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,7 @@ const CategoryCard = ({ category }: CategoryProps) => {
           ))}
         </div>
         <Button className="w-full" variant={category.title === "群眾募資" ? "secondary" : "default"}>
-          開始提案
+          <Link href={`proposal/createPlan?value=${category.title === "群眾募資" ? "A" : "B"}`}>開始提案</Link>
         </Button>
       </div>
     </div>
