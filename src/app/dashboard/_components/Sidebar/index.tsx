@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaThList } from "react-icons/fa";
 
+import { Icons } from "@/components/Icons";
 import { cn } from "@/lib/utils";
 
 const Sidebar = () => {
@@ -23,13 +23,13 @@ const Sidebar = () => {
   }, [pathname]);
 
   const links = [
-    { href: `/dashboard/${plan_id}`, label: "募資總攬" },
-    { href: `/dashboard/${plan_id}/edits`, label: "修改計畫" },
-    { href: `/dashboard/${plan_id}/rewards`, label: "計畫回饋" },
-    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理" },
-    { href: `/dashboard/${plan_id}/faqs`, label: "常見問答管理" },
-    { href: `/dashboard/${plan_id}/news`, label: "最新消息管理" },
-    { href: `/dashboard/${plan_id}/orders-payments`, label: "訂單金流管理" },
+    { href: `/dashboard/${plan_id}`, label: "募資總攬", icon: Icons.ListFill },
+    { href: `/dashboard/${plan_id}/edits`, label: "修改計畫", icon: Icons.Edit },
+    { href: `/dashboard/${plan_id}/rewards`, label: "計畫回饋", icon: Icons.Message },
+    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理", icon: Icons.Money },
+    { href: `/dashboard/${plan_id}/faqs`, label: "常見問答管理", icon: Icons.Question },
+    { href: `/dashboard/${plan_id}/news`, label: "最新消息管理", icon: Icons.News },
+    { href: `/dashboard/${plan_id}/orders-payments`, label: "訂單金流管理", icon: Icons.Wallet },
   ];
 
   const isActive = (href: string) => {
@@ -54,7 +54,7 @@ const Sidebar = () => {
                 })}
               >
                 <div className="ml-5 mr-3">
-                  <FaThList />
+                  <link.icon className="text-white" />
                 </div>
                 {link.label}
               </Link>
