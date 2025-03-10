@@ -10,6 +10,7 @@ export async function middleware(req: NextRequest) {
     /^\/payment-successful$/,
     /^\/payment$/,
     /^\/dashboard(\/.*)?$/,
+    /^\/proposal\/createPlan$/,
   ];
 
   const publicRoutes = [/^\/login$/, /^\/register$/, /^\/redirect$/, /^\/payment$/, /^\/dashboard$/];
@@ -37,5 +38,6 @@ export const config = {
     "/payment-successful",
     "/projects/:id/project-list/payment",
     "/dashboard/:path*",
+    "/proposal/createPlan",
   ], // 保護的路由和登錄頁面
 };

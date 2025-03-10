@@ -12,7 +12,7 @@ const LayoutContent = ({ children }: ChildrenProps) => {
         <Sidebar />
         <MobileNavbar />
       </div>
-      <div className="w-full">
+      <div className="min-h-[795px] w-full">
         <PlanSelect />
         {children}
       </div>

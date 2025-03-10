@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FieldValues, Path, useFormContext } from "react-hook-form";
 
+import ImageCropDialog from "../ImageCropDialog";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 
@@ -16,10 +17,13 @@ const FormInput = <T extends FieldValues>({
   required,
   halfWidth,
   disabled,
+  enableCrop,
 }: FormFieldConfig<T>) => {
   const { control, setValue, watch } = useFormContext<T>();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const previousUrlRef = useRef<string | null>(null);
+  const [cropDialogOpen, setCropDialogOpen] = useState(false);
+  const [croppedPreviewUrl, setCroppedPreviewUrl] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -28,7 +32,21 @@ const FormInput = <T extends FieldValues>({
       setValue(name as Path<T>, file as T[Path<T>]);
       const newPreviewUrl = URL.createObjectURL(file);
       setPreviewUrl(newPreviewUrl);
+      if (enableCrop) {
+        setCropDialogOpen(true);
+      } else {
+        setCroppedPreviewUrl(newPreviewUrl);
+      }
     }
+  };
+
+  const onCropConfirm = (croppedImg: string | File) => {
+    if (croppedImg instanceof File) {
+      setCroppedPreviewUrl(URL.createObjectURL(croppedImg));
+    } else {
+      setCroppedPreviewUrl(croppedImg);
+    }
+    setValue(name as Path<T>, croppedImg as T[Path<T>]);
   };
 
   const fieldValue = watch(name as Path<T>);
@@ -86,10 +104,18 @@ const FormInput = <T extends FieldValues>({
               )}
             </FormControl>
             <FormMessage />
-            {type === "file" && previewUrl && (
+            {enableCrop && (
+              <ImageCropDialog
+                open={cropDialogOpen}
+                onOpenChange={setCropDialogOpen}
+                imageSrc={previewUrl}
+                onCropConfirm={onCropConfirm}
+              />
+            )}
+            {type === "file" && croppedPreviewUrl && (
               <div className="flex justify-center">
                 <div className="relative mt-5 h-60 w-full overflow-hidden rounded-lg border border-gray-300">
-                  <Image src={previewUrl} alt="Preview" fill className="object-contain" unoptimized />
+                  <Image src={croppedPreviewUrl} alt="Preview" fill className="object-contain" unoptimized />
                 </div>
               </div>
             )}

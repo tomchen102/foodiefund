@@ -73,3 +73,30 @@ export const planApiResponseSchema = z.object({
   message: z.string(),
   code: z.number(),
 });
+
+export const PlanFormSchema = z.object({
+  // id: z.string(),
+  activeType: z.enum(["A", "B"]),
+  title: z.string(),
+  image: z
+    .union([
+      z.string().nullable().optional(),
+      z
+        .instanceof(File)
+        .refine((file) => file.type.startsWith("image/"), {
+          message: "必須是有效的圖片文件",
+        })
+        .optional(),
+    ])
+    .optional(),
+  location: z.string(),
+  restaurantType: z.string(),
+  address: z.string(),
+  proposer: z.string(),
+  email: z.string(),
+  phone: z.string(),
+  info: z.string(),
+  activeTime: z.string(),
+  endAt: z.string(),
+  targetAmount: z.number(),
+});

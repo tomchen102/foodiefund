@@ -18,28 +18,29 @@ const userNewsKeys = {
   key: ["UserNews"] as const,
 };
 
-export const useGetUserNews = (clientType: ClientType, project: string) => {
+export const useGetUserNews = (clientType: ClientType, projectId: string) => {
   return useQuery({
-    queryKey: [userNewsKeys.key],
+    queryKey: [userNewsKeys.key, projectId],
     queryFn: async () => {
-      const response = await userNewsApi.getAll(clientType, project);
+      const response = await userNewsApi.getAll(clientType, projectId);
       console.log("getUserNewsList response:", response.data);
       const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
       return result;
     },
+    staleTime: 0,
   });
 };
 
 export const useGetUserNewsId = (
   clientType: ClientType,
-  project: string,
+  projectId: string,
   id: string,
   options?: { enabled?: boolean }
 ) => {
   return useQuery({
-    queryKey: [userNewsKeys.key],
+    queryKey: [userNewsKeys.key, projectId],
     queryFn: async () => {
-      const response = await userNewsApi.getById(clientType, project, id);
+      const response = await userNewsApi.getById(clientType, projectId, id);
       const result = safeParseResponse(UserNewsDetailResponseSchema, response.data);
       return result;
     },
@@ -47,9 +48,9 @@ export const useGetUserNewsId = (
   });
 };
 
-export const prefetchNewsListByClient = (queryClient: QueryClient, project: string) => {
-  return prefetchData(queryClient, [userNewsKeys.key], async () => {
-    const response = await userNewsApi.getAll("frontend", project);
+export const prefetchNewsListByClient = (queryClient: QueryClient, projectId: string) => {
+  return prefetchData(queryClient, [userNewsKeys.key, projectId], async () => {
+    const response = await userNewsApi.getAll("frontend", projectId);
     return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
   });
 };
@@ -58,9 +59,9 @@ export const initializeNewsListQueryClient = (project: string) => {
   return initializeQueryClient((queryClient) => prefetchNewsListByClient(queryClient, project));
 };
 
-export const prefetchNewsById = (queryClient: QueryClient, id: string, project: string) => {
-  return prefetchData(queryClient, [userNewsKeys.key], async () => {
-    const response = await userNewsApi.getById("frontend", project, id);
+export const prefetchNewsById = (queryClient: QueryClient, id: string, projectId: string) => {
+  return prefetchData(queryClient, [userNewsKeys.key, projectId], async () => {
+    const response = await userNewsApi.getById("frontend", projectId, id);
     return safeParseResponse(UserNewsDetailResponseSchema, response.data);
   });
 };
@@ -80,7 +81,7 @@ export const usePostUserNewsMutation = (projectId: string): MutationResult<UserN
       toast({
         description: "新增成功!",
       });
-      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key, projectId] });
     },
     onError: (error) => {
       console.error("Error creating News:", error);
@@ -103,7 +104,7 @@ export const useUpdateUserNewsMutation = (projectId: string): MutationResult<Use
       toast({
         description: "修改成功!",
       });
-      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key, projectId] });
     },
     onError: (error) => {
       console.error("Error creating News:", error);
@@ -126,7 +127,7 @@ export const useDeleteUserNewsMutation = (projectId: string) => {
       toast({
         description: "刪除成功!",
       });
-      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key, projectId] });
     },
     onError: (error) => {
       console.error("Error creating News:", error.message);
@@ -146,14 +147,14 @@ export const useUpdateNewsTableMutation = (projectId: string) => {
       return userNewsApi.update(data, projectId);
     },
     onMutate: async (updatedData: UserNewsListResponseType) => {
-      await queryClient.cancelQueries({ queryKey: userNewsKeys.key });
-      const previousData = queryClient.getQueryData<UserNewsListResponseType[]>(userNewsKeys.key);
+      await queryClient.cancelQueries({ queryKey: [userNewsKeys.key, projectId] });
+      const previousData = queryClient.getQueryData<UserNewsListResponseType[]>([userNewsKeys.key, projectId]);
 
       if (!previousData) {
-        console.warn("No data found in cache for key:", userNewsKeys.key);
+        console.warn("No data found in cache for key:", [userNewsKeys.key, projectId]);
         return { previousData: null };
       }
-      queryClient.setQueryData<UserNewsListQueryResponseType>(userNewsKeys.key, (old) => {
+      queryClient.setQueryData<UserNewsListQueryResponseType>([userNewsKeys.key, projectId], (old) => {
         if (!old || !old.data) return old;
         return {
           ...old,
@@ -164,7 +165,7 @@ export const useUpdateNewsTableMutation = (projectId: string) => {
     },
     onError: (error, updatedData, context) => {
       if (context?.previousData) {
-        queryClient.setQueryData(userNewsKeys.key, context.previousData);
+        queryClient.setQueryData([userNewsKeys.key, projectId], context.previousData);
       }
       console.log(error, updatedData);
       toast({
@@ -174,7 +175,7 @@ export const useUpdateNewsTableMutation = (projectId: string) => {
     },
     onSuccess: () => {
       console.log("Update News Table Success");
-      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key] });
+      queryClient.invalidateQueries({ queryKey: [userNewsKeys.key, projectId] });
       toast({
         description: "修改成功!",
       });

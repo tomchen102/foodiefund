@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 import { planApi } from "@/api/services/plan";
 import { planApiSchema } from "@/schema/planSchema";
@@ -39,5 +39,18 @@ export const useGetPlan = (id: string | null, options = {}) => {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     ...options,
+  });
+};
+
+export const usePostPlanMutation = () => {
+  return useMutation({
+    mutationFn: planApi.create,
+    onSuccess: (response) => {
+      console.log("新增成功", response);
+      return response;
+    },
+    onError: (error) => {
+      console.error(error.message);
+    },
   });
 };

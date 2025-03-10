@@ -88,9 +88,7 @@ const Rewards = () => {
                 <div className="mb-2">
                   <span className="font-bold text-gray">剩餘 {reward.remain_qty} 份</span>
                 </div>
-                <div className="mb-5">
-                  <p className="prose">{parse(reward.content ?? "")}</p>
-                </div>
+                <div className="prose mb-5">{parse(reward.content ?? "")}</div>
                 <Button variant="donateNow" size="lg" asChild>
                   <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
                     立即贊助

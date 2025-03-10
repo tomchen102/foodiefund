@@ -37,10 +37,13 @@ const FormDatePicker = <T extends FieldValues>({ label, name }: FormFieldConfig<
                 <FormControl>
                   <Button
                     variant={"outline"}
-                    className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
+                    className={cn(
+                      "w-full border-gray-200 pl-3 text-left font-normal",
+                      !field.value && "text-muted-foreground"
+                    )}
                     onClick={() => setIsOpen(!isOpen)}
                   >
-                    {field.value ? format(new Date(field.value), "yyyy-MM-dd") : <span>Pick a date</span>}
+                    {field.value ? format(new Date(field.value), "yyyy-MM-dd") : <span>請選擇日期</span>}
                     <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                   </Button>
                 </FormControl>
