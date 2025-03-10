@@ -45,8 +45,10 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                           {gridType === "three" && <span className="text-gray">{item.address}</span>}
                           {gridType === "four" && (
                             <>
-                              <span className="text-gray">{item.place}</span>
-                              <span className="font-bold text-primary-dark">{item.percentage} %</span>
+                              <span className="w-full text-gray">{item.place}</span>
+                              <div className="w-full text-right">
+                                <span className="font-bold text-primary-dark">{item.percentage} %</span>
+                              </div>
                             </>
                           )}
                         </>

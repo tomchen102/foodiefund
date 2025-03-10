@@ -21,6 +21,6 @@ export interface RecentProjectsListProps {
 }
 
 export type RecentProjectsBlockType = RecentProjectsListProps & {
-  title: "近期專案" | "熱門專案" | "訂閱式專案";
+  title?: "近期專案" | "熱門專案" | "訂閱式專案";
   className?: string;
 };
