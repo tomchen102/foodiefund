@@ -10,7 +10,16 @@ import { getRecentProjectsBlockData } from "@/mock/getRecentProjectsBlockData";
 const PaymentSuccessful = async () => {
   const data = await getRecentProjectsBlockData();
   const orderPaymentSuccessfulData = await getOrderPaymentSuccessful();
-  console.log(orderPaymentSuccessfulData);
+
+  const formatPrice = (price: number) => {
+    return price
+      .toLocaleString("zh-TW", {
+        style: "currency",
+        currency: "TWD",
+        maximumFractionDigits: 0,
+      })
+      .replace("$", "$ ");
+  };
 
   return (
     <div>
@@ -102,7 +111,7 @@ const PaymentSuccessful = async () => {
                           <div className="mb-1 text-gray">顏色：咖啡色</div>
                           <div className="flex">
                             <div className="mr-[6px]">X{orderItem.quantity}</div>
-                            <div className="w-full text-right font-bold">NT$ {orderItem.price}</div>
+                            <div className="w-full text-right font-bold">NT{formatPrice(orderItem.price)}</div>
                           </div>
                         </div>
                       </div>
@@ -113,21 +122,22 @@ const PaymentSuccessful = async () => {
                     <div className="mb-6">
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">折扣碼</span>
-                        <span className="font-bold text-[#DC2626]">-$ {item.order.discount}</span>
+                        <span className="font-bold text-[#DC2626]">-{formatPrice(item.order.discount)}</span>
                       </div>
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">商品小計</span>
-                        <span className="font-bold">$ {item.order.subtotal}</span>
+                        <span className="font-bold">{formatPrice(item.order.subtotal)}</span>
                       </div>
+
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">運費</span>
-                        <span className="font-bold">$ {item.order.shipping_fee}</span>
+                        <span className="font-bold">{formatPrice(item.order.shipping_fee)}</span>
                       </div>
                     </div>
                     <hr className="mb-6" />
                     <div className="flex items-center justify-between">
                       <span className="text-gray">總計</span>
-                      <span className="font-bold">NT$ {item.order.total_amount}</span>
+                      <span className="font-bold">NT{formatPrice(item.order.total_amount)}</span>
                     </div>
                   </div>
                 </div>
@@ -174,7 +184,7 @@ const PaymentSuccessful = async () => {
                           <span>{orderItem.quantity}</span>
                         </div>
                         <div className="w-3/12 pr-5 text-right">
-                          <span className="font-bold">NT$ {orderItem.price}</span>
+                          <span className="font-bold">NT{formatPrice(orderItem.price)}</span>
                         </div>
                       </div>
                     );
@@ -184,21 +194,21 @@ const PaymentSuccessful = async () => {
                     <div className="mb-6">
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">折扣碼</span>
-                        <span className="font-bold text-[#DC2626]">-$ {item.order.discount}</span>
+                        <span className="font-bold text-[#DC2626]">-{formatPrice(item.order.discount)}</span>
                       </div>
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">商品小計</span>
-                        <span className="font-bold">$ {item.order.subtotal}</span>
+                        <span className="font-bold">{formatPrice(item.order.subtotal)}</span>
                       </div>
                       <div className="mb-2 flex items-center justify-between">
                         <span className="text-gray">運費</span>
-                        <span className="font-bold">$ {item.order.shipping_fee}</span>
+                        <span className="font-bold">{formatPrice(item.order.shipping_fee)}</span>
                       </div>
                     </div>
                     <hr className="mb-6" />
                     <div className="flex items-center justify-between">
                       <span className="text-gray">總計</span>
-                      <span className="font-bold">NT$ {item.order.total_amount}</span>
+                      <span className="font-bold">NT{formatPrice(item.order.total_amount)}</span>
                     </div>
                   </div>
                 </div>
