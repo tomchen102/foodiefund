@@ -41,7 +41,7 @@ const ImageCropDialog = ({ open, onOpenChange, imageSrc, onCropConfirm }: ImageC
       const heightRatio = containerHeight / mediaSize.height;
       const initialZoom = Math.max(widthRatio, heightRatio);
 
-      setMinZoom(1);
+      setMinZoom(initialZoom);
       setZoom(initialZoom);
       setMaxZoom(initialZoom * 3);
 
