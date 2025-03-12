@@ -12,8 +12,18 @@ export const planApi = {
     const response = await axiosClientDashboard.get(planApi.getBaseUrl(planId));
     return response.data;
   },
+  getById: async (planId: string) => {
+    const response = await axiosClientDashboard.get(`${planApi.getBaseUrl(planId)}/detail`);
+    return response.data;
+  },
   create: async (data: PlanFormSchemaType) => {
     const response = await axiosClientFrontend.post(`/plan`, data, {
+      headers: planApi.MULTIPART_HEADERS,
+    });
+    return response.data;
+  },
+  update: async (planId: string, data: PlanFormSchemaType) => {
+    const response = await axiosClientDashboard.put(`${planApi.getBaseUrl(planId)}/detail`, data, {
       headers: planApi.MULTIPART_HEADERS,
     });
     return response.data;

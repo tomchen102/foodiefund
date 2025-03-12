@@ -1,8 +1,6 @@
 import { PlanFormSchemaType } from "@/api/services/plan/types";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 
-// imageUrl: z.string(),
-
 export const planFormFields: FormFieldConfig<PlanFormSchemaType>[] = [
   {
     label: "募資類別",
@@ -105,11 +103,11 @@ export const planFormFields: FormFieldConfig<PlanFormSchemaType>[] = [
   },
   {
     label: "起始時間",
-    name: "activeTime",
+    name: "startedAt",
     type: "date",
-    id: "activeTime",
+    id: "startedAt",
     placeholder: "請再次輸入您的起始時間",
-    key: "activeTime",
+    key: "startedAt",
   },
   {
     label: "結束時間",
