@@ -14,6 +14,7 @@ import { useGetPlanById, usePostPlanMutation, useUpdatePlanMutation } from "@/ho
 import { useSetLoading } from "@/hooks/useSetLoading";
 import { PlanFormSchema } from "@/schema/planSchema";
 
+import DemoButton from "./DemoButton";
 import { planFormFields } from "./planFormFields";
 
 const getToday = () => {
@@ -132,6 +133,7 @@ const PlanForm = () => {
           <Button type="submit" className="w-full" disabled={isPending}>
             {isPending ? "提交中..." : isEditMode ? "更新提案" : "送出提案"}
           </Button>
+          {isEditMode || <DemoButton />}
         </form>
       </Form>
     </div>
