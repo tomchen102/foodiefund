@@ -10,10 +10,10 @@ import Rewards from "./_components/Rewards";
 const LayoutContent = ({ children }: ChildrenProps) => {
   const pathname = usePathname();
   const isProjectList = pathname.includes("/project-list");
-
+  const isPayment = pathname.includes("/payment");
   return (
     <>
-      {isProjectList ? (
+      {isProjectList || isPayment ? (
         <>
           <SectionPadding container className="lg:pt-0">
             {children}
