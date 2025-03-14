@@ -11,5 +11,6 @@ export const initializeQueryClient = async (prefetchFn: (queryClient: QueryClien
   const queryClient = new QueryClient();
   await prefetchFn(queryClient);
   const dehydratedState = dehydrate(queryClient);
+  console.log("Dehydrated State:", dehydratedState);
   return { queryClient, dehydratedState };
 };
