@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import Image from "next/image";
+import { JSX } from "react";
 
 import { userNewsApi } from "@/api/services/userNews";
 import AnimatedContainer from "@/components/AnimatedContainer";
@@ -16,15 +17,9 @@ const getData = async (projectId: string, id: string) => {
   };
 };
 
-interface DetailProps {
-  params: {
-    detail_id: string;
-  };
-}
-
-const Detail = async ({ params }: DetailProps) => {
+const Page = async (props: { params: Promise<{ detail_id: string }> }): Promise<JSX.Element> => {
   const projectId = "66fb66d32bebc04b1d517eb0";
-  const { detail_id } = await params;
+  const { detail_id } = (await props.params) as { detail_id: string };
   console.log(detail_id);
 
   const { data } = await getData(projectId, detail_id);
@@ -57,4 +52,4 @@ const Detail = async ({ params }: DetailProps) => {
   );
 };
 
-export default Detail;
+export default Page;
