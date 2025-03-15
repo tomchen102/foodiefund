@@ -10,7 +10,7 @@ const DemoButton = () => {
     setValue("activeType", "A");
     setValue("title", "匠人鮨道");
     setValue("location", "臺北市");
-    setValue("restaurantType", "日本料理");
+    setValue("restaurantType", "日式料理");
     setValue("image", null);
     setValue("address", "台北市信義區信義路五段 7 號");
     setValue("proposer", "佐藤一郎");

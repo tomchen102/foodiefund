@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm text-white font-bold leading-[20px] hover:bg-secondary-hover",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-primary-hover underline-offset-4 hover:underline",
         donateNow: "bg-secondary text-base font-bold text-white",
         transparent:
           "border border-white bg-transparent shadow-sm hover:bg-transparent/40 text-white  font-bold leading-[20px]",
