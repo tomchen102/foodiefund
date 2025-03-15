@@ -37,9 +37,9 @@ const MobileSidebar = () => {
     { href: `/dashboard/${plan_id}`, label: "募資總攬" },
     { href: `/dashboard/${plan_id}/edits`, label: "修改計畫" },
     { href: `/dashboard/${plan_id}/rewards`, label: "計畫回饋" },
-    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理" },
     { href: `/dashboard/${plan_id}/faqs`, label: "常見問答管理" },
     { href: `/dashboard/${plan_id}/news`, label: "最新消息管理" },
+    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理" },
     { href: `/dashboard/${plan_id}/orders-payments`, label: "訂單金流管理" },
   ];
   const isActive = (href: string) => {
