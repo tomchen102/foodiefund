@@ -34,7 +34,7 @@ const PaymentForm = () => {
       recipient: "",
       phone: "",
       billType: "personal",
-      vehicle: "0",
+      vehicle: "/UD46KA5",
       remark: "",
       agree: false,
       color: "花色",
