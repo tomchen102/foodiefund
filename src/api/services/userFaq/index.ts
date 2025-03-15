@@ -27,7 +27,7 @@ export const userFaqApi = {
     console.log("updateUrl response:", response);
     return response.data;
   },
-  delete: async (projectId: string, id: string) => {
+  delete: async (id: string, projectId: string) => {
     return axiosClientDashboard.delete(`${userFaqApi.getBaseUrl(projectId)}/${id}`);
   },
 };

@@ -18,14 +18,15 @@ export const useGetNews = (queryParams: NewsQueryParamsType) => {
       const result = safeParseResponse(newsResponseArraySchema, response.data);
       return result;
     },
+    staleTime: 1000 * 60 * 5,
   });
 };
 
 export const prefetchNewsOne = async (queryClient: QueryClient, queryParams: NewsQueryParamsType) => {
-  return prefetchData(queryClient, [newsKeys.key, queryParams], async () => {
-    const response = await NewsApi.getAll(queryParams);
-    return safeParseResponse(newsResponseArraySchema, response.data);
-  });
+  const response = await NewsApi.getAll(queryParams);
+  const parsedData = safeParseResponse(newsResponseArraySchema, response.data);
+  console.log("Parsed API Data:", parsedData);
+  return prefetchData(queryClient, [newsKeys.key, queryParams], async () => parsedData);
 };
 
 export const initializeHomeNewsQueryClient = async (queryParams: NewsQueryParamsType) => {

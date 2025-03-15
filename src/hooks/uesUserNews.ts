@@ -24,10 +24,8 @@ export const useGetUserNews = (clientType: ClientType, projectId: string) => {
     queryFn: async () => {
       const response = await userNewsApi.getAll(clientType, projectId);
       console.log("getUserNewsList response:", response.data);
-      const result = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
-      return result;
+      return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
     },
-    staleTime: 0,
   });
 };
 
@@ -48,11 +46,11 @@ export const useGetUserNewsId = (
   });
 };
 
-export const prefetchNewsListByClient = (queryClient: QueryClient, projectId: string) => {
-  return prefetchData(queryClient, [userNewsKeys.key, projectId], async () => {
-    const response = await userNewsApi.getAll("frontend", projectId);
-    return safeParseResponse(UserNewsListArrayResponseSchema, response.data);
-  });
+export const prefetchNewsListByClient = async (queryClient: QueryClient, projectId: string) => {
+  const response = await userNewsApi.getAll("frontend", projectId);
+  const parsedData = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
+  console.log("Parsed API Data:", parsedData); // 🔍 檢查解析後的資料
+  return prefetchData(queryClient, [userNewsKeys.key, projectId], async () => parsedData);
 };
 
 export const initializeNewsListQueryClient = (project: string) => {

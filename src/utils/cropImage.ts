@@ -3,10 +3,9 @@ export async function getCroppedImg(
   crop: { x: number; y: number; width: number; height: number },
   options?: { outputWidth?: number; outputHeight?: number; format?: "image/jpeg" | "image/png" | "image/webp" }
 ): Promise<File | string> {
-  const { outputWidth, outputHeight, format } = {
+  const { outputWidth, outputHeight } = {
     outputWidth: crop.width,
     outputHeight: crop.height,
-    format: "image/jpeg",
     ...options,
   };
 

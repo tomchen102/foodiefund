@@ -78,6 +78,13 @@ const Colors = () => {
             <div className="flex w-20 items-center">White</div>
             <div className="flex items-center">default 背景色、白字</div>
           </div>
+          <div className="flex gap-4">
+            <div className="flex h-8 w-40 items-center justify-center border border-gray-200 bg-white-pure px-3">
+              #FFFFFF
+            </div>
+            <div className="flex w-20 items-center">pure</div>
+            <div className="flex items-center">純白色</div>
+          </div>
         </div>
         <div>
           <h5 className="mb-3">Gray</h5>

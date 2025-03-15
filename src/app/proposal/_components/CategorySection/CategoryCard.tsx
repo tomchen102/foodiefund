@@ -30,8 +30,8 @@ const CategoryCard = ({ category }: CategoryProps) => {
             </div>
           ))}
         </div>
-        <Button className="w-full" variant={category.title === "群眾募資" ? "secondary" : "default"}>
-          <Link href={`proposal/createPlan?value=${category.title === "群眾募資" ? "A" : "B"}`}>開始提案</Link>
+        <Button className="w-full" variant={category.title === "群眾募資" ? "secondary" : "default"} asChild>
+          <Link href={`proposal/createPlan?activeType=${category.title === "群眾募資" ? "A" : "B"}`}>開始提案</Link>
         </Button>
       </div>
     </div>
