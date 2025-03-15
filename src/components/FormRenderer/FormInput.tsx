@@ -95,7 +95,7 @@ const FormInput = <T extends FieldValues>({
                     onChange: (e) => {
                       const value = e.target.value;
                       if (/^\d*$/.test(value)) {
-                        const numericValue = value === "" ? "" : Number(value);
+                        const numericValue = value === "" ? "" : value;
                         field.onChange(numericValue);
                       }
                     },

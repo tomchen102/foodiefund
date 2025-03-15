@@ -80,8 +80,6 @@ const PaymentForm = () => {
 
       document.body.appendChild(form);
       form.submit();
-
-      router.push("/payment-successful");
     } catch (error) {
       console.error("建立訂單錯誤:", error);
     }

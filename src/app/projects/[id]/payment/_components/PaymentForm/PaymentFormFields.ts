@@ -77,7 +77,7 @@ export const PaymentFormFields: FormFieldConfig<PaymentFormType>[] = [
   {
     label: "連絡電話",
     name: "phone",
-    type: "text",
+    type: "tel",
     key: "phone",
     placeholder: "請輸入真實手機號碼，以利取貨或連繫收貨",
     required: true,
