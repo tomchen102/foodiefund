@@ -1,9 +1,9 @@
 "use client";
 import parse from "html-react-parser";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useParams, useRouter } from "next/navigation";
 
+import UnoptimizedImage from "@/components/UnoptimizedImage";
 import { Button } from "@/components/ui/button";
 import { useGetReward } from "@/hooks/useRewards";
 import { useAuth } from "@/utils/providers/AuthProvider";
@@ -28,7 +28,7 @@ const Rewards = () => {
         <ul className="relative flex w-full gap-6">
           {data?.map((reward) => (
             <li key={reward.id} className="mb-5 w-[400px] flex-shrink-0 md:mb-8 md:min-w-[200px]">
-              <img
+              <UnoptimizedImage
                 src={reward.image as string}
                 className="h-auto w-full xl:h-[200px]"
                 alt="Screenshots of the dashboard project showing desktop version"
@@ -62,7 +62,7 @@ const Rewards = () => {
         <ul>
           {data?.map((reward) => (
             <li key={reward.id} className="mb-5 md:mb-8">
-              <img
+              <UnoptimizedImage
                 src={reward.image as string}
                 className="h-auto w-full xl:h-[200px]"
                 alt="Screenshots of the dashboard project showing desktop version"
