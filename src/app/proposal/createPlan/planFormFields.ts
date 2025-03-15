@@ -88,7 +88,7 @@ export const planFormFields: FormFieldConfig<PlanFormSchemaType>[] = [
   {
     label: "聯絡電話",
     name: "phone",
-    type: "text",
+    type: "tel",
     placeholder: "請輸入您的聯絡電話",
     id: "phone",
     key: "phone",
