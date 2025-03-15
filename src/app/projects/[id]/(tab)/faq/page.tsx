@@ -10,7 +10,6 @@ const getData = async (projectId: string) => {
   const data = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
   return {
     data,
-    revalidate: 86400,
   };
 };
 

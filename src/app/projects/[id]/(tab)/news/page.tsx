@@ -11,7 +11,6 @@ const getData = async (projectId: string) => {
   const data = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
   return {
     data,
-    revalidate: 86400,
   };
 };
 

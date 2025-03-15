@@ -13,7 +13,6 @@ const getData = async (projectId: string, id: string) => {
 
   return {
     data,
-    revalidate: 86400,
   };
 };
 
