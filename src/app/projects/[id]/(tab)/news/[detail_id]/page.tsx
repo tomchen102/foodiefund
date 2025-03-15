@@ -45,7 +45,9 @@ const Page = async (props: { params: Promise<{ detail_id: string }> }): Promise<
           <div className="mb-3">
             <span className="text-gray">發佈日期：{data.publicAt}</span>
           </div>
-          <div className="prose mb-2">{parse(data.content ?? "")}</div>
+          <div className="prose mb-2 max-w-full break-words">
+            <div className="w-full overflow-hidden whitespace-normal break-words">{parse(data.content ?? "")}</div>
+          </div>
         </div>
       </div>
     </AnimatedContainer>
