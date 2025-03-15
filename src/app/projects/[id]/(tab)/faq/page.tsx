@@ -7,7 +7,6 @@ export const dynamic = "force-dynamic";
 
 const getData = async (projectId: string) => {
   const response = await userFaqApi.getAll("frontend", projectId);
-  console.log("Fetching news data from server...");
   const data = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
   return {
     data,

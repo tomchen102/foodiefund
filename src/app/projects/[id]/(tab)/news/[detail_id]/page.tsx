@@ -1,15 +1,14 @@
 import parse from "html-react-parser";
-import Image from "next/image";
 import { JSX } from "react";
 
 import { userNewsApi } from "@/api/services/userNews";
 import AnimatedContainer from "@/components/AnimatedContainer";
+import UnoptimizedImage from "@/components/UnoptimizedImage";
 import { UserNewsDetailResponseSchema } from "@/schema/UserNewsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 
 const getData = async (projectId: string, id: string) => {
   const response = await userNewsApi.getById("frontend", projectId, id);
-  console.log("Fetching news data from server...");
   const data = safeParseResponse(UserNewsDetailResponseSchema, response.data);
 
   return {
@@ -17,7 +16,7 @@ const getData = async (projectId: string, id: string) => {
   };
 };
 
-const Page = async (props: { params: Promise<{ detail_id: string }> }): Promise<JSX.Element> => {
+const Detail_id = async (props: { params: Promise<{ detail_id: string }> }): Promise<JSX.Element> => {
   const projectId = "66fb66d32bebc04b1d517eb0";
   const { detail_id } = (await props.params) as { detail_id: string };
   console.log(detail_id);
@@ -30,7 +29,7 @@ const Page = async (props: { params: Promise<{ detail_id: string }> }): Promise<
         <div className="border p-6">
           <div className="mb-6">
             {typeof data.image === "string" && data.image && (
-              <Image
+              <UnoptimizedImage
                 src={data.image}
                 width={0}
                 height={0}
@@ -54,4 +53,4 @@ const Page = async (props: { params: Promise<{ detail_id: string }> }): Promise<
   );
 };
 
-export default Page;
+export default Detail_id;
