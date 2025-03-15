@@ -32,7 +32,7 @@ const CheckoutList = () => {
       <div className="mt-5">
         <div className="mb-5 flex">
           <span className="mr-auto">選項金額</span>
-          <span>NT $ 6,666</span>
+          <span>NT $ 8,888</span>
         </div>
         <div className="mb-5 flex border-b pb-5">
           <span className="mr-auto">運費：台灣(本島)</span>
@@ -40,7 +40,7 @@ const CheckoutList = () => {
         </div>
         <div className="flex">
           <span className="mr-auto">總價</span>
-          <span>NT $ 6,666</span>
+          <span>NT $ 8,888</span>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // 在保存時，自動應用 ESLint 來修正所有問題
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   // 對 JavaScript 文件，使用 Prettier 進行格式化，覆蓋 VSCode 的預設設置
   "[javascript]": {

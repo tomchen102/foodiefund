@@ -46,7 +46,45 @@ const PaymentForm = () => {
 
   const onSubmit = async (data: PaymentFormType) => {
     console.log(data);
-    //router.push("/payment-successful");
+    const productData = data;
+    try {
+      const response = await fetch("https://foodiefund.onrender.com/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(productData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "訂單建立失敗");
+      }
+      // 藍新金流參數
+      const { MerchantID, TradeInfo, TradeSha, Version } = data;
+
+      // 建立隱藏表單提交到藍新金流
+      const newebpayUrl = "https://ccore.newebpay.com/MPG/mpg_gateway";
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = newebpayUrl;
+
+      const fields = { MerchantID, TradeInfo, TradeSha, Version };
+
+      Object.entries(fields).forEach(([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value as string;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+
+      router.push("/payment-successful");
+    } catch (error) {
+      console.error("建立訂單錯誤:", error);
+    }
   };
 
   useEffect(() => {
