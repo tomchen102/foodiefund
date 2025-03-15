@@ -26,9 +26,9 @@ const Sidebar = () => {
     { href: `/dashboard/${plan_id}`, label: "募資總攬", icon: Icons.ListFill },
     { href: `/dashboard/${plan_id}/edits`, label: "修改計畫", icon: Icons.Edit },
     { href: `/dashboard/${plan_id}/rewards`, label: "計畫回饋", icon: Icons.Message },
-    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理", icon: Icons.Money },
     { href: `/dashboard/${plan_id}/faqs`, label: "常見問答管理", icon: Icons.Question },
     { href: `/dashboard/${plan_id}/news`, label: "最新消息管理", icon: Icons.News },
+    { href: `/dashboard/${plan_id}/payments`, label: "金流申請/管理", icon: Icons.Money },
     { href: `/dashboard/${plan_id}/orders-payments`, label: "訂單金流管理", icon: Icons.Wallet },
   ];
 
