@@ -108,7 +108,7 @@ const PaymentSuccessful = async () => {
                         />
                         <div className="flex flex-col">
                           <div className="mb-1 font-bold">{orderItem.title}</div>
-                          <div className="mb-1 text-gray">顏色：咖啡色</div>
+                          <div className="mb-1 text-gray">顏色：花色</div>
                           <div className="flex">
                             <div className="mr-[6px]">X{orderItem.quantity}</div>
                             <div className="w-full text-right font-bold">NT{formatPrice(orderItem.price)}</div>
@@ -175,7 +175,7 @@ const PaymentSuccessful = async () => {
                               />
                               <div className="flex w-full flex-col justify-center">
                                 <div className="mb-2 font-bold">{orderItem.title}</div>
-                                <div className="text-gray">顏色：咖啡色</div>
+                                <div className="text-gray">顏色：花色</div>
                               </div>
                             </div>
                           </div>
@@ -241,7 +241,7 @@ const PaymentSuccessful = async () => {
               <p className="text-gray-500">
                 訂單已發送到您的電子信箱
                 <br />
-                abc@gmail.com
+                pigloveh101@gmail.com
               </p>
             </div>
           </div>
@@ -334,7 +334,7 @@ const PaymentSuccessful = async () => {
               />
               <div className="w-full">
                 <h5 className="mb-2 text-lg font-bold text-black">告訴朋友</h5>
-                <p className="text-gray-500">訂單已發送到您的電子信箱 abc@gmail.com</p>
+                <p className="text-gray-500">訂單已發送到您的電子信箱 pigloveh101@gmail.com</p>
               </div>
             </div>
             <div className="flex w-full items-center bg-[#FFFFFF] p-6">
