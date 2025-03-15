@@ -8,7 +8,7 @@ const DemoButton = () => {
 
   const fillDemoData = () => {
     setValue("activeType", "A");
-    setValue("title", "匠人鮨道");
+    setValue("title", "江戶前壽司");
     setValue("location", "臺北市");
     setValue("restaurantType", "日式料理");
     setValue("image", null);
@@ -18,7 +18,7 @@ const DemoButton = () => {
     setValue("phone", "0912345678");
     setValue(
       "info",
-      "我們計畫開設一家正宗的日式鮨店，堅持手握壽司的傳統工藝，並嚴選當季新鮮食材，為饕客帶來極致的味蕾享受！期待您的支持！"
+      "我們即將開設一家正宗的日式鮨店，秉持職人精神，專注於手握壽司的傳統技藝，並嚴選當季頂級食材，為每位饕客獻上最純粹的鮨味體驗。敬請期待，邀您一同品味匠心之作！"
     );
     setValue("startedAt", "2025-03-16");
     setValue("endAt", "2025-05-31");
