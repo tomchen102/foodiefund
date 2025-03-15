@@ -28,14 +28,10 @@ const Rewards = () => {
         <ul className="relative flex w-full gap-6">
           {data?.map((reward) => (
             <li key={reward.id} className="mb-5 w-[400px] flex-shrink-0 md:mb-8 md:min-w-[200px]">
-              <Image
+              <img
                 src={reward.image as string}
-                width={0}
-                height={0}
-                sizes="100vw"
                 className="h-auto w-full xl:h-[200px]"
                 alt="Screenshots of the dashboard project showing desktop version"
-                priority
               />
               <div className="border p-5">
                 <h3 className="mb-2 text-lg">{reward.title}</h3>
@@ -66,14 +62,10 @@ const Rewards = () => {
         <ul>
           {data?.map((reward) => (
             <li key={reward.id} className="mb-5 md:mb-8">
-              <Image
+              <img
                 src={reward.image as string}
-                width={0}
-                height={0}
-                sizes="100vw"
                 className="h-auto w-full xl:h-[200px]"
                 alt="Screenshots of the dashboard project showing desktop version"
-                priority
               />
               <div className="border p-5">
                 <h3 className="mb-2 text-xl">{reward.title}</h3>
