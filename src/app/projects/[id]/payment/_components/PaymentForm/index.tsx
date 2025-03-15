@@ -46,7 +46,7 @@ const PaymentForm = () => {
 
   const onSubmit = async (data: PaymentFormType) => {
     console.log(data);
-    router.push("/payment-successful");
+    //router.push("/payment-successful");
   };
 
   useEffect(() => {

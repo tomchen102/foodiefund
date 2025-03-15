@@ -90,7 +90,7 @@ const Rewards = () => {
                 </div>
                 <div className="prose mb-5">{parse(reward.content ?? "")}</div>
                 <Button variant="donateNow" size="lg" asChild>
-                  <Link href={`/projects/${id}/project-list/payment`} onClick={handleDonateClick}>
+                  <Link href={`/projects/${id}/payment`} onClick={handleDonateClick}>
                     立即贊助
                   </Link>
                 </Button>

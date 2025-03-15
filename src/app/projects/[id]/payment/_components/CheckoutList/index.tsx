@@ -4,7 +4,7 @@ const CheckoutList = () => {
   return (
     <div className="mb-5 md:mb-8">
       <Image
-        src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/e84a603e-94ce-4955-aec1-57030925caf0.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=PYRZrOEf2DhIKnxV4IpWXrlIG1ms%2FfsYo%2FDFc5KJWDkTRadTSwDZHz7WKNuGQqzCF5Swgd8jl4M9uOmR62IoLtn5I50sq5Z8wZrP5YkHTnizbjS1%2Bte5S1egt2%2B5eNYFXTQ3861NLSScD%2F%2BoyNgYOkRU%2BpPs9JkmsEz0B9zhH5u%2BUCGoM8hZbOk%2FbQFjj%2FrigbY4ub9lwbWlJ8%2BNC8uQCc5Kdpniibh%2B8Sbb5MEc0ujkTVc0f1aWxfCZzl9eo%2BaXOVOKtS4ojjVVcL0MFdla5wFwS6YXOYVgLueuJ61gze%2F0D%2FSftMLSlei6Ij70xSp9j8s4%2F6LAJfFCABOKjo8MYA%3D%3D"
+        src="https://storage.googleapis.com/fir-express-80358.appspot.com/images/03add2b8-491e-4738-9c66-148d4a5e999a.png?GoogleAccessId=firebase-adminsdk-42otj%40fir-express-80358.iam.gserviceaccount.com&Expires=16756675200&Signature=xkhksXX2QLzABZCglZLhKhXHFC7mFMpq9VLfePD40W7cqGEIkXbzT%2BywQqS7FE8HkCfWPPy9h%2FTng7RxRMEU%2F4%2BlNh6mSAvlC6ckB7gnd1gFvcS%2FZwNhcH1034cgzGM4k1dkkbX9J3ErNcMNfIwNw2bsaC1QQVC068dKdpnDbKsr0X4BcsAOXlGKQgRIFcoNkIZsvJixClmWgHc11%2BPP2VE2m9CQwxvi9qV7PxNAFeEQrU%2BEAP2FULpQOWXljILk0hrFKznE3GVt%2BtxOPO3pBBRKEtuVt6T6aFnT%2BHF2P%2BpXzyIZDyoT91Rbw3tniBzdr2j0DQYw9M21FJXYL1MTAA%3D%3D"
         width={0}
         height={0}
         sizes="100vw"
@@ -15,7 +15,7 @@ const CheckoutList = () => {
       <div className="border p-5">
         <h3 className="mb-2 text-base">【限量單品】布偶貓托特包</h3>
         <div className="mb-2 flex items-center">
-          <span className="mr-auto text-xl font-bold text-secondary">NT$ 6,666</span>
+          <span className="mr-auto text-xl font-bold text-secondary">NT$ 8,888</span>
           <span className="text-gray">已被贊助</span>
           <span className="text-primary-dark">24/25</span>
           <span className="text-gray">次</span>
