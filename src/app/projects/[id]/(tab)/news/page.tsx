@@ -6,12 +6,14 @@ import { buttonVariants } from "@/components/ui/button";
 import { UserNewsListArrayResponseSchema } from "@/schema/UserNewsSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 
+export const dynamic = "force-dynamic";
+
 const getData = async (projectId: string) => {
   const response = await userNewsApi.getAll("frontend", projectId);
+  console.log("Fetching news data from server...");
   const data = safeParseResponse(UserNewsListArrayResponseSchema, response.data);
   return {
     data,
-    revalidate: 86400,
   };
 };
 

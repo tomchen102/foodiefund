@@ -3,14 +3,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { UserFaqListArrayResponseSchema } from "@/schema/UserFaqSchema";
 import { safeParseResponse } from "@/utils/zodUtils";
 
-export const revalidate = false;
+export const dynamic = "force-dynamic";
 
 const getData = async (projectId: string) => {
   const response = await userFaqApi.getAll("frontend", projectId);
+  console.log("Fetching news data from server...");
   const data = safeParseResponse(UserFaqListArrayResponseSchema, response.data);
   return {
     data,
-    revalidate: 86400,
   };
 };
 

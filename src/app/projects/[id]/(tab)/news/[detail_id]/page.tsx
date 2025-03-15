@@ -9,11 +9,11 @@ import { safeParseResponse } from "@/utils/zodUtils";
 
 const getData = async (projectId: string, id: string) => {
   const response = await userNewsApi.getById("frontend", projectId, id);
+  console.log("Fetching news data from server...");
   const data = safeParseResponse(UserNewsDetailResponseSchema, response.data);
 
   return {
     data,
-    revalidate: 86400,
   };
 };
 
