@@ -24,7 +24,25 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: ["/news", "/news/:detail_id", "/faq"],
+        source: "/projects/:id/news",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, must-revalidate, proxy-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/projects/:id/news/:detail_id",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, must-revalidate, proxy-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/projects/:id/faq",
         headers: [
           {
             key: "Cache-Control",
