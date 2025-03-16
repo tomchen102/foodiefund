@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -69,7 +69,9 @@ const PaymentSuccessful = async () => {
                 return (
                   <div key={item.order.id}>
                     <p className="mb-4 text-sm font-bold md:text-base">{item.order.customer.name}</p>
-                    <p className="mb-4 text-sm font-bold md:text-base">{format(item.order.order_date, "yyyy-MM-dd")}</p>
+                    <p className="mb-4 text-sm font-bold md:text-base">
+                      {format(parseISO(item.order.order_date), "yyyy-MM-dd")}
+                    </p>
                     <p className="mb-4 text-sm font-bold md:text-base">
                       {item.order.order_shippingInfo.contact_person}
                     </p>
