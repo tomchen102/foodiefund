@@ -6,7 +6,7 @@ export const getOrderPaymentSuccessful = async (): Promise<OrderPaymentSuccessfu
       order: {
         id: "550e8400-e29b-41d4-a716-446655440000",
         order_no: "ORD202503160001",
-        order_date: "2025-03-16T03:20:00+08:00",
+        order_date: "2025-03-16T11:20:00+08:00",
         discount: 100,
         subtotal: 8888,
         shipping_fee: 150,
