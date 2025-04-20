@@ -18,7 +18,7 @@ const aboutUs = () => {
             />
             <div className="lg:pt-32"></div>
           </div>
-          <div className="mx-3 -mt-24 rounded-lg border bg-white/90 p-5 shadow-md lg:absolute lg:bottom-0 lg:-mb-12 lg:mt-0 lg:w-1/2 lg:p-10">
+          <div className="mx-3 -mt-48 rounded-lg border bg-white/90 p-5 shadow-md lg:absolute lg:bottom-0 lg:-mb-12 lg:mt-0 lg:w-1/2 lg:p-10">
             <h1 className="mb-4 text-2xl font-bold text-primary-dark md:text-3xl lg:mb-8">關於我們</h1>
             <p className="mb-4 lg:mb-8">
               歡迎來到我們的餐廳合夥人募資平台,一個致力於將美食愛好者與創新餐飲項目聯繫在一起的社區。
