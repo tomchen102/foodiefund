@@ -1,16 +1,8 @@
-import { ChevronDownIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
 import React from "react";
-import { BsFilterLeft } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const navMenu = {
   projectNav: [
@@ -51,81 +43,84 @@ const SelectProjects = () => {
       <h1 className="mt-[28px] text-2xl font-bold lg:mt-[34px]">探索專案</h1>
       <div className="mt-6 flex flex-wrap">
         <div className="flex w-full md:mr-auto md:w-auto">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="mr-4 flex w-full items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-60">
-              <span className="mr-auto md:ml-1">專案性質</span>
-              <ChevronDownIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {navMenu.projectNav.map((item, index) => {
-                return (
-                  <Link href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
-                      {item.title}
-                    </DropdownMenuItem>
-                  </Link>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="mr-4 flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="mr-auto md:ml-1">區域</span>
-              <ChevronDownIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {navMenu.areaNav.map((item, index) => {
-                return (
-                  <Link href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
-                      {item.title}
-                    </DropdownMenuItem>
-                  </Link>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="mr-auto flex min-w-[106px] items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none md:min-w-[120px]">
-              <span className="mr-auto md:ml-1">類別</span>
-              <ChevronDownIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {navMenu.cuisineNav.map((item, index) => {
-                return (
-                  <Link href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-[106px] border border-solid border-gray-200 hover:!bg-primary-light md:min-w-60">
-                      {item.title}
-                    </DropdownMenuItem>
-                  </Link>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select>
+            <SelectTrigger className="mr-4 min-w-[106px] gap-2 border border-solid border-gray-200 py-6 md:min-w-60">
+              <SelectValue placeholder="專案性質" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {navMenu.projectNav.map((item) => (
+                  <SelectItem
+                    key={item.title}
+                    value={item.title}
+                    className="border-b border-gray-200 py-3 hover:!bg-primary-light md:min-w-60"
+                  >
+                    {item.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <Select>
+            <SelectTrigger className="mr-4 min-w-[106px] gap-2 border border-solid border-gray-200 py-6 md:min-w-[120px]">
+              <SelectValue placeholder="區域" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {navMenu.areaNav.map((item) => (
+                  <SelectItem
+                    key={item.title}
+                    value={item.title}
+                    className="min-w-[106px] border-b border-gray-200 py-3 hover:!bg-primary-light md:min-w-[120px]"
+                  >
+                    {item.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <Select>
+            <SelectTrigger className="mr-4 min-w-[106px] gap-2 border border-solid border-gray-200 py-6 md:min-w-[120px]">
+              <SelectValue placeholder="類別" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {navMenu.cuisineNav.map((item) => (
+                  <SelectItem
+                    key={item.title}
+                    value={item.title}
+                    className="min-w-[106px] border-b border-gray-200 py-3 hover:!bg-primary-light md:min-w-[120px]"
+                  >
+                    {item.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
         <div className="mt-3 flex w-full md:mt-0 md:w-auto">
           <div className="relative mr-3 flex flex-grow items-center justify-start md:mr-4">
             <IoIosSearch className="absolute left-[18px] text-lg" />
             <Input className="h-[46px] rounded-none bg-[#fff] pl-10 md:min-w-60" type="text" placeholder="搜尋專案" />
           </div>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex min-w-20 items-center justify-start gap-2 border border-solid border-gray-200 bg-[#fff] px-3 py-3 focus-visible:outline-none">
-              <span className="md:ml-1">排序</span>
-              <BsFilterLeft />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {navMenu.filterNav.map((item, index) => {
-                return (
-                  <Link href={item.hrefUrl} key={index}>
-                    <DropdownMenuItem className="min-w-60 border border-solid border-gray-200 hover:!bg-primary-light">
-                      {item.title}
-                    </DropdownMenuItem>
-                  </Link>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select>
+            <SelectTrigger className="w-[106px] gap-2 border border-solid border-gray-200 py-6 md:min-w-[120px]">
+              <SelectValue placeholder="排序" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {navMenu.filterNav.map((item) => (
+                  <SelectItem
+                    key={item.title}
+                    value={item.title}
+                    className="min-w-[106px] border-b border-gray-200 py-3 hover:!bg-primary-light md:min-w-[120px]"
+                  >
+                    {item.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>
