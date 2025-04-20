@@ -30,7 +30,7 @@ const CategorySection = () => {
       <div className="absolute bottom-0 h-3/5 w-full bg-primary-light"></div>
       <div className="container flex flex-col gap-5 py-10 md:gap-10 md:py-20">
         <div className="text-center text-xl font-bold md:text-4xl">提案類別</div>
-        <div className="z-10 mx-3 flex flex-col justify-between md:mx-0 md:flex-row">
+        <div className="z-10 mx-3 flex flex-col justify-between gap-4 md:mx-0 md:flex-row">
           {categories.map((category) => (
             <CategoryCard key={category.title} category={category} />
           ))}
