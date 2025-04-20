@@ -37,7 +37,7 @@ const DesktopTable = ({ brand, headMap }: ComparisonTableProps) => {
                   item[key] ? (
                     <Icons.Check type="indicator" className="m-auto" />
                   ) : (
-                    ""
+                    <Icons.Close className="m-auto" />
                   )
                 ) : (
                   item[key as keyof typeof item]
