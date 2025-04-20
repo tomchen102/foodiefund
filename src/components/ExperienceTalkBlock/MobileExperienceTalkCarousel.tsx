@@ -21,8 +21,8 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
         <CarouselContent>
           {data.map((item) => (
             <CarouselItem key={item.id} className="relative">
-              <li className="relative mb-4">
-                <div className="clip-polygon bg-white p-3 pb-12">
+              <li className="relative mb-4 rounded-md bg-white p-3">
+                <div className="pb-3">
                   <div className="mb-4">
                     <Image
                       src={item.imageUrl}
@@ -34,13 +34,15 @@ const MobileExperienceTalkCarousel = ({ data }: ExperienceTalkListProps) => {
                     />
                   </div>
                   <h3 className="mb-2 text-lg leading-6">{item.title}</h3>
-                  <p className="pb-3">{item.description}</p>
+                  <p className="line-clamp-6">{item.description}</p>
                 </div>
-                <div className="absolute bottom-[-16px] left-6 flex w-full items-center">
-                  <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
-                  <div className="mr-auto">
-                    <h4 className="font-bold">{item.avatarName}</h4>
-                    <p className="text-gray">{item.avatarRole}</p>
+                <div className="left-6 flex w-full flex-col gap-4">
+                  <div className="flex items-center">
+                    <Image src={item.avatarUrl} alt={item.avatarAlt} className="mr-3" width={44} height={44} priority />
+                    <div className="mr-auto">
+                      <h4 className="font-bold">{item.avatarName}</h4>
+                      <p className="text-gray">{item.avatarRole}</p>
+                    </div>
                   </div>
                   <div className="mr-6 flex items-center">
                     <Icons.ViewFill dimension="s" className="text-gray-500" />
