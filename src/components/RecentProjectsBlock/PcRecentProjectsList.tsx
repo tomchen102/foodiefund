@@ -84,19 +84,19 @@ const PcRecentProjectsList = ({ data, gridType }: RecentProjectsListProps) => {
                         <span className="mr-auto text-xl font-bold text-secondary">NT$ {item.currentAmount}</span>
                       )}
                       {item.projectType === "fundraising" && gridType === "four" && (
-                        <span className=" ">
+                        <span>
                           倒數 <span className="text-primary-dark">{item.reciprocal}</span> 天
                         </span>
                       )}
                       {gridType === "three" && (
-                        <span className=" ">
+                        <span>
                           <span className="text-primary-dark">{item.supporters}</span> 人支持
                         </span>
                       )}
                       {item.projectType === "subscription" && (
                         <div className="mr-auto mt-3 flex items-center gap-3">
                           <span className="text-xl font-bold text-primary-dark">NT$ {item.currentAmount}</span>
-                          <span className=" ">/ 每月</span>
+                          <span>/ 每月</span>
                         </div>
                       )}
                     </div>
