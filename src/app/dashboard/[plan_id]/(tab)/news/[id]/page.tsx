@@ -5,7 +5,7 @@ import { UserNewsDetailResponseType } from "@/api/services/userNews/types";
 import FormPage from "@/components/FormRenderer/FormPage";
 import { FormFieldConfig } from "@/components/FormRenderer/types";
 import SectionPadding from "@/components/SectionPadding";
-import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/uesUserNews";
+import { useGetUserNewsId, usePostUserNewsMutation, useUpdateUserNewsMutation } from "@/hooks/useUserNews";
 import { UserNewsDetailResponseSchema } from "@/schema/UserNewsSchema";
 
 const initialValues = {

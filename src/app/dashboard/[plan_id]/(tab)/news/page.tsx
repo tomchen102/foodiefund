@@ -7,7 +7,7 @@ import { AlertDialogTriggerDelete } from "@/components/DeleteDialog/AlertDialogT
 import { Icons } from "@/components/Icons";
 import { buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/uesUserNews";
+import { useDeleteUserNewsMutation, useGetUserNews, useUpdateNewsTableMutation } from "@/hooks/useUserNews";
 import { cn } from "@/lib/utils";
 
 import NewsSkeleton from "./NewsSkeleton";
