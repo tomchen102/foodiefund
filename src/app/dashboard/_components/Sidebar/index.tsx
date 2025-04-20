@@ -50,7 +50,7 @@ const Sidebar = () => {
                 href={link.href}
                 className={cn("flex items-center py-3 hover:bg-gray hover:text-white", {
                   "bg-gray text-white": isActive(link.href),
-                  "border-transparent text-gray hover:border-secondary": !isActive(link.href),
+                  "border-transparent text-gray-400 hover:border-secondary": !isActive(link.href),
                 })}
               >
                 <div className="ml-5 mr-3">
