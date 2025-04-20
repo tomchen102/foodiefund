@@ -106,7 +106,10 @@ export const PlanFormSchema = z
     endAt: z.string().refine((value) => !isNaN(Date.parse(value)), {
       message: "請輸入有效的結束時間 (YYYY-MM-DD HH:mm)",
     }),
-    targetAmount: z.number().min(10_000, "目標金額不能超過 10,000 元").max(1_000_000, "目標金額不能超過 1,000,000 元"),
+    targetAmount: z.coerce
+      .number()
+      .min(10_000, "目標金額不能低於 10,000 元")
+      .max(1_000_000, "目標金額不能超過 1,000,000 元"),
   })
   .superRefine((data, ctx) => {
     const startedAt = new Date(data.startedAt);
