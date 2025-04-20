@@ -33,6 +33,12 @@ const PlanSelect = () => {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    if (!isLoadingDefault && (!defaultData?.projects || defaultData.projects.length === 0)) {
+      router.replace("/proposal");
+    }
+  }, [isLoadingDefault, defaultData, router]);
+
   // 取得預設選擇的提案
   const getInitialSelectedPlan = useCallback(
     (data: planProjectType) => {
