@@ -29,7 +29,7 @@ const DataTablePagination = <TData,>({
       </div>
       <div className="flex items-center space-x-6 lg:space-x-8">
         <div className="flex items-center space-x-2">
-          <p className=" ">每頁行數</p>
+          <p>每頁行數</p>
           <Select value={`${pageSize}`} onValueChange={(value) => handlePageChange(0, Number(value))}>
             <SelectTrigger className="h-8 w-[70px]">
               <SelectValue placeholder={pageSize} />
@@ -53,7 +53,7 @@ const DataTablePagination = <TData,>({
             onClick={() => handlePageChange(0)}
             disabled={!canPreviousPage}
           >
-            <span className="sr-only">转到第一页</span>
+            <span className="sr-only">轉到第一頁</span>
             <DoubleArrowLeftIcon className="h-4 w-4" />
           </Button>
           <Button
@@ -62,7 +62,7 @@ const DataTablePagination = <TData,>({
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={!canPreviousPage}
           >
-            <span className="sr-only">转到上一页</span>
+            <span className="sr-only">轉到上一頁</span>
             <ChevronLeftIcon className="h-4 w-4" />
           </Button>
           <Button
