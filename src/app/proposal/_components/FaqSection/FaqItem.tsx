@@ -13,9 +13,9 @@ const FaqItem = ({ item }: FaqItemProps) => {
     <Accordion.Root type="single" value={open} onValueChange={setOpen} collapsible className="rounded bg-white">
       <Accordion.Item value="item-1">
         <Accordion.Trigger className="flex w-full items-center justify-between px-10 py-6">
-          <div className="flex gap-8">
+          <div className="flex items-center gap-8">
             <div className="text-3xl font-bold text-primary-dark">Q</div>
-            <div className="text-lg font-bold text-primary-dark">{item.question}</div>
+            <div className="text-left text-lg font-bold text-primary-dark">{item.question}</div>
           </div>
           {open === "item-1" ? (
             <Icons.CollapseFill className="text-primary-hover" />
