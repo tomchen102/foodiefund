@@ -6,7 +6,7 @@ import PlanForm from "./PlanForm";
 
 const CreatePlan = () => {
   return (
-    <SectionPadding container>
+    <SectionPadding className="w-6/12" container>
       <Suspense>
         <PlanForm />
       </Suspense>
