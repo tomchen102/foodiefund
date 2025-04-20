@@ -7,10 +7,9 @@ import MobileNavbar from "./_components/Navbar/MobileNavbar";
 import { MenuType } from "./types";
 
 const navMenu: MenuType = [
-  { title: "首頁", href: "/" },
   { title: "我要提案", href: "/proposal" },
   { title: "探索專案", href: "/projects" },
-  { title: "關於我", href: "/about-us" },
+  { title: "關於我們", href: "/about-us" },
 ];
 
 const Header = () => {
